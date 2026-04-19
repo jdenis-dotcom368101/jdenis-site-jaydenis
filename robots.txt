@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /mnt/
+Disallow: /.claude/
+
+Sitemap: https://jaydenis.com/sitemap.xml
