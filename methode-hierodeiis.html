@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ON-PAGE ===== -->
+<title>Méthode HIERODEIIS : l'IA qui fonctionne enfin en entreprise</title>
+<meta name="description" content="HIERODEIIS : la méthode d'appropriation collective de l'IA pour dirigeants. Masterclass sectorielle de 3 jours : formation, diagnostic, transformation.">
+<link rel="canonical" href="https://jaydenis.com/methode-hierodeiis.html">
+<meta name="author" content="Jérôme Denis">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="JDENIS Consulting">
+<meta property="og:title" content="Méthode HIERODEIIS : l'IA qui fonctionne enfin en entreprise">
+<meta property="og:description" content="La méthode d'appropriation collective de l'IA pour dirigeants : une immersion sectorielle de 3 jours en cohorte restreinte — formation, diagnostic, transformation.">
+<meta property="og:url" content="https://jaydenis.com/methode-hierodeiis.html">
+<meta property="og:image" content="https://jaydenis.com/og-image.jpg">
+<meta property="og:image:alt" content="HIERODEIIS — méthode d'appropriation collective de l'IA pour dirigeants, par Jérôme Denis">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Méthode HIERODEIIS : l'IA qui fonctionne enfin en entreprise">
+<meta name="twitter:description" content="Masterclass sectorielle de 3 jours pour dirigeants : formation, diagnostic, transformation. Keeping AI Human.">
+<meta name="twitter:image" content="https://jaydenis.com/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ===== CSS CRITIQUE INLINE — direction visuelle : papier chaud, terracotta + teal, titrage Fraunces ===== -->
+<style>
+  :root{
+    --paper:#FAF5EC;          /* fond papier chaud */
+    --paper-2:#F1E7D6;        /* papier plus saturé (blocs) */
+    --ink:#2A2420;            /* encre brun-noir (texte, AA sur papier) */
+    --ink-soft:#5C5249;       /* texte secondaire */
+    --terracotta:#B4532A;     /* accent terracotta (AA sur papier) */
+    --terracotta-deep:#94411F;
+    --teal:#1F6F66;           /* accent teal (AA sur papier) */
+    --teal-deep:#155049;
+    --line:#E0D3BE;           /* filets */
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  a{color:var(--teal-deep);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+  a:hover{color:var(--terracotta)}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.18;letter-spacing:-0.01em;color:var(--ink)}
+
+  /* Header / nav */
+  .site-head{border-bottom:1px solid var(--line);background:rgba(250,245,236,0.92);backdrop-filter:blur(6px);position:sticky;top:0;z-index:20}
+  .site-head .inner{max-width:980px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{font-family:var(--serif);font-weight:700;font-size:20px;text-decoration:none;color:var(--ink)}
+  .brand span{color:var(--terracotta)}
+  .site-nav{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .site-nav a{font-family:var(--sans);font-size:14px;font-weight:500;text-decoration:none;color:var(--ink)}
+  .site-nav a:hover{color:var(--terracotta)}
+  .site-nav a.cta{background:var(--terracotta);color:#fff;padding:8px 16px;border-radius:7px}
+  .site-nav a.cta:hover{background:var(--terracotta-deep);color:#fff}
+
+  /* Article header */
+  .breadcrumb{font-size:13px;color:var(--ink-soft);padding:26px 0 0}
+  .breadcrumb a{color:var(--ink-soft)}
+  .kicker{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terracotta);margin:30px 0 14px}
+  h1{font-size:clamp(31px,5.4vw,50px);margin-bottom:18px}
+  .standfirst{font-size:20px;color:var(--ink-soft);font-style:italic;font-family:var(--serif);font-weight:500;margin-bottom:26px}
+  .post-meta{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:30px}
+  .post-meta img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--terracotta)}
+
+  /* TL;DR exergue */
+  .tldr{background:var(--paper-2);border-left:5px solid var(--teal);border-radius:0 12px 12px 0;padding:22px 26px;margin:0 0 34px}
+  .tldr .label{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:8px}
+  .tldr p{font-size:18px;margin:0}
+
+  /* TOC */
+  .toc{border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin:0 0 36px;background:rgba(241,231,214,0.4)}
+  .toc .label{font-family:var(--serif);font-weight:600;font-size:17px;margin-bottom:10px}
+  .toc ol{margin:0;padding-left:20px}
+  .toc li{margin-bottom:6px;font-size:15.5px}
+
+  /* Body */
+  article h2{font-size:clamp(24px,3.6vw,32px);margin:46px 0 16px;color:var(--terracotta-deep)}
+  article h3{font-size:21px;margin:30px 0 10px}
+  article p{margin-bottom:18px}
+  article section{scroll-margin-top:80px}
+
+  /* Definition canonique */
+  .definition{background:var(--teal);color:#FBF6EC;border-radius:14px;padding:26px 28px;margin:30px 0;font-family:var(--serif);font-size:21px;line-height:1.5;font-weight:500}
+  .definition b{color:#fff;font-weight:700}
+
+  /* Trois temps */
+  .temps{display:grid;gap:16px;margin:26px 0}
+  .temp{display:flex;gap:18px;background:var(--paper-2);border-radius:12px;padding:20px 22px}
+  .temp .num{font-family:var(--serif);font-weight:700;font-size:30px;color:var(--terracotta);line-height:1;flex-shrink:0;width:42px}
+  .temp h3{margin:0 0 6px}
+  .temp p{margin:0;font-size:16px;color:var(--ink-soft)}
+
+  /* Pull / signature */
+  .signature{text-align:center;margin:46px 0;padding:30px 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .signature .sig{font-family:var(--serif);font-weight:700;font-size:28px;color:var(--teal-deep)}
+  .signature .sig em{color:var(--terracotta);font-style:italic}
+  .signature .gloss{font-size:15px;color:var(--ink-soft);margin-top:8px}
+
+  /* Exemple sectoriel */
+  .example{background:var(--paper-2);border-left:5px solid var(--terracotta);border-radius:0 12px 12px 0;padding:20px 24px;margin:26px 0}
+  .example .tag{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta-deep);margin-bottom:10px}
+  .example p:last-child{margin-bottom:0}
+
+  /* Stat citable */
+  .stat{border:1px dashed var(--terracotta);border-radius:12px;padding:18px 22px;margin:26px 0;font-size:16px;background:rgba(180,83,42,0.05)}
+  .stat strong{color:var(--terracotta-deep)}
+
+  /* Attribution auteur */
+  .attribution{font-size:14.5px;color:var(--ink-soft);font-style:italic;border-left:3px solid var(--line);padding:8px 0 8px 18px;margin:36px 0}
+
+  /* FAQ */
+  .faq{margin-top:46px}
+  .faq h2{margin-bottom:18px}
+  .faq details{border:1px solid var(--line);border-radius:10px;margin-bottom:12px;background:rgba(241,231,214,0.35)}
+  .faq summary{cursor:pointer;font-family:var(--serif);font-weight:600;font-size:17.5px;padding:16px 20px;list-style:none;position:relative;color:var(--ink)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:20px;top:14px;color:var(--terracotta);font-size:22px;font-family:var(--sans)}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{padding:0 20px 18px;margin:0;color:var(--ink-soft);font-size:16px}
+
+  /* Maillage interne / CTA */
+  .next{margin:44px 0}
+  .next .label{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px}
+  .next-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .next-grid a{display:block;border:1px solid var(--line);border-radius:12px;padding:18px 20px;text-decoration:none;color:var(--ink);background:var(--paper-2);transition:border-color .15s,transform .15s}
+  .next-grid a:hover{border-color:var(--terracotta);transform:translateY(-2px)}
+  .next-grid .t{font-family:var(--serif);font-weight:600;font-size:17px;margin-bottom:4px;display:block}
+  .next-grid .d{font-size:13.5px;color:var(--ink-soft)}
+  .cta-band{background:var(--terracotta);color:#fff;border-radius:16px;padding:34px 30px;margin:44px 0;text-align:center}
+  .cta-band h2{color:#fff;margin:0 0 10px;font-size:26px}
+  .cta-band p{margin:0 0 20px;opacity:.95}
+  .cta-band a{display:inline-block;background:#fff;color:var(--terracotta-deep);font-family:var(--sans);font-weight:600;text-decoration:none;padding:13px 28px;border-radius:9px}
+  .cta-band a:hover{background:var(--paper)}
+
+  /* Footer */
+  .site-foot{border-top:1px solid var(--line);margin-top:50px;padding:30px 0;font-size:14px;color:var(--ink-soft)}
+  .site-foot .inner{max-width:980px;margin:0 auto;padding:0 22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .site-foot a{color:var(--ink-soft);text-decoration:none;margin-right:16px}
+  .site-foot a:hover{color:var(--terracotta)}
+
+  @media(max-width:560px){body{font-size:17px}.post-meta{flex-wrap:wrap}}
+</style>
+
+<!-- ===== JSON-LD : Article ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"HIERODEIIS : une méthode pour que l'intelligence artificielle fonctionne enfin dans les organisations",
+  "description":"HIERODEIIS est une méthode d'appropriation collective de l'IA pour dirigeants : une immersion sectorielle de trois jours en cohorte restreinte, structurée en trois temps — formation, diagnostic, transformation.",
+  "image":"https://jaydenis.com/og-image.jpg",
+  "inLanguage":"fr",
+  "author":{"@type":"Person","@id":"https://jaydenis.com/#jerome-denis","name":"Jérôme Denis","url":"https://jaydenis.com/"},
+  "publisher":{"@type":"Person","@id":"https://jaydenis.com/#jerome-denis","name":"Jérôme Denis"},
+  "mainEntityOfPage":"https://jaydenis.com/methode-hierodeiis.html",
+  "about":["Appropriation de l'intelligence artificielle","Formation IA pour dirigeants","Adoption de l'IA en entreprise","Gouvernance des données","AI Act"],
+  "keywords":"méthode IA dirigeants, formation IA sectorielle, masterclass IA COMEX, adoption IA entreprise, HIERODEIIS"
+}
+</script>
+
+<!-- ===== JSON-LD : Course ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Course",
+  "name":"Masterclass HIERODEIIS — appropriation collective de l'IA pour dirigeants",
+  "description":"Immersion sectorielle de trois jours réunissant une cohorte restreinte de dirigeants d'un même secteur. Trois temps : formation (socle de compréhension), diagnostic (maturité IA et cas d'usage prioritaires), transformation (feuille de route IA sectorielle).",
+  "inLanguage":"fr",
+  "provider":{"@type":"Organization","name":"JDENIS Consulting","url":"https://jaydenis.com/"},
+  "educationalLevel":"Dirigeants, membres de COMEX et de comités de direction",
+  "audience":{"@type":"EducationalAudience","educationalRole":"Dirigeant"},
+  "teaches":["Distinguer les usages réels de l'IA des promesses marketing","Évaluer la maturité IA d'une organisation","Prioriser les cas d'usage IA par valeur et faisabilité","Construire une feuille de route IA sectorielle","Intégrer les contraintes de sécurité et la dimension humaine du déploiement","Dialoguer avec la DSI et les RH pour réussir le déploiement de l'IA","Gouvernance des données et conformité AI Act"],
+  "hasCourseInstance":{
+    "@type":"CourseInstance",
+    "courseMode":"onsite",
+    "courseWorkload":"P3D",
+    "description":"Immersion présentielle de trois jours en cohorte sectorielle restreinte (≈ 15 dirigeants)."
+  }
+}
+</script>
+
+<!-- ===== JSON-LD : Person (auteur) ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "@id":"https://jaydenis.com/#jerome-denis",
+  "name":"Jérôme Denis",
+  "url":"https://jaydenis.com/",
+  "jobTitle":"Consultant senior en transformation IA et gouvernance des données",
+  "sameAs":["https://www.linkedin.com/in/hierodeiis/","https://noianogain.com/","https://aivalue.fr/"],
+  "knowsAbout":["Intelligence artificielle","Adoption de l'IA en entreprise","Formation des dirigeants à l'IA","Gouvernance des données","AI Act","Agents IA"],
+  "memberOf":{"@type":"Organization","name":"Collège Numérique France 2030"}
+}
+</script>
+
+<!-- ===== JSON-LD : BreadcrumbList ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Accueil","item":"https://jaydenis.com/"},
+    {"@type":"ListItem","position":2,"name":"Méthode HIERODEIIS","item":"https://jaydenis.com/methode-hierodeiis.html"}
+  ]
+}
+</script>
+
+<!-- ===== JSON-LD : FAQPage ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Qu'est-ce que la méthode HIERODEIIS ?","acceptedAnswer":{"@type":"Answer","text":"Une méthode d'appropriation collective de l'IA pour dirigeants, fondée sur une immersion sectorielle de trois jours en cohorte restreinte, structurée en trois temps : formation, diagnostic, transformation."}},
+    {"@type":"Question","name":"À qui s'adresse HIERODEIIS ?","acceptedAnswer":{"@type":"Answer","text":"Aux dirigeants de PME et membres de COMEX d'un même secteur souhaitant bâtir une trajectoire d'adoption de l'IA fondée sur des cas d'usage à fort retour sur investissement."}},
+    {"@type":"Question","name":"En quoi le format sectoriel se distingue-t-il d'une formation IA classique ?","acceptedAnswer":{"@type":"Answer","text":"La formation classique isole l'apprenant face à un contenu générique. HIERODEIIS réunit des pairs d'un même secteur, ce qui rend les cas d'usage et benchmarks immédiatement opérationnels et accélère la décision."}},
+    {"@type":"Question","name":"Les masterclass HIERODEIIS sont-elles finançables ?","acceptedAnswer":{"@type":"Answer","text":"Elles sont opérées sous agrément Qualiopi. Plusieurs dispositifs (OPCO, France 2030, aides régionales) peuvent s'appliquer, sous réserve de l'éligibilité de chaque structure."}},
+    {"@type":"Question","name":"Que repart-on faire concrètement après les trois jours ?","acceptedAnswer":{"@type":"Answer","text":"Chaque organisation dispose d'une feuille de route IA sectorielle, prolongée par une restitution individualisée adaptée à sa maturité et à ses priorités."}},
+    {"@type":"Question","name":"Comment la méthode associe-t-elle la DSI et les RH ?","acceptedAnswer":{"@type":"Answer","text":"Le déploiement de l'IA réussit rarement sans la DSI et les RH. HIERODEIIS apprend aux dirigeants à dialoguer avec ces deux services : la DSI pour la sécurité, l'intégration au système d'information et la protection des données ; les RH pour les compétences, les usages et l'adhésion des équipes. La vision stratégique consiste précisément à tenir ces deux perspectives ensemble."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="inner">
+    <a class="brand" href="/">JDENIS<span>.</span></a>
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/formation-ia-entreprise-toulouse.html">Formation IA</a>
+      <a href="/diagnostic-audit-ia-toulouse.html">Diagnostic & Audit</a>
+      <a href="/blog/">Blog</a>
+      <a class="cta" href="/#contact">Échanger sur HIERODEIIS</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › Méthode HIERODEIIS</nav>
+
+  <article>
+    <header>
+      <div class="kicker">Méthode · Page de référence</div>
+      <h1>HIERODEIIS : une méthode pour que l'intelligence artificielle fonctionne enfin dans les organisations</h1>
+      <p class="standfirst">Pourquoi la plupart des projets d'IA échouent à créer de la valeur — et comment une approche sectorielle et collective change la donne pour les dirigeants.</p>
+
+      <div class="post-meta">
+        <img src="jerome-denis.jpg" alt="Portrait de Jérôme Denis, créateur de la méthode HIERODEIIS" width="44" height="44" loading="lazy">
+        <span>Par <strong>Jérôme Denis</strong>, consultant senior IA &amp; gouvernance des données · Lecture : 7 min</span>
+      </div>
+
+      <div class="tldr">
+        <div class="label">En bref</div>
+        <p>HIERODEIIS est une méthode d'appropriation collective de l'intelligence artificielle destinée aux dirigeants. Elle réunit une quinzaine de décideurs d'un même secteur pour une immersion de trois jours, structurée en trois temps — formation, diagnostic, transformation — au terme de laquelle chaque organisation repart avec une feuille de route IA sectorielle exploitable.</p>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="Sommaire">
+      <div class="label">Sommaire</div>
+      <ol>
+        <li><a href="#echecs">Pourquoi les projets d'IA échouent-ils si souvent ?</a></li>
+        <li><a href="#conviction">Sur quelle conviction repose la méthode ?</a></li>
+        <li><a href="#trois-temps">Quels sont les trois temps de la méthode ?</a></li>
+        <li><a href="#cohorte">Qu'est-ce qu'une cohorte sectorielle ?</a></li>
+        <li><a href="#promesse">Que promet réellement HIERODEIIS ?</a></li>
+        <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <div class="definition">
+      <b>HIERODEIIS est une méthode d'appropriation collective de l'intelligence artificielle destinée aux dirigeants</b> : une immersion sectorielle de trois jours, en cohorte restreinte, structurée en trois temps — formation, diagnostic, transformation.
+    </div>
+
+    <section id="echecs">
+      <h2>Pourquoi les projets d'IA échouent-ils si souvent ?</h2>
+      <p>L'intelligence artificielle n'a jamais été aussi accessible, et pourtant rarement une technologie n'aura autant déçu ceux qui l'adoptent. Les dirigeants investissent, expérimentent, multiplient les preuves de concept — et constatent, quelques mois plus tard, que l'outil n'a pas tenu ses promesses. Les usages restent marginaux, les équipes retombent dans leurs habitudes, et la valeur attendue ne se matérialise pas.</p>
+      <div class="stat">
+        Ce constat est largement documenté : le cabinet <a href="https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025" rel="noopener" target="_blank">Gartner anticipe qu'<strong>au moins 30 % des projets d'IA générative seront abandonnés après la phase de preuve de concept</strong> d'ici fin 2025</a> — faute de qualité des données, de coûts maîtrisés ou de valeur métier clairement établie.
+      </div>
+      <p>Ce constat n'est pas un échec technologique. C'est un échec d'appropriation. L'IA est traitée comme un sujet d'outillage là où elle est d'abord un sujet de transformation. On déploie une solution avant d'avoir compris le problème qu'elle doit résoudre, et l'on forme des individus isolés à une technologie dont la valeur ne se révèle qu'à l'échelle collective d'un métier.</p>
+    </section>
+
+    <section id="conviction">
+      <h2>Sur quelle conviction repose la méthode ?</h2>
+      <p>HIERODEIIS repose sur une conviction issue de vingt années de terrain en transformation digitale et de <a href="/">l'accompagnement de plus de cinquante organisations</a> : un dirigeant n'apprend pas l'IA dans l'abstrait, mais au contact des problématiques concrètes de son secteur, et plus vite encore lorsqu'il les confronte à celles de ses pairs.</p>
+      <p>Là où la <a href="/formation-ia-entreprise-toulouse.html">formation IA classique</a> isole l'apprenant face à un contenu générique, HIERODEIIS réunit une cohorte restreinte — une quinzaine de dirigeants d'un même secteur d'activité — pour une immersion de trois jours. Le format n'est ni un séminaire descendant ni un atelier d'outils. C'est un espace de travail structuré où des décideurs confrontés aux mêmes réalités économiques identifient ensemble leurs priorités, élaborent une lecture commune des cas d'usage à fort retour sur investissement, et repartent avec une feuille de route sectorielle exploitable.</p>
+    </section>
+
+    <section id="trois-temps">
+      <h2>Quels sont les trois temps de la méthode HIERODEIIS ?</h2>
+      <p>La méthode s'articule autour d'une progression rigoureuse, du cadrage à la transformation.</p>
+      <div class="temps">
+        <div class="temp">
+          <div class="num">1</div>
+          <div>
+            <h3>Formation — un socle partagé</h3>
+            <p>Le premier temps installe un socle de compréhension commun. L'objectif n'est pas de fabriquer des experts techniques, mais des décideurs lucides — capables de faire la part entre ce que l'IA permet vraiment et ce que le marketing leur promet. Ici, vulgariser n'est pas une facilité : c'est une exigence.</p>
+            <p>Ce socle intègre aussi deux réalités que les projets d'IA oublient souvent : la sécurité et l'humain. Déployer l'IA n'est jamais une simple affaire d'outils. C'est une conversation à mener avec deux services dont dépend la réussite. La <strong>DSI</strong> d'abord, qui répond de la sécurité, de l'intégration au système d'information et de la protection des données. Les <strong>RH</strong> ensuite, qui portent les compétences et l'adhésion des équipes. La formation apprend aux dirigeants à parler à ces deux mondes au lieu de les contourner.</p>
+          </div>
+        </div>
+        <div class="temp">
+          <div class="num">2</div>
+          <div>
+            <h3>Diagnostic — la réalité de chaque organisation</h3>
+            <p>Le deuxième temps ramène chaque dirigeant à sa réalité. La maturité IA de l'organisation est évaluée sans complaisance, les cas d'usage priorisés selon leur valeur et leur faisabilité. Et l'on met des mots sur les angles morts : la sécurité et la gouvernance des données du côté de la DSI, la conformité à l'<a href="/diagnostic-audit-ia-toulouse.html">AI Act</a>, mais aussi la conduite du changement et la montée en compétences du côté des RH. Ce sont presque toujours ces sujets-là, plus que la technologie, qui font caler un projet.</p>
+          </div>
+        </div>
+        <div class="temp">
+          <div class="num">3</div>
+          <div>
+            <h3>Transformation — le passage à l'action</h3>
+            <p>Le troisième temps projette le collectif vers l'action. Les dirigeants construisent une feuille de route, individuelle dans sa déclinaison mais nourrie par l'intelligence du groupe. La restitution individualisée prolonge l'immersion par un accompagnement adapté à chaque structure — jusqu'au <a href="https://noianogain.com" rel="noopener" target="_blank">déploiement d'agents IA sur mesure</a> lorsque la trajectoire le justifie.</p>
+          </div>
+        </div>
+      </div>
+      <p>Ces trois temps partagent un même fil rouge : tenir ensemble la perspective technique de la DSI et la perspective humaine des RH. C'est à cette condition qu'une trajectoire d'IA devient vraiment stratégique : ni un projet informatique isolé, ni un plan de formation hors-sol, mais une décision de direction qui assume les deux.</p>
+    </section>
+
+    <section id="cohorte">
+      <h2>Qu'est-ce qu'une cohorte sectorielle, et pourquoi est-ce déterminant ?</h2>
+      <p>La singularité de HIERODEIIS tient à ce choix du collectif sectoriel. Réunir des dirigeants d'un même secteur n'est pas un détail logistique : c'est le cœur du dispositif. Les cas d'usage cessent d'être théoriques, les benchmarks deviennent immédiatement parlants, et les solutions identifiées sont calibrées pour des contraintes réellement partagées. La dynamique entre pairs accélère la prise de décision et lève les résistances mieux qu'aucun argumentaire ne le ferait.</p>
+      <p>Cette exigence impose une sélection. Les cohortes sont restreintes et homogènes par construction, parce que la qualité de l'intelligence collective dépend de celle de ses participants.</p>
+
+      <div class="example">
+        <div class="tag">Un cas concret</div>
+        <p>Prenons l'organisation de salons et d'événements. Ces structures rencontrent les mêmes irritants : gérer les candidatures d'exposants, envoyer le bon contrat, suivre les paiements, transmettre les accès. Pour un salon d'art contemporain au Carrousel du Louvre, j'ai automatisé cette chaîne de bout en bout : un agent lit les candidatures, route le contrat adapté, prépare la facturation et déclenche les accès une fois le paiement reçu. Fait notable, le déclencheur n'était pas technologique mais humain : le départ des comptables menaçait la continuité de la facturation.</p>
+        <p>C'est exactement le type de cas qu'une cohorte de ce secteur ferait émerger ensemble en trois jours. Il montre aussi pourquoi la DSI et les RH comptent autant : la première pour sécuriser des données d'exposants et de paiement, les seconds pour accompagner des équipes dont le métier change. Une fois le cas cadré, le déploiement peut être confié à une structure comme <a href="https://noianogain.com" rel="noopener" target="_blank">NOIA NOGAIN</a>.</p>
+      </div>
+    </section>
+
+    <section id="promesse">
+      <h2>Que promet réellement HIERODEIIS ?</h2>
+      <p>HIERODEIIS ne promet pas que l'intelligence artificielle résoudra tout. Elle propose une chose plus rare et plus utile : que les dirigeants reprennent la main sur leur trajectoire d'adoption, qu'ils décident en connaissance de cause, et que l'IA cesse enfin d'être une dépense d'expérimentation pour devenir un outil de production de valeur.</p>
+
+      <div class="signature">
+        <div class="sig">Keeping AI&nbsp;<em>Human</em></div>
+        <div class="gloss">Remettre la décision humaine, le métier et le collectif au centre d'une technologie qu'on a trop souvent laissée prescrire ses propres usages.</div>
+      </div>
+
+      <p class="attribution">HIERODEIIS est une méthode développée par Jérôme Denis, consultant senior en transformation IA et gouvernance des données, intervenant dans sept écoles supérieures et expert au Collège Numérique France 2030. Les masterclass sont opérées sous agrément Qualiopi. Conditions de financement (OPCO, dispositifs France 2030, aides régionales) soumises à l'éligibilité de chaque structure.</p>
+    </section>
+
+    <div class="cta-band">
+      <h2>Réunir une cohorte dans votre secteur ?</h2>
+      <p>Discutons de la faisabilité d'une masterclass HIERODEIIS pour votre fédération, votre réseau ou votre groupe de dirigeants.</p>
+      <a href="/#contact">Échanger sur un projet de cohorte</a>
+    </div>
+
+    <section class="faq" id="faq">
+      <h2>Questions fréquentes</h2>
+      <details open>
+        <summary>Qu'est-ce que la méthode HIERODEIIS ?</summary>
+        <p>Une méthode d'appropriation collective de l'IA pour dirigeants, fondée sur une immersion sectorielle de trois jours en cohorte restreinte, structurée en trois temps : formation, diagnostic, transformation.</p>
+      </details>
+      <details>
+        <summary>À qui s'adresse HIERODEIIS ?</summary>
+        <p>Aux dirigeants de PME et membres de COMEX d'un même secteur souhaitant bâtir une trajectoire d'adoption de l'IA fondée sur des cas d'usage à fort retour sur investissement.</p>
+      </details>
+      <details>
+        <summary>En quoi le format sectoriel se distingue-t-il d'une formation IA classique ?</summary>
+        <p>La formation classique isole l'apprenant face à un contenu générique. HIERODEIIS réunit des pairs d'un même secteur, ce qui rend les cas d'usage et benchmarks immédiatement opérationnels et accélère la décision.</p>
+      </details>
+      <details>
+        <summary>Les masterclass HIERODEIIS sont-elles finançables ?</summary>
+        <p>Elles sont opérées sous agrément Qualiopi. Plusieurs dispositifs (OPCO, France 2030, aides régionales) peuvent s'appliquer, sous réserve de l'éligibilité de chaque structure.</p>
+      </details>
+      <details>
+        <summary>Que repart-on faire concrètement après les trois jours ?</summary>
+        <p>Chaque organisation dispose d'une feuille de route IA sectorielle, prolongée par une restitution individualisée adaptée à sa maturité et à ses priorités.</p>
+      </details>
+      <details>
+        <summary>Comment la méthode associe-t-elle la DSI et les RH ?</summary>
+        <p>Le déploiement de l'IA réussit rarement sans la DSI et les RH. HIERODEIIS apprend aux dirigeants à dialoguer avec ces deux services : la DSI pour la sécurité, l'intégration au système d'information et la protection des données ; les RH pour les compétences, les usages et l'adhésion des équipes. La vision stratégique consiste précisément à tenir ces deux perspectives ensemble.</p>
+      </details>
+    </section>
+
+    <nav class="next" aria-label="Pour aller plus loin">
+      <div class="label">Pour aller plus loin</div>
+      <div class="next-grid">
+        <a href="/formation-ia-entreprise-toulouse.html"><span class="t">Formation IA en entreprise</span><span class="d">Programmes intra pour dirigeants et équipes, finançables OPCO.</span></a>
+        <a href="/diagnostic-audit-ia-toulouse.html"><span class="t">Diagnostic &amp; audit IA</span><span class="d">Cartographier les cas d'usage à fort ROI avant d'investir.</span></a>
+        <a href="https://noianogain.com" rel="noopener" target="_blank"><span class="t">NOIA NOGAIN</span><span class="d">Déploiement d'agents IA autonomes sur mesure pour TPE/PME.</span></a>
+        <a href="https://aivalue.fr" rel="noopener" target="_blank"><span class="t">AIVALUE</span><span class="d">Transformation des fonctions RH par l'intelligence artificielle.</span></a>
+      </div>
+    </nav>
+  </article>
+</div>
+
+<footer class="site-foot">
+  <div class="inner">
+    <div>© 2026 JDENIS Consulting — Jérôme Denis · <em>Keeping AI Human</em></div>
+    <div>
+      <a href="/">Accueil</a>
+      <a href="/blog/">Blog</a>
+      <a href="/mentions-legales.html">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<!--
+============================================================================
+ RAPPORT DE PRODUCTION — methode-hierodeiis.html
+============================================================================
+ MOTS-CLÉS CIBLÉS
+   • méthode IA dirigeants        → H1, définition, title, keywords
+   • formation IA sectorielle     → standfirst, §conviction, FAQ
+   • masterclass IA COMEX         → Course schema, FAQ (audience COMEX)
+   • adoption IA entreprise       → meta description, §échecs, About schema
+
+ SKILL « seo-onpage » — complétude ≈ 100 %
+   [x] <title> unique 58 car. avec mot-clé principal
+   [x] meta description 156 car. incitative + mot-clé
+   [x] 1 seul <h1>, hiérarchie h2/h3 cohérente (aucun saut de niveau)
+   [x] slug court /methode-hierodeiis(.html)
+   [x] Open Graph + Twitter Card complets
+   [x] JSON-LD Article + Course + Person + BreadcrumbList + FAQPage
+   [x] alt descriptifs + loading="lazy" sur l'image
+   [x] liens internes contextualisés (formation, diagnostic, accueil, blog)
+   [x] lang="fr", canonical, HTML5 sémantique (article/section/header/nav)
+   [x] CSS critique inline, zéro JS bloquant (FAQ en <details> natif)
+
+ SKILL « geo-answer-engine » — complétude ≈ 100 %
+   [x] Chunking autonome : chaque <section> se cite hors contexte
+   [x] Définition canonique en tête (« HIERODEIIS est une méthode… »)
+   [x] Question-based headings (5 H2 formulés en questions de dirigeant)
+   [x] Bloc FAQ + schema FAQPage (5 Q/R denses)
+   [x] Statements factuels attribués (50+ orgas, 7 écoles, France 2030, Qualiopi)
+   [x] Entity clarity (Jérôme Denis, HIERODEIIS, AI Act, OPCO, France 2030)
+   [x] TL;DR extractible en exergue
+   [x] Pas de promesse de résultat garanti ; ton non purement promotionnel
+
+ CONTRAINTES ÉDITORIALES
+   [x] Aucune mention CPF (financement OPCO / France 2030 / aides régionales,
+       toujours « sous réserve d'éligibilité »)
+   [x] Chiffre « 70 % » NON utilisé → remplacé par une statistique Gartner
+       vérifiable (≥30 % des projets GenAI abandonnés après POC d'ici fin 2025)
+   [x] Qualiopi mentionné correctement, aucune garantie de résultat
+   [x] Signature « Keeping AI Human » présente (corps + footer)
+
+ TODO AVANT / APRÈS PUBLICATION
+   • [IMAGE] Créer un visuel dédié HIERODEIIS (1200×630) → remplacer
+     og:image actuellement mutualisé sur /og-image.jpg
+   • [LIEN SOURCE] Vérifier que l'URL du communiqué Gartner est toujours
+     active au moment de la mise en ligne (sinon, lien équivalent BCG/McKinsey
+     ou reformulation 100 % qualitative)
+   • [MAILLAGE ENTRANT] Ajouté : carte sur /blog/ + entrée sitemap.xml.
+     Envisager un lien depuis la page /formation-ia-entreprise-toulouse.html
+   • [SLUG] Fichier servi en /methode-hierodeiis.html ; activer l'URL
+     extensionless /methode-hierodeiis via config Netlify si souhaité
+============================================================================
+-->
+</body>
+</html>

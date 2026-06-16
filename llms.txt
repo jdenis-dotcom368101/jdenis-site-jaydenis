@@ -1,0 +1,37 @@
+# Jérôme Denis — JDENIS Consulting
+
+> Jérôme Denis est consultant senior en intelligence artificielle et gouvernance des données, basé à Toulouse et intervenant en France et à l'international (Dubaï, Flandre belge). Il accompagne les dirigeants de TPE, PME et ETI dans l'adoption de l'IA : diagnostic et audit, formation, architecture de solutions (agents, RAG, MCP). Expert au Collège Numérique France 2030, intervenant dans 7 écoles supérieures, formations opérées sous agrément Qualiopi. Signature : Keeping AI Human.
+
+## Méthode phare
+
+- [Méthode HIERODEIIS](https://jaydenis.com/methode-hierodeiis.html) : méthode d'appropriation collective de l'IA pour dirigeants. Immersion sectorielle de 3 jours en cohorte restreinte (≈ 15 décideurs d'un même secteur), structurée en trois temps — formation, diagnostic, transformation. Livrable : une feuille de route IA sectorielle exploitable. Public : dirigeants de PME et membres de COMEX. Financement possible via OPCO, France 2030, aides régionales, sous réserve d'éligibilité.
+
+## Services
+
+- [Diagnostic & audit IA](https://jaydenis.com/diagnostic-audit-ia-toulouse.html) : diagnostic initial gratuit puis audit des processus et des solutions IA existantes ; cas d'usage priorisés par ROI ; conformité AI Act et RGPD.
+- [Formation IA en entreprise](https://jaydenis.com/formation-ia-entreprise-toulouse.html) : programmes intra de 1 à 5 jours (ChatGPT, Claude, Gemini, Mistral, agents IA), finançables OPCO (cadre Qualiopi).
+- [Architecture & solutions IA sur mesure](https://jaydenis.com/architecture-ia-sur-mesure.html) : conception d'agents autonomes, RAG, MCP, fine-tuning, automatisation low-code, sans dépendance éditeur.
+
+## Blog
+
+- [Diagnostic IA en PME : la méthode pas à pas](https://jaydenis.com/blog/diagnostic-ia-pme-guide.html)
+- [Agents IA, RAG, MCP : comprendre l'architecture d'une solution IA](https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html)
+- [Index du blog](https://jaydenis.com/blog/)
+
+## Entités liées
+
+- NOIA NOGAIN (https://noianogain.com) : cabinet d'agents IA autonomes sur mesure pour TPE/PME, co-fondé par Jérôme Denis.
+- AIVALUE (https://aivalue.fr) : transformation des fonctions RH par l'IA, co-fondée par Jérôme Denis.
+
+## Versions anglaises
+
+- [Home (EN)](https://jaydenis.com/index-en.html)
+- [AI diagnostics & audit (EN)](https://jaydenis.com/ai-diagnostics-audit.html)
+- [Corporate AI training (EN)](https://jaydenis.com/corporate-ai-training.html)
+- [AI architecture design (EN)](https://jaydenis.com/ai-architecture-design.html)
+
+## Contact
+
+- Site : https://jaydenis.com/
+- Email : jdenis@jaydenis.com
+- LinkedIn : https://www.linkedin.com/in/hierodeiis/

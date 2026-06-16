@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents, RAG, MCP: Understanding AI Architecture</title>
+    <meta name="description" content="AI agents, RAG, MCP, fine-tuning, low-code: every building block of an enterprise AI solution explained simply, with SME examples and traps to avoid.">
+    <link rel="canonical" href="https://jaydenis.com/blog/ai-agents-rag-mcp.html">
+    <link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html">
+    <link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/ai-agents-rag-mcp.html">
+    <meta property="og:title" content="AI Agents, RAG, MCP: Understanding AI Solution Architecture">
+    <meta property="og:description" content="Every building block of an enterprise AI solution explained in plain English, with concrete SME examples.">
+    <meta property="og:image" content="https://jaydenis.com/og-image.jpg">
+    <meta property="og:url" content="https://jaydenis.com/blog/ai-agents-rag-mcp.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles-pages.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "AI agents, RAG, MCP: understanding AI solution architecture",
+                "description": "AI agents, RAG, MCP, fine-tuning, low-code: every building block of an enterprise AI architecture explained simply, with SME examples.",
+                "image": "https://jaydenis.com/og-image.jpg",
+                "author": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "publisher": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "datePublished": "2026-06-11",
+                "dateModified": "2026-06-11",
+                "mainEntityOfPage": "https://jaydenis.com/blog/ai-agents-rag-mcp.html",
+                "inLanguage": "en"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jaydenis.com/index-en.html"},
+                    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jaydenis.com/blog/index-en.html"},
+                    {"@type": "ListItem", "position": 3, "name": "AI agents, RAG, MCP", "item": "https://jaydenis.com/blog/ai-agents-rag-mcp.html"}
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type": "Question", "name": "What is an AI agent in a business context?", "acceptedAnswer": {"@type": "Answer", "text": "An AI agent is a system that runs a complete process autonomously: it perceives (emails, documents, data), decides based on rules and language models, and acts on your tools (CRM, invoicing, email). Unlike a chatbot, it works without being spoken to."}},
+                    {"@type": "Question", "name": "What is the difference between RAG and fine-tuning?", "acceptedAnswer": {"@type": "Answer", "text": "RAG gives the model access to your documents at question time: knowledge stays up to date and verifiable. Fine-tuning modifies the model itself by training it on your data: useful for a specific style or vocabulary, but more expensive and frozen. For most SMEs, RAG is enough."}},
+                    {"@type": "Question", "name": "Does MCP replace traditional APIs?", "acceptedAnswer": {"@type": "Answer", "text": "No, it standardises them. The Model Context Protocol is an open protocol that lets an AI model connect to any tool (CRM, ERP, calendar) through reusable connectors, instead of building a custom integration per tool and per model."}}
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="inner">
+            <a class="site-logo" href="/index-en.html">JDENIS<span>.</span></a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="/index-en.html">Home</a>
+                <a href="/ai-diagnostics-audit.html">AI Diagnostics & Audit</a>
+                <a href="/corporate-ai-training.html">AI Training</a>
+                <a href="/ai-architecture-design.html">AI Architecture</a>
+                <a href="/blog/index-en.html" aria-current="page">Blog</a>
+                <a class="nav-cta" href="/index-en.html#contact">Free assessment</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/index-en.html">Home</a> › <a href="/blog/index-en.html">Blog</a> › AI agents, RAG, MCP</nav>
+
+        <article>
+            <h1 style="font-family:var(--font-serif);font-size:clamp(28px,4.5vw,42px);line-height:1.2;margin:22px 0 16px;">AI agents, RAG, MCP: understanding AI solution architecture</h1>
+
+            <div class="post-meta">
+                <img src="../jerome-denis.jpg" alt="Jérôme Denis, AI consultant">
+                <span>By <strong>Jérôme Denis</strong>, AI consultant & solution architect · 7 min read · Updated 11 June 2026</span>
+            </div>
+
+            <img class="cover" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=500&fit=crop" alt="Visual evoking the connections of an enterprise AI architecture" width="1200" height="500">
+
+            <div class="answer-first"><strong>In short:</strong> an enterprise AI solution assembles five possible building blocks — a language model (LLM), RAG for your documents, MCP for your tools, agents for autonomy, low-code for simple orchestration. The right choice depends on the process to automate: most SME projects combine two or three blocks, rarely more.</div>
+
+            <div class="toc">
+                <strong>Contents</strong>
+                <ol>
+                    <li><a href="#llm">The LLM: the engine</a></li>
+                    <li><a href="#rag">RAG: your documents</a></li>
+                    <li><a href="#mcp">MCP: your tools</a></li>
+                    <li><a href="#agents">Agents: autonomy</a></li>
+                    <li><a href="#lowcode">Low-code: simple orchestration</a></li>
+                    <li><a href="#choose">How to choose?</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ol>
+            </div>
+
+            <p>Understanding the <strong>architecture of an AI solution</strong> is no longer a technician's luxury: it is what saves you from paying for an autonomous agent where three automation scenarios would do — or the reverse. The market is indeed shifting at speed: according to <a href="https://www.gartner.com" rel="noopener">Gartner</a>, fewer than 5% of enterprise applications embedded AI agents in 2025, a share expected to reach 40% by the end of 2026. Here is each building block, explained in plain English, with SME examples.</p>
+
+            <h2 id="llm">The LLM: the engine behind everything else</h2>
+            <p>The <strong>LLM</strong> (Large Language Model) is the engine that understands and produces text: GPT (OpenAI/ChatGPT), Claude (Anthropic), Gemini (Google), Mistral, or open-source models distributed through Hugging Face. On its own, an LLM knows neither your customers nor your procedures: the whole point of an architecture is to plug it into your reality. Three selection criteria dominate: quality on your type of task, cost per million tokens, and where the data is processed — a decisive point for sensitive data, where self-hosted open-source models regain the advantage.</p>
+
+            <h2 id="rag">RAG: plugging the model into your documents</h2>
+            <p><strong>RAG</strong> (Retrieval-Augmented Generation) lets the model answer from <em>your</em> documents: procedures, contracts, catalogues, archives. At question time, the system retrieves the relevant passages and feeds them to the model, which answers while citing its internal sources.</p>
+            <p>SME example: an accounting firm builds a RAG assistant on its internal knowledge base; junior staff get sourced answers in seconds that previously required a senior partner. The key advantage over fine-tuning: <strong>knowledge stays up to date</strong> — add a document and it is included.</p>
+
+            <h2 id="mcp">MCP: plugging the model into your tools</h2>
+            <p><strong>MCP</strong> (<a href="https://modelcontextprotocol.io" rel="noopener">Model Context Protocol</a>, the open protocol published by Anthropic in late 2024) standardises the connection between an AI model and your business tools: CRM, ERP, calendar, email, spreadsheets. Instead of building a custom integration for every tool-model pair, you install reusable connectors.</p>
+            <p>SME example: an assistant connected via MCP to the CRM and calendar prepares every morning's meeting briefs, with client history and open items. Through 2025-2026, MCP became the de facto industry standard, adopted well beyond Anthropic.</p>
+
+            <h2 id="agents">AI agents: autonomy over a complete process</h2>
+            <p>An <strong>AI agent</strong> combines the previous blocks and adds the action loop: it perceives (an email arrives), decides (is this application complete?), acts (replies, follows up, updates the tracking sheet), and repeats — without being spoken to. It is the most powerful and the most demanding block: it requires clear rules, clean data and guardrails (human validation on sensitive actions).</p>
+            <p>A real example: for a Paris art fair, an agent handles the entire exhibitor application pipeline — file analysis, reply emails, follow-ups, contracts, invoicing — with human validation at the commitment steps. This kind of build is the core business of <a href="https://noianogain.com" rel="noopener">NOIA NOGAIN</a>, the custom AI agent practice for SMEs that I co-founded.</p>
+
+            <h2 id="lowcode">Low-code: orchestration without development</h2>
+            <p><strong>Low-code</strong> platforms (such as Make) assemble automations from visual blocks, with AI model calls in the middle of the flow. It is the ideal entry point: an invoice arrives by email → AI extracts the data → entry in the accounting sheet → archiving. Implemented in days, not weeks. The limit: as soon as the logic gets complex or the volume grows, a custom agent becomes more reliable and cheaper to run.</p>
+
+            <h2 id="choose">How do you choose the right architecture?</h2>
+            <p>The rule fits in one sentence: <strong>start from the process, never from the technology</strong>. Three questions are enough to narrow it down:</p>
+            <ul>
+                <li><strong>Is the knowledge in documents?</strong> → RAG.</li>
+                <li><strong>Does the action happen in your tools?</strong> → MCP or low-code.</li>
+                <li><strong>Must the process run without human intervention?</strong> → an agent, with guardrails.</li>
+            </ul>
+            <p>And before any commitment, demand the quantification of <strong>running costs</strong> (API consumption, hosting, maintenance) on top of the implementation cost — that is where the bad surprises hide. It is exactly what a <a href="/blog/ai-diagnostics-sme-guide.html">prior AI diagnostic</a> is for.</p>
+
+            <h2>Conclusion</h2>
+            <p><strong>RAG for your documents, MCP for your tools, agents for autonomy, low-code to start fast: the right architecture is the one that fits your process, not the latest demo.</strong> A few hours of independent scoping saves months of technical debt.</p>
+            <div class="cta-band"><p>A process to automate? Describe it — I'll tell you what it takes technically. Scoping is free.</p><a class="btn btn-primary" href="/ai-architecture-design.html">Discover the AI architecture offer</a></div>
+
+            <section class="faq" id="faq">
+                <h2>FAQ</h2>
+                <details><summary>What is an AI agent in a business context?</summary><p>An AI agent is a system that runs a complete process autonomously: it perceives (emails, documents, data), decides based on rules and language models, and acts on your tools (CRM, invoicing, email). Unlike a chatbot, it works without being spoken to.</p></details>
+                <details><summary>What is the difference between RAG and fine-tuning?</summary><p>RAG gives the model access to your documents at question time: knowledge stays up to date and verifiable. Fine-tuning modifies the model itself by training it on your data: useful for a specific style or vocabulary, but more expensive and frozen. For most SMEs, RAG is enough.</p></details>
+                <details><summary>Does MCP replace traditional APIs?</summary><p>No, it standardises them. The Model Context Protocol is an open protocol that lets an AI model connect to any tool (CRM, ERP, calendar) through reusable connectors, instead of building a custom integration per tool and per model.</p></details>
+            </section>
+
+            <section>
+                <div class="section-label">Go further</div>
+                <div class="related">
+                    <a href="/ai-architecture-design.html"><span class="kicker">Service</span><strong>Custom AI architecture & solutions</strong></a>
+                    <a href="/ai-diagnostics-audit.html"><span class="kicker">Service</span><strong>AI diagnostics & audit for SMEs</strong></a>
+                    <a href="/blog/ai-diagnostics-sme-guide.html"><span class="kicker">Article</span><strong>The AI diagnostic for SMEs: a step-by-step method</strong></a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <div>© 2026 JDENIS Consulting — Jérôme Denis, AI consultant (France · Dubai · Flanders)</div>
+            <div>
+                <a href="/index-en.html">Home</a>
+                <a href="/blog/index-en.html">Blog</a>
+                <a href="/legal-notice-en.html">Legal notice</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

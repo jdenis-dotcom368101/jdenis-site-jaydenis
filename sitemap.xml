@@ -2,40 +2,151 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Version française -->
   <url>
     <loc>https://jaydenis.com/</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/"/>
   </url>
 
-  <!-- English version -->
   <url>
     <loc>https://jaydenis.com/index-en.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/"/>
   </url>
 
-  <!-- Mentions légales FR -->
   <url>
-    <loc>https://jaydenis.com/mentions-legales.html</loc>
-    <lastmod>2026-04-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://jaydenis.com/methode-hierodeiis.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Legal Notice EN -->
   <url>
-    <loc>https://jaydenis.com/legal-notice-en.html</loc>
-    <lastmod>2026-04-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://jaydenis.com/diagnostic-audit-ia-toulouse.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/diagnostic-audit-ia-toulouse.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/ai-diagnostics-audit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/diagnostic-audit-ia-toulouse.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/ai-diagnostics-audit.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/diagnostic-audit-ia-toulouse.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/ai-diagnostics-audit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/diagnostic-audit-ia-toulouse.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/formation-ia-entreprise-toulouse.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/formation-ia-entreprise-toulouse.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/corporate-ai-training.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/formation-ia-entreprise-toulouse.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/corporate-ai-training.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/formation-ia-entreprise-toulouse.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/corporate-ai-training.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/formation-ia-entreprise-toulouse.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/architecture-ia-sur-mesure.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/architecture-ia-sur-mesure.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/ai-architecture-design.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/architecture-ia-sur-mesure.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/ai-architecture-design.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/architecture-ia-sur-mesure.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/ai-architecture-design.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/architecture-ia-sur-mesure.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/index-en.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/diagnostic-ia-pme-guide.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/diagnostic-ia-pme-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/ai-diagnostics-sme-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/diagnostic-ia-pme-guide.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/ai-diagnostics-sme-guide.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/diagnostic-ia-pme-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/ai-diagnostics-sme-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/diagnostic-ia-pme-guide.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/ai-agents-rag-mcp.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/ai-agents-rag-mcp.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/ai-agents-rag-mcp.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html"/>
   </url>
 
 </urlset>

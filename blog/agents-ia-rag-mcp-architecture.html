@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agents IA, RAG, MCP : comprendre l'architecture IA</title>
+    <meta name="description" content="Agents IA, RAG, MCP, fine-tuning, low-code : chaque brique d'une solution IA d'entreprise expliquée simplement, avec des exemples PME et les pièges à éviter.">
+    <link rel="canonical" href="https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html">
+    <link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html">
+    <link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/ai-agents-rag-mcp.html">
+    <meta property="og:title" content="Agents IA, RAG, MCP : comprendre l'architecture d'une solution IA">
+    <meta property="og:description" content="Chaque brique d'une solution IA d'entreprise expliquée en français, avec des exemples PME concrets.">
+    <meta property="og:image" content="https://jaydenis.com/og-image.jpg">
+    <meta property="og:url" content="https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles-pages.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Agents IA, RAG, MCP : comprendre l'architecture d'une solution IA",
+                "description": "Agents IA, RAG, MCP, fine-tuning, low-code : chaque brique d'une architecture IA d'entreprise expliquée simplement, avec des exemples PME.",
+                "image": "https://jaydenis.com/og-image.jpg",
+                "author": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "publisher": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "datePublished": "2026-06-11",
+                "dateModified": "2026-06-11",
+                "mainEntityOfPage": "https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html",
+                "inLanguage": "fr"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jaydenis.com/"},
+                    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jaydenis.com/blog/"},
+                    {"@type": "ListItem", "position": 3, "name": "Agents IA, RAG, MCP", "item": "https://jaydenis.com/blog/agents-ia-rag-mcp-architecture.html"}
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type": "Question", "name": "Qu'est-ce qu'un agent IA en entreprise ?", "acceptedAnswer": {"@type": "Answer", "text": "Un agent IA est un système qui exécute un processus complet en autonomie : il perçoit (e-mails, documents, données), décide selon des règles et des modèles de langage, et agit sur vos outils (CRM, facturation, messagerie). À la différence d'un chatbot, il travaille sans qu'on lui parle."}},
+                    {"@type": "Question", "name": "Quelle est la différence entre RAG et fine-tuning ?", "acceptedAnswer": {"@type": "Answer", "text": "Le RAG donne au modèle l'accès à vos documents au moment de la question : les connaissances restent à jour et vérifiables. Le fine-tuning modifie le modèle lui-même par entraînement sur vos données : utile pour un style ou un vocabulaire spécifique, mais plus coûteux et figé. Pour la plupart des PME, le RAG suffit."}},
+                    {"@type": "Question", "name": "Le MCP remplace-t-il les API classiques ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, il les standardise. Le Model Context Protocol est un protocole ouvert qui permet à un modèle IA de se connecter à n'importe quel outil (CRM, ERP, agenda) via des connecteurs réutilisables, au lieu de développer une intégration spécifique par outil et par modèle."}}
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="inner">
+            <a class="site-logo" href="/">JDENIS<span>.</span></a>
+            <nav class="site-nav" aria-label="Navigation principale">
+                <a href="/">Accueil</a>
+                <a href="/diagnostic-audit-ia-toulouse.html">Diagnostic & Audit IA</a>
+                <a href="/formation-ia-entreprise-toulouse.html">Formation IA</a>
+                <a href="/architecture-ia-sur-mesure.html">Architecture IA</a>
+                <a href="/blog/" aria-current="page">Blog</a>
+                <a class="nav-cta" href="/#contact">Diagnostic gratuit</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › <a href="/blog/">Blog</a> › Agents IA, RAG, MCP</nav>
+
+        <article>
+            <h1 style="font-family:var(--font-serif);font-size:clamp(28px,4.5vw,42px);line-height:1.2;margin:22px 0 16px;">Agents IA, RAG, MCP : comprendre l'architecture d'une solution IA</h1>
+
+            <div class="post-meta">
+                <img src="../jerome-denis.jpg" alt="Jérôme Denis, consultant IA à Toulouse">
+                <span>Par <strong>Jérôme Denis</strong>, consultant IA & architecte de solutions — Toulouse · Lecture : 7 min · Mis à jour le 11 juin 2026</span>
+            </div>
+
+            <img class="cover" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=500&fit=crop" alt="Schéma lumineux évoquant les connexions d'une architecture IA d'entreprise" width="1200" height="500">
+
+            <div class="answer-first"><strong>En bref :</strong> une solution IA d'entreprise assemble cinq briques possibles — modèle de langage (LLM), RAG pour vos documents, MCP pour vos outils, agents pour l'autonomie, low-code pour l'orchestration simple. Le bon choix dépend du processus à automatiser : la plupart des projets PME combinent deux ou trois briques, rarement plus.</div>
+
+            <div class="toc">
+                <strong>Sommaire</strong>
+                <ol>
+                    <li><a href="#llm">Le LLM : le moteur</a></li>
+                    <li><a href="#rag">Le RAG : vos documents</a></li>
+                    <li><a href="#mcp">Le MCP : vos outils</a></li>
+                    <li><a href="#agents">Les agents : l'autonomie</a></li>
+                    <li><a href="#lowcode">Le low-code : l'orchestration simple</a></li>
+                    <li><a href="#choisir">Comment choisir ?</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ol>
+            </div>
+
+            <p>Comprendre l'<strong>architecture d'une solution IA</strong> n'est plus un luxe de technicien : c'est ce qui vous évite de payer un agent autonome là où trois scénarios d'automatisation suffisent — ou l'inverse. Le marché bascule en effet à grande vitesse : selon <a href="https://www.gartner.com" rel="noopener">Gartner</a>, moins de 5 % des applications d'entreprise intégraient des agents IA en 2025, une proportion attendue à 40 % fin 2026. Voici chaque brique, expliquée en français, avec des exemples de PME.</p>
+
+            <h2 id="llm">Le LLM : le moteur de tout le reste</h2>
+            <p>Le <strong>LLM</strong> (Large Language Model, grand modèle de langage) est le moteur qui comprend et produit du texte : GPT (OpenAI/ChatGPT), Claude (Anthropic), Gemini (Google), Mistral, ou des modèles open source distribués via Hugging Face. Seul, un LLM ne connaît ni vos clients ni vos procédures : tout l'enjeu d'une architecture est de le brancher sur votre réalité. Trois critères de choix dominent : la qualité sur votre type de tâche, le coût par million de tokens, et la localisation du traitement des données — un point décisif pour les données sensibles, où les modèles open source auto-hébergés reprennent l'avantage.</p>
+
+            <h2 id="rag">Le RAG : brancher le modèle sur vos documents</h2>
+            <p>Le <strong>RAG</strong> (Retrieval-Augmented Generation) permet au modèle de répondre à partir de <em>vos</em> documents : procédures, contrats, catalogues, historiques. Au moment de la question, le système retrouve les passages pertinents et les fournit au modèle, qui répond en citant ses sources internes.</p>
+            <p>Exemple PME : un cabinet d'expertise comptable monte un assistant RAG sur sa base documentaire interne ; les collaborateurs juniors obtiennent en quelques secondes des réponses sourcées qui mobilisaient auparavant un senior. Avantage clé sur le fine-tuning : <strong>les connaissances restent à jour</strong> — on ajoute un document, c'est intégré.</p>
+
+            <h2 id="mcp">Le MCP : brancher le modèle sur vos outils</h2>
+            <p>Le <strong>MCP</strong> (<a href="https://modelcontextprotocol.io" rel="noopener">Model Context Protocol</a>, protocole ouvert publié par Anthropic fin 2024) standardise la connexion entre un modèle IA et vos outils métier : CRM, ERP, agenda, messagerie, tableaux. Au lieu de développer une intégration spécifique pour chaque paire outil-modèle, on installe des connecteurs réutilisables.</p>
+            <p>Exemple PME : un assistant connecté en MCP au CRM et à l'agenda prépare chaque matin les fiches des rendez-vous du jour, avec l'historique client et les points ouverts. Le MCP est devenu en 2025-2026 le standard de fait du secteur, adopté au-delà d'Anthropic.</p>
+
+            <h2 id="agents">Les agents IA : l'autonomie sur un processus complet</h2>
+            <p>Un <strong>agent IA</strong> combine les briques précédentes et y ajoute la boucle d'action : il perçoit (un e-mail arrive), décide (candidature complète ou non ?), agit (répond, relance, met à jour le tableau de suivi), et recommence — sans qu'on lui parle. C'est la brique la plus puissante et la plus exigeante : elle suppose des règles claires, des données propres et des garde-fous (validation humaine sur les actions sensibles).</p>
+            <p>Exemple réel : pour un salon d'art parisien, un agent traite l'ensemble du pipeline des candidatures d'exposants — analyse des dossiers, e-mails de réponse, relances, contrats, facturation — avec validation humaine aux étapes d'engagement. Ce type de réalisation est le cœur de métier de <a href="https://noianogain.com" rel="noopener">NOIA NOGAIN</a>, cabinet toulousain spécialisé dans les agents IA sur mesure pour TPE/PME.</p>
+
+            <h2 id="lowcode">Le low-code : l'orchestration sans développement</h2>
+            <p>Les plateformes <strong>low-code</strong> (Make, Airtable) assemblent des automatisations par blocs visuels, avec des appels aux modèles IA au milieu du flux. C'est la porte d'entrée idéale : une facture reçue par e-mail → données extraites par IA → saisie dans le tableau comptable → archivage. Mise en œuvre en jours, pas en semaines. La limite : dès que la logique devient complexe ou le volume important, l'agent sur mesure redevient plus fiable et moins cher à l'usage.</p>
+
+            <h2 id="choisir">Comment choisir la bonne architecture ?</h2>
+            <p>La règle tient en une phrase : <strong>partez du processus, jamais de la technologie</strong>. Trois questions suffisent à dégrossir :</p>
+            <ul>
+                <li><strong>La connaissance est-elle dans des documents ?</strong> → RAG.</li>
+                <li><strong>L'action se passe-t-elle dans vos outils ?</strong> → MCP ou low-code.</li>
+                <li><strong>Le processus doit-il tourner sans intervention humaine ?</strong> → agent, avec garde-fous.</li>
+            </ul>
+            <p>Et avant tout engagement, exigez le chiffrage des <strong>coûts d'exploitation</strong> (consommation API, hébergement, maintenance) en plus du coût de mise en œuvre — c'est là que se cachent les mauvaises surprises. C'est exactement l'objet d'un <a href="/blog/diagnostic-ia-pme-guide.html">diagnostic IA préalable</a>.</p>
+
+            <h2>Conclusion</h2>
+            <p><strong>RAG pour vos documents, MCP pour vos outils, agents pour l'autonomie, low-code pour démarrer vite : la bonne architecture est celle qui colle à votre processus, pas celle de la dernière démo.</strong> Un cadrage indépendant de quelques heures évite des mois de dette technique.</p>
+            <div class="cta-band"><p>Un processus à automatiser ? Décrivez-le-moi, je vous dis ce que ça implique techniquement — le cadrage est gratuit.</p><a class="btn btn-primary" href="/architecture-ia-sur-mesure.html">Découvrir l'offre architecture IA</a></div>
+
+            <section class="faq" id="faq">
+                <h2>FAQ</h2>
+                <details><summary>Qu'est-ce qu'un agent IA en entreprise ?</summary><p>Un agent IA est un système qui exécute un processus complet en autonomie : il perçoit (e-mails, documents, données), décide selon des règles et des modèles de langage, et agit sur vos outils (CRM, facturation, messagerie). À la différence d'un chatbot, il travaille sans qu'on lui parle.</p></details>
+                <details><summary>Quelle est la différence entre RAG et fine-tuning ?</summary><p>Le RAG donne au modèle l'accès à vos documents au moment de la question : les connaissances restent à jour et vérifiables. Le fine-tuning modifie le modèle lui-même par entraînement sur vos données : utile pour un style ou un vocabulaire spécifique, mais plus coûteux et figé. Pour la plupart des PME, le RAG suffit.</p></details>
+                <details><summary>Le MCP remplace-t-il les API classiques ?</summary><p>Non, il les standardise. Le Model Context Protocol est un protocole ouvert qui permet à un modèle IA de se connecter à n'importe quel outil (CRM, ERP, agenda) via des connecteurs réutilisables, au lieu de développer une intégration spécifique par outil et par modèle.</p></details>
+            </section>
+
+            <section>
+                <div class="section-label">Pour aller plus loin</div>
+                <div class="related">
+                    <a href="/architecture-ia-sur-mesure.html"><span class="kicker">Service</span><strong>Architecture & solutions IA sur mesure</strong></a>
+                    <a href="/diagnostic-audit-ia-toulouse.html"><span class="kicker">Service</span><strong>Diagnostic & audit IA pour TPE/PME</strong></a>
+                    <a href="/blog/diagnostic-ia-pme-guide.html"><span class="kicker">Article</span><strong>Diagnostic IA en PME : la méthode pas à pas</strong></a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <div>© 2026 JDENIS Consulting — Jérôme Denis, consultant IA à Toulouse</div>
+            <div>
+                <a href="/">Accueil</a>
+                <a href="/blog/">Blog</a>
+                <a href="/mentions-legales.html">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

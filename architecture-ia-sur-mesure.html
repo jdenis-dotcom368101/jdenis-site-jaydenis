@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture IA sur Mesure : Agents, RAG, MCP | Jérôme Denis</title>
+    <meta name="description" content="Conception d'architectures IA pour TPE/PME : agents autonomes, RAG, MCP, fine-tuning, low-code. Du cadrage au déploiement, sans dépendance éditeur. Toulouse.">
+    <link rel="canonical" href="https://jaydenis.com/architecture-ia-sur-mesure.html">
+    <link rel="alternate" hreflang="fr" href="https://jaydenis.com/architecture-ia-sur-mesure.html">
+    <link rel="alternate" hreflang="en" href="https://jaydenis.com/ai-architecture-design.html">
+    <meta property="og:title" content="Architecture IA sur Mesure : Agents, RAG, MCP">
+    <meta property="og:description" content="Conception d'architectures IA d'entreprise : agents autonomes, RAG, MCP, fine-tuning, plateformes low-code.">
+    <meta property="og:image" content="https://jaydenis.com/og-image.jpg">
+    <meta property="og:url" content="https://jaydenis.com/architecture-ia-sur-mesure.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-pages.css">
+    <style>
+        .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 14px; margin: 26px 0; }
+        .stack-item { display: flex; flex-direction: column; align-items: center; gap: 10px; border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 10px; background: #fff; }
+        .stack-item img { width: 36px; height: 36px; object-fit: contain; }
+        .stack-item span { font-size: 12.5px; font-weight: 600; text-align: center; color: var(--color-text); }
+        .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+        .chip { border: 1.5px solid var(--color-accent); color: var(--color-text); border-radius: 999px; padding: 7px 16px; font-size: 13.5px; font-weight: 600; }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Service",
+                "@id": "https://jaydenis.com/architecture-ia-sur-mesure.html#service",
+                "name": "Conception d'architectures et de solutions IA sur mesure",
+                "serviceType": "Architecture IA : agents autonomes, RAG, MCP, fine-tuning, intégration LLM, automatisation low-code",
+                "provider": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "areaServed": [{"@type": "City", "name": "Toulouse"}, {"@type": "AdministrativeArea", "name": "Occitanie"}, {"@type": "Country", "name": "France"}],
+                "audience": {"@type": "BusinessAudience", "name": "TPE, PME et ETI"},
+                "url": "https://jaydenis.com/architecture-ia-sur-mesure.html"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jaydenis.com/"},
+                    {"@type": "ListItem", "position": 2, "name": "Architecture IA sur mesure", "item": "https://jaydenis.com/architecture-ia-sur-mesure.html"}
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type": "Question", "name": "Qu'est-ce qu'une architecture IA d'entreprise ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est l'ensemble des choix techniques qui font qu'une solution IA fonctionne durablement : quel modèle (GPT, Claude, Gemini, Mistral), quel mécanisme d'accès à vos données (RAG, MCP), quel niveau d'autonomie (assistant, agent), quelles plateformes (API, low-code), quelle sécurité et quelle réversibilité. Une bonne architecture évite la dépendance à un éditeur et les coûts cachés."}},
+                    {"@type": "Question", "name": "Agent IA, RAG, MCP : quelles différences ?", "acceptedAnswer": {"@type": "Answer", "text": "Le RAG permet à un modèle de répondre à partir de vos documents. Le MCP (Model Context Protocol) connecte un modèle à vos outils (CRM, ERP, messagerie) de façon standardisée. Un agent IA combine les deux et agit en autonomie sur des tâches complètes. Le bon choix dépend du processus à automatiser, pas de la mode."}},
+                    {"@type": "Question", "name": "Développez-vous la solution ou seulement l'architecture ?", "acceptedAnswer": {"@type": "Answer", "text": "Les deux sont possibles. Je conçois l'architecture et peux assurer la réalisation, notamment via NOIA NOGAIN, le cabinet d'agents IA sur mesure que j'ai co-fondé, ou piloter votre prestataire existant en garantissant l'indépendance des choix techniques."}},
+                    {"@type": "Question", "name": "Quel budget prévoir pour une solution IA sur mesure ?", "acceptedAnswer": {"@type": "Answer", "text": "Le cadrage initial est gratuit. Une automatisation low-code simple se chiffre en jours ; un agent autonome connecté à vos outils en semaines. Chaque projet fait l'objet d'un forfait précis après cadrage, incluant les coûts d'exploitation (API, hébergement) pour éviter toute surprise."}}
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="inner">
+            <a class="site-logo" href="/">JDENIS<span>.</span></a>
+            <nav class="site-nav" aria-label="Navigation principale">
+                <a href="/">Accueil</a>
+                <a href="/diagnostic-audit-ia-toulouse.html">Diagnostic & Audit IA</a>
+                <a href="/formation-ia-entreprise-toulouse.html">Formation IA</a>
+                <a href="/architecture-ia-sur-mesure.html" aria-current="page">Architecture IA</a>
+                <a href="/blog/">Blog</a>
+                <a class="nav-cta" href="/#contact">Cadrage gratuit</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › Architecture IA sur mesure</nav>
+        </div>
+
+        <section class="page-hero">
+            <div class="container">
+                <div class="section-label">Architecture & Solutions IA</div>
+                <h1>Architecture IA sur mesure : <span class="highlight">agents, RAG, MCP</span></h1>
+                <p class="lede">De l'idée au déploiement : je conçois l'architecture IA adaptée à vos processus — agents autonomes, RAG documentaire, connexions MCP à vos outils, fine-tuning ou low-code — sans dépendance à un éditeur.</p>
+                <div class="hero-proof">
+                    <span>Choix techniques indépendants</span>
+                    <span>Coûts d'exploitation chiffrés avant projet</span>
+                    <span>Réalisation possible via NOIA NOGAIN</span>
+                </div>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="/#contact">Cadrer mon projet (gratuit) →</a>
+                    <a class="btn btn-ghost" href="#stack">Voir la stack</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container content">
+
+            <section class="section" id="stack" style="padding-bottom:0;">
+                <div class="section-label">Stack technologique</div>
+                <h2 style="margin-top:0;">Les plateformes et méthodes maîtrisées</h2>
+                <div class="stack-grid">
+                    <div class="stack-item"><img src="logos-tech/openai.svg" alt="Logo OpenAI — ChatGPT" loading="lazy"><span>ChatGPT / OpenAI</span></div>
+                    <div class="stack-item"><img src="logos-tech/claude.svg" alt="Logo Claude (Anthropic)" loading="lazy"><span>Claude · Code · Cowork</span></div>
+                    <div class="stack-item"><img src="logos-tech/googlegemini.svg" alt="Logo Google Gemini" loading="lazy"><span>Gemini</span></div>
+                    <div class="stack-item"><img src="logos-tech/mistralai.svg" alt="Logo Mistral AI" loading="lazy"><span>Mistral AI</span></div>
+                    <div class="stack-item"><img src="logos-tech/perplexity.svg" alt="Logo Perplexity" loading="lazy"><span>Perplexity</span></div>
+                    <div class="stack-item"><img src="logos-tech/huggingface.svg" alt="Logo Hugging Face" loading="lazy"><span>Hugging Face</span></div>
+                    <div class="stack-item"><img src="logos-tech/modelcontextprotocol.svg" alt="Logo Model Context Protocol (MCP)" loading="lazy"><span>MCP</span></div>
+                    <div class="stack-item"><img src="logos-tech/openclaw.jpg" alt="Logo OpenClaw" loading="lazy" style="border-radius:8px;"><span>OpenClaw</span></div>
+                    <div class="stack-item"><img src="logos-tech/make.svg" alt="Logo Make" loading="lazy"><span>Make</span></div>
+                    <div class="stack-item"><img src="logos-tech/airtable.svg" alt="Logo Airtable" loading="lazy"><span>Airtable</span></div>
+                </div>
+                <div class="chips" aria-label="Expertises méthodologiques">
+                    <span class="chip">Création d'agents IA</span>
+                    <span class="chip">RAG documentaire</span>
+                    <span class="chip">Intégration LLM (API)</span>
+                    <span class="chip">Fine-tuning</span>
+                    <span class="chip">MCP & connexion outils métier</span>
+                    <span class="chip">Automatisation low-code / no-code</span>
+                    <span class="chip">Prompt engineering</span>
+                    <span class="chip">Gouvernance & AI Act</span>
+                </div>
+            </section>
+
+            <section class="section" style="padding-bottom:0;">
+                <div class="section-label">La méthode</div>
+                <h2 style="margin-top:0;">Comment se déroule un projet d'architecture IA ?</h2>
+                <ol class="steps">
+                    <li><strong>Cadrage gratuit</strong><p>Le processus à automatiser, les outils en place, les données disponibles, le gain attendu. Verdict honnête : low-code suffisant, agent nécessaire, ou IA inutile.</p></li>
+                    <li><strong>Conception de l'architecture</strong><p>Choix du modèle (Claude, GPT, Gemini, Mistral, open source via Hugging Face), du mécanisme d'accès aux données (RAG, MCP), du niveau d'autonomie et de la plateforme. Coûts d'exploitation chiffrés.</p></li>
+                    <li><strong>Prototype sur un cas réel</strong><p>Une version fonctionnelle testée par vos équipes sur de vraies données, avant tout engagement sur le déploiement complet.</p></li>
+                    <li><strong>Déploiement et transfert</strong><p>Mise en production, documentation, formation des utilisateurs et du référent interne. Vous restez propriétaire et autonome.</p></li>
+                </ol>
+            </section>
+
+            <div class="cta-band"><p>Un processus à automatiser ? Décrivez-le, je vous dis ce que ça implique techniquement.</p><a class="btn btn-primary" href="/#contact">Cadrer mon projet</a></div>
+
+            <section>
+                <h2>Qu'est-ce qu'une architecture IA d'entreprise ?</h2>
+                <p>Une <strong>architecture IA</strong> est l'ensemble des choix techniques qui déterminent si votre solution fonctionnera encore dans deux ans : quel modèle de langage, quel accès à vos données, quel niveau d'autonomie, quelle plateforme d'exécution, quelle sécurité, quelle réversibilité. Ces choix conditionnent 80 % du coût total d'une solution IA — et ils sont presque toujours faits par défaut, c'est-à-dire par l'éditeur qui a quelque chose à vendre.</p>
+                <p>Le marché bascule vite : selon <a href="https://www.gartner.com" rel="noopener">Gartner</a>, moins de 5 % des applications d'entreprise intégraient des agents IA en 2025, une proportion attendue à 40 % fin 2026. Les entreprises qui structurent leur architecture maintenant prennent une avance durable ; celles qui empilent les abonnements accumulent de la dette technique.</p>
+
+                <h2>Agent IA, RAG, MCP, fine-tuning : que choisir ?</h2>
+                <p>Le bon mécanisme dépend du processus, pas de la mode. En résumé :</p>
+                <table>
+                    <thead><tr><th>Besoin</th><th>Mécanisme</th><th>Exemple concret</th></tr></thead>
+                    <tbody>
+                        <tr><td>Répondre à partir de vos documents</td><td><strong>RAG</strong> (Retrieval-Augmented Generation)</td><td>Assistant qui répond aux questions des équipes à partir de vos procédures internes.</td></tr>
+                        <tr><td>Connecter l'IA à vos outils métier</td><td><strong>MCP</strong> (Model Context Protocol)</td><td>Claude lit et met à jour votre CRM, votre agenda et vos devis de façon standardisée.</td></tr>
+                        <tr><td>Exécuter un processus complet en autonomie</td><td><strong>Agent IA</strong></td><td>Traitement des candidatures d'un salon : tri, réponses, relances, facturation.</td></tr>
+                        <tr><td>Spécialiser un modèle sur votre vocabulaire</td><td><strong>Fine-tuning</strong></td><td>Modèle entraîné sur vos rapports techniques pour reprendre vos formats et votre terminologie.</td></tr>
+                        <tr><td>Automatiser sans développement</td><td><strong>Low-code</strong> (Make, Airtable)</td><td>Facture reçue par e-mail → extraction → saisie comptable → archivage Drive.</td></tr>
+                    </tbody>
+                </table>
+                <p>La plupart des projets PME combinent deux ou trois de ces briques. L'erreur classique est de payer un agent autonome là où trois scénarios Make suffisent — ou l'inverse.</p>
+
+                <h2>Pourquoi l'indépendance technique est-elle décisive ?</h2>
+                <p>Je ne suis lié à aucun éditeur : <strong>les recommandations sont arbitrées sur vos coûts et votre réversibilité</strong>, pas sur une marge de revente. Cela inclut les modèles open source (via Hugging Face ou OpenClaw pour les assistants personnels auto-hébergés) quand la confidentialité des données l'exige. Pour la réalisation, deux options : je pilote votre prestataire, ou la solution est développée via <a href="https://noianogain.com" rel="noopener">NOIA NOGAIN</a>, le cabinet d'agents IA sur mesure pour TPE/PME que j'ai co-fondé — auquel cas le cadrage reste contractuellement distinct pour préserver l'indépendance de l'audit.</p>
+
+                <h2>Combien coûte une solution IA sur mesure ?</h2>
+                <p><strong>Le cadrage initial est gratuit.</strong> Ensuite, l'ordre de grandeur dépend de la brique : une automatisation low-code se chiffre en jours d'intervention ; un assistant RAG documentaire en une à trois semaines ; un agent autonome connecté à plusieurs outils métier en plusieurs semaines, prototype compris. Chaque devis est forfaitaire et inclut l'estimation des coûts d'exploitation mensuels (consommation API, hébergement), systématiquement chiffrés avant le lancement — c'est précisément le rôle de l'architecture.</p>
+            </section>
+
+            <div class="founder">
+                <img src="jerome-denis.jpg" alt="Jérôme Denis, architecte de solutions IA à Toulouse" width="110" height="110">
+                <div>
+                    <p><strong>Jérôme Denis</strong> — Consultant senior IA, Toulouse. Vingt ans de direction de projets d'innovation numérique, expert au Collège Numérique France 2030, co-fondateur de <a href="https://noianogain.com" rel="noopener">NOIA NOGAIN</a>. Conception et déploiement d'agents IA en production pour des PME industrielles et de services.</p>
+                </div>
+            </div>
+
+            <section class="faq">
+                <div class="section-label">FAQ</div>
+                <h2 style="margin-top:0;">Questions fréquentes</h2>
+                <details><summary>Qu'est-ce qu'une architecture IA d'entreprise ?</summary><p>C'est l'ensemble des choix techniques qui font qu'une solution IA fonctionne durablement : quel modèle (GPT, Claude, Gemini, Mistral), quel mécanisme d'accès à vos données (RAG, MCP), quel niveau d'autonomie (assistant, agent), quelles plateformes (API, low-code), quelle sécurité et quelle réversibilité. Une bonne architecture évite la dépendance à un éditeur et les coûts cachés.</p></details>
+                <details><summary>Agent IA, RAG, MCP : quelles différences ?</summary><p>Le RAG permet à un modèle de répondre à partir de vos documents. Le MCP (Model Context Protocol) connecte un modèle à vos outils (CRM, ERP, messagerie) de façon standardisée. Un agent IA combine les deux et agit en autonomie sur des tâches complètes. Le bon choix dépend du processus à automatiser, pas de la mode.</p></details>
+                <details><summary>Développez-vous la solution ou seulement l'architecture ?</summary><p>Les deux sont possibles. Je conçois l'architecture et peux assurer la réalisation, notamment via NOIA NOGAIN, le cabinet d'agents IA sur mesure que j'ai co-fondé, ou piloter votre prestataire existant en garantissant l'indépendance des choix techniques.</p></details>
+                <details><summary>Quel budget prévoir pour une solution IA sur mesure ?</summary><p>Le cadrage initial est gratuit. Une automatisation low-code simple se chiffre en jours ; un agent autonome connecté à vos outils en semaines. Chaque projet fait l'objet d'un forfait précis après cadrage, incluant les coûts d'exploitation (API, hébergement) pour éviter toute surprise.</p></details>
+            </section>
+
+            <div class="cta-band"><p>Votre prochain processus automatisé commence par un cadrage gratuit.</p><a class="btn btn-primary" href="/#contact">Décrire mon projet</a></div>
+
+            <section>
+                <div class="section-label">Pour aller plus loin</div>
+                <div class="related">
+                    <a href="/blog/agents-ia-rag-mcp-architecture.html"><span class="kicker">Article</span><strong>Agents IA, RAG, MCP : comprendre l'architecture d'une solution IA</strong></a>
+                    <a href="/diagnostic-audit-ia-toulouse.html"><span class="kicker">Service</span><strong>Diagnostic & audit IA pour TPE/PME</strong></a>
+                    <a href="/formation-ia-entreprise-toulouse.html"><span class="kicker">Service</span><strong>Formation IA en entreprise à Toulouse</strong></a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <div>© 2026 JDENIS Consulting — Jérôme Denis, consultant IA à Toulouse</div>
+            <div>
+                <a href="/">Accueil</a>
+                <a href="/blog/">Blog</a>
+                <a href="/mentions-legales.html">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
