@@ -166,4 +166,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
