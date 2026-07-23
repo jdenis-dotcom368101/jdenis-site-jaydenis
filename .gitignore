@@ -49,3 +49,7 @@ build/
 
 # Claude Code local
 .claude/settings.local.json
+
+# Agent SEO/GEO (infra locale — ne jamais publier sur GitHub Pages)
+seo-agent/
+.claude/agents/
