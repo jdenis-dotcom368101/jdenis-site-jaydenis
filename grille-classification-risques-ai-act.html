@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grille de classification des risques AI Act — outil libre</title>
+    <meta name="description" content="Outil libre : arbre de décision en 5 étapes pour classer vos systèmes d'IA selon les 4 niveaux de risque du règlement (UE) 2024/1689, avec modèle de registre.">
+    <link rel="canonical" href="https://jaydenis.com/grille-classification-risques-ai-act.html">
+    <meta property="og:title" content="Grille de classification des risques AI Act — outil libre">
+    <meta property="og:description" content="Arbre de décision en 5 étapes, obligations par niveau de risque, modèle de registre des systèmes d'IA. Outil libre et réutilisable.">
+    <meta property="og:image" content="https://jaydenis.com/og-image.jpg">
+    <meta property="og:url" content="https://jaydenis.com/grille-classification-risques-ai-act.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-pages.css">
+    <style>
+        .grid-table { width:100%; border-collapse:collapse; margin:22px 0; font-size:15px; }
+        .grid-table th { background:#f4f4f5; text-align:left; padding:10px 12px; border-bottom:2px solid #ddd; font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+        .grid-table td { padding:10px 12px; border-bottom:1px solid #ececec; vertical-align:top; }
+        .grid-table code { font-size:13px; background:#f4f4f5; padding:1px 5px; border-radius:3px; }
+        .lvl { font-weight:700; white-space:nowrap; }
+        .lvl-1 { color:#b3261e; } .lvl-2 { color:#c77700; } .lvl-3 { color:#1c6ea4; } .lvl-4 { color:#2e7d32; }
+        .step-q { border-left:3px solid var(--color-accent); background:#fbfaf7; padding:16px 20px; margin:20px 0; }
+        .step-q .qn { font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:#8a7433; font-weight:700; margin-bottom:6px; }
+        .step-q h3 { margin:0 0 8px; font-size:19px; }
+        .step-q .out { margin-top:10px; font-size:15px; }
+        .step-q .out b { color:#0f172a; }
+        .licence { background:#f4fbf4; border-left:3px solid #2e7d32; padding:14px 18px; margin:26px 0; font-size:15px; }
+        .warn { background:#fdf6f5; border-left:3px solid #b3261e; padding:14px 18px; margin:22px 0; font-size:15px; }
+        @media (max-width:640px){ .grid-table { font-size:13.5px; } .grid-table th,.grid-table td { padding:7px 8px; } }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": ["HowTo", "CreativeWork"],
+                "@id": "https://jaydenis.com/grille-classification-risques-ai-act.html#tool",
+                "name": "Grille de classification des risques AI Act",
+                "description": "Outil libre permettant de classer un système d'IA selon les quatre niveaux de risque du règlement (UE) 2024/1689, d'identifier les obligations correspondantes et de documenter le résultat dans un registre.",
+                "inLanguage": "fr",
+                "license": "https://creativecommons.org/licenses/by/4.0/",
+                "isAccessibleForFree": true,
+                "learningResourceType": "Toolkit",
+                "audience": {"@type": "BusinessAudience", "name": "TPE, PME et ETI déployant des systèmes d'IA"},
+                "author": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "publisher": {"@id": "https://jaydenis.com/#organization"},
+                "about": {"@type": "Legislation", "name": "Règlement (UE) 2024/1689 (AI Act)", "legislationIdentifier": "Regulation (EU) 2024/1689", "legislationJurisdiction": "European Union"},
+                "step": [
+                    {"@type": "HowToStep", "position": 1, "name": "Vérifier que le système relève bien de l'AI Act"},
+                    {"@type": "HowToStep", "position": 2, "name": "Identifier votre rôle : fournisseur ou déployeur"},
+                    {"@type": "HowToStep", "position": 3, "name": "Écarter les pratiques interdites"},
+                    {"@type": "HowToStep", "position": 4, "name": "Tester l'appartenance au haut risque"},
+                    {"@type": "HowToStep", "position": 5, "name": "Vérifier les obligations de transparence"}
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jaydenis.com/"},
+                    {"@type": "ListItem", "position": 2, "name": "Conformité AI Act", "item": "https://jaydenis.com/conformite-ai-act-gouvernance-donnees.html"},
+                    {"@type": "ListItem", "position": 3, "name": "Grille de classification des risques", "item": "https://jaydenis.com/grille-classification-risques-ai-act.html"}
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="inner">
+            <a class="site-logo" href="/">JDENIS<span>.</span></a>
+            <nav class="site-nav" aria-label="Navigation principale">
+                <a href="/">Accueil</a>
+                <a href="/diagnostic-audit-ia-toulouse.html">Diagnostic &amp; Audit IA</a>
+                <a href="/formation-ia-entreprise-toulouse.html">Formation IA</a>
+                <a href="/architecture-ia-sur-mesure.html">Architecture IA</a>
+                <a href="/conformite-ai-act-gouvernance-donnees.html">Conformité AI Act</a>
+                <a href="/blog/">Blog</a>
+                <a class="nav-cta" href="/#contact">Diagnostic gratuit</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › <a href="/conformite-ai-act-gouvernance-donnees.html">Conformité AI Act</a> › Grille de classification des risques</nav>
+        </div>
+
+        <section class="page-hero">
+            <div class="container">
+                <div class="section-label">Outil libre · Réutilisable</div>
+                <h1>Grille de classification des risques <span class="highlight">AI Act</span></h1>
+                <p class="lede">Un arbre de décision en cinq étapes pour situer chacun de vos systèmes d'IA dans les quatre niveaux de risque du règlement européen, connaître les obligations qui en découlent — et surtout celles qui ne vous concernent pas — puis documenter le résultat dans un registre tenable.</p>
+                <div class="hero-proof">
+                    <span>Libre et gratuit, sans inscription</span>
+                    <span>Réutilisable CC BY 4.0</span>
+                    <span>Mis à jour le 30 juillet 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container content">
+
+            <div class="licence">
+                <strong>Comment utiliser cet outil.</strong> Prenez un système d'IA à la fois — un abonnement, un outil intégré à votre ERP, un agent développé en interne. Déroulez les cinq étapes dans l'ordre : chacune produit soit un verdict, soit le passage à la suivante. Reportez le résultat dans le modèle de registre en fin de page. Comptez dix à quinze minutes par système une fois la méthode prise en main.
+            </div>
+
+            <section>
+                <h2>Étape 1 — Est-ce bien un système d'IA au sens du règlement ?</h2>
+                <div class="step-q">
+                    <div class="qn">Question 1</div>
+                    <h3>Le système déduit-il des résultats à partir de données, plutôt que d'appliquer des règles écrites à l'avance ?</h3>
+                    <p>Le règlement vise les systèmes fondés sur une machine, conçus pour fonctionner avec un degré d'autonomie variable, et capables de <strong>déduire</strong> — à partir d'entrées — des sorties telles que des prédictions, du contenu, des recommandations ou des décisions.</p>
+                    <div class="out">
+                        <b>Non</b> — une macro Excel, un moteur de règles métier explicites ou un script déterministe ne sont pas concernés. <span style="color:#2e7d32;font-weight:600;">Fin de l'analyse.</span><br>
+                        <b>Oui</b> — passez à l'étape 2. Cela inclut les assistants conversationnels, la reconnaissance de documents, les moteurs de recommandation, la détection d'anomalies, la génération de texte ou d'images.
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Étape 2 — Êtes-vous fournisseur ou déployeur ?</h2>
+                <p>C'est la distinction qui détermine l'essentiel de vos obligations, et celle que la plupart des organisations négligent.</p>
+                <table class="grid-table">
+                    <thead><tr><th style="width:22%">Votre rôle</th><th style="width:38%">Situation</th><th>Ce que ça implique</th></tr></thead>
+                    <tbody>
+                        <tr><td class="lvl">Fournisseur</td><td>Vous développez un système d'IA, ou vous le faites développer, et vous le mettez sur le marché ou en service <strong>sous votre nom ou votre marque</strong>.</td><td>Le régime le plus lourd : documentation technique, système de gestion de la qualité, évaluation de conformité, marquage CE pour le haut risque.</td></tr>
+                        <tr><td class="lvl">Déployeur</td><td>Vous <strong>utilisez</strong> un système d'IA sous votre propre autorité, dans le cadre d'une activité professionnelle. C'est le cas de l'immense majorité des entreprises.</td><td>Obligations d'usage : respecter la notice du fournisseur, assurer une supervision humaine, veiller à la pertinence des données d'entrée, informer les personnes concernées.</td></tr>
+                        <tr><td class="lvl">Les deux</td><td>Attention au basculement : si vous <strong>apposez votre marque</strong> sur un système tiers, ou si vous en <strong>modifiez la finalité</strong>, vous devenez fournisseur pour ce système.</td><td>Vous héritez des obligations du fournisseur. C'est le piège classique de l'agent «&nbsp;maison&nbsp;» construit sur une API tierce et rebaptisé.</td></tr>
+                    </tbody>
+                </table>
+                <div class="warn">
+                    <strong>Portée extraterritoriale.</strong> Le règlement s'applique dès lors que le système est utilisé dans l'Union, ou que ses résultats y sont utilisés — quel que soit le lieu d'établissement du fournisseur ou du déployeur. Un groupe non européen ayant des clients, des filiales ou des salariés dans l'UE entre dans son champ.
+                </div>
+            </section>
+
+            <section>
+                <h2>Étape 3 — Le système relève-t-il d'une pratique interdite ?</h2>
+                <p>Huit familles de pratiques sont prohibées, sans possibilité de mise en conformité. Ces interdictions sont applicables depuis le <strong>2 février 2025</strong>.</p>
+                <div class="step-q">
+                    <div class="qn">Question 3</div>
+                    <h3>Le système fait-il l'une de ces choses ?</h3>
+                    <ul>
+                        <li>Recourir à des techniques <strong>subliminales ou manipulatrices</strong> altérant substantiellement le comportement, avec risque de préjudice important.</li>
+                        <li>Exploiter les <strong>vulnérabilités</strong> d'une personne ou d'un groupe (âge, handicap, situation sociale ou économique).</li>
+                        <li>Pratiquer une <strong>notation sociale</strong> conduisant à un traitement préjudiciable ou disproportionné.</li>
+                        <li>Prédire le <strong>risque qu'une personne commette une infraction</strong> sur la seule base de son profilage ou de ses traits de personnalité.</li>
+                        <li>Constituer des bases de reconnaissance faciale par <strong>moissonnage non ciblé</strong> d'images issues d'internet ou de vidéosurveillance.</li>
+                        <li><strong>Inférer les émotions</strong> sur le lieu de travail ou dans les établissements d'enseignement (hors raisons médicales ou de sécurité).</li>
+                        <li><strong>Catégoriser biométriquement</strong> des personnes pour en déduire des attributs sensibles (origine, opinions, religion, orientation sexuelle).</li>
+                        <li>Recourir à l'<strong>identification biométrique à distance en temps réel</strong> dans l'espace public à des fins répressives, hors exceptions strictement encadrées.</li>
+                    </ul>
+                    <div class="out">
+                        <b>Oui</b> — <span class="lvl lvl-1">risque inacceptable</span>. Le système doit être arrêté. Il n'existe pas de voie de conformité.<br>
+                        <b>Non</b> — passez à l'étape 4.
+                    </div>
+                </div>
+                <p><strong>Le cas qui revient le plus souvent en entreprise</strong> est l'inférence d'émotions au travail : outils d'analyse du «&nbsp;sentiment&nbsp;» dans les entretiens d'embauche enregistrés, scoring d'engagement à partir de la voix ou de la webcam en formation, mesure de l'attention. Vendus comme des fonctionnalités analytiques, ils tombent souvent dans l'interdiction.</p>
+            </section>
+
+            <section>
+                <h2>Étape 4 — Le système est-il à haut risque ?</h2>
+                <p>Deux voies mènent au haut risque. La première concerne les systèmes d'IA qui sont des <strong>composants de sécurité de produits</strong> déjà soumis à une législation d'harmonisation de l'Union (machines, dispositifs médicaux, jouets, ascenseurs, véhicules). La seconde, celle qui concerne la plupart des entreprises de services, liste des <strong>domaines d'usage</strong>.</p>
+                <table class="grid-table">
+                    <thead><tr><th style="width:30%">Domaine</th><th>Usages typiques en entreprise</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Emploi et gestion des travailleurs</strong></td><td>Tri et présélection de candidatures, ciblage d'offres, évaluation de la performance, décisions de promotion ou de licenciement, répartition des tâches par algorithme. <em>Le cas le plus fréquent, et le plus sous-estimé.</em></td></tr>
+                        <tr><td><strong>Éducation et formation professionnelle</strong></td><td>Décisions d'admission, évaluation des acquis, surveillance des examens, orientation vers un parcours.</td></tr>
+                        <tr><td><strong>Accès aux services essentiels</strong></td><td>Évaluation de la solvabilité et scoring de crédit, tarification et évaluation des risques en assurance vie et santé, accès aux prestations sociales, tri des appels d'urgence.</td></tr>
+                        <tr><td><strong>Biométrie</strong></td><td>Identification biométrique à distance, catégorisation biométrique, reconnaissance des émotions (dans les cas non interdits).</td></tr>
+                        <tr><td><strong>Infrastructures critiques</strong></td><td>Gestion et exploitation de l'eau, du gaz, de l'électricité, du trafic routier, en tant que composants de sécurité.</td></tr>
+                        <tr><td><strong>Répressif, migration, justice</strong></td><td>Domaines réservés aux autorités publiques et à leurs prestataires. Rarement pertinents pour une entreprise privée, sauf sous-traitance.</td></tr>
+                    </tbody>
+                </table>
+                <div class="step-q">
+                    <div class="qn">Question 4</div>
+                    <h3>Le système intervient-il dans l'un de ces domaines ?</h3>
+                    <div class="out">
+                        <b>Non</b> — passez à l'étape 5.<br>
+                        <b>Oui, mais son rôle est accessoire</b> — une dérogation existe lorsque le système n'effectue qu'une <strong>tâche procédurale étroite</strong>, se limite à améliorer le résultat d'une activité humaine déjà réalisée, détecte des écarts par rapport à un schéma décisionnel antérieur sans le remplacer, ou effectue une tâche purement préparatoire. Cette appréciation doit être <strong>documentée avant la mise en service</strong> : c'est un travail d'argumentation écrite, pas une case à cocher.<br>
+                        <b>Oui, et il pèse sur la décision</b> — <span class="lvl lvl-2">haut risque</span>. Voir les obligations ci-dessous.
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Étape 5 — Quelles obligations de transparence s'appliquent ?</h2>
+                <p>Indépendamment du niveau de risque, certains usages déclenchent des obligations d'information. Elles s'appliquent aussi aux systèmes à risque minimal.</p>
+                <table class="grid-table">
+                    <thead><tr><th style="width:38%">Situation</th><th>Obligation</th></tr></thead>
+                    <tbody>
+                        <tr><td>Interaction directe avec une personne physique</td><td>Informer qu'elle interagit avec un système d'IA, sauf si c'est manifeste au vu des circonstances.</td></tr>
+                        <tr><td>Génération de contenu de synthèse (texte, image, audio, vidéo)</td><td>Marquer le contenu dans un format lisible par machine et détectable comme généré artificiellement.</td></tr>
+                        <tr><td>Contenu constituant un hypertrucage</td><td>Divulguer que le contenu a été généré ou manipulé artificiellement.</td></tr>
+                        <tr><td>Texte publié pour informer le public sur des questions d'intérêt général</td><td>Divulguer la génération artificielle, sauf contrôle éditorial humain avec responsabilité assumée.</td></tr>
+                        <tr><td>Reconnaissance des émotions ou catégorisation biométrique</td><td>Informer les personnes exposées du fonctionnement du système.</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Synthèse — les quatre niveaux et leurs obligations</h2>
+                <table class="grid-table">
+                    <thead><tr><th style="width:18%">Niveau</th><th style="width:41%">Ce que vous devez faire</th><th>Applicable depuis</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td class="lvl lvl-1">Inacceptable</td>
+                            <td>Arrêter le système. Aucune voie de conformité.</td>
+                            <td>2 février 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="lvl lvl-2">Haut risque</td>
+                            <td><strong>Fournisseur&nbsp;:</strong> système de gestion des risques et de la qualité, gouvernance des données d'entraînement, documentation technique, journalisation, transparence envers le déployeur, supervision humaine, exactitude et robustesse, évaluation de conformité, marquage CE, enregistrement dans la base de données de l'Union.<br><strong>Déployeur&nbsp;:</strong> utiliser conformément à la notice, confier la supervision à des personnes compétentes, veiller à la pertinence des données d'entrée, conserver les journaux, <strong>informer les travailleurs et leurs représentants</strong> avant la mise en service, informer les personnes soumises à une décision, coopérer avec les autorités.</td>
+                            <td>2 août 2026 pour les domaines d'usage ; 2 août 2027 pour les composants de produits réglementés</td>
+                        </tr>
+                        <tr>
+                            <td class="lvl lvl-3">Transparence</td>
+                            <td>Informer, marquer, divulguer selon les cas de l'étape 5.</td>
+                            <td>2 août 2026</td>
+                        </tr>
+                        <tr>
+                            <td class="lvl lvl-4">Minimal</td>
+                            <td>Aucune obligation spécifique au titre du niveau de risque — <strong>mais l'obligation de littératie de l'article 4 s'applique quand même</strong>, et le RGPD continue de s'appliquer intégralement dès qu'il y a des données personnelles.</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="warn">
+                    <strong>L'obligation que presque personne n'a traitée.</strong> L'article 4 impose aux fournisseurs comme aux déployeurs de garantir un niveau suffisant de <strong>maîtrise de l'IA</strong> chez les personnes qui utilisent ces systèmes pour leur compte. Elle est applicable depuis le <strong>2 février 2025</strong>, <strong>sans seuil d'effectif</strong>, et elle vise donc l'entreprise de trois personnes comme le groupe de trois mille — y compris pour un simple assistant conversationnel utilisé en interne. C'est l'obligation la plus large du règlement, et la plus simple à satisfaire.
+                </div>
+                <p>Les plafonds de sanction, pour mémoire : jusqu'à <strong>35 M€ ou 7 %</strong> du chiffre d'affaires mondial pour les pratiques interdites, <strong>15 M€ ou 3 %</strong> pour le non-respect des autres obligations, <strong>7,5 M€ ou 1 %</strong> pour des informations inexactes fournies aux autorités. Pour les PME et les startups, c'est le montant le plus faible des deux qui s'applique.</p>
+            </section>
+
+            <section>
+                <h2>Modèle de registre des systèmes d'IA</h2>
+                <p>Un registre utile tient sur une ligne par système. Voici les colonnes qui suffisent à répondre à une autorité, à un client ou à un auditeur — et que vos équipes peuvent réellement maintenir.</p>
+                <table class="grid-table">
+                    <thead><tr><th style="width:26%">Colonne</th><th>Contenu attendu</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Identifiant</strong></td><td>Nom interne du système et service qui l'utilise.</td></tr>
+                        <tr><td><strong>Fournisseur</strong></td><td>Éditeur, modèle sous-jacent, version, date de mise en service.</td></tr>
+                        <tr><td><strong>Finalité déclarée</strong></td><td>Ce à quoi il sert réellement, en une phrase, dans le langage du métier.</td></tr>
+                        <tr><td><strong>Notre rôle</strong></td><td>Fournisseur, déployeur, ou les deux (étape 2).</td></tr>
+                        <tr><td><strong>Niveau de risque</strong></td><td>Résultat des étapes 3 à 5, <strong>avec la justification</strong>. C'est la colonne qui compte : un niveau sans motif ne vaut rien.</td></tr>
+                        <tr><td><strong>Données traitées</strong></td><td>Catégories de données, présence de données personnelles ou sensibles, lien vers le traitement au registre RGPD.</td></tr>
+                        <tr><td><strong>Supervision humaine</strong></td><td>Qui contrôle, à quel moment, avec quel pouvoir de correction ou d'arrêt.</td></tr>
+                        <tr><td><strong>Personnes informées</strong></td><td>Salariés, candidats, clients : qui a été informé, quand, par quel support.</td></tr>
+                        <tr><td><strong>Revue</strong></td><td>Date de la dernière vérification et responsable. Un registre non daté est un registre mort.</td></tr>
+                    </tbody>
+                </table>
+                <p>Deux erreurs à éviter dans la construction du registre. La première est de n'y inscrire que les outils validés par la DSI : les usages adoptés spontanément par les équipes sont presque toujours les plus nombreux, et ce sont eux qui créent le risque. La seconde est de viser l'exhaustivité parfaite avant de commencer — un registre couvrant les dix systèmes réellement utilisés vaut mieux qu'un projet de registre parfait jamais livré.</p>
+            </section>
+
+            <div class="licence">
+                <p><strong>Licence et réutilisation.</strong> Cet outil est publié sous <a href="https://creativecommons.org/licenses/by/4.0/deed.fr" rel="noopener">licence Creative Commons Attribution 4.0</a>. Vous pouvez le copier, l'adapter et l'intégrer à vos propres supports, y compris commerciaux, à condition de citer la source : <em>Grille de classification des risques AI Act, Jérôme Denis, JDENIS Consulting, jaydenis.com</em>.</p>
+                <p style="margin-bottom:0"><strong>Avertissement.</strong> Il s'agit d'un outil de travail destiné à structurer une première analyse, pas d'un conseil juridique. Le texte qui fait foi est le règlement (UE) 2024/1689 lui-même, complété par les lignes directrices de la Commission européenne. Pour les systèmes que cette grille classe en haut risque, comme pour la rédaction contractuelle avec vos fournisseurs, faites intervenir un avocat.</p>
+            </div>
+
+            <div class="founder">
+                <img src="jerome-denis.jpg" alt="Jérôme Denis, consultant IA et gouvernance des données à Toulouse" width="110" height="110">
+                <div>
+                    <p><strong>Jérôme Denis</strong> — Consultant senior IA &amp; Gouvernance Data, Toulouse. Plus de vingt ans en transformation numérique, expert auprès du Collège Numérique France 2030, certifié Sciconum (Galileo Global Education), intervenant dans 7 écoles supérieures. Cet outil est celui que j'utilise en mission ; il est publié librement parce qu'un cadre d'usage partagé vaut mieux qu'un cadre gardé.</p>
+                </div>
+            </div>
+
+            <div class="cta-band"><p>Besoin de dérouler cette grille sur vos propres systèmes ?<br>Le premier échange est gratuit et sans engagement.</p><a class="btn btn-primary" href="/#contact">En parler</a></div>
+
+            <section>
+                <div class="section-label">Pour aller plus loin</div>
+                <div class="related">
+                    <a href="/conformite-ai-act-gouvernance-donnees.html"><span class="kicker">Service</span><strong>Conformité AI Act &amp; gouvernance des données</strong></a>
+                    <a href="/formation-ia-entreprise-toulouse.html"><span class="kicker">Service</span><strong>Formation IA en entreprise — obligation de l'article 4</strong></a>
+                    <a href="/diagnostic-audit-ia-toulouse.html"><span class="kicker">Service</span><strong>Diagnostic &amp; audit IA pour TPE et PME</strong></a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <div>© 2026 JDENIS Consulting — Jérôme Denis, consultant IA à Toulouse</div>
+            <div>
+                <a href="/">Accueil</a>
+                <a href="/blog/">Blog</a>
+                <a href="/mentions-legales.html">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
