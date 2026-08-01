@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Espace privé — JDENIS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --ivoire:#FAF6EF; --marine:#1B2A4A; --or:#C49A45; --gris:#5A6478; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--ivoire); font-family:Inter,sans-serif; min-height:100vh;
+         display:flex; align-items:center; justify-content:center; padding:24px; }
+  .card { text-align:center; max-width:400px; width:100%; }
+  .logo { font-family:'Playfair Display',serif; font-size:28px; font-weight:700;
+          color:var(--marine); letter-spacing:.5px; }
+  .logo span { color:var(--or); }
+  .rule { width:40px; height:2px; background:var(--or); margin:16px auto 22px; }
+  h1 { font-family:'Playfair Display',serif; font-size:20px; font-weight:600;
+       color:var(--marine); margin-bottom:6px; }
+  .sub { font-size:13px; color:var(--gris); margin-bottom:26px; }
+  form { display:flex; gap:8px; }
+  input[type=password] { flex:1; background:#fff; border:1px solid #D8D2C4; border-radius:8px;
+       padding:11px 14px; font:inherit; font-size:14px; color:var(--marine); }
+  input[type=password]:focus { outline:2px solid var(--or); outline-offset:1px; border-color:var(--or); }
+  button { background:var(--marine); color:#F4EEE3; border:none; border-radius:8px;
+       padding:0 20px; font:inherit; font-size:14px; font-weight:500; cursor:pointer; }
+  button:hover { background:#24365C; }
+  .remember { display:inline-flex; align-items:center; gap:8px; margin-top:16px;
+       font-size:12.5px; color:var(--gris); cursor:pointer; }
+  .remember input { accent-color:var(--or); }
+  .err { color:#A32D2D; font-size:13px; margin-top:14px; min-height:18px; }
+  .note { font-size:11.5px; color:#9AA0AE; margin-top:24px; }
+  .forget { display:none; margin-top:10px; font-size:12px; }
+  .forget a { color:var(--gris); }
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="logo">JDENIS<span>.</span></div>
+  <div class="rule"></div>
+  <h1>Atelier éditorial</h1>
+  <p class="sub">Espace privé — saisissez votre phrase secrète</p>
+  <form id="f">
+    <input type="password" id="p" autocomplete="current-password" autofocus
+           aria-label="Phrase secrète">
+    <button type="submit">Entrer</button>
+  </form>
+  <label class="remember"><input type="checkbox" id="r" checked> Mémoriser sur cet appareil</label>
+  <p class="err" id="e" role="alert"></p>
+  <p class="forget" id="fg"><a href="#" id="fga">Oublier cet appareil</a></p>
+  <p class="note">Déchiffrement local AES-256 · aucune donnée envoyée</p>
+</main>
+<script>
+const BLOB = {"salt":"u6MIBga0ZJBT8aGDZvymUw==","iv":"5627oXVMUAK12dEC","ciphertext":"GmL7n/4Qx9zA+RaK9LFkO77807odCcW9Rsm0pvyVxX4sAB1Q6auO8Vnkj/Aq"};
+const ITERATIONS = 600000;
+const LS_KEY = 'studio_k';
+const ub64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const b64 = u8 => btoa(String.fromCharCode(...u8));
+
+async function deriveKey(phrase) {
+  const material = await crypto.subtle.importKey(
+    'raw', new TextEncoder().encode(phrase), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt: ub64(BLOB.salt), iterations: ITERATIONS, hash: 'SHA-256' },
+    material, { name: 'AES-GCM', length: 256 }, true, ['decrypt']);
+}
+async function decryptWith(key) {
+  const pt = await crypto.subtle.decrypt(
+    { name: 'AES-GCM', iv: ub64(BLOB.iv) }, key, ub64(BLOB.ciphertext));
+  return new TextDecoder().decode(pt);
+}
+
+const $ = id => document.getElementById(id);
+
+(async () => {
+  const stored = localStorage.getItem(LS_KEY);
+  if (stored) $('fg').style.display = 'block';
+  if (!stored) return;
+  try {
+    const key = await crypto.subtle.importKey(
+      'raw', ub64(stored), { name: 'AES-GCM' }, false, ['decrypt']);
+    location.replace(await decryptWith(key));
+  } catch { localStorage.removeItem(LS_KEY); $('fg').style.display = 'none'; }
+})();
+
+$('f').addEventListener('submit', async ev => {
+  ev.preventDefault();
+  $('e').textContent = '';
+  try {
+    const key = await deriveKey($('p').value);
+    const url = await decryptWith(key);
+    if ($('r').checked) {
+      localStorage.setItem(LS_KEY, b64(new Uint8Array(await crypto.subtle.exportKey('raw', key))));
+    }
+    location.replace(url);
+  } catch { $('e').textContent = 'Phrase incorrecte'; }
+});
+
+$('fga').addEventListener('click', ev => {
+  ev.preventDefault();
+  localStorage.removeItem(LS_KEY);
+  $('fg').style.display = 'none';
+});
+</script>
+</body>
+</html>
