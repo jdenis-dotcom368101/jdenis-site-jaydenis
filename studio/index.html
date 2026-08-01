@@ -44,13 +44,13 @@
   <h1>Atelier éditorial</h1>
   <p class="sub">Espace privé — saisissez votre phrase secrète</p>
   <form id="f">
-    <input type="password" id="p" autocomplete="current-password" autofocus
+    <input type="password" id="p" required autocomplete="current-password" autofocus
            aria-label="Phrase secrète">
     <button type="submit">Entrer</button>
   </form>
   <label class="remember"><input type="checkbox" id="r" checked> Mémoriser sur cet appareil</label>
   <p class="err" id="e" role="alert"></p>
-  <p class="forget" id="fg"><a href="#" id="fga">Oublier cet appareil</a></p>
+  <p class="forget" id="fg"><a href="#forget" id="fga">Oublier cet appareil</a></p>
   <p class="note">Déchiffrement local AES-256 · aucune donnée envoyée</p>
 </main>
 <script>
@@ -76,6 +76,11 @@ async function decryptWith(key) {
 const $ = id => document.getElementById(id);
 
 (async () => {
+  if (location.hash === '#forget') {
+    localStorage.removeItem(LS_KEY);
+    history.replaceState(null, '', location.pathname);
+    return;
+  }
   const stored = localStorage.getItem(LS_KEY);
   if (stored) $('fg').style.display = 'block';
   if (!stored) return;
@@ -88,15 +93,25 @@ const $ = id => document.getElementById(id);
 
 $('f').addEventListener('submit', async ev => {
   ev.preventDefault();
+  const btn = $('f').querySelector('button');
+  if (btn.disabled) return;
   $('e').textContent = '';
+  btn.disabled = true;
+  btn.textContent = 'Vérification…';
   try {
     const key = await deriveKey($('p').value);
     const url = await decryptWith(key);
     if ($('r').checked) {
-      localStorage.setItem(LS_KEY, b64(new Uint8Array(await crypto.subtle.exportKey('raw', key))));
+      try {
+        localStorage.setItem(LS_KEY, b64(new Uint8Array(await crypto.subtle.exportKey('raw', key))));
+      } catch {}
     }
     location.replace(url);
-  } catch { $('e').textContent = 'Phrase incorrecte'; }
+  } catch {
+    $('e').textContent = 'Phrase incorrecte';
+    btn.disabled = false;
+    btn.textContent = 'Entrer';
+  }
 });
 
 $('fga').addEventListener('click', ev => {
