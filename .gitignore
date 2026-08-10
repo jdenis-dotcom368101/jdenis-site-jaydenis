@@ -53,3 +53,4 @@ build/
 # Agent SEO/GEO (infra locale — ne jamais publier sur GitHub Pages)
 seo-agent/
 .claude/agents/
+netlify-uae/
