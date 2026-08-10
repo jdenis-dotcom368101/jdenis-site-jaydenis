@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>Jérôme Denis — Consultant IA (variante design)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Variante de design animée pour jaydenis.com — preview, non indexée.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F2E9;          /* papier crème chaud */
+    --paper-2:#EFE7D7;
+    --ink:#13110E;            /* encre quasi-noire chaude */
+    --ink-soft:#5A5246;
+    --gold:#C49A45;           /* or, dérivé de #d4a853 assombri pour le contraste AA */
+    --gold-bright:#D4A853;
+    --line:rgba(19,17,14,0.12);
+    --serif:'Playfair Display',Georgia,serif;
+    --sans:'Inter',system-ui,sans-serif;
+    --maxw:1240px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{ -webkit-font-smoothing:antialiased; }
+  html.lenis,html.lenis body{height:auto}
+  .lenis.lenis-smooth{scroll-behavior:auto !important}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;overflow-x:hidden}
+  body.preload *{transition:none !important}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.04;letter-spacing:-0.02em}
+  .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");}
+
+  /* ---------- preview badge ---------- */
+  .preview-badge{position:fixed;bottom:18px;left:18px;z-index:60;background:var(--ink);color:var(--paper);
+    font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:999px;
+    box-shadow:0 8px 24px rgba(0,0,0,.18)}
+  .preview-badge b{color:var(--gold-bright)}
+
+  /* ---------- header ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 0;
+    transition:background .4s ease,padding .4s ease,box-shadow .4s ease}
+  header.scrolled{background:rgba(247,242,233,.85);backdrop-filter:blur(12px);padding:14px 0;box-shadow:0 1px 0 var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--serif);font-weight:800;font-size:22px}
+  .logo span{color:var(--gold)}
+  nav.main{display:flex;gap:30px;align-items:center}
+  nav.main a{font-size:14px;font-weight:500;position:relative}
+  nav.main a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--gold);transition:width .35s cubic-bezier(.2,.7,.2,1)}
+  nav.main a:not(.btn):hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--paper);
+    padding:12px 22px;border-radius:999px;font-weight:600;font-size:14px;font-family:var(--sans);
+    overflow:hidden;position:relative;will-change:transform}
+  .btn span{position:relative;z-index:2}
+  .btn::before{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .45s cubic-bezier(.2,.7,.2,1);z-index:1}
+  .btn:hover::before{transform:translateY(0)}
+  .btn:hover{color:var(--ink)}
+  @media(max-width:780px){nav.main a:not(.btn){display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 60px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:30px}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+  .hero h1{font-size:clamp(44px,8vw,108px);font-weight:800}
+  .hero h1 .line{display:block;overflow:hidden}
+  .hero h1 .line>span{display:inline-block;will-change:transform}
+  .hero h1 .it{font-style:italic;font-weight:600;color:var(--gold)}
+  .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:48px;flex-wrap:wrap}
+  .hero-lede{max-width:430px;font-size:19px;color:var(--ink-soft)}
+  .hero-cta{display:flex;gap:14px;align-items:center}
+  .btn-ghost{border:1.5px solid var(--line);color:var(--ink);background:transparent;padding:12px 22px;border-radius:999px;font-weight:600;font-size:14px;transition:border-color .3s}
+  .btn-ghost:hover{border-color:var(--gold)}
+  .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scroll-cue .bar{width:1px;height:42px;background:linear-gradient(var(--gold),transparent);animation:cue 1.8s ease-in-out infinite}
+  @keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+  /* ---------- marquee ---------- */
+  .marquee{position:relative;z-index:2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0;overflow:hidden;background:var(--paper-2)}
+  .marquee .track{display:flex;gap:70px;width:max-content;animation:scroll 38s linear infinite;align-items:center}
+  .marquee:hover .track{animation-play-state:paused}
+  .marquee img{height:30px;width:auto;opacity:.55;filter:grayscale(1);transition:opacity .3s,filter .3s}
+  .marquee img:hover{opacity:1;filter:grayscale(0)}
+  .marquee .lbl{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-soft);white-space:nowrap}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section.block{position:relative;z-index:2;padding:130px 0}
+  .sec-label{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  .sec-title{font-size:clamp(30px,4.6vw,56px);max-width:780px;margin-bottom:18px}
+  .sec-title .it{font-style:italic;color:var(--gold)}
+  .sec-sub{font-size:19px;color:var(--ink-soft);max-width:560px}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:70px;border-top:1px solid var(--line);padding-top:50px}
+  .stat .num{font-family:var(--serif);font-weight:800;font-size:clamp(40px,5.5vw,72px);line-height:1;color:var(--ink)}
+  .stat .num .suf{color:var(--gold)}
+  .stat .cap{font-size:14px;color:var(--ink-soft);margin-top:10px;max-width:180px}
+  @media(max-width:780px){.stats{grid-template-columns:repeat(2,1fr);gap:36px 20px}}
+
+  /* approche — 3 temps numérotés */
+  .steps{margin-top:70px;border-top:1px solid var(--line)}
+  .step{display:grid;grid-template-columns:120px 1fr auto;gap:40px;align-items:start;padding:42px 0;border-bottom:1px solid var(--line);transition:padding-left .4s cubic-bezier(.2,.7,.2,1)}
+  .step:hover{padding-left:18px}
+  .step .idx{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--gold)}
+  .step h3{font-size:30px;margin-bottom:12px}
+  .step p{color:var(--ink-soft);max-width:560px}
+  .step .tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;padding-top:12px}
+  @media(max-width:780px){.step{grid-template-columns:60px 1fr;gap:20px}.step .tag{display:none}}
+
+  /* services cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+  .card{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;min-height:300px;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s}
+  .card:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(19,17,14,.10);border-color:var(--gold)}
+  .card .ico{font-size:26px;margin-bottom:auto}
+  .card h3{font-size:24px;margin:30px 0 12px}
+  .card p{color:var(--ink-soft);font-size:15px}
+  .card .go{margin-top:22px;font-weight:600;font-size:14px;color:var(--gold);display:inline-flex;gap:8px;align-items:center}
+  .card .go svg{transition:transform .3s}
+  .card:hover .go svg{transform:translateX(5px)}
+  @media(max-width:780px){.cards{grid-template-columns:1fr}}
+
+  /* HIERODEIIS feature band */
+  .feature{position:relative;z-index:2;background:var(--ink);color:var(--paper);padding:120px 0;overflow:hidden}
+  .feature .wrap{position:relative;z-index:2}
+  .feature .glow{position:absolute;top:-30%;right:-10%;width:60vw;height:60vw;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,168,83,.22),transparent 60%);z-index:1;filter:blur(20px)}
+  .feature .sec-label{color:var(--gold-bright)}
+  .feature h2{font-size:clamp(34px,5vw,68px);max-width:880px;margin-bottom:26px}
+  .feature h2 .it{font-style:italic;color:var(--gold-bright)}
+  .feature p{color:rgba(247,242,233,.7);max-width:580px;font-size:18px;margin-bottom:32px}
+  .feature .btn{background:var(--gold-bright);color:var(--ink)}
+  .feature .btn::before{background:var(--paper)}
+
+  /* CTA final */
+  .cta{position:relative;z-index:2;text-align:center;padding:150px 0}
+  .cta h2{font-size:clamp(40px,7vw,96px);font-weight:800}
+  .cta h2 .it{font-style:italic;color:var(--gold)}
+  .cta .btn{margin-top:40px;font-size:16px;padding:18px 36px}
+
+  footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:50px 0;font-size:14px;color:var(--ink-soft)}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{margin-right:18px}
+  footer a:hover{color:var(--gold)}
+
+  /* reveal animation base — progressive enhancement : visible par défaut,
+     masqué seulement si le JS tourne (html.js), révélé par .in */
+  .reveal{transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  html.js .reveal:not(.in){opacity:0;transform:translateY(34px)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1 !important;transform:none !important}
+    .marquee .track{animation:none}
+    .hero h1 .line>span{transform:none !important}
+    .scroll-cue{display:none}
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KQR2HQXM2L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KQR2HQXM2L');</script>
+</head>
+<body class="preload">
+<div class="grain"></div>
+<div class="preview-badge">Preview design · <b>variante</b> jaydenis.com</div>
+
+<header id="header">
+  <div class="wrap">
+    <a class="logo" href="#">JDENIS<span>.</span></a>
+    <nav class="main">
+      <a href="#approche">Approche</a>
+      <a href="#services">Services</a>
+      <a href="#hierodeiis">HIERODEIIS</a>
+      <a class="btn" href="#contact"><span>Diagnostic gratuit</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow" id="eyebrow">Consultant IA · France · Dubaï · Flandre</div>
+      <h1 id="heroTitle">
+        <span class="line"><span>L'intelligence</span></span>
+        <span class="line"><span>artificielle, <span class="it">enfin</span></span></span>
+        <span class="line"><span>au service du métier.</span></span>
+      </h1>
+      <div class="hero-foot">
+        <p class="hero-lede reveal d2">Diagnostic, formation et architecture IA pour dirigeants. Vingt ans de transformation, 50+ organisations accompagnées. <em>Keeping AI Human.</em></p>
+        <div class="hero-cta reveal d3">
+          <a class="btn magnetic" href="#contact"><span>Demander un diagnostic</span></a>
+          <a class="btn-ghost" href="#approche">L'approche</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>Défiler</span><span class="bar"></span></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="track" id="track">
+      <span class="lbl">Ils m'ont fait confiance —</span>
+      <img src="logo-spelem.png" alt="SPELEM"><img src="logo-france-travail.png" alt="France Travail">
+      <img src="logo-mimbus.png" alt="MIMBUS"><img src="logo-artshopping.png" alt="Art Shopping">
+      <img src="logo-qualiopi.png" alt="Qualiopi"><img src="logos-tech/claude.svg" alt="Claude">
+      <img src="logos-tech/openai.svg" alt="OpenAI"><img src="logos-tech/googlegemini.svg" alt="Gemini">
+      <span class="lbl">Expert Collège Numérique France 2030 —</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <section class="block" id="preuve">
+    <div class="wrap">
+      <div class="sec-label reveal">La preuve, pas la promesse</div>
+      <h2 class="sec-title reveal d1">Des résultats <span class="it">concrets</span>, mesurés sur le terrain.</h2>
+      <div class="stats">
+        <div class="stat reveal"><div class="num" data-count="50" data-suffix="+"><span class="val">0</span><span class="suf">+</span></div><div class="cap">entreprises accompagnées</div></div>
+        <div class="stat reveal d1"><div class="num" data-count="20" data-suffix=" ans"><span class="val">0</span><span class="suf"> ans</span></div><div class="cap">de transformation numérique</div></div>
+        <div class="stat reveal d2"><div class="num" data-count="7" data-suffix=""><span class="val">0</span><span class="suf"></span></div><div class="cap">écoles supérieures où j'enseigne</div></div>
+        <div class="stat reveal d3"><div class="num" data-count="3" data-suffix=" pays"><span class="val">0</span><span class="suf"> pays</span></div><div class="cap">France · Dubaï · Flandre</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROCHE en 3 temps -->
+  <section class="block" id="approche" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-label reveal">L'approche</div>
+      <h2 class="sec-title reveal d1">Trois temps, du cadrage à la <span class="it">valeur</span>.</h2>
+      <div class="steps">
+        <div class="step reveal"><div class="idx">01</div><div><h3>Diagnostic</h3><p>On part de vos processus et de vos données, jamais de l'outil. Cas d'usage priorisés par ROI, angles morts explicités côté DSI et RH.</p></div><div class="tag">Comprendre</div></div>
+        <div class="step reveal"><div class="idx">02</div><div><h3>Formation</h3><p>Des décideurs et des équipes qui maîtrisent vraiment ChatGPT, Claude et Gemini sur leurs cas réels. Cadre sécurisé, finançable OPCO.</p></div><div class="tag">Outiller</div></div>
+        <div class="step reveal"><div class="idx">03</div><div><h3>Architecture</h3><p>Conception de la solution sur mesure : agents, RAG, MCP, low-code. Du prototype au déploiement, sans dépendance éditeur.</p></div><div class="tag">Transformer</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="block" id="services" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-label reveal">Services</div>
+      <h2 class="sec-title reveal d1">Un accompagnement de l'audit au déploiement.</h2>
+      <div class="cards">
+        <div class="card reveal"><div class="ico">🔍</div><h3>Diagnostic & Audit IA</h3><p>Audit de maturité et audit indépendant de vos solutions existantes. Conformité AI Act. Diagnostic initial gratuit.</p><span class="go">En savoir plus <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+        <div class="card reveal d1"><div class="ico">🎯</div><h3>Formation IA entreprise</h3><p>Programmes intra de 1 à 5 jours, par profil et par métier. ChatGPT, Claude, Gemini, agents. Finançable OPCO.</p><span class="go">En savoir plus <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+        <div class="card reveal d2"><div class="ico">🏗️</div><h3>Architecture IA</h3><p>Agents autonomes, RAG, MCP, fine-tuning, low-code. Coûts d'exploitation chiffrés avant projet, réversibilité garantie.</p><span class="go">En savoir plus <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIERODEIIS feature -->
+  <section class="feature" id="hierodeiis">
+    <div class="glow"></div>
+    <div class="wrap">
+      <div class="sec-label reveal">Méthode signature</div>
+      <h2 class="reveal d1">HIERODEIIS — l'IA <span class="it">s'apprend</span> entre pairs d'un même secteur.</h2>
+      <p class="reveal d2">Une immersion sectorielle de trois jours, en cohorte restreinte de dirigeants. Formation, diagnostic, transformation. Au terme : une feuille de route IA exploitable.</p>
+      <a class="btn magnetic reveal d3" href="#"><span>Découvrir la méthode</span></a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <div class="sec-label reveal" style="text-align:center">Parlons-en</div>
+      <h2 class="reveal d1">Et si l'IA produisait<br>enfin de la <span class="it">valeur</span> ?</h2>
+      <a class="btn magnetic reveal d2" href="mailto:jdenis@jaydenis.com"><span>Demander mon diagnostic gratuit</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 JDENIS Consulting — Jérôme Denis · <em>Keeping AI Human</em></div>
+    <div><a href="#">Accueil</a><a href="#services">Services</a><a href="#hierodeiis">HIERODEIIS</a></div>
+  </div>
+</footer>
+
+<!-- Libs : Lenis (smooth scroll) + GSAP ScrollTrigger -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+  window.addEventListener('load', function(){
+    document.body.classList.remove('preload');
+    var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+    // duplique le marquee pour une boucle sans couture
+    var track = document.getElementById('track');
+    if (track) track.innerHTML += track.innerHTML;
+
+    // header au scroll
+    var header = document.getElementById('header');
+    function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 40); }
+    onScroll();
+
+    if (reduce || !window.gsap){
+      window.addEventListener('scroll', onScroll);
+      document.querySelectorAll('.hero h1 .line>span').forEach(function(s){ s.style.transform='none'; });
+      document.querySelectorAll('.reveal').forEach(function(e){ e.classList.add('in'); });
+      return;
+    }
+
+    // Lenis smooth scroll
+    if (window.Lenis){
+      var lenis = new Lenis({ lerp:0.09, wheelMultiplier:0.9 });
+      function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+      lenis.on('scroll', function(){ onScroll(); if(window.ScrollTrigger) ScrollTrigger.update(); });
+      // ancres internes via Lenis
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+          var id = a.getAttribute('href'); if(id.length<2) return;
+          var el = document.querySelector(id); if(!el) return;
+          e.preventDefault(); lenis.scrollTo(el, { offset:-60 });
+        });
+      });
+    } else {
+      window.addEventListener('scroll', onScroll);
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero : révélation du titre mot/ligne par stagger + eyebrow
+    var heroSpans = document.querySelectorAll('.hero h1 .line>span');
+    gsap.set(heroSpans, { yPercent:115 });
+    var tl = gsap.timeline({ delay:.15 });
+    tl.from('#eyebrow', { opacity:0, y:16, duration:.7, ease:'power2.out' })
+      .to(heroSpans, { yPercent:0, duration:1.05, ease:'expo.out', stagger:.12 }, '-=.4');
+
+    // reveal au scroll (batch)
+    ScrollTrigger.batch('.reveal', {
+      start:'top 86%',
+      onEnter:function(els){ els.forEach(function(el){ el.classList.add('in'); }); }
+    });
+
+    // compteurs animés
+    document.querySelectorAll('.stat .num').forEach(function(num){
+      var target = parseInt(num.getAttribute('data-count'),10) || 0;
+      var valEl = num.querySelector('.val');
+      ScrollTrigger.create({
+        trigger:num, start:'top 88%', once:true,
+        onEnter:function(){
+          var obj={v:0};
+          gsap.to(obj,{ v:target, duration:1.4, ease:'power2.out',
+            onUpdate:function(){ valEl.textContent = Math.round(obj.v); } });
+        }
+      });
+    });
+
+    // parallaxe légère du halo HIERODEIIS
+    gsap.to('.feature .glow', {
+      yPercent:30, ease:'none',
+      scrollTrigger:{ trigger:'.feature', start:'top bottom', end:'bottom top', scrub:true }
+    });
+
+    // boutons magnétiques
+    document.querySelectorAll('.magnetic').forEach(function(btn){
+      btn.addEventListener('mousemove', function(e){
+        var r = btn.getBoundingClientRect();
+        var x = e.clientX - r.left - r.width/2;
+        var y = e.clientY - r.top - r.height/2;
+        gsap.to(btn, { x:x*0.3, y:y*0.4, duration:.4, ease:'power2.out' });
+      });
+      btn.addEventListener('mouseleave', function(){
+        gsap.to(btn, { x:0, y:0, duration:.6, ease:'elastic.out(1,.4)' });
+      });
+    });
+  });
+</script>
+</body>
+</html>

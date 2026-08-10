@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>Jérôme Denis — Consultant IA (variante design 3)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Jérôme Denis, consultant senior IA et gouvernance des données. Diagnostic, formation et architecture IA pour TPE, PME et grands groupes. Keeping AI Human.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jérôme Denis — Consultant IA">
+<meta property="og:description" content="Diagnostic, formation et architecture IA pour dirigeants. 50+ entreprises, expert France 2030.">
+<meta property="og:image" content="https://jaydenis.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;         /* tout le site sur fond blanc */
+    --paper-2:#F5F6F8;       /* gris cool très léger : cartes / bandes */
+    --paper-3:#ECEEF3;
+    --ink:#14161C;           /* near-black cool (tech) */
+    --ink-soft:#5A616E;
+    --clay:#1E47F0;          /* accent technologique : bleu cobalt électrique (ex-terracotta) */
+    --clay-deep:#1535C7;
+    --teal:#1F6F66;          /* accent secondaire sobre */
+    --teal-deep:#155049;
+    --spark:#F23E7A;         /* accent créatif complémentaire au cobalt (pop framboise) */
+    --noir:#F5F6F8;          /* plus de sections sombres : bandes blanc cassé */
+    --line:rgba(20,22,28,.12);
+    --line-d:rgba(20,22,28,.12);
+    --serif:'Newsreader',Georgia,serif;
+    --sans:'Inter',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body.preload *{transition:none!important}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 34px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-0.01em}
+  .label{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+  .clay{color:var(--clay)}.tealc{color:var(--teal)}.spark{color:var(--spark)}
+  .it{font-style:italic;font-weight:500}
+
+  .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .preview-badge{position:fixed;bottom:16px;left:16px;z-index:60;background:var(--ink);color:var(--paper);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:7px}
+  .preview-badge b{color:var(--clay)}
+
+  /* header */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;padding:20px 0;transition:padding .4s,background .4s,box-shadow .4s,backdrop-filter .4s}
+  header.scrolled{padding:12px 0;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .logo{font-family:var(--serif);font-weight:700;font-size:21px}
+  .logo i{color:var(--clay);font-style:normal}
+  nav.main{display:flex;gap:24px;align-items:center}
+  nav.main a:not(.btn){font-size:14px;font-weight:500;position:relative}
+  nav.main a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--clay);transition:width .35s cubic-bezier(.2,.7,.2,1)}
+  nav.main a:not(.btn):hover::after{width:100%;background:var(--spark)}
+  nav.main a:not(.btn):hover{color:var(--spark)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;position:relative;overflow:hidden;will-change:transform}
+  .btn span{position:relative;z-index:2}
+  .btn::before{content:"";position:absolute;inset:0;background:var(--clay);transform:translateY(101%);transition:transform .42s cubic-bezier(.2,.7,.2,1)}
+  .btn:hover::before{transform:translateY(0)}.btn:hover{color:#fff}
+  @media(max-width:920px){nav.main a:not(.btn){display:none}}
+
+  /* hero */
+  .hero{position:relative;z-index:2;padding:140px 0 70px}
+  .hero .wrap{display:grid;grid-template-columns:1.5fr .78fr;gap:50px;align-items:center}
+  .hero .eyebrow{display:flex;align-items:center;gap:11px;color:var(--clay);margin-bottom:24px}
+  .hero .eyebrow::before{content:"";width:38px;height:1px;background:var(--clay)}
+  .hero h1{font-size:clamp(40px,6vw,82px);font-weight:600}
+  .hero h1 .l{display:block;overflow:hidden}
+  .hero h1 .l>span{display:inline-block;will-change:transform}
+  .tw-wrap{display:inline-block}
+  .tw{color:var(--clay)}
+  .caret{display:inline-block;width:2px;height:.82em;background:var(--clay);margin-left:3px;vertical-align:-6%;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .hero-lede{margin-top:26px;max-width:540px;font-size:19px;color:var(--ink-soft)}
+  .hero-cta{margin-top:30px;display:flex;gap:13px;align-items:center;flex-wrap:wrap}
+  .btn-ghost{border:1.5px solid var(--line);padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;transition:border-color .3s}
+  .btn-ghost:hover{border-color:var(--clay);color:var(--clay)}
+  .hero-card{position:relative;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .hero-card img{width:92px;height:92px;border-radius:50%;object-fit:cover;border:2px solid var(--clay)}
+  .hero-card .nm{font-family:var(--serif);font-weight:600;font-size:20px;margin-top:14px}
+  .hero-card .rl{font-size:13.5px;color:var(--ink-soft);margin-top:3px}
+  .hero-card .mini{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .hero-card .mini span{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-deep);border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+  @media(max-width:880px){.hero .wrap{grid-template-columns:1fr}.hero-card{max-width:340px}}
+
+  /* marquee */
+  .marquee{position:relative;z-index:2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;overflow:hidden;background:var(--paper-2)}
+  .marquee .track{display:flex;gap:46px;width:max-content;align-items:center;animation:scroll 36s linear infinite}
+  .marquee:hover .track{animation-play-state:paused}
+  .marquee .mi{font-family:var(--serif);font-size:19px;color:var(--ink-soft);white-space:nowrap;display:flex;align-items:center;gap:46px}
+  .marquee .mi::after{content:"●";color:var(--clay);font-size:8px}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* références clients — deux rubans animés sens inverses, N&B → couleur au survol */
+  .refs{padding:92px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+  .refs .rhead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:42px}
+  .refs .rhead h2{font-size:clamp(26px,3.6vw,44px)}
+  .refs .rhead .cnt{text-align:right}
+  .refs .rhead .cnt b{font-family:var(--serif);font-weight:600;font-size:clamp(44px,5.6vw,78px);line-height:.85;color:var(--spark);display:block}
+  .refs .rhead .cnt small{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-top:8px}
+  .refrow{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .refrow+.refrow{margin-top:16px}
+  .reftrack{display:flex;gap:16px;width:max-content;align-items:stretch;animation:scroll 42s linear infinite}
+  .reftrack.rev{animation-direction:reverse;animation-duration:50s}
+  .refitem{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:9px;height:78px;min-width:176px;padding:0 30px;border:1px solid var(--line);border-radius:13px;background:var(--paper);transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .45s,background .45s,box-shadow .45s}
+  .refitem:hover{transform:translateY(-5px);border-color:var(--clay);background:var(--paper);box-shadow:0 14px 30px rgba(20,22,28,.08)}
+  .refitem img{max-height:30px;width:auto;filter:grayscale(1) opacity(.6);transition:filter .45s}
+  .refitem:hover img{filter:grayscale(0) opacity(1)}
+  .refitem .wm{font-family:var(--serif);font-weight:600;font-size:19px;color:var(--ink-soft);white-space:nowrap;letter-spacing:-.01em;transition:color .45s}
+  .refitem:hover .wm{color:var(--ink)}
+  .refitem .wm i{font-style:normal;color:var(--clay);transition:color .45s}
+  .refitem:hover .wm i{color:var(--spark)}
+
+  /* sections */
+  section{position:relative;z-index:2}
+  .pad{padding:104px 0}
+  .dark{background:var(--noir);color:var(--ink)}
+  .alt{background:var(--paper-2)}
+  .sec-head{max-width:760px;margin-bottom:54px}
+  .sec-kicker{color:var(--clay);margin-bottom:16px}
+  .dark .sec-kicker{color:var(--clay)}
+  .sec-title{font-size:clamp(30px,4.4vw,52px)}
+  .sec-sub{font-size:18px;color:var(--ink-soft);margin-top:16px}
+  .dark .sec-sub{color:var(--ink-soft)}
+
+  /* intro / constat */
+  .intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .intro p{font-size:18px;margin-bottom:18px;color:var(--ink)}
+  .intro p.soft{color:var(--ink-soft);font-size:16px}
+  .intro-fig{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+  .intro-fig img{width:100%;height:360px;object-fit:cover;filter:saturate(.85) contrast(1.02)}
+  @media(max-width:820px){.intro{grid-template-columns:1fr;gap:28px}}
+
+  /* services détaillés */
+  .svc{display:grid;grid-template-columns:1fr;gap:18px}
+  .svc-row{display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:border-color .4s,transform .5s cubic-bezier(.2,.7,.2,1)}
+  .svc-row:hover{border-color:var(--clay);transform:translateY(-4px)}
+  .svc-row .ph{height:100%;min-height:230px;overflow:hidden}
+  .svc-row .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+  .svc-row:hover .ph img{transform:scale(1.05)}
+  .svc-row .bd{padding:30px 34px 30px 0}
+  .svc-row .n{font-size:13px;font-weight:700;color:var(--clay);letter-spacing:.04em}
+  .svc-row h3{font-size:27px;margin:8px 0 12px}
+  .svc-row p{color:var(--ink-soft);font-size:15.5px;margin-bottom:14px}
+  .svc-row ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .svc-row li{font-size:13px;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);border-radius:7px;padding:6px 11px}
+  @media(max-width:760px){.svc-row{grid-template-columns:1fr}.svc-row .bd{padding:0 24px 26px}.svc-row .ph{min-height:200px}}
+
+  /* secteurs */
+  .sectors{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .sector{border:1px solid var(--line);border-radius:14px;padding:24px 22px;background:var(--paper);transition:background .4s,border-color .4s,transform .4s}
+  .sector:hover{background:var(--paper-2);border-color:var(--clay);transform:translateY(-4px)}
+  .sector .ic{font-size:24px;margin-bottom:12px}
+  .sector h3{font-size:18px;font-weight:600}
+  .sector p{font-size:13.5px;color:var(--ink-soft);margin-top:6px}
+  @media(max-width:880px){.sectors{grid-template-columns:repeat(2,1fr)}}
+
+  /* méthode steps */
+  .steps{border-top:1px solid var(--line-d)}
+  .dark .step{border-bottom:1px solid var(--line-d)}
+  .step{display:grid;grid-template-columns:90px 1fr auto;gap:32px;align-items:start;padding:34px 0;transition:padding-left .4s cubic-bezier(.2,.7,.2,1)}
+  .step:hover{padding-left:14px}
+  .step .idx{font-family:var(--serif);font-size:26px;color:var(--clay)}
+  .step h3{font-size:25px;margin-bottom:8px}
+  .step p{color:var(--ink-soft);max-width:620px;font-size:15.5px}
+  .step .tg{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;padding-top:9px}
+  @media(max-width:760px){.step{grid-template-columns:54px 1fr;gap:16px}.step .tg{display:none}}
+
+  /* stack */
+  .stack{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:14px}
+  .chipimg{display:flex;flex-direction:column;align-items:center;gap:9px;border:1px solid var(--line);border-radius:12px;padding:18px 8px;background:var(--paper)}
+  .chipimg img{width:30px;height:30px;object-fit:contain}
+  .chipimg span{font-size:11.5px;font-weight:600;text-align:center;color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+  .chips .c{border:1.5px solid var(--teal);color:var(--teal-deep);border-radius:999px;padding:7px 15px;font-size:12.5px;font-weight:600}
+  @media(max-width:880px){.stack{grid-template-columns:repeat(3,1fr)}}
+
+  /* financement */
+  .fin{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .fin .f{border:1px solid var(--line);border-radius:14px;padding:22px 20px;background:var(--paper)}
+  .fin .f .h{font-family:var(--serif);font-weight:600;font-size:18px;margin-bottom:7px}
+  .fin .f .h b{color:var(--clay)}
+  .fin .f p{font-size:14px;color:var(--ink-soft)}
+  @media(max-width:880px){.fin{grid-template-columns:1fr}}
+  .disclaimer{margin-top:18px;font-size:13.5px;color:var(--ink-soft);font-style:italic}
+
+  /* bio */
+  .bio{display:grid;grid-template-columns:.62fr 1.38fr;gap:46px;align-items:start}
+  .bio-photo img{width:100%;max-width:280px;border-radius:14px;aspect-ratio:4/5;object-fit:cover}
+  .bio-photo .cap{margin-top:12px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+  .bio p{font-size:17px;margin-bottom:16px}
+  .bio p.soft{color:var(--ink-soft);font-size:15.5px}
+  .bio .creds{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+  .bio .cred{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12px;font-weight:600}
+  .bio .cred b{color:var(--clay)}
+  @media(max-width:760px){.bio{grid-template-columns:1fr;gap:26px}.bio-photo img{max-width:200px}}
+
+  /* conférences */
+  .conf-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:38px}
+  .conf-photos figure{position:relative;overflow:hidden;border-radius:14px}
+  .conf-photos img{width:100%;height:300px;object-fit:cover}
+  .conf-photos figcaption{position:absolute;left:14px;bottom:12px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;background:rgba(23,19,16,.62);color:var(--paper);backdrop-filter:blur(5px);padding:6px 10px;border-radius:7px}
+  .conf-list{border-top:1px solid var(--line)}
+  .conf{display:grid;grid-template-columns:80px 1fr auto;gap:26px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);transition:padding-left .4s cubic-bezier(.2,.7,.2,1)}
+  .conf:hover{padding-left:12px}
+  .conf .yr{font-size:13px;font-weight:700;color:var(--clay)}
+  .conf h3{font-size:clamp(18px,2.1vw,24px);font-weight:500}
+  .conf .venue{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+  @media(max-width:760px){.conf-photos{grid-template-columns:1fr}.conf-photos img{height:220px}.conf{grid-template-columns:54px 1fr;gap:14px}.conf .venue{display:none}}
+
+  /* partenaires */
+  .partners{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .partner{display:flex;gap:18px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--paper);transition:border-color .4s}
+  .partner:hover{border-color:var(--clay)}
+  .partner .pl{font-family:var(--serif);font-weight:700;font-size:22px;flex-shrink:0}
+  .partner .pl b{color:var(--clay)}
+  .partner h3{font-size:18px;font-weight:600}
+  .partner p{font-size:14px;color:var(--ink-soft);margin-top:4px}
+  @media(max-width:760px){.partners{grid-template-columns:1fr}}
+
+  /* hierodeiis */
+  .feature{overflow:hidden}
+  .feature{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .feature .glow{position:absolute;right:-12%;top:-20%;width:52vw;height:52vw;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(30,71,240,.14),transparent 62%);z-index:1}
+  .feature .wrap{position:relative;z-index:2}
+  .feature h2{font-size:clamp(32px,4.8vw,64px);max-width:900px;margin-bottom:22px}
+  .feature p{color:var(--ink-soft);max-width:600px;font-size:17px;margin-bottom:28px}
+  .feature .btn{background:var(--clay);color:#fff}.feature .btn::before{background:var(--ink)}
+
+  /* faq */
+  .faq details{border-bottom:1px solid var(--line);padding:4px 0}
+  .faq summary{cursor:pointer;list-style:none;font-family:var(--serif);font-weight:600;font-size:19px;padding:18px 40px 18px 0;position:relative}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:6px;top:16px;color:var(--clay);font-size:22px}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{padding:0 0 18px;color:var(--ink-soft);font-size:15.5px;max-width:760px}
+
+  /* cta */
+  .cta{text-align:center}
+  .cta h2{font-size:clamp(38px,6.4vw,92px)}
+  .cta .btn{margin-top:32px;font-size:15px;padding:16px 32px}
+
+  footer{border-top:1px solid var(--line);padding:42px 0;font-size:14px;color:var(--ink-soft)}
+  footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  footer a:hover{color:var(--clay)}
+
+  .reveal{transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  html.js .reveal:not(.in){opacity:0;transform:translateY(30px)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}.marquee .track{animation:none}.caret{animation:none}.hero h1 .l>span{transform:none!important}}
+</style>
+</head>
+<body class="preload">
+<div class="grain"></div>
+
+<header id="header">
+  <div class="wrap">
+    <a class="logo" href="#">JDENIS<i>.</i></a>
+    <nav class="main">
+      <a href="#expertises">Expertises</a>
+      <a href="#secteurs">Secteurs</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#conferences">Conférences</a>
+      <a href="#hierodeiis">HIERODEIIS</a>
+      <a class="btn" href="#contact"><span>Diagnostic gratuit</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow label">Consultant IA · Toulouse · Dubaï · Bruges</div>
+        <h1>
+          <span class="l"><span>J'aide les dirigeants</span></span>
+          <span class="l"><span>à <span class="tw-wrap"><span class="tw">diagnostiquer.</span><span class="caret"></span></span></span></span>
+        </h1>
+        <p class="hero-lede reveal d1">Diagnostic, formation et architecture IA pour TPE, PME et grands groupes. Je transforme l'intelligence artificielle en valeur concrète : cas d'usage à fort ROI, équipes autonomes, solutions sur mesure. <em>Keeping AI Human.</em></p>
+        <div class="hero-cta reveal d2">
+          <a class="btn magnetic" href="#contact"><span>Demander un diagnostic</span></a>
+          <a class="btn-ghost" href="#expertises">Mes expertises</a>
+        </div>
+      </div>
+      <aside class="hero-card reveal d2">
+        <img src="img/portrait.jpg" alt="Jérôme Denis, consultant IA">
+        <div class="nm">Jérôme Denis</div>
+        <div class="rl">Consultant senior IA & gouvernance des données</div>
+        <div class="mini"><span>20+ ans</span><span>50+ entreprises</span><span>France 2030</span><span>Qualiopi</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="track" id="track">
+      <span class="mi">Collège Numérique France 2030</span><span class="mi">Certifié Qualiopi</span>
+      <span class="mi">Intervenant dans 7 écoles supérieures</span><span class="mi">50+ entreprises accompagnées</span>
+      <span class="mi">TBS · YNOV · Purpan · Digital Campus</span><span class="mi">Co-fondateur NOIA NOGAIN & AIVALUE</span>
+    </div>
+  </div>
+
+  <!-- CONSTAT / INTRO -->
+  <section class="pad" id="constat">
+    <div class="wrap">
+      <div class="intro">
+        <div class="reveal">
+          <div class="sec-kicker label">Le constat</div>
+          <h2 class="sec-title">L'IA déçoit quand on déploie l'outil <span class="clay it">avant</span> d'avoir compris le problème.</h2>
+          <p style="margin-top:20px">Les entreprises investissent, multiplient les preuves de concept, et constatent quelques mois plus tard que la valeur attendue ne s'est pas matérialisée. Ce n'est pas un échec technologique : c'est un échec d'<strong>appropriation</strong>.</p>
+          <p class="soft">Mon rôle : partir de vos processus et de vos données, prioriser les cas d'usage à fort retour sur investissement, et faire monter vos équipes en compétence — avec la DSI et les RH dans la boucle dès le départ.</p>
+        </div>
+        <div class="intro-fig reveal d1"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=720&fit=crop" alt="Tableau de bord d'analyse de données et de priorisation des cas d'usage IA" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RÉFÉRENCES CLIENTS -->
+  <section class="refs" id="references">
+    <div class="wrap">
+      <div class="rhead reveal">
+        <div>
+          <div class="sec-kicker label">Références</div>
+          <h2>Ils m'ont fait <span class="spark it">confiance</span>.</h2>
+        </div>
+        <div class="cnt"><b>50+</b><small>entreprises & 7 écoles</small></div>
+      </div>
+    </div>
+    <div class="refrow">
+      <div class="reftrack" data-dup>
+        <div class="refitem"><img src="logo-spelem.png" alt="SPELEM"></div>
+        <div class="refitem"><img src="logo-france-travail.png" alt="France Travail"></div>
+        <div class="refitem"><img src="logo-mimbus.png" alt="MIMBUS"></div>
+        <div class="refitem"><span class="wm">ON-X<i>.</i></span></div>
+        <div class="refitem"><img src="logos/laclim.png" alt="LACLIM"></div>
+        <div class="refitem"><img src="logos/vrshow.png" alt="VR-SHOW"></div>
+        <div class="refitem"><img src="logo-artshopping.png" alt="Art Shopping Paris"></div>
+        <div class="refitem"><img src="logo-ascom.png" alt="AS'COM"></div>
+      </div>
+    </div>
+    <div class="refrow">
+      <div class="reftrack rev" data-dup>
+        <div class="refitem"><img src="logos/tbs.webp" alt="TBS Education"></div>
+        <div class="refitem"><span class="wm">YNOV<i>.</i></span></div>
+        <div class="refitem"><img src="logos/lisaa.svg" alt="LISAA"></div>
+        <div class="refitem"><img src="logos/purpan.svg" alt="Purpan"></div>
+        <div class="refitem"><img src="logos/mediaschool.png" alt="MediaSchool"></div>
+        <div class="refitem"><img src="logos/digitalcampus.svg" alt="Digital Campus"></div>
+        <div class="refitem"><span class="wm">Institut Limayrac<i>.</i></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISES / SERVICES détaillés -->
+  <section class="alt pad" id="expertises">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker label">Expertises</div>
+        <h2 class="sec-title">Un accompagnement de l'audit au déploiement.</h2>
+        <p class="sec-sub">Trois métiers complémentaires, du cadrage stratégique à la solution en production.</p>
+      </div>
+      <div class="svc">
+        <article class="svc-row reveal">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=500&fit=crop" alt="Diagnostic et audit IA — analyse de la maturité et des données" loading="lazy"></div>
+          <div class="bd">
+            <div class="n">01 — Conseil</div>
+            <h3>Diagnostic & audit IA</h3>
+            <p>Audit de maturité de votre organisation et audit indépendant de vos solutions existantes. Cartographie des processus, cas d'usage priorisés par ROI, roadmap chiffrée. Diagnostic initial gratuit.</p>
+            <ul><li>Maturité IA</li><li>Cas d'usage ROI</li><li>Audit de solutions</li><li>Conformité AI Act</li><li>Gouvernance des données</li></ul>
+          </div>
+        </article>
+        <article class="svc-row reveal">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&h=500&fit=crop" alt="Formation IA en entreprise pour dirigeants et équipes" loading="lazy"></div>
+          <div class="bd">
+            <div class="n">02 — Formation</div>
+            <h3>Formation IA en entreprise</h3>
+            <p>Programmes intra de 1 à 5 jours, par profil et par métier. Vos équipes maîtrisent vraiment ChatGPT, Claude et Gemini sur leurs cas réels, dans un cadre de confidentialité maîtrisé. Finançable OPCO.</p>
+            <ul><li>Dirigeants & COMEX</li><li>Prompting avancé</li><li>Agents & automatisation</li><li>Charte d'usage</li><li>Cadre Qualiopi</li></ul>
+          </div>
+        </article>
+        <article class="svc-row reveal">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=700&h=500&fit=crop" alt="Architecture de solutions IA sur mesure — agents, RAG, MCP" loading="lazy"></div>
+          <div class="bd">
+            <div class="n">03 — Ingénierie</div>
+            <h3>Architecture & solutions IA</h3>
+            <p>Conception de la solution adaptée à vos processus : agents autonomes, RAG documentaire, connexions MCP, fine-tuning, low-code. Du prototype au déploiement, coûts d'exploitation chiffrés, sans dépendance éditeur.</p>
+            <ul><li>Agents IA</li><li>RAG · MCP</li><li>Fine-tuning</li><li>Low-code</li><li>Réversibilité</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTEURS -->
+  <section class="pad" id="secteurs">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker label">Secteurs</div>
+        <h2 class="sec-title">Tous secteurs, des contraintes réelles.</h2>
+        <p class="sec-sub">Une lecture des cas d'usage calibrée pour votre métier, pas des exemples génériques.</p>
+      </div>
+      <div class="sectors">
+        <div class="sector reveal"><div class="ic">🏗️</div><h3>BTP</h3><p>Devis, suivi de chantier, mémoires techniques.</p></div>
+        <div class="sector reveal d1"><div class="ic">🏭</div><h3>Industrie</h3><p>Maintenance, qualité, documentation technique.</p></div>
+        <div class="sector reveal d2"><div class="ic">📦</div><h3>Logistique</h3><p>Planification, exceptions, relation transporteurs.</p></div>
+        <div class="sector reveal d3"><div class="ic">🛠️</div><h3>Maintenance</h3><p>Interventions, comptes rendus, base de connaissance.</p></div>
+        <div class="sector reveal"><div class="ic">🛒</div><h3>Commerce</h3><p>Devis, SAV, fiches produits, prospection.</p></div>
+        <div class="sector reveal d1"><div class="ic">💼</div><h3>Services</h3><p>Réponses aux appels d'offres, reporting, RH.</p></div>
+        <div class="sector reveal d2"><div class="ic">🌾</div><h3>Agroalimentaire</h3><p>Traçabilité, conformité, gestion documentaire.</p></div>
+        <div class="sector reveal d3"><div class="ic">🎓</div><h3>Enseignement</h3><p>Acculturation, modules, accompagnement pédagogique.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTHODE 3 temps (dark) -->
+  <section class="dark pad" id="methode">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker label">La méthode</div>
+        <h2 class="sec-title">Trois temps, du cadrage à la valeur.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="idx">01</div><div><h3>Diagnostic</h3><p>On part des processus et des données, jamais de l'outil. Cas d'usage priorisés par valeur et faisabilité, angles morts explicités côté DSI (sécurité, intégration) et RH (compétences, adhésion).</p></div><div class="tg">Comprendre</div></div>
+        <div class="step reveal"><div class="idx">02</div><div><h3>Formation</h3><p>Des décideurs lucides et des équipes outillées, capables de distinguer ce que l'IA permet vraiment de ce que promet le marketing. Pratique sur vos vrais cas, cadre sécurisé.</p></div><div class="tg">Outiller</div></div>
+        <div class="step reveal"><div class="idx">03</div><div><h3>Transformation</h3><p>Une feuille de route, puis la solution sur mesure si elle se justifie : prototype testé sur de vraies données, déploiement, transfert. Vous restez propriétaire et autonome.</p></div><div class="tg">Déployer</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="alt pad" id="stack">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker label">Stack technologique</div>
+        <h2 class="sec-title">Des plateformes maîtrisées, pas seulement citées.</h2>
+      </div>
+      <div class="stack reveal">
+        <div class="chipimg"><img src="logos-tech/openai.svg" alt="OpenAI" loading="lazy"><span>ChatGPT</span></div>
+        <div class="chipimg"><img src="logos-tech/claude.svg" alt="Claude" loading="lazy"><span>Claude</span></div>
+        <div class="chipimg"><img src="logos-tech/googlegemini.svg" alt="Gemini" loading="lazy"><span>Gemini</span></div>
+        <div class="chipimg"><img src="logos-tech/mistralai.svg" alt="Mistral" loading="lazy"><span>Mistral</span></div>
+        <div class="chipimg"><img src="logos-tech/perplexity.svg" alt="Perplexity" loading="lazy"><span>Perplexity</span></div>
+        <div class="chipimg"><img src="logos-tech/huggingface.svg" alt="Hugging Face" loading="lazy"><span>Hugging Face</span></div>
+        <div class="chipimg"><img src="logos-tech/modelcontextprotocol.svg" alt="MCP" loading="lazy"><span>MCP</span></div>
+        <div class="chipimg"><img src="logos-tech/openclaw.jpg" alt="OpenClaw" loading="lazy" style="border-radius:7px"><span>OpenClaw</span></div>
+        <div class="chipimg"><img src="logos-tech/make.svg" alt="Make" loading="lazy"><span>Make</span></div>
+        <div class="chipimg"><img src="logos-tech/airtable.svg" alt="Airtable" loading="lazy"><span>Airtable</span></div>
+        <div class="chipimg"><img src="logos-tech/notion.svg" alt="Notion" loading="lazy"><span>Notion</span></div>
+        <div class="chipimg"><img src="logos-tech/anthropic.svg" alt="Anthropic" loading="lazy"><span>Anthropic</span></div>
+      </div>
+      <div class="chips reveal d1">
+        <span class="c">Création d'agents IA</span><span class="c">RAG documentaire</span><span class="c">Intégration LLM</span>
+        <span class="c">Fine-tuning</span><span class="c">MCP & outils métier</span><span class="c">Low-code</span><span class="c">Prompt engineering</span><span class="c">Gouvernance & AI Act</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINANCEMENT -->
+  <section class="pad" id="financement">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker label">Financement</div>
+        <h2 class="sec-title">Des dispositifs publics existent.</h2>
+        <p class="sec-sub">Aucune aide n'est automatique. Mon rôle : identifier celles qui s'appliquent réellement à votre projet et vous accompagner dans le dossier.</p>
+      </div>
+      <div class="fin">
+        <div class="f reveal"><div class="h"><b>IA Booster</b> France 2030</div><p>Programme Bpifrance pour PME et ETI. Phase de sensibilisation gratuite, déploiement cofinancé par l'État.</p></div>
+        <div class="f reveal d1"><div class="h"><b>Diag Data IA</b> — Bpifrance</div><p>Diagnostic data & IA cofinancé pour structurer la donnée avant tout projet d'intelligence artificielle.</p></div>
+        <div class="f reveal d2"><div class="h"><b>Crédit d'Impôt</b> Innovation</div><p>CII pour les dépenses de conception de solutions innovantes, sous conditions d'éligibilité.</p></div>
+        <div class="f reveal"><div class="h"><b>OPCO</b> — formation</div><p>Prise en charge des formations dans le cadre Qualiopi (via le partenaire AS'COM).</p></div>
+        <div class="f reveal d1"><div class="h"><b>Pass</b> Occitanie</div><p>Aides régionales à la transformation numérique des entreprises du territoire.</p></div>
+        <div class="f reveal d2"><div class="h"><b>Autres</b> dispositifs</div><p>France Num, aides sectorielles : on fait le tri ensemble selon votre taille et votre projet.</p></div>
+      </div>
+      <p class="disclaimer reveal">Conditions de financement soumises à l'éligibilité de chaque structure. Les montants et critères évoluent ; je vérifie l'applicable au moment du projet.</p>
+    </div>
+  </section>
+
+  <!-- PARCOURS / BIO -->
+  <section class="alt pad" id="parcours">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker label">Le parcours</div>
+        <h2 class="sec-title">Un profil <span class="spark it">polyvalent</span>, du terrain à la stratégie.</h2>
+      </div>
+      <div class="bio">
+        <div class="bio-photo reveal">
+          <img src="img/portrait.jpg" alt="Portrait de Jérôme Denis">
+          <div class="cap">Jérôme Denis · Toulouse</div>
+        </div>
+        <div class="reveal d1">
+          <p>Avec plus de <strong>vingt ans d'expérience</strong> en transformation numérique, j'accompagne les TPE, PME et grands groupes dans la structuration de leurs usages IA, la conduite du changement et la priorisation des cas d'usage à fort retour sur investissement.</p>
+          <p class="soft">Mon parcours me distingue par sa polyvalence : entrepreneur, directeur opérationnel, business developer, spécialiste en ingénierie de formation et directeur de projets d'innovation numérique.</p>
+          <p class="soft">Diplômé en architecture, certifié Scrum Master, certifié Sciconum (Sciences Cognitives, IA & Outils Numériques — Galileo Global Education), bilingue anglais. Expert au Collège Numérique France 2030 sur les technologies immersives.</p>
+          <div class="creds">
+            <span class="cred"><b>20+</b> ans d'expérience</span>
+            <span class="cred"><b>50+</b> entreprises</span>
+            <span class="cred"><b>7</b> écoles supérieures</span>
+            <span class="cred">Certifié <b>Sciconum</b></span>
+            <span class="cred"><b>Qualiopi</b></span>
+            <span class="cred">Expert <b>France 2030</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFÉRENCES -->
+  <section class="pad" id="conferences">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker label">Sur scène</div>
+        <h2 class="sec-title">Conférencier <span class="spark it">IA & société</span>.</h2>
+        <p class="sec-sub">Du Quai des Savoirs à la Cité de l'espace, je traduis l'IA pour les décideurs et le grand public.</p>
+      </div>
+      <div class="conf-photos reveal">
+        <figure><img src="img/conf-espace.jpg" alt="Jérôme Denis en conférence à la Cité de l'espace, Toulouse" loading="lazy"><figcaption>Cité de l'espace · Toulouse</figcaption></figure>
+        <figure><img src="img/conf-secours.jpg" alt="Jérôme Denis animant une formation IA" loading="lazy"><figcaption>Formation & prise de parole</figcaption></figure>
+      </div>
+      <div class="conf-list reveal d1">
+        <div class="conf"><div class="yr">2025</div><h3>Peut-on encore se passer de compétences IA en 2025 ?</h3><div class="venue">Quai des Savoirs · La Mêlée</div></div>
+        <div class="conf"><div class="yr">2025</div><h3>La Réalité Virtuelle au service du spatial</h3><div class="venue">Cité de l'espace</div></div>
+        <div class="conf"><div class="yr">2024</div><h3>L'Intelligence Artificielle à la conquête de l'espace</h3><div class="venue">Cité de l'espace</div></div>
+        <div class="conf"><div class="yr">2024</div><h3>IA et société : maîtriser l'outil pour préserver nos libertés</h3><div class="venue">Université Populaire ALDERAN</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTENAIRES -->
+  <section class="alt pad" id="partenaires">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker label">Écosystème</div>
+        <h2 class="sec-title">Co-fondateur de deux cabinets.</h2>
+      </div>
+      <div class="partners">
+        <a class="partner reveal" href="https://noianogain.com" target="_blank" rel="noopener">
+          <div class="pl">NOIA<br><b>NOGAIN</b></div>
+          <div><h3>NOIA NOGAIN</h3><p>Agents IA autonomes sur mesure pour automatiser l'administratif, le commercial et les opérations des TPE/PME.</p></div>
+        </a>
+        <a class="partner reveal d1" href="https://aivalue.fr" target="_blank" rel="noopener">
+          <div class="pl">AI<b>VALUE</b></div>
+          <div><h3>AIVALUE</h3><p>Transformation des fonctions RH par l'intelligence artificielle : recrutement, compétences, expérience collaborateur.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIERODEIIS -->
+  <section class="dark feature pad" id="hierodeiis">
+    <div class="glow"></div>
+    <div class="wrap">
+      <div class="sec-kicker label reveal">Méthode signature</div>
+      <h2 class="reveal d1">HIERODEIIS — l'IA s'apprend <span style="color:var(--clay);font-style:italic">entre pairs</span> d'un même secteur.</h2>
+      <p class="reveal d2">Une immersion sectorielle de trois jours en cohorte restreinte de dirigeants. Formation, diagnostic, transformation. Au terme : une feuille de route IA exploitable.</p>
+      <a class="btn magnetic reveal d2" href="https://jaydenis.com/methode-hierodeiis.html" target="_blank" rel="noopener"><span>Découvrir la méthode</span></a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="pad" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-kicker label">Questions fréquentes</div>
+        <h2 class="sec-title">Ce que les dirigeants me demandent.</h2>
+      </div>
+      <div class="faq reveal d1">
+        <details open><summary>Par où commencer si on n'a aucun usage structuré de l'IA ?</summary><p>Par le diagnostic, précisément. Il part de vos processus, pas des outils, et identifie les cas d'usage à fort ROI avant tout investissement. L'entretien initial est gratuit et sans engagement.</p></details>
+        <details><summary>Vos formations sont-elles finançables ?</summary><p>Oui. Elles sont dispensées dans un cadre certifié Qualiopi (via le partenaire AS'COM), éligible à la prise en charge OPCO. Je vous aide à monter le dossier.</p></details>
+        <details><summary>Intervenez-vous au-delà de Toulouse ?</summary><p>Oui. Basé en France, j'interviens en présentiel et à distance, avec des engagements à Toulouse, Dubaï et Bruges, en français ou en anglais.</p></details>
+        <details><summary>Développez-vous les solutions ou seulement les recommandations ?</summary><p>Les deux. Je conçois l'architecture et peux assurer la réalisation, notamment via NOIA NOGAIN, le cabinet d'agents IA sur mesure que j'ai co-fondé.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta pad" id="contact">
+    <div class="wrap">
+      <div class="sec-kicker label reveal" style="display:flex;justify-content:center">Parlons-en</div>
+      <h2 class="reveal d1">Faisons de l'IA<br>un <span class="spark it">levier</span>.</h2>
+      <a class="btn magnetic reveal d2" href="mailto:jdenis@jaydenis.com"><span>Demander mon diagnostic gratuit</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 JDENIS Consulting — Jérôme Denis · Keeping AI Human</div>
+    <div>jdenis@jaydenis.com · Toulouse · Dubaï · Bruges</div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+window.addEventListener('load', function(){
+  document.body.classList.remove('preload');
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var track=document.getElementById('track'); if(track) track.innerHTML+=track.innerHTML;
+  document.querySelectorAll('.reftrack[data-dup]').forEach(function(t){t.innerHTML+=t.innerHTML;});
+  var header=document.getElementById('header');
+  function onScroll(){header.classList.toggle('scrolled',scrollY>40);} onScroll();
+
+  var twEl=document.querySelector('.tw');
+  var mots=['diagnostiquer.','former.','déployer.','décider.'];
+  if(twEl && !reduce){var w=0,c=0,del=false;(function tick(){var m=mots[w];twEl.textContent=m.slice(0,c);
+    if(!del&&c<m.length){c++;setTimeout(tick,74);}else if(!del&&c===m.length){del=true;setTimeout(tick,1600);}
+    else if(del&&c>0){c--;setTimeout(tick,40);}else{del=false;w=(w+1)%mots.length;setTimeout(tick,200);}})();}
+
+  if(reduce||!window.gsap){addEventListener('scroll',onScroll);
+    document.querySelectorAll('.hero h1 .l>span').forEach(function(s){s.style.transform='none';});
+    document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in');});return;}
+
+  if(window.Lenis){var lenis=new Lenis({lerp:.09,wheelMultiplier:.9});
+    function raf(t){lenis.raf(t);requestAnimationFrame(raf);}requestAnimationFrame(raf);
+    lenis.on('scroll',function(){onScroll();ScrollTrigger.update();});
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length<2)return;var el=document.querySelector(id);if(!el)return;e.preventDefault();lenis.scrollTo(el,{offset:-50});});});
+  } else { addEventListener('scroll',onScroll); }
+
+  gsap.registerPlugin(ScrollTrigger);
+  var sp=document.querySelectorAll('.hero h1 .l>span');gsap.set(sp,{yPercent:115});
+  gsap.timeline({delay:.12}).from('.hero .eyebrow',{opacity:0,y:14,duration:.6,ease:'power2.out'}).to(sp,{yPercent:0,duration:1,ease:'expo.out',stagger:.1},'-=.3');
+  ScrollTrigger.batch('.reveal',{start:'top 90%',onEnter:function(els){els.forEach(function(el){el.classList.add('in');});}});
+  gsap.utils.toArray('.glow').forEach(function(g){gsap.to(g,{yPercent:22,ease:'none',scrollTrigger:{trigger:g.closest('section'),start:'top bottom',end:'bottom top',scrub:true}});});
+  document.querySelectorAll('.magnetic').forEach(function(b){
+    b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.28,y:(e.clientY-r.top-r.height/2)*.38,duration:.4,ease:'power2.out'});});
+    b.addEventListener('mouseleave',function(){gsap.to(b,{x:0,y:0,duration:.6,ease:'elastic.out(1,.4)'});});
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl *)",
+      "Bash(git pull --ff-only)",
+      "Bash(python3 seo-agent/scripts/scan_regressions.py *)",
+      "Bash(python3 seo-agent/scripts/indexnow_ping.py *)",
+      "Bash(python3 seo-agent/scripts/watch_siren.py *)",
+      "Bash(seo-agent/.venv/bin/python seo-agent/scripts/gsc_report.py *)",
+      "mcp__Control_Chrome__get_current_tab",
+      "mcp__Control_Chrome__list_tabs",
+      "mcp__Control_Chrome__get_page_content",
+      "mcp__44ca9453-64ac-4c40-8992-338a5f7fbf07__read_file_content",
+      "mcp__05dc60f4-60dd-4a42-bde6-cbceb5f81ffe__creations_show",
+      "mcp__chrome-devtools__press_key"
+    ]
+  }
+}
