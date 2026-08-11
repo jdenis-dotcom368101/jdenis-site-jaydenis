@@ -276,17 +276,7 @@
   .cta-float:hover{background:var(--gold);color:var(--navy)}
   @media(max-width:600px){.cta-float{right:14px;bottom:14px;padding:12px 18px;font-size:13px}}
 
-  /* bandeau cookies RGPD */
-  .cookie{position:fixed;left:22px;right:22px;bottom:22px;z-index:70;max-width:780px;margin:0 auto;background:var(--navy-2);border:1px solid var(--line-d);border-radius:16px;padding:22px 24px;box-shadow:0 16px 44px rgba(0,0,0,.45);display:none;gap:18px;align-items:center;flex-wrap:wrap}
-  .cookie.show{display:flex}
-  .cookie p{flex:1;min-width:250px;font-size:13.5px;line-height:1.55;color:var(--cream-soft)}
-  .cookie p a{color:var(--gold);text-decoration:underline}
-  .cookie .ck-acts{display:flex;gap:10px;flex-wrap:wrap}
-  .cookie button{font-family:inherit;font-weight:600;font-size:13px;padding:11px 22px;border-radius:999px;cursor:pointer;border:1px solid var(--line-d);background:transparent;color:var(--cream);transition:background .3s,border-color .3s,color .3s}
-  .cookie button.acc{background:var(--terra);border-color:var(--terra);color:#fff}
-  .cookie button.acc:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
-  .cookie button.ref:hover{border-color:var(--gold);color:var(--gold)}
-  @media(max-width:600px){.cookie{left:12px;right:12px;bottom:12px;padding:18px}.cookie .ck-acts{width:100%}.cookie button{flex:1}}
+  /* bandeau cookies RGPD : voir /consent.js (styles portés par le script) */
 
   .reveal{transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
   html.js .reveal:not(.in){opacity:0;transform:translateY(30px)}
@@ -294,9 +284,8 @@
   .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}.eco .track{animation:none}.caret{animation:none}.hero h1 .l>span{transform:none!important}}
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KQR2HQXM2L"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KQR2HQXM2L');</script>
+<!-- Mesure d'audience (Google Analytics) : chargée uniquement après consentement explicite. Voir /consent.js -->
+<script src="/consent.js" defer></script>
 </head>
 <body class="preload">
 
@@ -607,25 +596,9 @@
 <!-- CTA flottant -->
 <a class="cta-float" id="ctaFloat" href="https://calendly.com/jaydenis/15min" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Réserver un échange</a>
 
-<!-- Bandeau de consentement cookies (RGPD) -->
-<div class="cookie" id="cookieBanner" role="dialog" aria-label="Gestion des cookies">
-  <p>Ce site utilise des cookies strictement nécessaires à son fonctionnement, ainsi que des services externes (Calendly, polices et scripts hébergés) susceptibles de déposer des cookies ou de traiter votre adresse IP. <a href="mentions-legales.html">En savoir plus</a>.</p>
-  <div class="ck-acts">
-    <button class="ref" id="ckRefuse" type="button">Refuser</button>
-    <button class="acc" id="ckAccept" type="button">Accepter</button>
-  </div>
-</div>
-<script>
-(function(){
-  var KEY='hierodeiis_cookie_consent', b=document.getElementById('cookieBanner');
-  function close(v){try{localStorage.setItem(KEY,v);}catch(e){} if(b)b.classList.remove('show');}
-  var stored=null; try{stored=localStorage.getItem(KEY);}catch(e){}
-  if(!stored && b){ setTimeout(function(){b.classList.add('show');}, 800); }
-  var a=document.getElementById('ckAccept'), r=document.getElementById('ckRefuse');
-  if(a) a.addEventListener('click',function(){close('accepted');});
-  if(r) r.addEventListener('click',function(){close('refused');});
-})();
-</script>
+<!-- Bandeau de consentement fourni par /consent.js (chargé dans le <head>).
+     L'ancien bandeau local ne pilotait aucun traceur : Google Analytics se chargeait
+     que l'on clique sur « Accepter » ou sur « Refuser ». -->
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>

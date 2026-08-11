@@ -68,9 +68,8 @@
         ]
     }
     </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KQR2HQXM2L"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KQR2HQXM2L');</script>
+<!-- Mesure d'audience (Google Analytics) : chargée uniquement après consentement explicite. Voir /consent.js -->
+<script src="/consent.js" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -101,12 +100,18 @@
                 <div class="hero-proof">
                     <span>Libre et gratuit, sans inscription</span>
                     <span>Réutilisable CC BY 4.0</span>
-                    <span>Mis à jour le 30 juillet 2026</span>
+                    <span>Mis à jour le 11 août 2026</span>
                 </div>
             </div>
         </section>
 
         <div class="container content">
+
+            <div class="warn">
+                <p><strong>Calendrier révisé — les échéances « haut risque » ont été reportées.</strong> Le <strong>règlement (UE) 2026/1744</strong>, dit «&nbsp;Digital Omnibus&nbsp;», publié au Journal officiel de l'Union européenne le <strong>24 juillet 2026</strong> et en vigueur depuis le <strong>27 juillet 2026</strong>, a décalé deux échéances de l'AI Act&nbsp;: le haut risque de l'<strong>annexe III</strong> (systèmes autonomes&nbsp;: emploi, éducation, crédit, répression, infrastructures critiques…) passe du 2 août 2026 au <strong>2 décembre 2027</strong>, et le haut risque de l'<strong>annexe I</strong> (IA intégrée à des produits déjà réglementés&nbsp;: dispositifs médicaux, machines, jouets) du 2 août 2027 au <strong>2 août 2028</strong>.</p>
+                <p>Si vous aviez en tête le calendrier précédent, c'est normal&nbsp;: <strong>cette page intègre ce report</strong>, les dates ci-dessous sont les nouvelles. Restent <strong>inchangées et déjà exigibles aujourd'hui</strong> les pratiques interdites de l'article 5 (2 février 2025), la littératie IA de l'article 4 (2 février 2025), les obligations sur les modèles à usage général (2 août 2025) et la transparence de l'article 50 (<strong>2 août 2026</strong>).</p>
+                <p style="margin-bottom:0">Un point à ne pas confondre&nbsp;: le report déplace la <strong>date de mise en conformité</strong>, pas la <strong>qualification</strong>. Un système relevant de l'annexe III est à haut risque dès maintenant&nbsp;; il dispose simplement de plus de temps pour l'être en règle. Le classer aujourd'hui reste la seule façon de tenir décembre 2027.</p>
+            </div>
 
             <div class="licence">
                 <strong>Comment utiliser cet outil.</strong> Prenez un système d'IA à la fois — un abonnement, un outil intégré à votre ERP, un agent développé en interne. Déroulez les cinq étapes dans l'ordre : chacune produit soit un verdict, soit le passage à la suivante. Reportez le résultat dans le modèle de registre en fin de page. Comptez dix à quinze minutes par système une fois la méthode prise en main.
@@ -143,7 +148,7 @@
 
             <section>
                 <h2>Étape 3 — Le système relève-t-il d'une pratique interdite ?</h2>
-                <p>Huit familles de pratiques sont prohibées, sans possibilité de mise en conformité. Ces interdictions sont applicables depuis le <strong>2 février 2025</strong>.</p>
+                <p>Dix familles de pratiques sont prohibées, sans possibilité de mise en conformité. Les huit premières sont applicables depuis le <strong>2 février 2025</strong>&nbsp;; les deux dernières, ajoutées par le règlement (UE) 2026/1744, le deviennent le <strong>2 décembre 2026</strong>, au terme d'une période transitoire.</p>
                 <div class="step-q">
                     <div class="qn">Question 3</div>
                     <h3>Le système fait-il l'une de ces choses ?</h3>
@@ -156,6 +161,8 @@
                         <li><strong>Inférer les émotions</strong> sur le lieu de travail ou dans les établissements d'enseignement (hors raisons médicales ou de sécurité).</li>
                         <li><strong>Catégoriser biométriquement</strong> des personnes pour en déduire des attributs sensibles (origine, opinions, religion, orientation sexuelle).</li>
                         <li>Recourir à l'<strong>identification biométrique à distance en temps réel</strong> dans l'espace public à des fins répressives, hors exceptions strictement encadrées.</li>
+                        <li>Générer ou manipuler des images, du son ou de la vidéo pour produire du <strong>contenu intime non consenti</strong> représentant une personne réelle identifiable — la «&nbsp;nudification&nbsp;». <em>Interdiction applicable au 2 décembre 2026.</em></li>
+                        <li>Générer, ou faciliter l'accès à, des <strong>contenus pédocriminels</strong>. <em>Interdiction applicable au 2 décembre 2026.</em></li>
                     </ul>
                     <div class="out">
                         <b>Oui</b> — <span class="lvl lvl-1">risque inacceptable</span>. Le système doit être arrêté. Il n'existe pas de voie de conformité.<br>
@@ -203,27 +210,28 @@
                         <tr><td>Reconnaissance des émotions ou catégorisation biométrique</td><td>Informer les personnes exposées du fonctionnement du système.</td></tr>
                     </tbody>
                 </table>
+                <p>Ces obligations sont <strong>applicables depuis le 2 août 2026</strong> — elles n'ont pas été reportées par le Digital Omnibus, contrairement au haut risque. Seule exception&nbsp;: le <strong>marquage technique lisible par machine</strong> des contenus déjà mis sur le marché bénéficie d'un délai supplémentaire jusqu'au <strong>2 décembre 2026</strong>. L'obligation d'information des personnes, elle, s'applique dès aujourd'hui.</p>
             </section>
 
             <section>
                 <h2>Synthèse — les quatre niveaux et leurs obligations</h2>
                 <table class="grid-table">
-                    <thead><tr><th style="width:18%">Niveau</th><th style="width:41%">Ce que vous devez faire</th><th>Applicable depuis</th></tr></thead>
+                    <thead><tr><th style="width:18%">Niveau</th><th style="width:41%">Ce que vous devez faire</th><th>Échéance</th></tr></thead>
                     <tbody>
                         <tr>
                             <td class="lvl lvl-1">Inacceptable</td>
                             <td>Arrêter le système. Aucune voie de conformité.</td>
-                            <td>2 février 2025</td>
+                            <td>Applicable depuis le 2 février 2025 ; 2 décembre 2026 pour les deux interdictions ajoutées en 2026 (contenu intime non consenti, contenus pédocriminels)</td>
                         </tr>
                         <tr>
                             <td class="lvl lvl-2">Haut risque</td>
                             <td><strong>Fournisseur&nbsp;:</strong> système de gestion des risques et de la qualité, gouvernance des données d'entraînement, documentation technique, journalisation, transparence envers le déployeur, supervision humaine, exactitude et robustesse, évaluation de conformité, marquage CE, enregistrement dans la base de données de l'Union.<br><strong>Déployeur&nbsp;:</strong> utiliser conformément à la notice, confier la supervision à des personnes compétentes, veiller à la pertinence des données d'entrée, conserver les journaux, <strong>informer les travailleurs et leurs représentants</strong> avant la mise en service, informer les personnes soumises à une décision, coopérer avec les autorités.</td>
-                            <td>2 août 2026 pour les domaines d'usage ; 2 août 2027 pour les composants de produits réglementés</td>
+                            <td><strong>2 décembre 2027</strong> pour les domaines d'usage (annexe III) ; <strong>2 août 2028</strong> pour les composants de produits réglementés (annexe I). Dates reportées par le règlement (UE) 2026/1744 — anciennement 2 août 2026 et 2 août 2027.</td>
                         </tr>
                         <tr>
                             <td class="lvl lvl-3">Transparence</td>
                             <td>Informer, marquer, divulguer selon les cas de l'étape 5.</td>
-                            <td>2 août 2026</td>
+                            <td>Applicable depuis le 2 août 2026 (non reportée) ; 2 décembre 2026 pour le seul marquage lisible par machine des contenus déjà sur le marché</td>
                         </tr>
                         <tr>
                             <td class="lvl lvl-4">Minimal</td>
@@ -260,7 +268,7 @@
 
             <div class="licence">
                 <p><strong>Licence et réutilisation.</strong> Cet outil est publié sous <a href="https://creativecommons.org/licenses/by/4.0/deed.fr" rel="noopener">licence Creative Commons Attribution 4.0</a>. Vous pouvez le copier, l'adapter et l'intégrer à vos propres supports, y compris commerciaux, à condition de citer la source : <em>Grille de classification des risques AI Act, Jérôme Denis, JDENIS Consulting, jaydenis.com</em>.</p>
-                <p style="margin-bottom:0"><strong>Avertissement.</strong> Il s'agit d'un outil de travail destiné à structurer une première analyse, pas d'un conseil juridique. Le texte qui fait foi est le règlement (UE) 2024/1689 lui-même, complété par les lignes directrices de la Commission européenne. Pour les systèmes que cette grille classe en haut risque, comme pour la rédaction contractuelle avec vos fournisseurs, faites intervenir un avocat.</p>
+                <p style="margin-bottom:0"><strong>Avertissement.</strong> Il s'agit d'un outil de travail destiné à structurer une première analyse, pas d'un conseil juridique. Le texte qui fait foi est le règlement (UE) 2024/1689 lui-même, <strong>tel que modifié par le règlement (UE) 2026/1744 du 24 juillet 2026</strong>, complété par les lignes directrices de la Commission européenne. Ce chantier réglementaire bouge vite : les dates de cette page sont celles connues au 11 août 2026, vérifiez-les contre le texte consolidé avant de vous en servir pour une décision. Pour les systèmes que cette grille classe en haut risque, comme pour la rédaction contractuelle avec vos fournisseurs, faites intervenir un avocat.</p>
             </div>
 
             <div class="founder">
