@@ -576,6 +576,117 @@
             color: var(--color-text);
         }
 
+        /* ===== BRAND ROUTING ===== */
+        .brand-routing {
+            padding: 96px 0;
+            background: var(--color-bg);
+        }
+
+        .brand-routing-panel {
+            background: var(--color-light);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 48px 40px;
+        }
+
+        .brand-routing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .brand-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 24px 22px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .brand-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--color-shadow);
+        }
+
+        .brand-card-need {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            line-height: 1.45;
+            color: var(--color-text);
+        }
+
+        .brand-card-mark {
+            display: flex;
+            align-items: center;
+            min-height: 44px;
+        }
+
+        .brand-card-mark img {
+            height: 44px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .brand-wordmark {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            color: var(--color-text);
+        }
+
+        .brand-wordmark em {
+            font-style: normal;
+            color: var(--color-accent);
+        }
+
+        .brand-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--color-text);
+            margin: 0;
+        }
+
+        .brand-card-role {
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #64748b;
+        }
+
+        .brand-card-go {
+            margin-top: auto;
+            padding-top: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        @media (max-width: 600px) {
+            .brand-routing {
+                padding: 64px 0;
+            }
+
+            .brand-routing-panel {
+                padding: 32px 20px;
+            }
+
+            .brand-routing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ===== EXPERTISE ===== */
         .expertise {
             padding: 120px 0;
@@ -1040,7 +1151,8 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* 170px : keeps the 5 columns on a single row on desktop (brands + networks) */
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 40px;
             margin-bottom: 48px;
         }
@@ -1596,6 +1708,51 @@
             </div>
         </section>
 
+        <!-- ===== BRAND ROUTING ===== -->
+        <section class="brand-routing" id="orientation" aria-label="Where to go next: related brands and methods">
+            <div class="container">
+                <div class="brand-routing-panel fade-in">
+                    <div class="section-label">Where to go next</div>
+                    <h2 class="section-title" style="font-size:clamp(28px,3.4vw,36px);">Your need may be handled elsewhere</h2>
+                    <p class="section-subtitle" style="font-size:16px;margin-bottom:0;">The practice does not cover everything. When a need belongs to a dedicated method or venture, you should be pointed there straight away.</p>
+
+                    <div class="brand-routing-grid">
+                        <a class="brand-card" href="methode-hierodeiis.html">
+                            <span class="brand-card-need">"I need to bring my teams along, not just buy a tool."</span>
+                            <span class="brand-card-mark"><span class="brand-wordmark">HIERO<em>DEIIS</em></span></span>
+                            <span class="brand-card-role">JDENIS Consulting method</span>
+                            <p>Three days with a cohort of leaders from one sector: training, maturity diagnosis, a 12-month roadmap.</p>
+                            <span class="brand-card-go">See the method (FR) →</span>
+                        </a>
+
+                        <a class="brand-card" href="https://noianogain.com" target="_blank" rel="noopener">
+                            <span class="brand-card-need">"I run a small business and have one specific task to automate."</span>
+                            <span class="brand-card-mark"><img src="logos-tech/noianogain.png" alt="NOIA NOGAIN" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-wordmark" style="display:none;">NOIA <em>NOGAIN</em></span></span>
+                            <span class="brand-card-role">Co-founded company</span>
+                            <p>Custom-built AI agents for tenders, sales follow-up, customer support and logistics.</p>
+                            <span class="brand-card-go">noianogain.com (FR) →</span>
+                        </a>
+
+                        <a class="brand-card" href="https://aivalue.fr" target="_blank" rel="noopener">
+                            <span class="brand-card-need">"I lead HR and AI is landing in our processes."</span>
+                            <span class="brand-card-mark"><span class="brand-wordmark">AI<em>VALUE</em></span></span>
+                            <span class="brand-card-role">Co-founded company</span>
+                            <p>Two days of training for HR teams: governance, keeping shadow AI in check, no-code assistants.</p>
+                            <span class="brand-card-go">aivalue.fr (FR) →</span>
+                        </a>
+
+                        <a class="brand-card" href="https://iaforgulf.com" target="_blank" rel="noopener">
+                            <span class="brand-card-need">"My project is in the UAE or the wider Gulf."</span>
+                            <span class="brand-card-mark"><span class="brand-wordmark">IA for <em>Gulf</em></span></span>
+                            <span class="brand-card-role">My Middle East practice</span>
+                            <p>Advisory, training and AI architecture for the Gulf, in English, with European governance standards.</p>
+                            <span class="brand-card-go">iaforgulf.com →</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== TECH STACK ===== -->
         <section class="section" id="stack" aria-label="AI technical skills" style="padding:80px 0;background:var(--color-light);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);">
             <div class="container">
@@ -1660,16 +1817,8 @@
                             <span style="display:none;font-size:12px;font-weight:700;color:var(--color-accent);letter-spacing:0.05em;">AS'COM</span>
                             <span style="font-size:12px;color:var(--color-text);font-weight:500;">Training Partner</span>
                         </div>
-                        <a href="https://noianogain.com" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;">
-                            <img src="logos-tech/noianogain.png" alt="NOIA NOGAIN — Custom AI agents for SMEs" style="height:54px;width:auto;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-                            <span style="display:none;font-size:12px;font-weight:700;color:var(--color-accent);letter-spacing:0.05em;">NOIA NOGAIN</span>
-                            <span style="font-size:12px;color:var(--color-text);font-weight:500;">Custom AI agents — co-founder</span>
-                        </a>
-                        <a href="https://aivalue.fr" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;">
-                            <span style="font-family:var(--font-serif);font-size:30px;font-weight:800;color:var(--color-text);letter-spacing:-0.5px;line-height:70px;">AI<span style="color:var(--color-accent);">VALUE</span></span>
-                            <span style="font-size:12px;color:var(--color-text);font-weight:500;">AI-driven HR transformation — co-founder</span>
-                        </a>
                     </div>
+                    <p style="font-size:14px;color:#64748b;margin-top:28px;">The other brands and the HIERODEIIS method are presented in the <a href="#orientation" style="color:var(--color-accent);font-weight:600;">where-to-go-next panel</a>.</p>
                 </div>
             </div>
         </section>
@@ -2013,11 +2162,20 @@
                 </div>
 
                 <div class="footer-column">
-                    <h3>Ecosystem</h3>
+                    <h3>Our brands</h3>
+                    <ul>
+                        <li><a href="methode-hierodeiis.html">HIERODEIIS method</a></li>
+                        <li><a href="https://iaforgulf.com" target="_blank" rel="noopener">IA for Gulf</a></li>
+                        <li><a href="https://noianogain.com" target="_blank" rel="noopener">NOIA NOGAIN</a></li>
+                        <li><a href="https://aivalue.fr/" target="_blank" rel="noopener">AIVALUE</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Networks</h3>
                     <ul>
                         <li><a href="https://www.lamelee.com/" target="_blank" rel="noopener">La Mêlée Numérique</a></li>
                         <li><a href="https://vrjam.fr/" target="_blank" rel="noopener">VRJAM</a></li>
-                        <li><a href="https://aivalue.fr/" target="_blank" rel="noopener">AIVALUE</a></li>
                         <li><a href="https://www.linkedin.com/in/hierodeiis/" target="_blank" rel="noopener">LinkedIn</a></li>
                     </ul>
                 </div>
