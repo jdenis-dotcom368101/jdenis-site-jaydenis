@@ -92,6 +92,9 @@
            « .content a { color: navy } », d'où un texte navy invisible sur fond navy. --- */
         .content a.btn-primary { color: #fff; text-decoration: none; }
         .content a.btn-primary:hover { color: var(--color-text); }
+        /* --- Bouton « Télécharger le PDF » : encadré marqué pour bien le repérer --- */
+        .btn-pdf-cta { border: 2px solid var(--color-accent); background: #fbf7ee; color: var(--color-text); font-weight: 700; box-shadow: 0 1px 4px var(--color-shadow); }
+        .btn-pdf-cta:hover { background: var(--color-accent); color: var(--color-text); }
         /* --- Masthead visible seulement à l'impression (PDF de préconisation) --- */
         .print-masthead { display: none; }
         /* --- Mise en page à l'impression : ne garder que la préconisation --- */
@@ -685,7 +688,7 @@
 
     html += '<div class="wizard-nav" style="margin-top:22px;">';
     html += '<button class="btn btn-ghost" id="btn-restart">↺ Recommencer</button>';
-    html += '<button class="btn btn-ghost" id="btn-pdf">⤓ Télécharger le PDF</button>';
+    html += '<button class="btn btn-pdf-cta" id="btn-pdf">⤓ Télécharger le PDF</button>';
     html += '<span class="spacer"></span>';
     html += '<a class="btn btn-primary" href="/?utm_source=verificateur-ai-act&utm_medium=tool&utm_campaign=result-' + flags.join('-').toLowerCase() + '#contact">En parler avec nous →</a>';
     html += '</div>';
@@ -745,7 +748,7 @@
         html += '</div>';
       });
       html += '<div class="wizard-nav" style="margin-top:22px;">';
-      html += '<button class="btn btn-ghost" id="btn-pdf-shared">⤓ Télécharger le PDF</button>';
+      html += '<button class="btn btn-pdf-cta" id="btn-pdf-shared">⤓ Télécharger le PDF</button>';
       html += '<span class="spacer"></span>';
       html += '<button class="btn btn-primary" id="btn-restart-shared">Faire le test moi-même →</button>';
       html += '</div>';

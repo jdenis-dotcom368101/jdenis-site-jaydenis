@@ -87,6 +87,30 @@
         .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
         .fine-print { font-size: 13px; color: var(--color-muted); margin-top: 30px; }
         @media (max-width: 640px) { .tool-shell { padding: 22px 18px; } }
+        /* --- Fix: the primary button rendered as <a> inside .content inherited
+           « .content a { color: navy } », making navy text invisible on navy. --- */
+        .content a.btn-primary { color: #fff; text-decoration: none; }
+        .content a.btn-primary:hover { color: var(--color-text); }
+        /* --- "Download the PDF" button: strong frame so it stands out --- */
+        .btn-pdf-cta { border: 2px solid var(--color-accent); background: #fbf7ee; color: var(--color-text); font-weight: 700; box-shadow: 0 1px 4px var(--color-shadow); }
+        .btn-pdf-cta:hover { background: var(--color-accent); color: var(--color-text); }
+        /* --- Masthead shown only when printing (PDF recommendation) --- */
+        .print-masthead { display: none; }
+        /* --- Print layout: keep only the recommendation --- */
+        @media print {
+          .site-header, .breadcrumb, .page-hero, #categories, .site-footer,
+          .share-row, .wizard-nav, #copy-confirm, .cta-band, noscript { display: none !important; }
+          .print-masthead { display: block !important; border-bottom: 2px solid #111; padding-bottom: 12px; margin-bottom: 20px; }
+          .print-masthead .pm-brand { font-weight: 800; font-size: 18px; letter-spacing: .02em; }
+          .print-masthead .pm-title { font-size: 15px; margin-top: 2px; }
+          .print-masthead .pm-meta { font-size: 11px; color: #555; margin-top: 5px; }
+          body { background: #fff; }
+          main { padding: 0; }
+          .container.content { max-width: none; }
+          .tool-shell { border: none; box-shadow: none; padding: 0; margin: 0 0 18px; }
+          .result-block, .disclaimer-box { break-inside: avoid; page-break-inside: avoid; }
+          a[href]:after { content: ""; }
+        }
     </style>
 <!-- Audience measurement (Google Analytics): loaded only after explicit consent. See /consent.js -->
 <script src="/consent.js" defer></script>
@@ -126,6 +150,12 @@
         </section>
 
         <div class="container content">
+
+            <div class="print-masthead" aria-hidden="true">
+                <div class="pm-brand">JDENIS Consulting</div>
+                <div class="pm-title">Recommendation — EU AI Act Risk Checker</div>
+                <div class="pm-meta">Generated on <span id="print-date"></span> · jaydenis.com/ai-act-risk-checker.html · Guidance tool, not legal advice.</div>
+            </div>
 
             <div id="tool-root" class="tool-shell">
                 <!-- JS renders the wizard or the result here -->
@@ -384,6 +414,20 @@
 
   function currentVisible() { return visibleSteps(state); }
 
+  // Bring the top of the tool back into view on every step change:
+  // long option lists left the page scrolled to the bottom.
+  function scrollToTool() {
+    var t = document.getElementById("tool-root");
+    if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: "smooth" });
+  }
+  function stampPrintDate() {
+    var pd = document.getElementById("print-date");
+    if (pd && !pd.textContent) {
+      try { pd.textContent = new Date().toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" }); }
+      catch (e) { pd.textContent = new Date().toLocaleDateString(); }
+    }
+  }
+
   function render() {
     var steps = currentVisible();
     if (cursor >= steps.length) { renderResult(); return; }
@@ -437,7 +481,7 @@
     updateNextEnabled();
 
     document.getElementById("btn-back").addEventListener("click", function () {
-      if (cursor > 0) { cursor -= 1; render(); }
+      if (cursor > 0) { cursor -= 1; render(); scrollToTool(); }
     });
     nextBtn.addEventListener("click", function () {
       state[step.id] = readValue(step, inputs);
@@ -445,10 +489,12 @@
         // A prohibited practice ends the questionnaire immediately — the
         // remaining questions can't change that outcome.
         renderResult();
+        scrollToTool();
         return;
       }
       cursor += 1;
       render();
+      scrollToTool();
     });
   }
 
@@ -623,12 +669,18 @@
 
     html += '<div class="wizard-nav" style="margin-top:22px;">';
     html += '<button class="btn btn-ghost" id="btn-restart">↺ Start over</button>';
+    html += '<button class="btn btn-pdf-cta" id="btn-pdf">⤓ Download the PDF</button>';
     html += '<span class="spacer"></span>';
     html += '<a class="btn btn-primary" href="/index-en.html?utm_source=ai-act-checker&utm_medium=tool&utm_campaign=result-' + flags.join('-').toLowerCase() + '#contact">Talk to us about this →</a>';
     html += '</div>';
 
     root.innerHTML = html;
+    stampPrintDate();
 
+    document.getElementById("btn-pdf").addEventListener("click", function () {
+      stampPrintDate();
+      window.print();
+    });
     document.getElementById("btn-copy").addEventListener("click", function () {
       var input = document.getElementById("share-url");
       input.select();
@@ -646,6 +698,7 @@
       cursor = 0;
       history.replaceState(null, "", location.pathname);
       render();
+      scrollToTool();
     });
   }
 
@@ -676,9 +729,16 @@
         html += '</div>';
       });
       html += '<div class="wizard-nav" style="margin-top:22px;">';
+      html += '<button class="btn btn-pdf-cta" id="btn-pdf-shared">⤓ Download the PDF</button>';
+      html += '<span class="spacer"></span>';
       html += '<button class="btn btn-primary" id="btn-restart-shared">Run it yourself →</button>';
       html += '</div>';
       root.innerHTML = html;
+      stampPrintDate();
+      document.getElementById("btn-pdf-shared").addEventListener("click", function () {
+        stampPrintDate();
+        window.print();
+      });
       document.getElementById("btn-restart-shared").addEventListener("click", function () {
         state = { sectors: [], prohibited: [], transparency: [] };
         cursor = 0;
