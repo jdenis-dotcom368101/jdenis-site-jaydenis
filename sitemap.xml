@@ -370,4 +370,11 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/chatgpt-automation-sme.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/formation-chatgpt-pour-automatiser-les-10-premieres-automatisations-re.html"/>
   </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/rapprochement-bancaire-automatique-l-application-qui-lettre-vos-compte.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
