@@ -11,6 +11,12 @@
 - [Diagnostic & audit IA](https://jaydenis.com/diagnostic-audit-ia-toulouse.html) : diagnostic initial gratuit puis audit des processus et des solutions IA existantes ; cas d'usage priorisés par ROI ; conformité AI Act et RGPD.
 - [Formation IA en entreprise](https://jaydenis.com/formation-ia-entreprise-toulouse.html) : programmes intra de 1 à 5 jours (ChatGPT, Claude, Gemini, Mistral, agents IA), finançables OPCO (cadre Qualiopi).
 - [Architecture & solutions IA sur mesure](https://jaydenis.com/architecture-ia-sur-mesure.html) : conception d'agents autonomes, RAG, MCP, fine-tuning, automatisation low-code, sans dépendance éditeur.
+- [Conformité AI Act & gouvernance des données](https://jaydenis.com/conformite-ai-act-gouvernance-donnees.html) : inventaire des systèmes d'IA, classification des risques, charte d'usage, registre, obligation de formation de l'article 4. TPE, PME et ETI.
+
+## Outils libres et gratuits
+
+- [AI Act Risk Checker](https://jaydenis.com/ai-act-risk-checker.html) (EN) : outil gratuit de classification au titre du règlement (UE) 2024/1689. Jusqu'à 12 questions, exécuté entièrement dans le navigateur, aucune donnée transmise. Retourne la catégorie de risque (pratique interdite, haut risque Annexe I ou Annexe III, IA à usage général, transparence, risque minimal), l'article applicable, l'échéance et les obligations selon que l'on est fournisseur ou déployeur. Échéances à jour du règlement (UE) 2026/1744 (Digital Omnibus, en vigueur depuis le 27 juillet 2026) : Annexe III repoussée au 2 décembre 2027, Annexe I au 2 août 2028, article 50 (transparence) applicable depuis le 2 août 2026, article 5 (pratiques interdites) et article 4 (littératie IA) depuis le 2 février 2025.
+- [Grille de classification des risques AI Act](https://jaydenis.com/grille-classification-risques-ai-act.html) (FR) : version française longue du même outil — arbre de décision en 5 étapes, exemples travaillés et modèle de registre des systèmes d'IA.
 
 ## Blog
 
@@ -29,6 +35,7 @@
 - [AI diagnostics & audit (EN)](https://jaydenis.com/ai-diagnostics-audit.html)
 - [Corporate AI training (EN)](https://jaydenis.com/corporate-ai-training.html)
 - [AI architecture design (EN)](https://jaydenis.com/ai-architecture-design.html)
+- [AI Act Risk Checker (EN)](https://jaydenis.com/ai-act-risk-checker.html)
 
 ## Contact
 

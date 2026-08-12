@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Act Risk Checker — Free Tool | Which EU AI Act Category Applies to You</title>
-    <meta name="description" content="Free, offline tool: answer up to 12 questions and see which EU AI Act (Regulation 2024/1689) category your AI system falls into — prohibited, high-risk, GPAI, transparency, or minimal risk — with the article, the deadline, and what it means for you as provider or deployer.">
+    <title>AI Act Risk Checker — Free EU AI Act Classification Tool</title>
+    <meta name="description" content="Free browser-based tool: 12 questions to get your EU AI Act risk category under Regulation 2024/1689, with the governing article and the deadline.">
     <link rel="canonical" href="https://jaydenis.com/ai-act-risk-checker.html">
+    <link rel="alternate" hreflang="en" href="https://jaydenis.com/ai-act-risk-checker.html">
+    <link rel="alternate" hreflang="fr" href="https://jaydenis.com/grille-classification-risques-ai-act.html">
+    <link rel="alternate" hreflang="x-default" href="https://jaydenis.com/grille-classification-risques-ai-act.html">
     <meta property="og:title" content="AI Act Risk Checker — free, offline classification tool">
     <meta property="og:description" content="Answer up to 12 questions, get your EU AI Act risk category with the article, the deadline, and what it means for you. No sign-up, nothing sent anywhere.">
     <meta property="og:image" content="https://jaydenis.com/og-image.jpg">
     <meta property="og:url" content="https://jaydenis.com/ai-act-risk-checker.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="/fonts/fonts.css" rel="stylesheet">
     <link rel="stylesheet" href="styles-pages.css">
     <script type="application/ld+json">
     {
@@ -134,6 +135,72 @@
                 <strong>This is an orientation tool, not legal advice.</strong> It applies simplified rules from Regulation (EU) 2024/1689 (the AI Act) to the answers you give, and nothing else — it doesn't see your system, your documentation, or your contracts. It is not a conformity assessment, not a substitute for the written assessment Article 6(4) requires, and not a legal opinion. The AI Act's deadlines have already moved once in 2026 (the Digital Omnibus) and Commission guidance is still being published — treat every date here as best known as of August 2026, verify against the current consolidated text before you rely on it, and get a lawyer or <a href="/index-en.html?utm_source=ai-act-checker&amp;utm_medium=tool&amp;utm_campaign=disclaimer#contact" style="color:#b3261e;text-decoration-color:#b3261e;">talk to us</a> before making a real decision, especially on a Prohibited or High-Risk result.
                 <p style="margin:10px 0 0;font-size:12.5px;">Legal text verified against the <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng" style="color:#6b2a24;">consolidated text on EUR-Lex as of 27 July 2026</a>. The narrow-exception wording (Article&nbsp;6(3)) also reflects the European Commission's draft classification guidelines, published 19 May 2026 and non-binding until finalized (expected late 2026). Page last reviewed: August 2026.</p>
             </div>
+
+            <section id="categories">
+                <h2>What are the EU AI Act risk categories?</h2>
+                <p>The EU AI Act (Regulation (EU) 2024/1689) sorts AI systems into four risk tiers — <strong>prohibited</strong>, <strong>high-risk</strong>, <strong>limited risk</strong> (transparency obligations) and <strong>minimal risk</strong> — and adds a separate chapter for <strong>general-purpose AI models</strong>. Which tier applies decides what you must do and by when. Your obligations also depend on your role: a <strong>provider</strong> develops or places the system on the market, a <strong>deployer</strong> uses it under its own authority, and many organisations are both, for different systems.</p>
+
+                <p>The table below is the reference the questionnaire above applies. Dates reflect Regulation (EU) 2026/1744 (the Digital Omnibus), in force since 27 July 2026.</p>
+
+                <div style="overflow-x:auto;">
+                <table>
+                    <caption class="fine-print" style="caption-side:bottom;text-align:left;padding-top:8px;">EU AI Act risk categories, legal basis and applicable dates — as of August 2026.</caption>
+                    <thead>
+                        <tr><th>Category</th><th>Legal basis</th><th>Applies from</th><th>What it means</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Prohibited practice</strong></td>
+                            <td>Article 5</td>
+                            <td>In force since 2 February 2025</td>
+                            <td>Banned outright in the EU, whatever your role and however the system is used. Not a paperwork outcome: it is redesign-or-don't-ship for the EU market.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>High-risk — Annex I</strong> (product-embedded)</td>
+                            <td>Article 6(1)</td>
+                            <td>2 August 2028 <span class="fine-print">(postponed from 2 August 2027)</span></td>
+                            <td>The system is a safety component of a product already regulated by EU product-safety law. Provider: risk management, data governance, technical documentation, conformity assessment (often via a notified body), CE marking, registration, post-market monitoring. Deployer: use per instructions, human oversight, logs.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>High-risk — Annex III</strong> (standalone)</td>
+                            <td>Article 6(2)</td>
+                            <td>2 December 2027 <span class="fine-print">(postponed from 2 August 2026)</span></td>
+                            <td>The system falls in one of the eight Annex III use-case areas and its output materially shapes a decision about a person. Provider: quality management system, logging, conformity assessment, registration in the EU database (Article 49), post-market monitoring. Deployer: human oversight, logs kept at least six months, and in specific cases a fundamental rights impact assessment (Article 27).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Narrow-task exception</strong></td>
+                            <td>Article 6(3) and 6(4)</td>
+                            <td>Same deadline as the tier it exempts from</td>
+                            <td>An Annex III system may escape high-risk status if it only performs a narrow procedural task. In practice it rarely applies: profiling always defeats it, and ranking or scoring does not count as procedural. Article 6(4) still requires a documented assessment before market placement, plus registration under Article 49(2).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>General-purpose AI — baseline</strong></td>
+                            <td>Article 53</td>
+                            <td>In force since 2 August 2025</td>
+                            <td>Applies to whoever trains the model, not to those calling it through an API. Keep technical documentation current, inform downstream providers, publish a copyright policy and a public summary of training content.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>General-purpose AI — systemic risk</strong></td>
+                            <td>Articles 51 and 55</td>
+                            <td>In force since 2 August 2025</td>
+                            <td>Presumed at a training compute of 10<sup>25</sup> FLOPs or more (a rebuttable presumption). Notify the European Commission within two weeks of foreseeing or reaching the threshold, then model evaluation, adversarial testing, incident tracking and reporting, and cybersecurity obligations.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transparency obligations</strong> (limited risk)</td>
+                            <td>Article 50</td>
+                            <td>In force since 2 August 2026</td>
+                            <td>Applies on top of any tier above, whenever people interact with the system or see its output: disclose AI interaction, label deepfakes, and mark generated content in a machine-readable way. A targeted grace period runs to 2 December 2026 for the machine-readable marking requirement only.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Minimal risk</strong></td>
+                            <td>No tier-specific obligation</td>
+                            <td>—</td>
+                            <td>Most AI systems land here. The general AI-literacy duty (Article 4, in force since 2 February 2025, with no headcount threshold) still applies, and the AI Act being silent does not switch off the GDPR or sectoral law.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </section>
 
             <section>
                 <h2>Why we built this</h2>

@@ -1,6 +1,14 @@
 User-agent: *
 Allow: /
 
+# Artefacts de déploiement d'autres domaines, publiés par erreur sur jaydenis.com.
+# Contenu dupliqué de methodehierodeiis.com : ne pas explorer depuis ce domaine.
+# (netlify-jdenis/ porte déjà un noindex : laissé explorable pour que Google le traite.)
+Disallow: /netlify-hierodeiis/
+
+# Fragments d'articles destinés à la republication, sans <head> ni canonical.
+Disallow: /assets/apps/
+
 # Assistants IA explicitement bienvenus (visibilité GEO)
 User-agent: GPTBot
 Allow: /

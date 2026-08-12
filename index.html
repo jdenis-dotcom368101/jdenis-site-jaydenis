@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultant IA à Toulouse — Diagnostic, Formation, Architecture | Jérôme Denis</title>
-    <meta name="description" content="Diagnostic IA gratuit (30 min), formations ChatGPT, Claude et Gemini finançables OPCO, architectures IA sur mesure (agents, RAG, MCP). 50+ entreprises accompagnées en Occitanie.">
+    <title>Consultant IA Toulouse — Diagnostic, Formation, Architecture</title>
+    <meta name="description" content="Diagnostic IA gratuit (30 min), formations ChatGPT, Claude et Gemini finançables OPCO, architectures IA sur mesure. 50+ entreprises en Occitanie.">
     <meta name="keywords" content="consultant IA Toulouse, formation intelligence artificielle entreprise, diagnostic IA PME, gouvernance data AI Act, conférencier IA, formateur ChatGPT Claude, acculturation IA dirigeants, transformation digitale Occitanie, réalité virtuelle formation, prompt engineering, Jérôme Denis">
     <meta name="author" content="Jérôme Denis — JDENIS Consulting">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -43,17 +43,13 @@
     <meta name="twitter:image" content="https://jaydenis.com/og-image.jpg">
 
     <!-- Performance: preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" as="image" href="jerome-denis.jpg" fetchpriority="high">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://img.youtube.com">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' font-family='serif' font-weight='bold' fill='%23d4a853'>J</text></svg>">
     <link rel="apple-touch-icon" href="https://jaydenis.com/apple-touch-icon.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="/fonts/fonts.css" rel="stylesheet">
 
     <style>
         * {
@@ -174,7 +170,7 @@
 
         nav {
             display: flex;
-            gap: 40px;
+            gap: clamp(18px, 2.2vw, 40px);
             align-items: center;
         }
 
@@ -1323,6 +1319,16 @@
         "telephone": "+33659242005",
         "email": "jdenis@jaydenis.com",
         "image": "https://jaydenis.com/og-image.jpg",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://jaydenis.com/img/logo-jdenis-consulting.png",
+            "width": 1278,
+            "height": 272
+        },
+        "identifier": [
+            {"@type": "PropertyValue", "propertyID": "SIRET", "value": "47902067900037"},
+            {"@type": "PropertyValue", "propertyID": "SIREN", "value": "479020679"}
+        ],
         "priceRange": "€€",
         "address": {
             "@type": "PostalAddress",
@@ -1402,7 +1408,7 @@
                     "endDate": "2024-06-01T20:30:00+02:00",
                     "eventStatus": "https://schema.org/EventScheduled",
                     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-                    "image": "https://img.youtube.com/vi/IUdVoEROd9c/hqdefault.jpg",
+                    "image": "/img/youtube-thumb-IUdVoEROd9c.jpg",
                     "location": {"@type": "Place", "name": "Université Populaire de Philosophie ALDERAN", "address": {"@type": "PostalAddress", "addressLocality": "Toulouse", "postalCode": "31000", "addressCountry": "FR"}},
                     "organizer": {"@type": "Organization", "name": "ALDERAN", "url": "https://www.alderan-philo.org"},
                     "performer": {"@type": "Person", "name": "Jérôme Denis", "@id": "https://jaydenis.com/#jerome-denis"},
@@ -1412,7 +1418,7 @@
                         "name": "Conférence IA et société : maîtriser l'outil pour préserver nos libertés",
                         "url": "https://youtu.be/IUdVoEROd9c",
                         "embedUrl": "https://www.youtube-nocookie.com/embed/IUdVoEROd9c",
-                        "thumbnailUrl": "https://img.youtube.com/vi/IUdVoEROd9c/hqdefault.jpg",
+                        "thumbnailUrl": "/img/youtube-thumb-IUdVoEROd9c.jpg",
                         "description": "Conférence de Jérôme Denis sur l'intelligence artificielle et la société, organisée par l'Université Populaire de Philosophie ALDERAN à Toulouse.",
                         "uploadDate": "2024-06-01",
                         "author": {"@type": "Person", "name": "Jérôme Denis", "@id": "https://jaydenis.com/#jerome-denis"}
@@ -1462,43 +1468,52 @@
     <!-- Schema.org JSON-LD: FAQ -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Qu'est-ce qu'un diagnostic IA en entreprise ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Un diagnostic IA consiste à évaluer la maturité numérique de votre organisation, identifier les cas d'usage IA prioritaires par métier (RH, commercial, production, finance) et définir une roadmap avec priorisation ROI et plan de conduite du changement. JDENIS Consulting propose des diagnostics IA sur mesure pour les TPE, PME et grands groupes à Toulouse et en France."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quelles formations IA proposez-vous en entreprise ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Nous proposons des formations intensives de 1 à 5 jours sur les outils IA (ChatGPT, Claude, Mistral), le prompting avancé, l'automatisation des processus métier et la gouvernance data. Les formations s'adressent aux dirigeants, managers et équipes opérationnelles. Interventions en présentiel à Toulouse et en distanciel partout en France."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Qu'est-ce que la gouvernance data et l'AI Act ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "La gouvernance data désigne l'ensemble des politiques et processus qui encadrent l'utilisation des données en entreprise. L'AI Act est le règlement européen sur l'intelligence artificielle entré en vigueur en 2024. JDENIS Consulting vous accompagne dans la mise en conformité : chartes d'usage IA, classification des risques, audit des données et cadrage juridique."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Intervenez-vous uniquement à Toulouse ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Basé à Toulouse, Jérôme Denis intervient dans toute la France et à l'international. Les formations et diagnostics peuvent se faire en présentiel ou en distanciel. Il enseigne également dans 7 écoles supérieures dont TBS Education, YNOV, Purpan et MediaSchool."
-                }
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Qu'est-ce qu'un diagnostic IA en entreprise ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Un diagnostic IA consiste à évaluer la maturité numérique de votre organisation, identifier les cas d'usage IA prioritaires par métier (RH, commercial, production, finance) et définir une roadmap avec priorisation ROI et plan de conduite du changement. JDENIS Consulting propose des diagnostics IA sur mesure pour les TPE, PME et grands groupes à Toulouse et en France."
             }
-        ]
-    }
+        },
+        {
+            "@type": "Question",
+            "name": "Quelles formations IA proposez-vous en entreprise ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nous proposons des formations intensives de 1 à 5 jours sur les outils IA (ChatGPT, Claude, Mistral), le prompting avancé, l'automatisation des processus métier et la gouvernance data. Les formations s'adressent aux dirigeants, managers et équipes opérationnelles. Interventions en présentiel à Toulouse et en distanciel partout en France."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Qu'est-ce que la gouvernance data et l'AI Act ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La gouvernance data désigne l'ensemble des politiques et processus qui encadrent l'utilisation des données en entreprise. L'AI Act est le règlement européen sur l'intelligence artificielle entré en vigueur en 2024. JDENIS Consulting vous accompagne dans la mise en conformité : chartes d'usage IA, classification des risques, audit des données et cadrage juridique."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Intervenez-vous uniquement à Toulouse ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Basé à Toulouse, Jérôme Denis intervient dans toute la France et à l'international. Les formations et diagnostics peuvent se faire en présentiel ou en distanciel. Il enseigne également dans 7 écoles supérieures dont TBS Education, YNOV, Purpan et MediaSchool."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Comment se déroule une formation IA avec JDENIS Consulting ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Chaque formation débute par un échange pour comprendre vos besoins spécifiques. Le programme est ensuite personnalisé : ateliers pratiques sur ChatGPT, Claude ou Mistral, cas d'usage concrets adaptés à votre secteur, exercices de prompt engineering, et plan d'action post-formation. Les sessions peuvent être individuelles ou collectives, de 1 à 5 jours."
+            }
+        }
+    ],
+    "inLanguage": "fr"
+}
     </script>
 
     <!-- Schema.org JSON-LD: Person (entité autonome — signal GEO prioritaire) -->
@@ -1546,20 +1561,6 @@
     </script>
 
     <!-- Schema.org JSON-LD: BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jaydenis.com"},
-            {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://jaydenis.com#services"},
-            {"@type": "ListItem", "position": 3, "name": "Références", "item": "https://jaydenis.com#references"},
-            {"@type": "ListItem", "position": 4, "name": "À propos", "item": "https://jaydenis.com#about"},
-            {"@type": "ListItem", "position": 5, "name": "Conférences", "item": "https://jaydenis.com#conferences"},
-            {"@type": "ListItem", "position": 6, "name": "Contact", "item": "https://jaydenis.com#contact"}
-        ]
-    }
-    </script>
 <!-- Mesure d'audience (Google Analytics) : chargée uniquement après consentement explicite. Voir /consent.js -->
 <script src="/consent.js" defer></script>
 </head>
@@ -1595,6 +1596,7 @@
                 </a>
                 <nav aria-label="Navigation principale">
                     <a href="#services">Services</a>
+                    <a href="/ai-act-risk-checker.html?ref=nav-fr">Test AI&nbsp;Act</a>
                     <a href="#references">Références</a>
                     <a href="#about">À propos</a>
                     <a href="#conferences">Conférences</a>
@@ -1618,7 +1620,6 @@
         <section class="hero" id="hero">
             <video muted loop playsinline class="hero-video" poster="jerome-denis.jpg" preload="none">
                 <source data-src="7660185-uhd_1440_2560_25fps.mp4" type="video/mp4">
-                <source data-src="https://videos.pexels.com/video-files/7660185/7660185-uhd_1440_2560_25fps.mp4" type="video/mp4">
             </video>
             <div class="container">
                 <div class="hero-content fade-in">
@@ -1683,6 +1684,52 @@
             </div>
         </section>
 
+        <!-- ===== OUTIL GRATUIT : AI ACT RISK CHECKER ===== -->
+        <section class="tool-band" id="ai-act-checker" aria-label="AI Act Risk Checker — outil gratuit de classification des risques">
+            <style>
+                .tool-band { padding: 56px 0; background: var(--color-text); color: #fff; }
+                .tool-band .tb-inner { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 44px; align-items: center; }
+                .tool-band .tb-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--color-accent); margin-bottom: 14px; }
+                .tool-band h2 { font-family: var(--font-serif); font-size: clamp(25px, 3vw, 34px); line-height: 1.22; margin: 0 0 16px; color: #fff; }
+                .tool-band h2 em { font-style: normal; color: var(--color-accent); }
+                .tool-band p { font-size: 16px; line-height: 1.75; color: #d6dbe4; margin: 0 0 14px; }
+                .tool-band p:last-of-type { margin-bottom: 0; }
+                .tool-band .tb-lang { font-size: 14px; color: #a8b1c0; }
+                .tool-band .tb-lang a { color: #d6dbe4; text-decoration: underline; text-underline-offset: 3px; }
+                .tool-band .tb-lang a:hover { color: var(--color-accent); }
+                .tool-band .tb-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 8px; padding: 28px; }
+                .tool-band .tb-cta { display: inline-flex; align-items: center; gap: 10px; width: 100%; justify-content: center; box-sizing: border-box; padding: 15px 22px; background: var(--color-accent); color: #fff; border-radius: 4px; font-size: 15px; font-weight: 700; line-height: 1.35; text-align: center; transition: opacity .3s ease; }
+                .tool-band .tb-cta:hover { opacity: .9; }
+                .tool-band ul { list-style: none; margin: 20px 0 0; padding: 0; }
+                .tool-band ul li { font-size: 14px; line-height: 1.55; color: #c3cad6; padding-left: 22px; position: relative; margin-bottom: 9px; }
+                .tool-band ul li:last-child { margin-bottom: 0; }
+                .tool-band ul li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--color-accent); font-weight: 700; }
+                @media (max-width: 900px) { .tool-band .tb-inner { grid-template-columns: 1fr; gap: 30px; } }
+                @media (max-width: 768px) { .tool-band { padding: 44px 0; } .tool-band .tb-card { padding: 22px; } }
+            </style>
+            <div class="container">
+                <div class="tb-inner">
+                    <div class="fade-in">
+                        <span class="tb-label">Outil gratuit</span>
+                        <h2>Les échéances de l'AI Act ont bougé cet été. <em>Voici celles qui vous concernent vraiment.</em></h2>
+                        <p>Le règlement (UE) 2026/1744 — le « Digital Omnibus », en vigueur depuis le 27 juillet 2026 — a repoussé le haut risque de l'Annexe III au 2 décembre 2027 et l'Annexe I au 2 août 2028. En revanche, les obligations de transparence de l'article 50 s'appliquent, elles, depuis le 2 août 2026. La plupart des tableaux de conformité en ligne affichent encore l'ancien calendrier.</p>
+                        <p>Répondez à douze questions au maximum : vous obtenez la catégorie de risque de votre système, l'article qui la fonde, l'échéance réelle et ce que vous devez faire selon que vous êtes fournisseur, déployeur, ou les deux.</p>
+                        <p class="tb-lang">L'outil est <strong>en anglais</strong>. En français, la <a href="/grille-classification-risques-ai-act.html?ref=home-band-fr">grille de classification des risques</a> reprend la même logique sous forme d'arbre de décision.</p>
+                    </div>
+                    <div class="tb-card fade-in">
+                        <a class="tb-cta" href="/ai-act-risk-checker.html?ref=home-band-fr">Classer un système d'IA <span>→</span></a>
+                        <ul>
+                            <li>Gratuit, sans inscription, sans e-mail</li>
+                            <li>12 questions au maximum</li>
+                            <li>Tout s'exécute dans votre navigateur : rien n'est envoyé nulle part</li>
+                            <li>Règles pures, aucun modèle d'IA dans la boucle</li>
+                            <li>Résultat partageable par lien</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== SERVICES ===== -->
         <section class="services" id="services" aria-label="Services de conseil et formation IA">
             <div class="container">
@@ -1694,7 +1741,7 @@
 
                 <div class="services-grid">
                     <div class="service-card fade-in">
-                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop" alt="Diagnostic IA en entreprise — audit maturité intelligence artificielle Toulouse" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="/img/covers/diagnostic.svg" alt="Diagnostic IA en entreprise — audit maturité intelligence artificielle Toulouse" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
                         <div class="service-icon">🔍</div>
                         <h3>Diagnostic & Audit IA</h3>
                         <p>Audit de maturité IA et audit indépendant de vos solutions IA existantes. Cas d'usage priorisés par ROI, conformité AI Act, roadmap chiffrée. Diagnostic initial gratuit.</p>
@@ -1702,7 +1749,7 @@
                     </div>
 
                     <div class="service-card fade-in">
-                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=300&fit=crop" alt="Formation IA en entreprise — ChatGPT Claude Mistral pour dirigeants et équipes" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="/img/covers/formation.svg" alt="Formation IA en entreprise — ChatGPT Claude Mistral pour dirigeants et équipes" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
                         <div class="service-icon">🎯</div>
                         <h3>Formation IA en entreprise</h3>
                         <p>Programmes intensifs pour dirigeants, managers et équipes opérationnelles. Maîtrise des outils IA (Claude, ChatGPT, Gemini, Mistral), prompting avancé, automatisation. De 1 à 5 jours, finançable OPCO.</p>
@@ -1710,7 +1757,7 @@
                     </div>
 
                     <div class="service-card fade-in">
-                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=300&fit=crop" alt="Architecture IA sur mesure — agents autonomes, RAG, MCP pour PME" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="/img/covers/architecture.svg" alt="Architecture IA sur mesure — agents autonomes, RAG, MCP pour PME" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
                         <div class="service-icon">🏗️</div>
                         <h3>Architecture & Solutions IA</h3>
                         <p>Conception d'architectures IA sur mesure : agents autonomes, RAG documentaire, connexions MCP à vos outils, fine-tuning, low-code. Du cadrage au déploiement, sans dépendance éditeur.</p>
@@ -1718,7 +1765,7 @@
                     </div>
 
                     <div class="service-card fade-in">
-                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=300&fit=crop" alt="Gouvernance data AI Act RGPD — conformité intelligence artificielle entreprise" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="/img/covers/gouvernance.svg" alt="Gouvernance data AI Act RGPD — conformité intelligence artificielle entreprise" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
                         <div class="service-icon">⚖️</div>
                         <h3>Gouvernance Data & AI Act</h3>
                         <p>Mise en conformité avec le règlement européen AI Act et le RGPD. Élaboration de chartes d'usage IA, classification des risques, audit des données. Obligation de formation de l'article 4 en vigueur depuis février 2025.</p>
@@ -1819,9 +1866,9 @@
                     <div class="logo-item"><img src="logo-spelem.png" alt="SPELEM — l'assistance maintenance" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">SPELEM</span></div>
                     <div class="logo-item"><img src="logo-france-travail.png" alt="France Travail" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">FRANCE TRAVAIL</span></div>
                     <div class="logo-item"><img src="logo-mimbus.png" alt="MIMBUS — formation immersive" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">MIMBUS</span></div>
-                    <div class="logo-item"><img src="https://www.on-x.com/wp-content/uploads/2022/09/on-x_white_groupe.png" alt="ON-X Groupe" style="filter:invert(1);" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">ON-X GROUPE</span></div>
-                    <div class="logo-item"><img src="https://www.vr-show.fr/wp-content/uploads/2023/05/Logo-VR-Show.png" alt="VR-SHOW" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">VR-SHOW</span></div>
-                    <div class="logo-item"><img src="https://www.laclim31.com/wp-content/uploads/2022/06/logo-laclim.png" alt="LACLIM" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">LACLIM</span></div>
+                    <div class="logo-item"><img src="/logos/onx.png" alt="ON-X Groupe" style="filter:invert(1);" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">ON-X GROUPE</span></div>
+                    <div class="logo-item"><img src="/logos/vrshow.png" alt="VR-SHOW" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">VR-SHOW</span></div>
+                    <div class="logo-item"><img src="/logos/laclim.png" alt="LACLIM" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">LACLIM</span></div>
                     <div class="logo-item"><img src="logo-artshopping.png" alt="Art Shopping Paris" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">ART SHOPPING</span></div>
                 </div>
 
@@ -1855,13 +1902,13 @@
                 </div>
 
                 <div class="logos-grid fade-in">
-                    <div class="logo-item"><img src="https://www.tbs-education.com/content/uploads/sites/2/2021/07/logo-tbs-education-inspiring-life.png" alt="TBS Education" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">TBS EDUCATION</span></div>
-                    <div class="logo-item"><img src="https://logo.clearbit.com/ynov.com" alt="YNOV" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">YNOV</span></div>
-                    <div class="logo-item"><img src="https://www.lisaa.com/sites/all/themes/lisaa/img/svg/logo-rouge.svg" alt="LISAA" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">LISAA</span></div>
-                    <div class="logo-item"><img src="https://www.purpan.fr/wp-content/themes/theme/assets/img/logo/logo-purpan.svg" alt="Purpan" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">PURPAN</span></div>
-                    <div class="logo-item"><img src="https://res.cloudinary.com/mediaschool/image/upload/v1705586861/mediaschool/logo_mediaschool_didomi_xrlifl.png" alt="MediaSchool" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">MEDIASCHOOL</span></div>
-                    <div class="logo-item"><img src="https://www.digital-campus.fr/sites/all/themes/digital_campus/img/logos/logo-digital-campus-dark.svg" alt="Digital Campus" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">DIGITAL CAMPUS</span></div>
-                    <div class="logo-item"><img src="https://www.limayrac.fr/wp-content/uploads/2025/05/logo_limayrac.webp" alt="Institut Limayrac" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">INSTITUT LIMAYRAC</span></div>
+                    <div class="logo-item"><img src="/logos/tbs.webp" alt="TBS Education" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">TBS EDUCATION</span></div>
+                    <div class="logo-item"><span class="logo-fallback" style="display:block;font-size:13px;font-weight:700;letter-spacing:0.05em;">YNOV</span></div> <!-- logo.clearbit.com est hors service (DNS ne résout plus) ; logo officiel YNOV à fournir par Jérôme pour remplacer ce texte -->
+                    <div class="logo-item"><img src="/logos/lisaa.svg" alt="LISAA" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">LISAA</span></div>
+                    <div class="logo-item"><img src="/logos/purpan.svg" alt="Purpan" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">PURPAN</span></div>
+                    <div class="logo-item"><img src="/logos/mediaschool.png" alt="MediaSchool" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">MEDIASCHOOL</span></div>
+                    <div class="logo-item"><img src="/logos/digitalcampus.svg" alt="Digital Campus" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">DIGITAL CAMPUS</span></div>
+                    <div class="logo-item"><img src="/logos/limayrac.webp" alt="Institut Limayrac" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">INSTITUT LIMAYRAC</span></div>
                 </div>
             </div>
         </section>
@@ -2009,7 +2056,7 @@
 
                 <div class="fade-in" style="max-width: 640px; margin: 40px auto;">
                     <a href="https://www.youtube.com/watch?v=IUdVoEROd9c" target="_blank" rel="noopener" style="display:block;position:relative;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;cursor:pointer;">
-                        <img src="https://img.youtube.com/vi/IUdVoEROd9c/hqdefault.jpg" alt="Vidéo conférence IA et société Jérôme Denis université philosophie ALDERAN Toulouse" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:0.85;transition:opacity 0.3s ease;">
+                        <img src="/img/youtube-thumb-IUdVoEROd9c.jpg" alt="Vidéo conférence IA et société Jérôme Denis université philosophie ALDERAN Toulouse" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:0.85;transition:opacity 0.3s ease;">
                         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;background:rgba(212,168,83,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
                         </div>
