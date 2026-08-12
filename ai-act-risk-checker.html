@@ -428,6 +428,11 @@
     }
   }
 
+  // GA4 event, only if measurement was consented (window.gtag set by consent.js).
+  function gaEvent(name, params) {
+    try { if (window.gtag) window.gtag("event", name, params || {}); } catch (e) {}
+  }
+
   function render() {
     var steps = currentVisible();
     if (cursor >= steps.length) { renderResult(); return; }
@@ -484,6 +489,7 @@
       if (cursor > 0) { cursor -= 1; render(); scrollToTool(); }
     });
     nextBtn.addEventListener("click", function () {
+      if (cursor === 0) gaEvent("ai_act_demarre", {});
       state[step.id] = readValue(step, inputs);
       if (step.id === "prohibited" && state.prohibited && state.prohibited.length > 0) {
         // A prohibited practice ends the questionnaire immediately — the
@@ -643,6 +649,7 @@
   function renderResult() {
     var flags = compute(state);
     var role = state.role || "B";
+    gaEvent("ai_act_resultat", { categorie: flags.join("_").toLowerCase(), role: role });
     var shareUrl = location.origin + location.pathname + "#" + encodeResult(flags, role);
     history.replaceState(null, "", "#" + encodeResult(flags, role));
 
@@ -678,6 +685,7 @@
     stampPrintDate();
 
     document.getElementById("btn-pdf").addEventListener("click", function () {
+      gaEvent("ai_act_pdf", { categorie: flags.join("_").toLowerCase() });
       stampPrintDate();
       window.print();
     });
@@ -736,6 +744,7 @@
       root.innerHTML = html;
       stampPrintDate();
       document.getElementById("btn-pdf-shared").addEventListener("click", function () {
+        gaEvent("ai_act_pdf", { source: "partage" });
         stampPrintDate();
         window.print();
       });
