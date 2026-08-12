@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérificateur de risque AI Act — outil gratuit</title>
+    <meta name="description" content="Outil gratuit : jusqu'à 12 questions pour classer votre système d'IA au titre du règlement (UE) 2024/1689, avec l'article applicable et l'échéance réelle.">
+    <link rel="canonical" href="https://jaydenis.com/verificateur-risque-ai-act.html">
+    <link rel="alternate" hreflang="fr" href="https://jaydenis.com/verificateur-risque-ai-act.html">
+    <link rel="alternate" hreflang="en" href="https://jaydenis.com/ai-act-risk-checker.html">
+    <link rel="alternate" hreflang="x-default" href="https://jaydenis.com/verificateur-risque-ai-act.html">
+    <meta property="og:title" content="Vérificateur de risque AI Act — outil gratuit, hors ligne">
+    <meta property="og:description" content="Jusqu'à 12 questions, et vous obtenez la catégorie de risque de votre système d'IA, l'article qui la fonde, l'échéance et ce que ça implique. Sans inscription, rien n'est envoyé nulle part.">
+    <meta property="og:image" content="https://jaydenis.com/og-image.jpg">
+    <meta property="og:url" content="https://jaydenis.com/verificateur-risque-ai-act.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <link href="/fonts/fonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles-pages.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://jaydenis.com/verificateur-risque-ai-act.html#tool",
+                "name": "Vérificateur de risque AI Act",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Tout navigateur",
+                "description": "Outil de décision gratuit, exécuté entièrement dans le navigateur, qui classe un système d'IA au titre du règlement (UE) 2024/1689 : pratique interdite, haut risque (annexe I ou annexe III), modèle d'IA à usage général, obligations de transparence, ou risque minimal.",
+                "isAccessibleForFree": true,
+                "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+                "author": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "publisher": {"@id": "https://jaydenis.com/#organization"},
+                "about": {"@type": "Legislation", "name": "Règlement (UE) 2024/1689 (AI Act)", "legislationIdentifier": "Regulation (EU) 2024/1689", "legislationJurisdiction": "European Union"},
+                "inLanguage": "fr"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jaydenis.com/"},
+                    {"@type": "ListItem", "position": 2, "name": "Conformité AI Act", "item": "https://jaydenis.com/conformite-ai-act-gouvernance-donnees.html"},
+                    {"@type": "ListItem", "position": 3, "name": "Vérificateur de risque AI Act", "item": "https://jaydenis.com/verificateur-risque-ai-act.html"}
+                ]
+            }
+        ]
+    }
+    </script>
+    <style>
+        /* ---- Ajouts propres au questionnaire, par-dessus les tokens de styles-pages.css ---- */
+        .tool-shell { border: 1px solid var(--color-border); border-radius: 12px; padding: 32px; margin: 28px 0; background: #fff; box-shadow: 0 8px 30px var(--color-shadow); }
+        .progress-track { height: 6px; background: var(--color-light); border-radius: 4px; overflow: hidden; margin-bottom: 26px; }
+        .progress-bar { height: 100%; background: var(--color-accent); border-radius: 4px; transition: width .25s ease; width: 0%; }
+        .step-meta { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-muted); font-weight: 700; margin-bottom: 8px; }
+        .step-title { font-family: var(--font-serif); font-size: clamp(20px, 3vw, 26px); line-height: 1.3; margin-bottom: 6px; }
+        .step-hint { color: var(--color-muted); font-size: 15px; margin-bottom: 20px; }
+        .opt-list { list-style: none; margin: 0 0 8px; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+        .opt-list li { border: 1.5px solid var(--color-border); border-radius: 8px; transition: border-color .15s, background .15s; }
+        .opt-list li:has(input:checked) { border-color: var(--color-accent); background: #fbf7ee; }
+        .opt-list label { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; cursor: pointer; font-size: 15.5px; line-height: 1.5; }
+        .opt-list input { margin-top: 4px; flex-shrink: 0; width: 17px; height: 17px; accent-color: var(--color-accent); }
+        .wizard-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; gap: 12px; }
+        .wizard-nav .spacer { flex: 1; }
+        button.btn { font: inherit; cursor: pointer; border: none; }
+        button.btn-ghost { background: transparent; }
+        button.btn[disabled] { opacity: .4; cursor: not-allowed; }
+        .badge { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 10px; }
+        .badge-prohibited { background: #fdecea; color: #b3261e; }
+        .badge-high { background: #fff4e0; color: #c77700; }
+        .badge-doc { background: #fff9db; color: #8a6d00; }
+        .badge-gpai { background: #eee5fb; color: #6a2fc4; }
+        .badge-transparency { background: #e6f1fb; color: #1c6ea4; }
+        .badge-minimal { background: #e8f6ea; color: #2e7d32; }
+        .result-block { border-left: 4px solid var(--color-border); padding: 18px 22px; margin: 18px 0; border-radius: 0 8px 8px 0; background: var(--color-light); }
+        .result-block.rb-prohibited { border-color: #b3261e; }
+        .result-block.rb-high { border-color: #c77700; }
+        .result-block.rb-doc { border-color: #cba400; }
+        .result-block.rb-gpai { border-color: #6a2fc4; }
+        .result-block.rb-transparency { border-color: #1c6ea4; }
+        .result-block.rb-minimal { border-color: #2e7d32; }
+        .result-block h3 { margin: 0 0 6px; font-size: 18px; }
+        .result-block .meta-line { font-size: 13.5px; color: var(--color-muted); margin-bottom: 10px; }
+        .result-block .role-note { font-size: 15px; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; padding: 12px 14px; margin-top: 10px; }
+        .result-block .role-note + .role-note { margin-top: 8px; }
+        .disclaimer-box { background: #fdf6f5; border: 1px solid #f0d9d6; border-radius: 8px; padding: 16px 20px; font-size: 14px; color: #6b2a24; margin: 24px 0; }
+        .share-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 26px 0 6px; }
+        .share-row input { flex: 1; min-width: 220px; padding: 10px 12px; border: 1px solid var(--color-border); border-radius: 6px; font-size: 13.5px; font-family: monospace; background: var(--color-light); }
+        .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+        .fine-print { font-size: 13px; color: var(--color-muted); margin-top: 30px; }
+        @media (max-width: 640px) { .tool-shell { padding: 22px 18px; } }
+    </style>
+<!-- Mesure d'audience (Google Analytics) : chargée uniquement après consentement explicite. Voir /consent.js -->
+<script src="/consent.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="inner">
+            <a class="site-logo" href="/">JDENIS<span>.</span></a>
+            <nav class="site-nav" aria-label="Navigation principale">
+                <a href="/">Accueil</a>
+                <a href="/diagnostic-audit-ia-toulouse.html">Diagnostic &amp; Audit IA</a>
+                <a href="/formation-ia-entreprise-toulouse.html">Formation IA</a>
+                <a href="/architecture-ia-sur-mesure.html">Architecture IA</a>
+                <a href="/conformite-ai-act-gouvernance-donnees.html">Conformité AI Act</a>
+                <a href="/blog/">Blog</a>
+                <a class="nav-cta" href="/#contact">Diagnostic gratuit</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › <a href="/conformite-ai-act-gouvernance-donnees.html">Conformité AI Act</a> › Vérificateur de risque</nav>
+        </div>
+
+        <section class="page-hero">
+            <div class="container">
+                <div class="section-label">Outil gratuit · Sans inscription · Rien n'est envoyé nulle part</div>
+                <h1>Vérificateur de risque <span class="highlight">AI Act</span></h1>
+                <p class="lede">Douze questions au maximum. Tout s'exécute dans votre navigateur — aucune donnée ne quitte votre appareil. Vous obtenez la catégorie de risque dans laquelle tombe votre système au titre du règlement européen sur l'IA, l'article qui la fonde, l'échéance, et ce que cela implique concrètement selon que vous êtes fournisseur, déployeur, ou les deux.</p>
+                <div class="hero-proof">
+                    <span>Règlement (UE) 2024/1689, à jour d'août 2026</span>
+                    <span>Règles pures, aucun modèle d'IA dans la boucle</span>
+                    <span>Résultat partageable par lien</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container content">
+
+            <div id="tool-root" class="tool-shell">
+                <!-- Le questionnaire ou le résultat sont rendus ici par JavaScript -->
+                <noscript>Ce questionnaire a besoin de JavaScript pour fonctionner — tout se passe malgré tout localement dans votre navigateur, rien n'est envoyé à un serveur. Le tableau des catégories de risque ci-dessous reste consultable sans JavaScript.</noscript>
+            </div>
+
+            <div class="disclaimer-box" id="avertissement">
+                <strong>Ceci est un outil d'orientation, pas un conseil juridique.</strong> Il applique des règles simplifiées tirées du règlement (UE) 2024/1689 (l'AI Act) aux réponses que vous donnez, et à rien d'autre — il ne voit ni votre système, ni votre documentation, ni vos contrats. Ce n'est pas une évaluation de la conformité, pas un substitut à l'évaluation écrite qu'exige l'article 6, paragraphe 4, et pas un avis juridique. Les échéances de l'AI Act ont déjà bougé une fois en 2026 (le Digital Omnibus) et les lignes directrices de la Commission continuent de paraître — considérez chaque date de cette page comme « l'état des connaissances en août 2026 », vérifiez-la contre le texte consolidé en vigueur avant de vous en servir, et consultez un avocat ou <a href="/?utm_source=verificateur-ai-act&amp;utm_medium=tool&amp;utm_campaign=avertissement#contact" style="color:#b3261e;text-decoration-color:#b3261e;">parlez-nous-en</a> avant toute décision réelle, en particulier sur un résultat « pratique interdite » ou « haut risque ».
+                <p style="margin:10px 0 0;font-size:12.5px;">Textes vérifiés contre le <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/fra" style="color:#6b2a24;">texte consolidé publié sur EUR-Lex au 27 juillet 2026</a>. La formulation de l'exception étroite (article 6, paragraphe 3) reflète en outre les lignes directrices de classification de la Commission européenne, publiées en projet le 19 mai 2026 et non contraignantes jusqu'à leur adoption définitive (attendue fin 2026). Dernière relecture de cette page : août 2026.</p>
+            </div>
+
+            <section id="categories">
+                <h2>Quelles sont les catégories de risque de l'AI Act ?</h2>
+                <p>Le règlement européen sur l'IA (règlement (UE) 2024/1689) répartit les systèmes d'IA en quatre niveaux de risque — <strong>pratiques interdites</strong>, <strong>haut risque</strong>, <strong>risque limité</strong> (obligations de transparence) et <strong>risque minimal</strong> — et ajoute un chapitre distinct pour les <strong>modèles d'IA à usage général</strong>. Le niveau qui s'applique détermine ce que vous devez faire, et pour quand. Vos obligations dépendent aussi de votre rôle : un <strong>fournisseur</strong> développe le système et le met sur le marché ou en service sous son nom, un <strong>déployeur</strong> l'utilise sous sa propre autorité, et beaucoup d'organisations sont les deux, pour des systèmes différents.</p>
+
+                <p>Le tableau ci-dessous est la référence qu'applique le questionnaire ci-dessus. Les dates tiennent compte du règlement (UE) 2026/1744 (le « Digital Omnibus »), en vigueur depuis le 27 juillet 2026.</p>
+
+                <div style="overflow-x:auto;">
+                <table>
+                    <caption class="fine-print" style="caption-side:bottom;text-align:left;padding-top:8px;">Catégories de risque de l'AI Act, base légale et dates d'application — état au mois d'août 2026.</caption>
+                    <thead>
+                        <tr><th>Catégorie</th><th>Base légale</th><th>Applicable à partir du</th><th>Ce que ça veut dire</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pratique interdite</strong></td>
+                            <td>Article 5</td>
+                            <td>Applicable depuis le 2 février 2025</td>
+                            <td>Interdite purement et simplement dans l'Union, quel que soit votre rôle et quel que soit l'usage qui en est fait. Ce n'est pas une question de paperasse : c'est reconcevoir le système ou renoncer au marché européen.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Haut risque — annexe I</strong> (IA intégrée à un produit)</td>
+                            <td>Article 6, paragraphe 1</td>
+                            <td>2 août 2028 <span class="fine-print">(reporté du 2 août 2027)</span></td>
+                            <td>Le système est un composant de sécurité d'un produit déjà couvert par la législation d'harmonisation de l'Union. Fournisseur : gestion des risques, gouvernance des données, documentation technique, évaluation de la conformité (souvent par un organisme notifié), marquage CE, enregistrement, surveillance après commercialisation. Déployeur : usage conforme à la notice, contrôle humain, tenue des journaux.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Haut risque — annexe III</strong> (système autonome)</td>
+                            <td>Article 6, paragraphe 2</td>
+                            <td>2 décembre 2027 <span class="fine-print">(reporté du 2 août 2026)</span></td>
+                            <td>Le système relève de l'un des huit domaines d'usage de l'annexe III et sa sortie pèse matériellement sur une décision concernant une personne. Fournisseur : système de gestion de la qualité, journalisation, évaluation de la conformité, enregistrement dans la base de données de l'UE (article 49), surveillance après commercialisation. Déployeur : contrôle humain, journaux conservés au moins six mois, et dans certains cas une analyse d'impact sur les droits fondamentaux (article 27).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exception de la tâche étroite</strong></td>
+                            <td>Article 6, paragraphes 3 et 4</td>
+                            <td>Même échéance que le niveau dont elle exempte</td>
+                            <td>Un système de l'annexe III peut échapper au haut risque s'il n'accomplit qu'une tâche procédurale étroite. En pratique elle joue rarement : le profilage l'écarte toujours, et classer ou noter n'est pas une tâche procédurale. L'article 6, paragraphe 4, impose de toute façon une évaluation documentée avant la mise sur le marché, et l'enregistrement prévu à l'article 49, paragraphe 2.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Modèle d'IA à usage général — obligations de base</strong></td>
+                            <td>Article 53</td>
+                            <td>Applicable depuis le 2 août 2025</td>
+                            <td>Vise celui qui entraîne le modèle, pas ceux qui l'appellent par API. Tenir à jour la documentation technique, informer les fournisseurs en aval, mettre en place une politique de respect du droit d'auteur et publier un résumé du contenu d'entraînement.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Modèle d'IA à usage général — risque systémique</strong></td>
+                            <td>Articles 51 et 55</td>
+                            <td>Applicable depuis le 2 août 2025</td>
+                            <td>Présumé à partir de 10<sup>25</sup> opérations en virgule flottante cumulées pour l'entraînement (présomption réfragable). Notifier la Commission européenne dans les deux semaines suivant le moment où le seuil est atteint ou prévu, puis évaluation du modèle, essais contradictoires, suivi et signalement des incidents graves, cybersécurité.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Obligations de transparence</strong> (risque limité)</td>
+                            <td>Article 50</td>
+                            <td>Applicable depuis le 2 août 2026</td>
+                            <td>S'ajoutent à n'importe quel niveau ci-dessus, dès lors que des personnes interagissent avec le système ou en voient les sorties : signaler l'interaction avec une IA, signaler les hypertrucages, marquer les contenus générés dans un format lisible par machine. Un sursis ciblé court jusqu'au 2 décembre 2026 pour cette seule obligation de marquage lisible par machine.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Risque minimal</strong></td>
+                            <td>Aucune obligation propre au niveau</td>
+                            <td>—</td>
+                            <td>C'est là que tombe la majorité des systèmes d'IA. L'obligation générale de maîtrise de l'IA (article 4, applicable depuis le 2 février 2025, sans seuil d'effectif) s'applique quand même, et le silence de l'AI Act n'éteint ni le RGPD ni le droit sectoriel.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </section>
+
+            <section>
+                <h2>Pourquoi cet outil</h2>
+                <p>La plupart des check-lists AI Act s'arrêtent à « haut risque ou pas ». Les deux endroits où l'on se trompe réellement sont en amont : savoir si l'on est <strong>fournisseur</strong> ou <strong>déployeur</strong> (la plupart des fondateurs qui appellent une API sont les deux, pour des systèmes différents), et savoir si l'exception étroite de l'article 6, paragraphe 3, s'applique vraiment à son cas — en pratique elle joue rarement, parce que la plupart des outils qui informent une décision concernant une personne finissent par la façonner, et pas seulement par organiser la paperasse autour. Ce questionnaire pose ces deux questions exprès, avant de donner une réponse.</p>
+                <p><strong>Cet outil ou la grille de classification ?</strong> Le vérificateur ci-dessus est un <strong>questionnaire interactif</strong> : un système à la fois, une réponse en trois minutes, un lien partageable. La <a href="/grille-classification-risques-ai-act.html?ref=verificateur">grille de classification des risques AI Act</a> est un <strong>arbre de décision statique</strong> : la même logique déroulée par écrit, avec les exemples travaillés, le tableau des obligations par niveau et un modèle de registre des systèmes d'IA à réutiliser (licence CC BY 4.0). Le vérificateur pour trancher un cas ; la grille pour outiller la démarche et documenter le résultat. Les deux appliquent le même règlement et les mêmes dates.</p>
+            </section>
+
+            <section class="faq">
+                <h2>Les questions que l'on nous pose</h2>
+                <details>
+                    <summary>Ce résultat a-t-il une valeur juridique ou une certification quelconque ?</summary>
+                    <p>Non. C'est un outil d'orientation gratuit, construit à partir d'informations publiques, destiné à vous aider à poser les bonnes questions tôt. Ce n'est pas un substitut à l'évaluation documentée que le règlement exige pour les cas limites, et ce n'est pas un avis juridique.</p>
+                </details>
+                <details>
+                    <summary>Ce que je saisis part-il vers un serveur ?</summary>
+                    <p>Non. La classification s'exécute intégralement dans votre navigateur, en JavaScript simple — aucun modèle d'IA, aucun appel d'API, aucun serveur applicatif. La seule requête réseau de cette page est la balise Google Analytics utilisée sur l'ensemble du site, chargée uniquement après votre consentement, et qui ne voit pas vos réponses.</p>
+                </details>
+                <details>
+                    <summary>Pourquoi les échéances « haut risque » semblent-elles si lointaines ?</summary>
+                    <p>Parce qu'elles ont été reportées, et récemment. Le règlement (UE) 2026/1744 (le « Digital Omnibus »), publié au Journal officiel de l'Union européenne le 24 juillet 2026 et en vigueur depuis le 27 juillet 2026, a décalé le haut risque autonome de l'annexe III du 2 août 2026 au 2 décembre 2027, et le haut risque produit de l'annexe I du 2 août 2027 au 2 août 2028. Les pratiques interdites (article 5), la maîtrise de l'IA (article 4), les obligations sur les modèles à usage général et la transparence (article 50) n'ont pas été reportées — l'article 50 est applicable depuis le 2 août 2026. Attention à ne pas confondre : le report déplace la date de mise en conformité, pas la qualification.</p>
+                </details>
+                <details>
+                    <summary>Je ne fais qu'appeler l'API d'OpenAI, d'Anthropic ou de Google — le chapitre sur les modèles à usage général me concerne-t-il ?</summary>
+                    <p>En général non, pas directement. C'est l'entraînement d'un modèle de fondation qui déclenche le chapitre V (articles 51 à 56). Appeler un modèle par API fait de vous un déployeur de ce modèle — les obligations lourdes pèsent sur son fournisseur — tandis que vous restez fournisseur de ce que vous construisez par-dessus, jugé pour lui-même par le reste de ce questionnaire. Une réserve : si ce que vous construisez s'avère à haut risque, c'est vous qui héritez des obligations de fournisseur pour ce système (article 25), et une clause des conditions d'utilisation de l'éditeur excluant les usages à haut risque ne suffit pas, à elle seule, à vous en exonérer.</p>
+                </details>
+                <details>
+                    <summary>Vous appuyez-vous sur les lignes directrices de la Commission, ou seulement sur le règlement ?</summary>
+                    <p>Sur les deux, et nous disons lequel fait quoi. La logique de classement elle-même (interdit, haut risque, transparence, minimal) vient du règlement. Les exemples détaillés de la question sur l'exception étroite (article 6, paragraphe 3, notamment ce qui compte comme « tâche procédurale étroite ») viennent des lignes directrices de classification de la Commission, publiées en projet le 19 mai 2026 et soumises à consultation jusqu'au 23 juillet 2026. Ces lignes directrices ne sont ni contraignantes ni définitives — la Commission prévoit d'adopter une version finale d'ici fin 2026, qui peut différer du projet. L'outil est calé sur le projet tel qu'il existe aujourd'hui, et sera mis à jour si le texte final change.</p>
+                </details>
+                <details>
+                    <summary>Quelle différence avec la grille de classification déjà publiée sur ce site ?</summary>
+                    <p>Le vérificateur est un questionnaire : il vous pose les questions dans l'ordre, saute celles qui ne s'appliquent pas et produit un résultat pour un système donné, avec un lien partageable. La <a href="/grille-classification-risques-ai-act.html?ref=verificateur-faq">grille de classification des risques</a> est un document : l'arbre de décision déroulé par écrit, en cinq étapes, avec les exemples d'entreprise, le tableau récapitulatif des obligations et un modèle de registre des systèmes d'IA réutilisable sous licence CC BY 4.0. Beaucoup d'utilisateurs commencent par le vérificateur pour un cas précis, puis passent à la grille pour traiter l'ensemble de leur parc et le documenter.</p>
+                </details>
+            </section>
+
+            <div class="founder">
+                <img src="jerome-denis.jpg" alt="Jérôme Denis, consultant IA et gouvernance des données à Toulouse" width="110" height="110">
+                <div>
+                    <p><strong>Jérôme Denis</strong> — Consultant senior IA &amp; Gouvernance Data, Toulouse. Plus de vingt ans en transformation numérique, missions de conformité AI Act auprès de TPE, PME et ETI. C'est le questionnaire que j'utilise comme première passe en mission, publié librement parce qu'un point de départ partagé vaut mieux qu'un point de départ gardé.</p>
+                </div>
+            </div>
+
+            <div class="cta-band"><p>Vous tombez sur un résultat « haut risque » ou « pratique interdite » et vous voulez un second avis, humain ?<br>Le premier échange est gratuit et sans engagement.</p><a class="btn btn-primary" href="/?utm_source=verificateur-ai-act&utm_medium=tool&utm_campaign=cta-band#contact">En parler</a></div>
+
+            <section>
+                <div class="section-label">Pour aller plus loin</div>
+                <div class="related">
+                    <a href="/grille-classification-risques-ai-act.html?ref=verificateur-related"><span class="kicker">Outil libre</span><strong>Grille de classification des risques AI Act — arbre de décision et modèle de registre</strong></a>
+                    <a href="/conformite-ai-act-gouvernance-donnees.html"><span class="kicker">Service</span><strong>Conformité AI Act &amp; gouvernance des données</strong></a>
+                    <a href="/formation-ia-entreprise-toulouse.html"><span class="kicker">Service</span><strong>Formation IA en entreprise — obligation de l'article 4</strong></a>
+                </div>
+                <p class="fine-print"><a href="/ai-act-risk-checker.html" hreflang="en">This tool in English: AI Act Risk Checker</a></p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <div>© 2026 JDENIS Consulting — Jérôme Denis, consultant IA à Toulouse</div>
+            <div>
+                <a href="/">Accueil</a>
+                <a href="/blog/">Blog</a>
+                <a href="/mentions-legales.html">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var root = document.getElementById("tool-root");
+
+  // ---------------------------------------------------------------
+  // Définition des étapes. Chaque étape a : id, type (single|multi),
+  // title, hint, options[{v,label}], et un prédicat show(state) optionnel.
+  // Logique strictement identique à la version anglaise
+  // (/ai-act-risk-checker.html) : mêmes id, mêmes valeurs, mêmes
+  // branchements, mêmes cumuls de résultats.
+  // ---------------------------------------------------------------
+  var STEPS = [
+    {
+      id: "role", type: "single", num: 1,
+      title: "Quel est votre rôle vis-à-vis de ce système d'IA ?",
+      hint: "Cette réponse détermine quelles obligations pèseront sur vous, pas la catégorie de risque elle-même. À noter : si ce que vous construisez au-dessus d'un modèle tiers s'avère à haut risque, vous devenez fournisseur pour ce système-là, et une clause des conditions d'utilisation de l'éditeur excluant les usages à haut risque ne suffit pas, à elle seule, à vous en exonérer (article 25 ; lignes directrices de la Commission en projet, non contraignantes, mai 2026).",
+      options: [
+        { v: "A", label: "Je le développe (ou le fais développer) et je le mets sur le marché ou en service sous mon propre nom ou ma propre marque." },
+        { v: "B", label: "J'utilise un système ou un service d'IA conçu par un tiers (produit d'un éditeur, API externe, outil sur étagère) dans mes opérations ou mon produit, sans le rebaptiser à mon nom." },
+        { v: "C", label: "Les deux — j'appelle un modèle ou une API tiers, mais je construis et je livre mon propre produit par-dessus." }
+      ]
+    },
+    {
+      id: "prohibited", type: "multi", num: 2,
+      title: "Votre système d'IA fait-il l'une des choses suivantes ?",
+      hint: "Cochez tout ce qui s'applique. N'en cocher aucune est une réponse valable.",
+      options: [
+        { v: "manip", label: "Il a recours à des techniques subliminales, manipulatrices ou trompeuses pour altérer substantiellement le comportement d'une personne, d'une manière qui cause ou risque de causer un préjudice important" },
+        { v: "vuln", label: "Il exploite les vulnérabilités d'un groupe déterminé (âge, handicap, ou situation sociale ou économique particulière) pour altérer son comportement de manière préjudiciable" },
+        { v: "social", label: "Il évalue ou classe des personnes selon leur comportement social ou leurs caractéristiques personnelles, avec un traitement préjudiciable ou défavorable sans rapport avec le contexte d'origine (« notation sociale »)" },
+        { v: "crimepred", label: "Il évalue ou prédit le risque qu'une personne commette une infraction pénale en se fondant principalement sur son profilage ou ses traits de personnalité, sans lien objectif et vérifiable avec un fait délictueux" },
+        { v: "scrape", label: "Il constitue ou enrichit des bases de reconnaissance faciale par moissonnage non ciblé d'images faciales issues d'internet ou de la vidéosurveillance" },
+        { v: "emotion", label: "Il infère les émotions d'une personne sur le lieu de travail ou dans un établissement d'enseignement (hors exceptions médicales ou de sécurité étroitement définies)" },
+        { v: "biocat", label: "Il catégorise des personnes à partir de leurs données biométriques pour en déduire l'origine raciale, les opinions politiques, l'appartenance syndicale, les convictions religieuses, la vie sexuelle ou l'orientation sexuelle" },
+        { v: "rtbi", label: "Il procède à l'identification biométrique à distance en temps réel de personnes dans des espaces accessibles au public à des fins répressives" },
+        { v: "intimate", label: "Il génère ou manipule des images, du son ou de la vidéo pour produire du contenu intime non consenti représentant une personne réelle identifiable" },
+        { v: "csam", label: "Il génère, ou facilite l'accès à, des contenus pédocriminels" }
+      ]
+    },
+    {
+      id: "gpai", type: "single", num: 3,
+      title: "Entraînez-vous ou développez-vous vous-même un modèle d'IA à usage général (modèle de fondation) — par opposition au fait d'appeler un modèle existant par API ou via le produit d'un éditeur ?",
+      hint: "Par exemple un grand modèle de langage ou un générateur d'images sur lequel d'autres entreprises construisent leurs produits.",
+      options: [ { v: "Y", label: "Oui, nous entraînons ou développons le modèle lui-même." }, { v: "N", label: "Non, nous utilisons un modèle existant." } ]
+    },
+    {
+      id: "flops", type: "single", num: "3b",
+      title: "Connaissez-vous, ou pouvez-vous estimer raisonnablement, la puissance de calcul totale utilisée pour entraîner ce modèle ?",
+      hint: "Mesurée en opérations en virgule flottante (FLOP) cumulées pour l'entraînement.",
+      show: function (s) { return s.gpai === "Y"; },
+      options: [
+        { v: "low", label: "Moins de 10²⁵ FLOP (ou manifestement un modèle plus petit)" },
+        { v: "high", label: "Égale ou supérieure à 10²⁵ FLOP" },
+        { v: "unknown", label: "Je ne sais pas" }
+      ]
+    },
+    {
+      id: "product", type: "single", num: 4,
+      title: "Ce système d'IA est-il un composant de sécurité d'un produit physique déjà soumis, avant sa commercialisation, à une législation d'harmonisation de l'Union ?",
+      hint: "Par exemple : dispositifs médicaux, machines, jouets, ascenseurs, véhicules, équipements aéronautiques, équipements radioélectriques — et ce produit doit faire l'objet d'une évaluation de la conformité par un tiers (organisme notifié) avant sa mise sur le marché.",
+      options: [ { v: "Y", label: "Oui." }, { v: "N", label: "Non / sans objet." } ]
+    },
+    {
+      id: "sectors", type: "multi", num: 5,
+      title: "Parmi les domaines suivants, lequel décrit le mieux ce que votre système décide, évalue, classe ou influence matériellement au sujet de personnes réelles ?",
+      hint: "Cochez tout ce qui s'applique.",
+      show: function (s) { return s.product !== "Y"; },
+      options: [
+        { v: "bio", label: "Identification biométrique, catégorisation biométrique ou reconnaissance des émotions de personnes" },
+        { v: "infra", label: "Composant de sécurité dans la gestion ou l'exploitation d'infrastructures critiques (électricité, gaz, eau, chauffage, trafic routier, infrastructure numérique critique) — et non un simple outil d'information ou d'optimisation" },
+        { v: "edu", label: "Éducation et formation professionnelle : notes ou qualifications qui déterminent le parcours scolaire ou professionnel d'une personne (un retour formatif qui ne conditionne aucun passage n'entre généralement pas dans ce cas)" },
+        { v: "emp", label: "Emploi, gestion des travailleurs ou accès à l'emploi indépendant : tout le processus, du sourcing des candidats à la contractualisation, et les décisions postérieures à l'embauche sur la promotion, le licenciement, la répartition des tâches ou le suivi de la performance (y compris les travailleurs indépendants et ceux des plateformes)" },
+        { v: "essential", label: "Accès aux services privés essentiels et aux services publics essentiels (prêts, crédits immobiliers et crédits à la consommation ; tarification en assurance ; éligibilité aux prestations sociales ; tri des appels d'urgence — hors cartes de crédit haut de gamme et crédits de confort)" },
+        { v: "law", label: "Services répressifs (évaluation du risque individuel, analyse de schémas criminels, appréciation de la fiabilité des preuves)" },
+        { v: "migration", label: "Gestion des migrations, de l'asile ou des contrôles aux frontières" },
+        { v: "justice", label: "Administration de la justice ou processus démocratiques (assistance à la recherche ou à la décision judiciaire, influence sur des élections ou un vote)" },
+        { v: "none", label: "Aucun de ces domaines", exclusive: true }
+      ]
+    },
+    {
+      id: "exception", type: "single", num: 6,
+      title: "Le système fait-il UNIQUEMENT L'UNE des choses suivantes, et rien de plus — une personne prenant toujours la décision effective concernant l'individu ?",
+      hint: "Soyez strict ici : c'est l'exception la plus étroite et la plus mal appliquée de tout le règlement, et les lignes directrices en projet de la Commission (non contraignantes, mai 2026) la lisent tout aussi étroitement.",
+      show: function (s) { return s.product !== "Y" && hasSector(s); },
+      options: [
+        { v: "narrow", label: "Il accomplit une tâche procédurale étroite : transformer des données non structurées en données structurées, classer des documents dans des catégories prédéfinies, détecter des doublons (classer ou noter des entrées comme plus ou moins utiles ne compte pas, même si cela en a l'apparence : c'est un jugement de valeur)" },
+        { v: "improve", label: "Il se borne à améliorer le résultat d'une activité humaine préalablement réalisée, sans s'y substituer ni modifier les droits ni la situation juridique ou économique de la personne (par exemple un contrôle qualité qui signale des erreurs dans un travail déjà finalisé)" },
+        { v: "detect", label: "Il se borne à détecter des constantes ou des écarts par rapport à des décisions humaines déjà prises, sans se substituer à l'appréciation humaine ni l'influencer en l'absence d'un examen humain approprié (s'il évalue le décideur humain plutôt que le dossier lui-même, c'est du profilage : voir la question suivante)" },
+        { v: "prep", label: "Il se borne à exécuter une tâche préparatoire : indexer, rechercher, traiter ou relier des données, bien en amont de l'évaluation finale (un système qui va jusqu'à une recommandation précise est en général trop proche de la décision pour rester préparatoire)" },
+        { v: "none", label: "Aucune de ces situations — la sortie du système pèse matériellement sur la décision prise au sujet d'une personne, ou la détermine" }
+      ]
+    },
+    {
+      id: "profiling", type: "single", num: "6b",
+      title: "Quelle que soit votre réponse précédente : le système établit-il ou utilise-t-il un profil de personne physique dans le cadre de ce qu'il fait ?",
+      hint: "Par exemple l'évaluation d'aspects tels que le comportement, les préférences, la fiabilité, la localisation ou des caractéristiques personnelles.",
+      show: function (s) { return s.product !== "Y" && hasSector(s); },
+      options: [ { v: "Y", label: "Oui." }, { v: "N", label: "Non." } ]
+    },
+    {
+      id: "transparency", type: "multi", num: 7,
+      title: "Votre système fait-il l'une des choses suivantes ?",
+      hint: "Cochez tout ce qui s'applique. N'en cocher aucune est une réponse valable. Ces obligations peuvent s'ajouter à n'importe quel résultat obtenu ci-dessus.",
+      options: [
+        { v: "chat", label: "Il interagit directement avec des personnes physiques d'une manière qui pourrait être prise pour un échange avec un humain (agent conversationnel, assistant vocal, standard téléphonique automatisé)" },
+        { v: "deepfake", label: "Il génère ou manipule des images, du son ou de la vidéo présentant une ressemblance avec des personnes, des lieux ou des événements réels (hypertrucage)" },
+        { v: "pubtext", label: "Il génère ou manipule du texte publié dans le but d'informer le public sur des questions d'intérêt général, sans contrôle éditorial humain effectif" },
+        { v: "emorec", label: "Il procède à la reconnaissance des émotions ou à la catégorisation biométrique de personnes (dans un contexte qui n'est pas déjà couvert ci-dessus)" }
+      ]
+    }
+  ];
+
+  function hasSector(s) {
+    if (!s.sectors) return false;
+    return s.sectors.some(function (v) { return v !== "none"; });
+  }
+
+  function visibleSteps(state) {
+    return STEPS.filter(function (step) { return !step.show || step.show(state); });
+  }
+
+  // ---------------------------------------------------------------
+  // État
+  // ---------------------------------------------------------------
+  var state = { sectors: [], prohibited: [], transparency: [] };
+  var cursor = 0;
+
+  function currentVisible() { return visibleSteps(state); }
+
+  function render() {
+    var steps = currentVisible();
+    if (cursor >= steps.length) { renderResult(); return; }
+    var step = steps[cursor];
+    var pct = Math.round((cursor / steps.length) * 100);
+
+    var html = '';
+    html += '<div class="progress-track" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:' + pct + '%"></div></div>';
+    html += '<div class="step-meta">Question ' + step.num + ' sur 7</div>';
+    html += '<div class="step-title">' + step.title + '</div>';
+    if (step.hint) html += '<p class="step-hint">' + step.hint + '</p>';
+    html += '<ul class="opt-list">';
+    var savedVal = state[step.id];
+    step.options.forEach(function (opt, i) {
+      var inputType = step.type === "single" ? "radio" : "checkbox";
+      var name = "f_" + step.id;
+      var id = "f_" + step.id + "_" + i;
+      var checked = step.type === "single" ? (savedVal === opt.v) : (Array.isArray(savedVal) && savedVal.indexOf(opt.v) !== -1);
+      html += '<li><label for="' + id + '">' +
+        '<input type="' + inputType + '" name="' + name + '" id="' + id + '" value="' + opt.v + '"' + (checked ? " checked" : "") + '>' +
+        '<span>' + opt.label + '</span></label></li>';
+    });
+    html += '</ul>';
+    html += '<div class="wizard-nav">';
+    html += '<button class="btn btn-ghost" id="btn-back"' + (cursor === 0 ? " disabled" : "") + '>← Retour</button>';
+    html += '<span class="spacer"></span>';
+    html += '<button class="btn btn-primary" id="btn-next">' + (cursor === steps.length - 1 ? "Voir mon résultat" : "Suivant →") + '</button>';
+    html += '</div>';
+    root.innerHTML = html;
+
+    var inputs = root.querySelectorAll('input[name="f_' + step.id + '"]');
+    var nextBtn = document.getElementById("btn-next");
+
+    function updateNextEnabled() {
+      // Les étapes à choix multiple sont toujours franchissables : ne rien
+      // cocher est une réponse légitime (« aucun de ces cas »). Seules les
+      // étapes à choix unique exigent une sélection explicite.
+      var answered = step.type === "single" ? !!readValue(step, inputs) : true;
+      nextBtn.disabled = !answered;
+    }
+    inputs.forEach(function (inp) {
+      inp.addEventListener("change", function () {
+        if (step.type === "multi" && inp.value === "none" && inp.checked) {
+          inputs.forEach(function (o) { if (o !== inp) o.checked = false; });
+        } else if (step.type === "multi" && inp.value !== "none" && inp.checked) {
+          inputs.forEach(function (o) { if (o.value === "none") o.checked = false; });
+        }
+        updateNextEnabled();
+      });
+    });
+    updateNextEnabled();
+
+    document.getElementById("btn-back").addEventListener("click", function () {
+      if (cursor > 0) { cursor -= 1; render(); }
+    });
+    nextBtn.addEventListener("click", function () {
+      state[step.id] = readValue(step, inputs);
+      if (step.id === "prohibited" && state.prohibited && state.prohibited.length > 0) {
+        // Une pratique interdite met fin au questionnaire immédiatement :
+        // les questions restantes ne peuvent pas changer ce résultat.
+        renderResult();
+        return;
+      }
+      cursor += 1;
+      render();
+    });
+  }
+
+  function readValue(step, inputs) {
+    if (step.type === "single") {
+      var found = null;
+      inputs.forEach(function (i) { if (i.checked) found = i.value; });
+      return found;
+    }
+    var vals = [];
+    inputs.forEach(function (i) { if (i.checked) vals.push(i.value); });
+    return vals;
+  }
+
+  // ---------------------------------------------------------------
+  // Calcul du résultat
+  // ---------------------------------------------------------------
+  function compute(s) {
+    var flags = [];
+
+    if (s.prohibited && s.prohibited.length > 0) {
+      return ["PROHIBITED"];
+    }
+
+    if (s.gpai === "Y") {
+      flags.push(s.flops === "high" ? "GPAI_SYSTEMIC" : "GPAI_BASELINE");
+    }
+
+    if (s.product === "Y") {
+      flags.push("ANNEX_I");
+    } else if (hasSector(s)) {
+      if (s.profiling === "Y") {
+        flags.push("ANNEX_III");
+      } else if (s.exception && s.exception !== "none") {
+        flags.push("EXCEPTION");
+      } else {
+        flags.push("ANNEX_III");
+      }
+    }
+
+    if (s.transparency && s.transparency.length > 0) {
+      flags.push("TRANSPARENCY");
+    }
+
+    if (flags.length === 0) flags.push("MINIMAL");
+    return flags;
+  }
+
+  var OUTCOME_TEXT = {
+    PROHIBITED: {
+      badgeClass: "badge-prohibited", blockClass: "rb-prohibited", label: "Pratique interdite",
+      meta: "Article 5 · applicable depuis le 2 février 2025",
+      body: "D'après votre réponse, votre système relève d'une pratique que l'AI Act interdit purement et simplement dans l'Union, quel que soit votre rôle de fournisseur ou de déployeur, et quel que soit l'usage qui en est fait. Ce n'est pas un résultat « haut risque, un peu plus de paperasse » : c'est reconcevoir le système ou renoncer au marché européen. L'outil s'arrête ici volontairement : prenez l'avis d'un avocat avant toute autre chose.",
+      roles: null
+    },
+    GPAI_SYSTEMIC: {
+      badgeClass: "badge-gpai", blockClass: "rb-gpai", label: "Modèle d'IA à usage général — risque systémique",
+      meta: "Articles 51 et 55 · applicables depuis le 2 août 2025 · présomption à partir de 10²⁵ FLOP (réfragable)",
+      body: "Vous entraînez un modèle qui est présumé présenter un risque systémique.",
+      roles: {
+        A: "En tant que fournisseur du modèle : notifiez la Commission européenne dans les deux semaines suivant le moment où vous atteignez le seuil ou prévoyez de l'atteindre. Ensuite : évaluation du modèle, essais contradictoires (« red teaming »), suivi et signalement des incidents graves, et obligations de cybersécurité (article 55).",
+        B: "Si vous ne faites qu'appeler ce modèle par API, ce jeu d'obligations pèse sur le fournisseur du modèle, pas sur vous — mais regardez le résultat sectoriel ci-dessous pour le système que vous construisez par-dessus, et rappelez-vous qu'une clause des conditions d'utilisation de l'éditeur ne vous protège pas à elle seule si ce que vous livrez s'avère à haut risque (article 25 ; lignes directrices de la Commission en projet, non contraignantes).",
+        C: "En tant que fournisseur du modèle, les obligations de l'article 55 ci-dessus vous incombent directement. Par ailleurs, regardez le résultat sectoriel ci-dessous pour ce que vous construisez par-dessus."
+      }
+    },
+    GPAI_BASELINE: {
+      badgeClass: "badge-gpai", blockClass: "rb-gpai", label: "Modèle d'IA à usage général — obligations de base",
+      meta: "Article 53 · applicable depuis le 2 août 2025",
+      body: "Vous entraînez ou développez un modèle d'IA à usage général situé sous la présomption de risque systémique (ou dont la taille n'est pas établie).",
+      roles: {
+        A: "En tant que fournisseur du modèle : tenez à jour la documentation technique, mettez les informations nécessaires à disposition des fournisseurs en aval qui intègrent votre modèle, mettez en place une politique de respect du droit d'auteur de l'Union, et publiez un résumé suffisamment détaillé du contenu utilisé pour l'entraînement.",
+        B: "Si vous ne faites qu'appeler ce modèle par API, ces obligations pèsent sur le fournisseur du modèle — il vaut la peine de vérifier qu'il publie bien ce que l'article 53 exige.",
+        C: "En tant que fournisseur du modèle, ces obligations vous incombent. Par ailleurs, regardez le résultat sectoriel ci-dessous pour ce que vous construisez par-dessus."
+      }
+    },
+    ANNEX_I: {
+      badgeClass: "badge-high", blockClass: "rb-high", label: "Haut risque — annexe I (IA intégrée à un produit)",
+      meta: "Article 6, paragraphe 1 · échéance 2 août 2028 (reportée du 2 août 2027 par le Digital Omnibus de 2026)",
+      body: "Votre système est un composant de sécurité d'un produit déjà couvert par la législation d'harmonisation de l'Union.",
+      roles: {
+        A: "En tant que fournisseur (articles 16 et suivants) : système de gestion des risques, gouvernance des données, documentation technique, évaluation de la conformité (souvent par un organisme notifié, puisque le produit sous-jacent en exige déjà une), marquage CE, déclaration UE de conformité, enregistrement, surveillance après commercialisation, signalement des incidents graves.",
+        B: "En tant que déployeur (article 26) : utiliser le système strictement conformément à la notice d'utilisation, confier le contrôle humain à des personnes qui en ont les compétences et l'autorité, surveiller son fonctionnement, tenir les journaux, informer les travailleurs ou leurs représentants le cas échéant, coopérer avec les autorités.",
+        C: "Les deux jeux d'obligations ci-dessus ont toutes les chances de vous concerner, selon le côté où vous vous situez pour ce système précis."
+      }
+    },
+    ANNEX_III: {
+      badgeClass: "badge-high", blockClass: "rb-high", label: "Haut risque — annexe III (système autonome)",
+      meta: "Article 6, paragraphe 2 · échéance 2 décembre 2027 (reportée du 2 août 2026 par le Digital Omnibus de 2026)",
+      body: "Votre système relève de l'un des huit domaines d'usage de l'annexe III et sa sortie pèse matériellement sur une décision concernant une personne (ou il effectue un profilage, ce qui écarte toujours l'exception de la tâche étroite).",
+      roles: {
+        A: "En tant que fournisseur : système de gestion de la qualité, documentation technique, journalisation, information du déployeur, évaluation de la conformité avant la mise sur le marché (le plus souvent une auto-évaluation pour l'annexe III, sauf certains cas de biométrie — à vérifier précisément, ce point n'est pas tranché ici), enregistrement dans la base de données de l'UE (article 49), surveillance après commercialisation.",
+        B: "En tant que déployeur : contrôle humain, usage conforme à la destination prévue, surveillance du fonctionnement, conservation des journaux pendant au moins six mois, information des travailleurs et de leurs représentants et, dans certains cas (organismes publics, ou entités privées fournissant des services essentiels), analyse d'impact sur les droits fondamentaux (article 27) et enregistrement de l'utilisation.",
+        C: "Les deux jeux d'obligations ci-dessus ont toutes les chances de vous concerner, selon le côté où vous vous situez pour ce système précis."
+      }
+    },
+    EXCEPTION: {
+      badgeClass: "badge-doc", blockClass: "rb-doc", label: "Pas automatiquement à haut risque — mais à documenter",
+      meta: "Exception de l'article 6, paragraphes 3 et 4 · enregistrement au titre de l'article 49, paragraphe 2",
+      body: "Vos réponses laissent penser que l'exception de la tâche procédurale étroite peut s'appliquer. Traitez ce résultat comme « à faire valider juridiquement », pas comme un feu vert : en pratique, la plupart des outils qui informent réellement une décision concernant une personne échouent à ce test, parce que leur sortie finit par façonner l'issue au lieu de simplement organiser la paperasse autour. Les lignes directrices en projet de la Commission (non contraignantes, publiées le 19 mai 2026) la lisent tout aussi étroitement : classer ou noter n'est pas une tâche « procédurale », et un système qui va jusqu'à une recommandation précise est en général trop proche de la décision pour être « préparatoire ». Dans tous les cas, l'article 6, paragraphe 4, vous impose de documenter cette évaluation avant la mise sur le marché ou la mise en service, et d'enregistrer le système.",
+      roles: {
+        A: "En tant que fournisseur : rédigez et conservez l'évaluation documentée avant de mettre le système sur le marché ; enregistrez-vous et enregistrez le système au titre de l'article 49, paragraphe 2.",
+        B: "En tant que déployeur : demandez cette documentation à votre fournisseur avant de vous reposer sur l'exception — c'est vous qui portez une exposition réelle si elle s'avère mal fondée.",
+        C: "Faites les deux : documentez votre propre évaluation en tant que fournisseur, et ne prenez pas pour argent comptant l'exception revendiquée par un fournisseur tiers."
+      }
+    },
+    TRANSPARENCY: {
+      badgeClass: "badge-transparency", blockClass: "rb-transparency", label: "Obligations de transparence",
+      meta: "Article 50 · applicable depuis le 2 août 2026 (déjà exigible) · sursis ciblé jusqu'au 2 décembre 2026 pour le seul marquage lisible par machine des contenus générés",
+      body: "Indépendamment du niveau de risque obtenu ci-dessus, ces obligations s'appliquent dès lors que des personnes interagissent avec votre système ou en voient les sorties.",
+      roles: {
+        A: "En tant que fournisseur : concevez le système de sorte qu'il indique clairement l'interaction avec une IA, et que les contenus qu'il génère portent un marquage technique, lisible par machine et détectable.",
+        B: "En tant que déployeur : informez les personnes, dès la première interaction, qu'elles s'adressent à une IA (sauf si c'est manifeste au vu des circonstances, ou en cas d'exception légale étroite) ; signalez les hypertrucages et les textes générés par IA que vous publiez sur des questions d'intérêt général.",
+        C: "Les deux jeux d'obligations ci-dessus ont toutes les chances de s'appliquer, selon le côté où vous vous situez pour ce système précis."
+      }
+    },
+    MINIMAL: {
+      badgeClass: "badge-minimal", blockClass: "rb-minimal", label: "Risque minimal",
+      meta: "Aucune obligation propre à un niveau de risque identifiée à partir de vos réponses",
+      body: "Rien dans vos réponses ne correspond à une pratique interdite, à une obligation sur les modèles d'IA à usage général, à une catégorie de haut risque ou à un déclencheur de transparence.",
+      roles: {
+        A: "L'obligation générale de maîtrise de l'IA (article 4, applicable depuis le 2 février 2025) s'applique quand même : assurez-vous que les personnes qui construisent ou supervisent ce système le comprennent. Et un résultat « risque minimal » au titre de l'AI Act n'éteint ni le RGPD ni les autres textes applicables.",
+        B: "Idem : l'article 4 vise aussi les déployeurs, sans seuil d'effectif — formez les personnes qui utilisent effectivement le système.",
+        C: "L'article 4 s'applique des deux côtés. Rien d'autre à ce stade — refaites le test si la finalité ou les données du système changent."
+      }
+    }
+  };
+
+  function roleLabel(r) {
+    return r === "A" ? "Vous avez indiqué : vous êtes fournisseur" : r === "B" ? "Vous avez indiqué : vous êtes déployeur" : "Vous avez indiqué : vous êtes à la fois fournisseur et déployeur";
+  }
+
+  function roleParas(entry, role) {
+    if (!entry.roles) return "";
+    if (role === "C") {
+      return '<div class="role-note"><strong>En tant que fournisseur :</strong> ' + entry.roles.A + '</div>' +
+             '<div class="role-note"><strong>En tant que déployeur :</strong> ' + entry.roles.B + '</div>';
+    }
+    var key = role === "A" ? "A" : "B";
+    return '<div class="role-note">' + entry.roles[key] + '</div>';
+  }
+
+  function encodeResult(flags, role) {
+    return "r=" + role + "&res=" + flags.join(",");
+  }
+
+  function renderResult() {
+    var flags = compute(state);
+    var role = state.role || "B";
+    var shareUrl = location.origin + location.pathname + "#" + encodeResult(flags, role);
+    history.replaceState(null, "", "#" + encodeResult(flags, role));
+
+    var html = '<div class="step-meta">Votre résultat</div>';
+    html += '<div class="step-title" style="margin-bottom:14px;">' + roleLabel(role) + '</div>';
+
+    flags.forEach(function (f) {
+      var entry = OUTCOME_TEXT[f];
+      if (!entry) return;
+      html += '<div class="result-block ' + entry.blockClass + '">';
+      html += '<span class="badge ' + entry.badgeClass + '">' + entry.label + '</span>';
+      html += '<h3>' + entry.label + '</h3>';
+      html += '<div class="meta-line">' + entry.meta + '</div>';
+      html += '<p>' + entry.body + '</p>';
+      html += roleParas(entry, role);
+      html += '</div>';
+    });
+
+    html += '<div class="share-row">';
+    html += '<input type="text" readonly id="share-url" value="' + shareUrl + '" aria-label="Lien partageable vers ce résultat">';
+    html += '<button class="btn btn-ghost" id="btn-copy">Copier le lien</button>';
+    html += '</div>';
+    html += '<p class="fine-print" id="copy-confirm" aria-live="polite"></p>';
+
+    html += '<div class="wizard-nav" style="margin-top:22px;">';
+    html += '<button class="btn btn-ghost" id="btn-restart">↺ Recommencer</button>';
+    html += '<span class="spacer"></span>';
+    html += '<a class="btn btn-primary" href="/?utm_source=verificateur-ai-act&utm_medium=tool&utm_campaign=result-' + flags.join('-').toLowerCase() + '#contact">En parler avec nous →</a>';
+    html += '</div>';
+
+    root.innerHTML = html;
+
+    document.getElementById("btn-copy").addEventListener("click", function () {
+      var input = document.getElementById("share-url");
+      input.select();
+      input.setSelectionRange(0, 99999);
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).catch(function () {});
+        ok = true;
+      }
+      document.getElementById("copy-confirm").textContent = ok ? "Lien copié." : "Sélectionnez le texte ci-dessus et copiez-le manuellement.";
+    });
+    document.getElementById("btn-restart").addEventListener("click", function () {
+      state = { sectors: [], prohibited: [], transparency: [] };
+      cursor = 0;
+      history.replaceState(null, "", location.pathname);
+      render();
+    });
+  }
+
+  // ---------------------------------------------------------------
+  // Démarrage : si l'URL porte déjà un résultat en ancre, on l'affiche.
+  // ---------------------------------------------------------------
+  function boot() {
+    var hash = location.hash.replace(/^#/, "");
+    if (hash.indexOf("res=") !== -1) {
+      var parts = {};
+      hash.split("&").forEach(function (kv) {
+        var pair = kv.split("=");
+        parts[pair[0]] = decodeURIComponent(pair[1] || "");
+      });
+      var flags = (parts.res || "MINIMAL").split(",");
+      var role = parts.r || "B";
+      var html = '<div class="step-meta">Résultat partagé</div>';
+      html += '<div class="step-title" style="margin-bottom:14px;">' + roleLabel(role) + '</div>';
+      flags.forEach(function (f) {
+        var entry = OUTCOME_TEXT[f];
+        if (!entry) return;
+        html += '<div class="result-block ' + entry.blockClass + '">';
+        html += '<span class="badge ' + entry.badgeClass + '">' + entry.label + '</span>';
+        html += '<h3>' + entry.label + '</h3>';
+        html += '<div class="meta-line">' + entry.meta + '</div>';
+        html += '<p>' + entry.body + '</p>';
+        html += roleParas(entry, role);
+        html += '</div>';
+      });
+      html += '<div class="wizard-nav" style="margin-top:22px;">';
+      html += '<button class="btn btn-primary" id="btn-restart-shared">Faire le test moi-même →</button>';
+      html += '</div>';
+      root.innerHTML = html;
+      document.getElementById("btn-restart-shared").addEventListener("click", function () {
+        state = { sectors: [], prohibited: [], transparency: [] };
+        cursor = 0;
+        history.replaceState(null, "", location.pathname);
+        render();
+      });
+      return;
+    }
+    render();
+  }
+
+  boot();
+})();
+</script>
+</body>
+</html>

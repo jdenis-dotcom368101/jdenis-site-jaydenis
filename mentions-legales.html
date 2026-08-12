@@ -29,27 +29,42 @@
         a { color: var(--color-accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        .header-bar {
-            background: var(--color-text);
-            padding: 20px 40px;
+        /* En-tête standard du site (identique à styles-pages.css, repris ici car
+           cette page est autonome et n'inclut pas la feuille partagée). Remplace
+           l'ancienne barre « Retour au site », seule page du site sans en-tête. */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .site-header .inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 16px;
         }
-        .header-bar a.back {
-            color: white;
-            font-size: 14px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .site-logo {
+            display: inline-block;
+            width: 103px;
+            height: 28px;
+            background: url("/img/logo-jdenis-consulting-header.png") left center / contain no-repeat;
+            text-indent: -9999px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-decoration: none;
+            flex: 0 0 auto;
         }
-        .header-bar .logo-text {
-            color: white;
-            font-family: var(--font-serif);
-            font-size: 18px;
-            font-weight: 700;
-        }
+        .site-nav { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+        .site-nav a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--color-text); }
+        .site-nav a:hover { color: var(--color-accent); text-decoration: none; }
+        .site-nav a.nav-cta { background: var(--color-text); color: #fff; padding: 9px 18px; border-radius: 6px; }
+        .site-nav a.nav-cta:hover { background: var(--color-accent); color: var(--color-text); }
 
         .container {
             max-width: 800px;
@@ -97,7 +112,8 @@
         @media (max-width: 768px) {
             .container { padding: 40px 24px 80px; }
             h1 { font-size: 28px; }
-            .header-bar { padding: 16px 24px; }
+            .site-header .inner { padding: 12px 16px; }
+            .site-nav { gap: 14px; }
         }
     </style>
 <!-- Mesure d'audience (Google Analytics) : chargée uniquement après consentement explicite. Voir /consent.js -->
@@ -105,10 +121,20 @@
 </head>
 <body>
 
-    <div class="header-bar">
-        <a href="index.html" class="back">← Retour au site</a>
-        <span class="logo-text">J&DENIS</span>
-    </div>
+    <header class="site-header">
+        <div class="inner">
+            <a class="site-logo" href="/">JDENIS<span>.</span></a>
+            <nav class="site-nav" aria-label="Navigation principale">
+                <a href="/">Accueil</a>
+                <a href="/diagnostic-audit-ia-toulouse.html">Diagnostic &amp; Audit IA</a>
+                <a href="/formation-ia-entreprise-toulouse.html">Formation IA</a>
+                <a href="/architecture-ia-sur-mesure.html">Architecture IA</a>
+                <a href="/conformite-ai-act-gouvernance-donnees.html">Conformité AI Act</a>
+                <a href="/blog/">Blog</a>
+                <a class="nav-cta" href="/#contact">Diagnostic gratuit</a>
+            </nav>
+        </div>
+    </header>
 
     <div class="container">
         <h1>Mentions légales</h1>
@@ -165,8 +191,7 @@
 
         <h2>8. Crédits</h2>
         <p>
-            Vidéo d'arrière-plan : à l'origine issue de <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> (licence libre), hébergée localement sur ce site<br>
-            Illustrations des cartes Services : graphiques originaux (SVG), réalisés en interne<br>
+            Photographies des cartes Services et des articles du blog : <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">licence Pexels</a>, hébergées localement sur ce site. Le détail par image (page source, auteur, date) est consigné dans le fichier de crédits du site<br>
             Polices : Inter, Playfair Display, Fraunces — hébergées localement, aucune requête vers Google Fonts<br>
             Logos partenaires et écoles : fournis par les établissements concernés à des fins de référence, hébergés localement<br>
             Formulaire : <a href="https://formspree.io" target="_blank" rel="noopener">Formspree</a>

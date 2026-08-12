@@ -16,7 +16,8 @@
 ## Outils libres et gratuits
 
 - [AI Act Risk Checker](https://jaydenis.com/ai-act-risk-checker.html) (EN) : outil gratuit de classification au titre du règlement (UE) 2024/1689. Jusqu'à 12 questions, exécuté entièrement dans le navigateur, aucune donnée transmise. Retourne la catégorie de risque (pratique interdite, haut risque Annexe I ou Annexe III, IA à usage général, transparence, risque minimal), l'article applicable, l'échéance et les obligations selon que l'on est fournisseur ou déployeur. Échéances à jour du règlement (UE) 2026/1744 (Digital Omnibus, en vigueur depuis le 27 juillet 2026) : Annexe III repoussée au 2 décembre 2027, Annexe I au 2 août 2028, article 50 (transparence) applicable depuis le 2 août 2026, article 5 (pratiques interdites) et article 4 (littératie IA) depuis le 2 février 2025.
-- [Grille de classification des risques AI Act](https://jaydenis.com/grille-classification-risques-ai-act.html) (FR) : version française longue du même outil — arbre de décision en 5 étapes, exemples travaillés et modèle de registre des systèmes d'IA.
+- [Vérificateur de risque AI Act](https://jaydenis.com/verificateur-risque-ai-act.html) (FR) : version française du questionnaire ci-dessus — mêmes questions, mêmes branchements, mêmes issues, terminologie officielle du règlement en français (fournisseur, déployeur, pratiques interdites, haut risque annexe I/annexe III, modèles d'IA à usage général, obligations de transparence, maîtrise de l'IA). C'est la page de référence en français pour classer un système donné.
+- [Grille de classification des risques AI Act](https://jaydenis.com/grille-classification-risques-ai-act.html) (FR) : le même arbre de décision sous forme statique et longue — 5 étapes rédigées, exemples travaillés en entreprise, tableau des obligations par niveau et modèle de registre des systèmes d'IA réutilisable (CC BY 4.0). Complémentaire du vérificateur : celui-ci tranche un cas, celle-là outille la démarche.
 
 ## Blog
 

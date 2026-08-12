@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choosing a French Approved E-Invoicing Platform</title>
+    <meta name="description" content="How to pick a plateforme agréée (PA, formerly PDP) for a French entity: registration checks, ERP integration, formats, hosting and exit terms.">
+    <link rel="canonical" href="https://jaydenis.com/blog/france-e-invoicing-platform-choice.html">
+    <link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l.html">
+    <link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/france-e-invoicing-platform-choice.html">
+    <link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l.html">
+    <meta property="og:title" content="Choosing a French Approved E-Invoicing Platform">
+    <meta property="og:description" content="The selection criteria that matter for a plateforme agréée, and the ones vendors would rather you did not ask about.">
+    <meta property="og:image" content="https://jaydenis.com/img/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l.jpg">
+    <meta property="og:url" content="https://jaydenis.com/blog/france-e-invoicing-platform-choice.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <link href="/fonts/fonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles-pages.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Choosing a French approved e-invoicing platform: what to check",
+                "description": "Selection criteria for a plateforme agréée (PA, formerly PDP) in France: registration status, ERP integration, supported formats, data hosting, exit terms.",
+                "image": "https://jaydenis.com/img/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l.jpg",
+                "author": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "publisher": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "datePublished": "2026-08-12",
+                "dateModified": "2026-08-12",
+                "mainEntityOfPage": "https://jaydenis.com/blog/france-e-invoicing-platform-choice.html",
+                "inLanguage": "en"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jaydenis.com/index-en.html"},
+                    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jaydenis.com/blog/index-en.html"},
+                    {"@type": "ListItem", "position": 3, "name": "Choosing a French e-invoicing platform", "item": "https://jaydenis.com/blog/france-e-invoicing-platform-choice.html"}
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type": "Question", "name": "What is a plateforme agréée?", "acceptedAnswer": {"@type": "Answer", "text": "A private operator registered by the French tax administration to issue, transmit and receive electronic invoices, handle e-reporting and interoperate with the public portal. It was called a plateforme de dématérialisation partenaire, or PDP, until the administration renamed it in July 2025."}},
+                    {"@type": "Question", "name": "What is the difference between the PPF and a PA?", "acceptedAnswer": {"@type": "Answer", "text": "Since October 2024 the public portal, the PPF, is only the national directory and the tax data concentrator. It does not exchange invoices. Every business has to route its invoices through a private approved platform."}},
+                    {"@type": "Question", "name": "Can a group use several platforms?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Platforms are required to interoperate, so your entities can sit on different ones and still exchange with each other. Consolidating on one platform simplifies reporting and support, which is usually worth more than the flexibility."}},
+                    {"@type": "Question", "name": "How do you check a platform is really approved?", "acceptedAnswer": {"@type": "Answer", "text": "Look it up in the registry published by the tax administration. Vendors marketing themselves as approved while their application is still pending are common, and the distinction matters on 1 September."}},
+                    {"@type": "Question", "name": "Where must the data be hosted?", "acceptedAnswer": {"@type": "Answer", "text": "Approved platforms must meet French security and confidentiality requirements. EU hosting and recognised security certifications are the practical markers to look for when comparing offers."}}
+                ]
+            }
+        ]
+    }
+    </script>
+<!-- Audience measurement (Google Analytics): loaded only after explicit consent. See /consent.js -->
+<script src="/consent.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="inner">
+            <a class="site-logo" href="/index-en.html">JDENIS<span>.</span></a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="/index-en.html">Home</a>
+                <a href="/ai-diagnostics-audit.html">AI Diagnostics &amp; Audit</a>
+                <a href="/corporate-ai-training.html">AI Training</a>
+                <a href="/ai-architecture-design.html">AI Architecture</a>
+                <a href="/blog/index-en.html" aria-current="page">Blog</a>
+                <a class="nav-cta" href="/index-en.html#contact">Free assessment</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/index-en.html">Home</a> › <a href="/blog/index-en.html">Blog</a> › Choosing a French e-invoicing platform</nav>
+
+        <article>
+            <h1 style="font-family:var(--font-serif);font-size:clamp(28px,4.5vw,42px);line-height:1.2;margin:22px 0 16px;">Choosing a French approved e-invoicing platform: what to check</h1>
+
+            <div class="post-meta">
+                <img src="../jerome-denis.jpg" alt="Jérôme Denis, AI consultant">
+                <span>By <strong>Jérôme Denis</strong>, AI &amp; data governance consultant · 8 min read · 12 August 2026</span>
+            </div>
+
+            <img class="cover" src="/img/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l.jpg" alt="A desk with laptops showing trading charts and printed financial reports" width="1880" height="1253">
+
+            <div class="answer-first"><strong>In short:</strong> if you operate in France you now have to pick a private approved platform, because the free public option was withdrawn. Five things decide the choice: is it actually on the registry, does it connect to your accounting system without manual uploads, does it handle all three mandated formats, where does it host your data, and can you leave. Accounting firms carry this decision for their whole client book, which makes the integration question the expensive one.</div>
+
+            <div class="toc">
+                <strong>Contents</strong>
+                <ol>
+                    <li><a href="#context">Why this decision exists</a></li>
+                    <li><a href="#criteria">The five criteria</a></li>
+                    <li><a href="#flow">What actually happens to an invoice</a></li>
+                    <li><a href="#case">A worked comparison</a></li>
+                    <li><a href="#limits">The objections</a></li>
+                    <li><a href="#rollout">Rolling it out</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ol>
+            </div>
+
+            <p>If you operate in France, or advise clients who do, you have to route invoices through a private operator registered by the tax administration. The French term is <em>plateforme agréée</em>, PA, meaning approved platform. Until July 2025 the same thing was called a <em>plateforme de dématérialisation partenaire</em>, or PDP, and most of the documentation written before that date still uses the older label. Nothing about the status changed, only the name.</p>
+
+            <h2 id="context">Why this decision exists</h2>
+            <p>It exists because the fallback disappeared. The original design of the reform included a free public platform, the <em>Portail Public de Facturation</em>, on which a small business could issue and receive invoices at no cost. In October 2024 the tax administration announced it was dropping that function. The public portal remains as the national directory, mapping each company's registration number to the platform it uses, and as the concentrator that forwards fiscal data. It no longer touches invoices.</p>
+            <p>So the choice is not between a free public route and a paid private one. It is between paid private options, for every entity, including the smallest. For an accounting practice this converts an internal tooling decision into a client-facing one, taken once and lived with across hundreds of files.</p>
+
+            <h2 id="criteria">The five criteria</h2>
+
+            <img class="cover" src="/img/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l-2.jpg" alt="A woman working on a laptop showing a team chat workspace" width="1880" height="1253" loading="lazy">
+
+            <p><strong>Registration.</strong> Check the platform against the registry published by the tax administration. A meaningful number of vendors describe themselves as approved while their application is still under review. The gap between "registered" and "applying" is invisible on a website and very visible on 1 September.</p>
+            <p><strong>Integration with what you already run.</strong> This is the criterion that decides whether the project succeeds. A platform with a real API or a native connector into your accounting software removes manual handling. A platform that expects someone to export a file and upload it has simply moved the data entry, and it will be quietly abandoned within two months. Ask for the connector by name, and ask which version of your software it supports.</p>
+            <p><strong>Format handling.</strong> Factur-X, UBL and CII are all mandated, and you do not get to choose which one your counterparties send. The platform must read, validate and generate all three without the user thinking about it. Validation matters as much as conversion: catching a malformed invoice at the platform is cheap, catching it after rejection is a payment delay.</p>
+            <p><strong>Hosting and security.</strong> Approved platforms are held to security and confidentiality requirements, but the offers differ in how they meet them. Look at where the servers are, what encryption applies in transit and at rest, and what certifications the operator actually holds rather than claims to align with. Invoices are personal data as well as commercial data, which is why the French data protection authority has published specifically on this reform.</p>
+            <p><strong>Exit terms.</strong> Rarely discussed, occasionally decisive. What happens to your archived invoices if you switch platform or the operator fails? Get the answer in the contract, in a form that specifies a format and a timeframe.</p>
+
+            <h2 id="flow">What actually happens to an invoice</h2>
+            <p>Worth understanding once, because it explains the failure modes. A supplier issues an invoice into their platform. That platform checks the mandatory fields required by the tax administration, converts the document to the structured format, sends the fiscal data to the public portal, and routes the invoice itself to the recipient's platform. The recipient's platform files it and sets a status.</p>
+            <p>Those statuses are the useful part for an accounting firm. An invoice moves through a normalised lifecycle: deposited, approved, rejected, paid. Because the states are standardised across platforms, you can see where every document sits without calling anyone. Matching entries and preparing VAT returns get easier as a side effect, which is the one genuine upside of the reform for practitioners.</p>
+
+            <h2 id="case">A worked comparison</h2>
+
+            <img class="cover" src="/img/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l-3.jpg" alt="A laptop showing an analytics dashboard next to stacked cardboard parcels" width="1880" height="1255" loading="lazy">
+
+            <p>Take an accounting practice with eight hundred clients, mostly retailers and trades. It compares a low-cost platform offering basic exchange with a browser interface against a more expensive one with a connector into its production software.</p>
+            <p>On the cheap option, a client receiving fifty supplier invoices a month still needs someone to fetch them and key the data. Roughly two hours per client per month, which across the book is not a rounding error. On the integrated option, invoices arrive already parsed and pre-matched against bank entries. The same client takes under five minutes.</p>
+            <p>Tested across a sample of fifty clients, the practice measured a 75% reduction in manual entry time. The saving is real, and so is the caveat: it only appears where the connector genuinely works with the software in use. On the clients running an older package the connector did not support, the gain was near zero and the subscription still had to be paid. Check the compatibility list against your actual estate, not the marketing page.</p>
+
+            <h2 id="limits">The objections</h2>
+            <p>Cost is the first, and it is fair. An approved platform is a recurring charge that did not exist before, imposed by regulation, on businesses that were managing fine with a PDF and an email. Set against measured time savings it usually works out, but "usually" is doing real work in that sentence, and for a very small client with ten invoices a month it may not.</p>
+            <p>Dependency is the second. Routing every invoice through one operator means an outage at that operator stops your billing. Pick one with financial substance and redundant infrastructure, and know what your fallback is before you need it.</p>
+            <p>Change management is the third and the most underestimated. Some clients will resist abandoning paper, and the resistance is not irrational: the new process is genuinely more complicated for them. Plan the explanation, not just the migration.</p>
+
+            <h2 id="rollout">Rolling it out</h2>
+            <ol class="steps" style="margin-top:24px;">
+                <li><strong>Inventory the software estate</strong><p>Yours and your clients'. This determines which platforms are viable and eliminates most of the market in an afternoon.</p></li>
+                <li><strong>Train the team before the clients</strong><p>Staff who cannot answer a client question about the platform will route it back to you. Everyone touching invoices needs to be fluent before the first client goes live.</p></li>
+                <li><strong>Pilot with willing clients</strong><p>Pick a dozen who are comfortable with technology and run them fully. Tune the configuration on the pilot, not on the whole book.</p></li>
+                <li><strong>Communicate on a schedule</strong><p>Clients need to know when their turn comes and what they will have to do. Silence produces panicked calls in the last fortnight of August.</p></li>
+            </ol>
+
+            <div class="cta-band"><p>Weighing platform options for a French entity or a client portfolio?<br>The initial conversation is free and without obligation.</p><a class="btn btn-primary" href="/ai-diagnostics-audit.html">Discover AI diagnostics &amp; audit</a></div>
+
+            <section class="faq" id="faq">
+                <h2>FAQ</h2>
+                <details><summary>What is a plateforme agréée?</summary><p>A private operator registered by the French tax administration to issue, transmit and receive electronic invoices, handle e-reporting and interoperate with the public portal. It was called a plateforme de dématérialisation partenaire, or PDP, until the administration renamed it in July 2025.</p></details>
+                <details><summary>What is the difference between the PPF and a PA?</summary><p>Since October 2024 the public portal, the PPF, is only the national directory and the tax data concentrator. It does not exchange invoices. Every business has to route its invoices through a private approved platform.</p></details>
+                <details><summary>Can a group use several platforms?</summary><p>Yes. Platforms are required to interoperate, so your entities can sit on different ones and still exchange with each other. Consolidating on one platform simplifies reporting and support, which is usually worth more than the flexibility.</p></details>
+                <details><summary>How do you check a platform is really approved?</summary><p>Look it up in the registry published by the tax administration. Vendors marketing themselves as approved while their application is still pending are common, and the distinction matters on 1 September.</p></details>
+                <details><summary>Where must the data be hosted?</summary><p>Approved platforms must meet French security and confidentiality requirements. EU hosting and recognised security certifications are the practical markers to look for when comparing offers.</p></details>
+            </section>
+
+            <section>
+                <div class="section-label">Sources</div>
+                <ul>
+                    <li><a href="https://www.impots.gouv.fr/facturation-electronique" rel="noopener">French tax administration, electronic invoicing for businesses</a></li>
+                    <li><a href="https://www.economie.gouv.fr/entreprises/facturation-electronique" rel="noopener">Ministry of the Economy, the electronic invoicing reform</a></li>
+                    <li><a href="https://www.cnil.fr/fr/la-facturation-electronique-obligatoire-et-le-rgpd" rel="noopener">CNIL, mandatory electronic invoicing and GDPR</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <div class="section-label">Go further</div>
+                <div class="related">
+                    <a href="/blog/france-e-invoicing-mandate-2026.html"><span class="kicker">Article</span><strong>France's e-invoicing mandate: the 2026 and 2027 dates</strong></a>
+                    <a href="/blog/automated-bank-reconciliation.html"><span class="kicker">Article</span><strong>Automating bank reconciliation</strong></a>
+                    <a href="/blog/gdpr-accounting-firms.html"><span class="kicker">Article</span><strong>GDPR for accounting firms</strong></a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <div>© 2026 JDENIS Consulting — Jérôme Denis, AI consultant (France · Dubai · Flanders)</div>
+            <div>
+                <a href="/index-en.html">Home</a>
+                <a href="/blog/index-en.html">Blog</a>
+                <a href="/legal-notice-en.html">Legal notice</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

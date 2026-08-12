@@ -84,23 +84,30 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
+    <!-- Page française sans équivalent anglais : pas de grappe hreflang. -->
     <url>
         <loc>https://jaydenis.com/grille-classification-risques-ai-act.html</loc>
         <lastmod>2026-08-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/grille-classification-risques-ai-act.html"/>
+    </url>
+    <url>
+        <loc>https://jaydenis.com/verificateur-risque-ai-act.html</loc>
+        <lastmod>2026-08-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/verificateur-risque-ai-act.html"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/ai-act-risk-checker.html"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/grille-classification-risques-ai-act.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/verificateur-risque-ai-act.html"/>
     </url>
     <url>
         <loc>https://jaydenis.com/ai-act-risk-checker.html</loc>
         <lastmod>2026-08-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/grille-classification-risques-ai-act.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/verificateur-risque-ai-act.html"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/ai-act-risk-checker.html"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/grille-classification-risques-ai-act.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/verificateur-risque-ai-act.html"/>
     </url>
 
   <url>
@@ -189,6 +196,9 @@
     <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/e-facturation-2026-ce-que-les-tpe-ne-voient-pas-venir.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/france-e-invoicing-mandate-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/e-facturation-2026-ce-que-les-tpe-ne-voient-pas-venir.html"/>
   </url>
 
   <url>
@@ -196,6 +206,9 @@
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/automated-bank-reconciliation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace.html"/>
   </url>
 
   <url>
@@ -203,6 +216,9 @@
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/france-e-invoicing-platform-choice.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l.html"/>
   </url>
 
   <url>
@@ -210,6 +226,9 @@
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/le-diagnostic-ia-dans-les-tpe-enjeux-et-mise-en-uvre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/ai-diagnostic-micro-business.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/le-diagnostic-ia-dans-les-tpe-enjeux-et-mise-en-uvre.html"/>
   </url>
 
   <url>
@@ -217,6 +236,9 @@
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/guide-pratique-pour-mettre-en-conformite-rgpd-le-traitement-des-donnee.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/gdpr-accounting-firms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/guide-pratique-pour-mettre-en-conformite-rgpd-le-traitement-des-donnee.html"/>
   </url>
 
   <url>
@@ -224,6 +246,9 @@
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/diag-data-ia-de-bpifrance-le-guide-complet-pour-les-pme-eligibilite-co.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/bpifrance-ai-data-diagnostic.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/diag-data-ia-de-bpifrance-le-guide-complet-pour-les-pme-eligibilite-co.html"/>
   </url>
 
   <url>
@@ -231,6 +256,9 @@
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/financer-sa-formation-ia-opco-cpf-le-mode-d-emploi-pour-tpe-et-pme.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/funding-ai-training-france.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/financer-sa-formation-ia-opco-cpf-le-mode-d-emploi-pour-tpe-et-pme.html"/>
   </url>
 
   <url>
@@ -238,6 +266,9 @@
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/agents-ia-en-entreprise-7-risques-majeurs-a-maitriser-avant-le-deploie.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/ai-agents-enterprise-risks.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/agents-ia-en-entreprise-7-risques-majeurs-a-maitriser-avant-le-deploie.html"/>
   </url>
 
   <url>
@@ -245,5 +276,98 @@
     <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/formation-chatgpt-pour-automatiser-les-10-premieres-automatisations-re.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/chatgpt-automation-sme.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/formation-chatgpt-pour-automatiser-les-10-premieres-automatisations-re.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/france-e-invoicing-mandate-2026.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/e-facturation-2026-ce-que-les-tpe-ne-voient-pas-venir.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/france-e-invoicing-mandate-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/e-facturation-2026-ce-que-les-tpe-ne-voient-pas-venir.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/automated-bank-reconciliation.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/automated-bank-reconciliation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/france-e-invoicing-platform-choice.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/france-e-invoicing-platform-choice.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/choisir-une-plateforme-de-dematerialisation-partenaire-criteres-pour-l.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/ai-diagnostic-micro-business.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/le-diagnostic-ia-dans-les-tpe-enjeux-et-mise-en-uvre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/ai-diagnostic-micro-business.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/le-diagnostic-ia-dans-les-tpe-enjeux-et-mise-en-uvre.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/gdpr-accounting-firms.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/guide-pratique-pour-mettre-en-conformite-rgpd-le-traitement-des-donnee.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/gdpr-accounting-firms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/guide-pratique-pour-mettre-en-conformite-rgpd-le-traitement-des-donnee.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/bpifrance-ai-data-diagnostic.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/diag-data-ia-de-bpifrance-le-guide-complet-pour-les-pme-eligibilite-co.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/bpifrance-ai-data-diagnostic.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/diag-data-ia-de-bpifrance-le-guide-complet-pour-les-pme-eligibilite-co.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/funding-ai-training-france.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/financer-sa-formation-ia-opco-cpf-le-mode-d-emploi-pour-tpe-et-pme.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/funding-ai-training-france.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/financer-sa-formation-ia-opco-cpf-le-mode-d-emploi-pour-tpe-et-pme.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/ai-agents-enterprise-risks.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/agents-ia-en-entreprise-7-risques-majeurs-a-maitriser-avant-le-deploie.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/ai-agents-enterprise-risks.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/agents-ia-en-entreprise-7-risques-majeurs-a-maitriser-avant-le-deploie.html"/>
+  </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/chatgpt-automation-sme.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/formation-chatgpt-pour-automatiser-les-10-premieres-automatisations-re.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/chatgpt-automation-sme.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/formation-chatgpt-pour-automatiser-les-10-premieres-automatisations-re.html"/>
   </url>
 </urlset>

@@ -154,10 +154,20 @@
         }
 
         .logo {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex: 0 0 auto;
+        }
+
+        .logo img {
+            display: block;
+            height: 32px;
+            width: auto;
+        }
+
+        @media (max-width: 768px) {
+            .logo img { height: 28px; }
         }
 
         .logo-dot {
@@ -267,31 +277,31 @@
             align-items: center;
             justify-content: center;
             padding-top: 80px;
+            padding-bottom: 96px;
             overflow: hidden;
-            background: var(--color-bg);
+            /* Le portrait en fond (poster de la vidéo héro) a été retiré : agrandi
+               plein cadre il était méconnaissable et concurrençait le titre. Le fond
+               reprend le dégradé déjà utilisé par .page-hero des pages internes
+               (styles-pages.css) : gris très clair en haut, blanc au niveau des cartes
+               pour que « Areas of expertise » (fond --color-light) reste détaché. */
+            background: linear-gradient(180deg, var(--color-light) 0%, var(--color-bg) 60%, var(--color-bg) 100%);
         }
 
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            opacity: 0.45;
+        /* ===== TRANSITIONS ENTRE SECTIONS =====
+           Les bandes bleu nuit succèdent toujours à une section claire. Sans
+           marquage, le bord est net et les blocs se télescopent — en particulier
+           la carte sombre « 20 ans d'expérience » du hero et la bande de l'outil
+           AI Act juste en dessous. Un filet or discret transforme la coupure en
+           seuil voulu, et le rythme vertical est aligné sur les autres sections. */
+        .tool-band,
+        .contact,
+        footer {
+            border-top: 1px solid rgba(212, 168, 83, 0.5);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(248,250,252,0.60));
-            pointer-events: none;
-            z-index: 1;
+        .tool-band,
+        .contact {
+            box-shadow: inset 0 18px 32px -24px rgba(0, 0, 0, 0.55);
         }
 
         .hero-content {
@@ -304,7 +314,9 @@
         .badge {
             display: inline-block;
             padding: 8px 16px;
-            background: var(--color-light);
+            /* Fond blanc (et non --color-light) : le haut du hero est désormais
+               lui-même en --color-light, la pastille doit rester détachée. */
+            background: var(--color-bg);
             border: 1px solid var(--color-border);
             border-radius: 20px;
             font-size: 12px;
@@ -546,6 +558,41 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-cover {
+            width: 100%;
+            height: 160px;
+            border-radius: 6px;
+            /* 24px et non 20 : l'émoji retiré des cartes laissait sinon le titre
+               collé à la photo. Cet écart remplace l'espacement qu'il occupait. */
+            margin-bottom: 24px;
+            overflow: hidden;
+            background: var(--color-text);
+        }
+
+        .service-cover img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover .service-cover img {
+            transform: scale(1.05);
+        }
+
+        .service-more {
+            margin-top: auto;
+            padding-top: 14px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .service-cover img,
+            .service-card:hover .service-cover img { transition: none; transform: none; }
         }
 
         .service-card:hover {
@@ -554,10 +601,8 @@
             box-shadow: 0 8px 24px var(--color-shadow);
         }
 
-        .service-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+        /* .service-icon supprimé : les émojis des cartes Services faisaient gadget
+           à côté des photographies. L'espacement est repris sur .service-cover. */
 
         .service-card h3 {
             font-family: var(--font-serif);
@@ -733,9 +778,8 @@
         }
 
         .logos-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             align-items: center;
             gap: 20px;
             margin-top: 48px;
@@ -750,16 +794,20 @@
             letter-spacing: 0.05em;
             text-transform: uppercase;
             color: var(--color-text);
-            opacity: 0.7;
+            opacity: 0.9;
             transition: all 0.3s ease;
-            padding: 14px 20px;
+            padding: 14px 16px;
             border: 1px solid var(--color-border);
             border-radius: 8px;
             background: var(--color-bg);
             text-align: center;
-            white-space: nowrap;
-            min-width: 140px;
+            min-width: 0;
             height: 70px;
+        }
+
+        .logo-item:hover {
+            opacity: 1;
+            border-color: var(--color-accent);
         }
 
         .logo-item img {
@@ -1141,8 +1189,7 @@
         footer {
             background: #0a0f1a;
             color: rgba(255,255,255,0.8);
-            padding: 64px 0 24px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 72px 0 28px;
         }
 
         .footer-content {
@@ -1151,6 +1198,14 @@
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 40px;
             margin-bottom: 48px;
+        }
+
+        .footer-logo {
+            display: block;
+            width: auto;
+            height: 30px;
+            margin-bottom: 18px;
+            opacity: 0.92;
         }
 
         .footer-column h3 {
@@ -1567,13 +1622,8 @@
     <header id="header">
         <div class="container">
             <div class="header-content">
-                <a href="#hero" class="logo" style="display:flex;align-items:center;text-decoration:none;">
-                    <svg viewBox="0 0 220 55" style="height:36px;width:auto;" aria-label="J&DENIS Consulting">
-                        <text x="0" y="38" font-family="'Playfair Display',serif" font-weight="800" font-size="42" fill="#0f172a" letter-spacing="-1">J</text>
-                        <text x="24" y="38" font-family="'Playfair Display',serif" font-weight="800" font-size="42" fill="#0f172a" letter-spacing="-1">&amp;</text>
-                        <text x="56" y="38" font-family="'Playfair Display',serif" font-weight="800" font-size="42" fill="#0f172a" letter-spacing="-1">DENIS</text>
-                        <text x="30" y="52" font-family="'Inter',sans-serif" font-weight="500" font-size="11" fill="#0f172a" letter-spacing="5">CONSULTING</text>
-                    </svg>
+                <a href="#hero" class="logo">
+                    <img src="/img/logo-jdenis-consulting-header.png" alt="JDENIS Consulting — back to home" width="812" height="221" fetchpriority="high" decoding="async">
                 </a>
                 <nav aria-label="Main navigation">
                     <a href="#services">Services</a>
@@ -1599,9 +1649,9 @@
     <main id="main">
         <!-- ===== HERO ===== -->
         <section class="hero" id="hero">
-            <video muted loop playsinline class="hero-video" poster="jerome-denis.jpg" preload="none">
-                <source data-src="7660185-uhd_1440_2560_25fps.mp4" type="video/mp4">
-            </video>
+            <!-- Vidéo et portrait de fond retirés : le poster jerome-denis.jpg, étiré
+                 en plein cadre, était méconnaissable et nuisait à la lecture du titre.
+                 Le portrait reste présent, à taille juste, dans la section « About ». -->
             <div class="container">
                 <div class="hero-content fade-in">
                     <div class="badge">Expert — France 2030 Digital College</div>
@@ -1668,7 +1718,7 @@
         <!-- ===== FREE TOOL: AI ACT RISK CHECKER ===== -->
         <section class="tool-band" id="ai-act-checker" aria-label="AI Act Risk Checker — free risk classification tool">
             <style>
-                .tool-band { padding: 56px 0; background: var(--color-text); color: #fff; }
+                .tool-band { padding: 96px 0; background: var(--color-text); color: #fff; }
                 .tool-band .tb-inner { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 44px; align-items: center; }
                 .tool-band .tb-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--color-accent); margin-bottom: 14px; }
                 .tool-band h2 { font-family: var(--font-serif); font-size: clamp(25px, 3vw, 34px); line-height: 1.22; margin: 0 0 16px; color: #fff; }
@@ -1686,7 +1736,7 @@
                 .tool-band ul li:last-child { margin-bottom: 0; }
                 .tool-band ul li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--color-accent); font-weight: 700; }
                 @media (max-width: 900px) { .tool-band .tb-inner { grid-template-columns: 1fr; gap: 30px; } }
-                @media (max-width: 768px) { .tool-band { padding: 44px 0; } .tool-band .tb-card { padding: 22px; } }
+                @media (max-width: 768px) { .tool-band { padding: 64px 0; } .tool-band .tb-card { padding: 22px; } }
             </style>
             <div class="container">
                 <div class="tb-inner">
@@ -1722,34 +1772,31 @@
 
                 <div class="services-grid">
                     <div class="service-card fade-in">
-                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="/img/covers/diagnostic.svg" alt="AI diagnostics and audit for business — AI maturity assessment" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="service-icon">🔍</div>
+                        <div class="service-cover"><img src="/img/covers/diagnostic.webp" alt="Consultants' hands annotating printed charts with a pencil during an audit" width="1600" height="667" loading="lazy" decoding="async"></div>
                         <h3>AI Diagnostics & Audit</h3>
                         <p>AI maturity audit and independent audit of your existing AI solutions. Use cases prioritized by ROI, AI Act compliance, costed roadmap. Free initial assessment.</p>
-                        <p style="margin-top:14px;"><a href="/ai-diagnostics-audit.html" style="color:var(--color-accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;">Learn more →</a></p>
+                        <p class="service-more"><a href="/ai-diagnostics-audit.html" style="color:var(--color-accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;">Learn more →</a></p>
                     </div>
 
                     <div class="service-card fade-in">
-                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="/img/covers/formation.svg" alt="Corporate AI training — ChatGPT Claude Mistral for executives and teams" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="service-icon">🎯</div>
+                        <div class="service-cover"><img src="/img/covers/formation.webp" alt="Participants in a training room with open laptops facing a presentation screen" width="1600" height="667" loading="lazy" decoding="async"></div>
                         <h3>Corporate AI Training</h3>
                         <p>Intensive programs for executives, managers and operational teams. Mastery of AI tools (Claude, ChatGPT, Gemini, Mistral), advanced prompting, business process automation. 1 to 5 days.</p>
-                        <p style="margin-top:14px;"><a href="/corporate-ai-training.html" style="color:var(--color-accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;">Learn more →</a></p>
+                        <p class="service-more"><a href="/corporate-ai-training.html" style="color:var(--color-accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;">Learn more →</a></p>
                     </div>
 
                     <div class="service-card fade-in">
-                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="/img/covers/architecture.svg" alt="Custom AI architecture — autonomous agents, RAG, MCP for SMEs" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="service-icon">🏗️</div>
+                        <div class="service-cover"><img src="/img/covers/architecture.webp" alt="Two engineers reviewing a laptop in the aisle of a server room" width="1600" height="667" loading="lazy" decoding="async"></div>
                         <h3>AI Architecture & Solutions</h3>
                         <p>Custom AI architecture design: autonomous agents, document RAG, MCP connections to your business tools, fine-tuning, low-code. From scoping to deployment, vendor-independent.</p>
-                        <p style="margin-top:14px;"><a href="/ai-architecture-design.html" style="color:var(--color-accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;">Learn more →</a></p>
+                        <p class="service-more"><a href="/ai-architecture-design.html" style="color:var(--color-accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;">Learn more →</a></p>
                     </div>
 
                     <div class="service-card fade-in">
-                        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:20px;overflow:hidden;"><img src="/img/covers/gouvernance.svg" alt="Data governance AI Act GDPR — AI compliance for business" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="service-icon">⚖️</div>
+                        <div class="service-cover"><img src="/img/covers/gouvernance.webp" alt="European Union flag flying in front of the glass facade of an institutional building in Brussels" width="1600" height="667" loading="lazy" decoding="async"></div>
                         <h3>Data Governance & AI Act</h3>
                         <p>Compliance with the European AI Act and GDPR. Development of AI usage policies, risk classification, data audit. Legal and ethical framework.</p>
+                        <p class="service-more"><a href="/ai-act-risk-checker.html?ref=home-services-en" style="color:var(--color-accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;">Classify a system →</a></p>
                     </div>
 
                 </div>
@@ -1802,7 +1849,7 @@
         </section>
 
         <!-- ===== TECH STACK ===== -->
-        <section class="section" id="stack" aria-label="AI technical skills" style="padding:80px 0;background:var(--color-light);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);">
+        <section class="section" id="stack" aria-label="AI technical skills" style="padding:96px 0;background:var(--color-light);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);">
             <div class="container">
                 <div class="fade-in">
                     <div class="section-label">Tech stack</div>
@@ -1882,7 +1929,7 @@
 
                 <div class="logos-grid fade-in">
                     <div class="logo-item"><img src="/logos/tbs.webp" alt="TBS Education" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">TBS EDUCATION</span></div>
-                    <div class="logo-item"><span class="logo-fallback" style="display:block;font-size:13px;font-weight:700;letter-spacing:0.05em;">YNOV</span></div> <!-- logo.clearbit.com est hors service (DNS ne résout plus) ; logo officiel YNOV à fournir par Jérôme pour remplacer ce texte -->
+                    <div class="logo-item"><img src="/logos/ynov.svg" alt="YNOV Campus" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">YNOV</span></div>
                     <div class="logo-item"><img src="/logos/lisaa.svg" alt="LISAA" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">LISAA</span></div>
                     <div class="logo-item"><img src="/logos/purpan.svg" alt="Purpan" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">PURPAN</span></div>
                     <div class="logo-item"><img src="/logos/mediaschool.png" alt="MediaSchool" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback" style="display:none;font-size:13px;font-weight:700;letter-spacing:0.05em;">MEDIASCHOOL</span></div>
@@ -2131,7 +2178,7 @@
             </div>
         </section>
         <!-- ===== FAQ SEO ===== -->
-        <section id="faq" style="padding:80px 0;background:var(--color-bg);">
+        <section id="faq" style="padding:96px 0;background:var(--color-bg);">
             <div class="container">
                 <div class="fade-in">
                     <div class="section-label">Frequently asked questions</div>
@@ -2184,7 +2231,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>JDENIS Consulting</h3>
+                    <img src="/img/logo-jdenis-consulting-white.png" alt="JDENIS Consulting" width="812" height="221" class="footer-logo" loading="lazy" decoding="async">
                     <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6;">AI consulting practice — French expertise, delivered internationally. AI audits & diagnostics, ChatGPT/Claude/Gemini corporate training, AI architecture (agents, RAG, MCP), data governance & EU AI Act. Senior consultant, Sciconum-certified trainer and keynote speaker. Engagements in France, Dubai (UAE) and Flanders (Belgium).</p>
                 </div>
 
@@ -2347,16 +2394,6 @@
          The previous decorative banner was removed: it claimed "no tracking cookies"
          while Google Analytics loaded regardless of the visitor's choice. -->
 
-    <script>
-    // Chargement différé de la vidéo héro : après le chargement complet, et uniquement sur grand écran.
-    window.addEventListener('load', function () {
-        if (!window.matchMedia('(min-width: 768px)').matches) return;
-        var v = document.querySelector('.hero-video');
-        if (!v) return;
-        v.querySelectorAll('source[data-src]').forEach(function (s) { s.src = s.dataset.src; });
-        v.load();
-        v.play().catch(function () {});
-    });
-    </script>
+    <!-- Le chargement différé de la vidéo héro a été retiré en même temps que la vidéo. -->
 </body>
 </html>

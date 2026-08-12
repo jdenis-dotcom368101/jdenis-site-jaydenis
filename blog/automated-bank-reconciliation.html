@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automating Bank Reconciliation in Accounting Firms</title>
+    <meta name="description" content="Bank feeds, automatic matching and targeted client chasing turn three hours a month into fifteen minutes. How it works, and where it still breaks.">
+    <link rel="canonical" href="https://jaydenis.com/blog/automated-bank-reconciliation.html">
+    <link rel="alternate" hreflang="fr" href="https://jaydenis.com/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace.html">
+    <link rel="alternate" hreflang="en" href="https://jaydenis.com/blog/automated-bank-reconciliation.html">
+    <link rel="alternate" hreflang="x-default" href="https://jaydenis.com/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace.html">
+    <meta property="og:title" content="Automating Bank Reconciliation in Accounting Firms">
+    <meta property="og:description" content="The chasing is the bottleneck, not the matching. How automated reconciliation actually saves time in a practice.">
+    <meta property="og:image" content="https://jaydenis.com/img/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace.jpg">
+    <meta property="og:url" content="https://jaydenis.com/blog/automated-bank-reconciliation.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <link href="/fonts/fonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles-pages.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Automating bank reconciliation in an accounting practice",
+                "description": "How bank feeds, rule-based matching and targeted client notifications cut reconciliation time, with the real limits and a rollout method.",
+                "image": "https://jaydenis.com/img/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace.jpg",
+                "author": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "publisher": {"@id": "https://jaydenis.com/#jerome-denis"},
+                "datePublished": "2026-08-12",
+                "dateModified": "2026-08-12",
+                "mainEntityOfPage": "https://jaydenis.com/blog/automated-bank-reconciliation.html",
+                "inLanguage": "en"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jaydenis.com/index-en.html"},
+                    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jaydenis.com/blog/index-en.html"},
+                    {"@type": "ListItem", "position": 3, "name": "Automating bank reconciliation", "item": "https://jaydenis.com/blog/automated-bank-reconciliation.html"}
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type": "Question", "name": "What is automated bank reconciliation?", "acceptedAnswer": {"@type": "Answer", "text": "A bank feed pushes transactions into the accounting system daily, and matching rules pair each line with its invoice or receipt automatically. Only the exceptions reach a person."}},
+                    {"@type": "Question", "name": "How does automatic chasing for missing receipts work?", "acceptedAnswer": {"@type": "Answer", "text": "When a transaction has no supporting document, the system notifies the client with the specific line and a link to photograph or upload the receipt, which is then filed and matched on arrival."}},
+                    {"@type": "Question", "name": "Is a bank feed compatible with GDPR and payment rules?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, when the connection uses the regulated open banking interfaces introduced by the EU payment services directive and the provider meets data protection requirements. Access is consent-based and the client can revoke it."}},
+                    {"@type": "Question", "name": "How much time does a practice actually save?", "acceptedAnswer": {"@type": "Answer", "text": "On a file with around 150 transactions a month, three hours of manual matching and chasing typically drops to about fifteen minutes, once the matching rules have been tuned."}},
+                    {"@type": "Question", "name": "What are the limits?", "acceptedAnswer": {"@type": "Answer", "text": "Character recognition fails on poor-quality documents, similar amounts on nearby dates produce false matches, and some clients experience automated reminders as nagging. All three need a human in the loop."}}
+                ]
+            }
+        ]
+    }
+    </script>
+<!-- Audience measurement (Google Analytics): loaded only after explicit consent. See /consent.js -->
+<script src="/consent.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="inner">
+            <a class="site-logo" href="/index-en.html">JDENIS<span>.</span></a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="/index-en.html">Home</a>
+                <a href="/ai-diagnostics-audit.html">AI Diagnostics &amp; Audit</a>
+                <a href="/corporate-ai-training.html">AI Training</a>
+                <a href="/ai-architecture-design.html">AI Architecture</a>
+                <a href="/blog/index-en.html" aria-current="page">Blog</a>
+                <a class="nav-cta" href="/index-en.html#contact">Free assessment</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/index-en.html">Home</a> › <a href="/blog/index-en.html">Blog</a> › Automating bank reconciliation</nav>
+
+        <article>
+            <h1 style="font-family:var(--font-serif);font-size:clamp(28px,4.5vw,42px);line-height:1.2;margin:22px 0 16px;">Automating bank reconciliation in an accounting practice</h1>
+
+            <div class="post-meta">
+                <img src="../jerome-denis.jpg" alt="Jérôme Denis, AI consultant">
+                <span>By <strong>Jérôme Denis</strong>, AI &amp; data governance consultant · 7 min read · 12 August 2026</span>
+            </div>
+
+            <img class="cover" src="/img/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace.jpg" alt="Overhead view of a person checking stamped invoices in a binder with a calculator" width="1880" height="1253">
+
+            <div class="answer-first"><strong>In short:</strong> matching bank lines to receipts was never the slow part. Chasing clients for the missing receipts was. Automation earns its keep by moving the chase from a monthly email listing twenty-five items to a notification about one transaction, sent the day it appears, with a button to photograph the receipt.</div>
+
+            <div class="toc">
+                <strong>Contents</strong>
+                <ol>
+                    <li><a href="#why">Why this is worth automating now</a></li>
+                    <li><a href="#how">How the mechanism works</a></li>
+                    <li><a href="#case">The same file, two ways</a></li>
+                    <li><a href="#limits">Where it breaks</a></li>
+                    <li><a href="#rollout">Rolling it out</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ol>
+            </div>
+
+            <p>Bank reconciliation means pairing every line on a bank statement with the document that justifies it. Nobody in an accounting practice finds this interesting, and it consumes an unreasonable share of the month, mostly because the documents are missing and getting them requires asking a busy person several times. That last sentence is the whole problem, and it is where automation actually helps.</p>
+
+            <h2 id="why">Why this is worth automating now</h2>
+            <p>If your practice works with French entities there is a deadline attached. Electronic invoicing becomes mandatory to receive on 1 September 2026, and mandatory to issue for small and medium companies on 1 September 2027. Documents that used to arrive as photographs in a WhatsApp message will arrive as structured files with a status. A practice still collecting paper at month end will find the new flow arriving faster than it can be processed manually. Reorganising the reconciliation process at the same time as the invoicing change avoids doing the work twice.</p>
+            <p>There is a data protection angle too. Bank feeds mean a third-party provider holds credentials or tokens against client accounts. In the EU this runs on the regulated open banking interfaces created by the payment services directive, so access is consent-based, scoped and revocable, rather than someone storing a password. That is a better arrangement than the alternative it replaced, which was often a shared login on a sticky note.</p>
+
+            <h2 id="how">How the mechanism works</h2>
+
+            <img class="cover" src="/img/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace-2.jpg" alt="A woman checking a document against a calculator at a desk by a window" width="1880" height="1253" loading="lazy">
+
+            <p>Two things run in sequence. First, a direct connection between the client's bank accounts and the practice's production software pulls transactions daily, without anyone downloading a statement. Then matching rules pair each line with a scanned sales or purchase invoice, using amount, date and counterparty name. Where the match is unambiguous, the software reconciles it and moves on. On a well-maintained file this covers most of the volume.</p>
+            <p>What matters is the residue. Traditionally a member of staff listed the unmatched lines at month end and wrote one email asking for everything. The client read it, found some of the receipts, sent them loose, and the staff member reopened the file three times. Automated chasing changes the shape of that exchange: the client gets a notification about one specific transaction, on their phone, with a link to photograph or upload the document, and the file is matched on arrival. Same total work for the client, spread across the month in ten-second pieces instead of one dreaded hour.</p>
+
+            <h2 id="case">The same file, two ways</h2>
+            <p>Take a services company with roughly 150 bank transactions a month.</p>
+            <p>Manually: staff wait for the statements and the invoices at month end. About three hours goes on ticking lines, identifying the twenty-five missing documents and writing a summary chase. The client replies over several days with documents in no particular order, so the file is reopened repeatedly before the entries can be finished.</p>
+            <p>Automated: the bank is connected live. Every Tuesday the software processes the week's transactions and reconciles around 120 lines on its own. For the remaining thirty it messages the owner with the list and a button per item. The owner clears them from their phone across a few minutes. By Friday the file is 95% current, and the monthly handling drops from three hours to about fifteen minutes.</p>
+            <p>The figures come from a file that behaves. A client with messy records will not produce them in the first quarter, which is a point worth making before you quote the saving to a partner.</p>
+
+            <h2 id="limits">Where it breaks</h2>
+
+            <img class="cover" src="/img/blog/comment-optimiser-le-rapprochement-bancaire-en-cabinet-comptable-grace-3.jpg" alt="An ATM in a bank branch lobby" width="1880" height="1057" loading="lazy">
+
+            <p>Character recognition is imperfect. A creased receipt photographed at an angle produces a wrong amount, and the matching engine will confidently pair it with something. Two transactions of similar value a few days apart produce a false match that only a person notices. These are not reasons to avoid automation. They are reasons the reviewer role does not disappear, and firms that removed it discovered the cost at the year-end review.</p>
+            <p>Client tolerance is the other limit. Notifications set to fire aggressively read as nagging, and the relationship pays for it. Tune the frequency down until someone complains it is too quiet, rather than up until someone complains it is too loud.</p>
+            <p>The broader point is that the tool removes the repetitive part and leaves the judgement. Staff shift from ticking lines to investigating the anomalies that the ticking used to hide, which is both more useful and more interesting, and is the argument that persuades the team rather than the partners.</p>
+
+            <h2 id="rollout">Rolling it out</h2>
+            <ol class="steps" style="margin-top:24px;">
+                <li><strong>Audit the tooling and the client base</strong><p>Which clients bank where, which use accounting software you can connect to, and which are comfortable with a phone-based flow. This shapes the pilot list.</p></li>
+                <li><strong>Pilot with a small volunteer group</strong><p>Ten to fifteen technically comfortable clients. Use them to validate the bank connectors and tune the matching rules before the rules meet the whole portfolio.</p></li>
+                <li><strong>Train the team properly</strong><p>Staff need to run the tool and to walk a client through it on the phone. The second skill is the one that gets skipped and the one that generates support load when it is missing.</p></li>
+                <li><strong>Explain the benefit to the client, not the technology</strong><p>What the client hears should be that they will not get a stressful year-end chase and that their figures are current enough to steer by. Nobody adopts a tool because it has a good matching engine.</p></li>
+            </ol>
+
+            <div class="cta-band"><p>Want to know what this would save across your client book?<br>The initial conversation is free and without obligation.</p><a class="btn btn-primary" href="/ai-diagnostics-audit.html">Discover AI diagnostics &amp; audit</a></div>
+
+            <section class="faq" id="faq">
+                <h2>FAQ</h2>
+                <details><summary>What is automated bank reconciliation?</summary><p>A bank feed pushes transactions into the accounting system daily, and matching rules pair each line with its invoice or receipt automatically. Only the exceptions reach a person.</p></details>
+                <details><summary>How does automatic chasing for missing receipts work?</summary><p>When a transaction has no supporting document, the system notifies the client with the specific line and a link to photograph or upload the receipt, which is then filed and matched on arrival.</p></details>
+                <details><summary>Is a bank feed compatible with GDPR and payment rules?</summary><p>Yes, when the connection uses the regulated open banking interfaces introduced by the EU payment services directive and the provider meets data protection requirements. Access is consent-based and the client can revoke it.</p></details>
+                <details><summary>How much time does a practice actually save?</summary><p>On a file with around 150 transactions a month, three hours of manual matching and chasing typically drops to about fifteen minutes, once the matching rules have been tuned.</p></details>
+                <details><summary>What are the limits?</summary><p>Character recognition fails on poor-quality documents, similar amounts on nearby dates produce false matches, and some clients experience automated reminders as nagging. All three need a human in the loop.</p></details>
+            </section>
+
+            <section>
+                <div class="section-label">Sources</div>
+                <ul>
+                    <li><a href="https://www.impots.gouv.fr" rel="noopener">French tax administration, official portal</a></li>
+                    <li><a href="https://www.cnil.fr" rel="noopener">CNIL, personal data protection</a></li>
+                    <li><a href="https://www.francenum.gouv.fr" rel="noopener">France Num, digital transformation support</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <div class="section-label">Go further</div>
+                <div class="related">
+                    <a href="/blog/france-e-invoicing-mandate-2026.html"><span class="kicker">Article</span><strong>France's e-invoicing mandate: the 2026 and 2027 dates</strong></a>
+                    <a href="/blog/gdpr-accounting-firms.html"><span class="kicker">Article</span><strong>GDPR for accounting firms</strong></a>
+                    <a href="/ai-diagnostics-audit.html"><span class="kicker">Service</span><strong>AI diagnostics &amp; audit for SMEs</strong></a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <div>© 2026 JDENIS Consulting — Jérôme Denis, AI consultant (France · Dubai · Flanders)</div>
+            <div>
+                <a href="/index-en.html">Home</a>
+                <a href="/blog/index-en.html">Blog</a>
+                <a href="/legal-notice-en.html">Legal notice</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
