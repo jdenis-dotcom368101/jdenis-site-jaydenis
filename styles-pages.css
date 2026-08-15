@@ -151,3 +151,9 @@ th { background: var(--color-light); font-weight: 700; }
     .btn-ghost { margin-left: 0; margin-top: 10px; }
     .site-nav { gap: 14px; }
 }
+
+/* Contact direct sous l'appel à l'action des pages d'offre : un visiteur arrivé
+   par une recherche doit pouvoir écrire ou appeler sans repasser par l'accueil. */
+.cta-band .cta-direct { font-size: 15px; font-weight: 400; margin: 18px 0 0; color: rgba(255,255,255,0.72); }
+.cta-band .cta-direct a { color: var(--color-accent); border-bottom: 1px solid rgba(212,168,83,0.4); }
+.cta-band .cta-direct a:hover { border-bottom-color: var(--color-accent); }
