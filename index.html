@@ -1621,20 +1621,10 @@
 <script src="/consent.js" defer></script>
 </head>
 <body>
-    <script>
-        // Auto language detection — redirect to EN if browser is non-francophone
-        (function() {
-            var redirected = sessionStorage.getItem('lang_redirect');
-            if (redirected) return;
-            var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-            var francophones = ['fr','fr-fr','fr-be','fr-ch','fr-ca','fr-lu','fr-mc','fr-sn','fr-ci','fr-ma','fr-dz','fr-tn'];
-            var isFrancophone = francophones.some(function(l){ return lang.startsWith(l); });
-            if (!isFrancophone && lang !== '') {
-                sessionStorage.setItem('lang_redirect', '1');
-                window.location.href = 'index-en.html';
-            }
-        })();
-    </script>
+    <!-- Pas de redirection automatique sur la langue du navigateur : les moteurs explorent
+         en anglais et classaient cette page comme une redirection, ce qui la rendait
+         non indexable (constaté dans Bing Webmaster Tools le 15/08/2026). Le ciblage
+         linguistique passe par les balises hreflang du <head> et le sélecteur EN de l'en-tête. -->
 
     <a href="#main" class="skip-link">Aller au contenu principal</a>
 
