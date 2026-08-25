@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light only">
+  <title>SIGNAL IA — Newsletter IA, droit et usages pratiques</title>
+  <meta name="description" content="Deux fois par semaine, l’essentiel de l’IA : éthique, droit, usages concrets et tutoriels opérationnels en français.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jaydenis.com/signal-ia.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="JDENIS Consulting">
+  <meta property="og:title" content="SIGNAL IA — Trois jours d’IA, sans le bruit">
+  <meta property="og:description" content="Éthique, droit, usages concrets et un tutoriel opérationnel. Deux fois par semaine, en français.">
+  <meta property="og:url" content="https://jaydenis.com/signal-ia.html">
+  <meta property="og:image" content="https://jaydenis.com/signal-ia-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SIGNAL IA — Trois jours d’IA, sans le bruit">
+  <meta name="twitter:description" content="Deux fois par semaine : les signaux IA utiles et un tutoriel à tester.">
+  <meta name="twitter:image" content="https://jaydenis.com/signal-ia-og.png">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"SIGNAL IA","url":"https://jaydenis.com/signal-ia.html","description":"Deux fois par semaine, l’essentiel de l’IA : éthique, droit, usages concrets et tutoriels opérationnels en français.","publisher":{"@type":"Organization","name":"JDENIS Consulting","url":"https://jaydenis.com"}}
+  </script>
+  <style>
+    html { scroll-behavior:smooth; }
+    body { margin:0; padding:0; background:#E8DFD0; }
+    table { border-collapse:collapse; }
+    img { border:0; display:block; }
+    a { color:inherit; }
+    .hero-cta { display:inline-block; margin-top:22px; padding:14px 19px; background:#D86040; border-radius:8px; color:#FFFFFF; font:800 13px/18px Arial,Helvetica,sans-serif; text-decoration:none; box-shadow:0 8px 20px rgba(216,96,64,.28); }
+    .hero-cta:hover, .signup-submit:hover { background:#C2502E; transform:translateY(-1px); }
+    .signup-field { width:100%; box-sizing:border-box; min-height:46px; padding:12px 13px; border:1px solid #CFC4B3; border-radius:8px; background:#FFFFFF; color:#252A32; font:14px/20px Arial,Helvetica,sans-serif; }
+    .signup-field:focus { outline:3px solid rgba(216,96,64,.22); border-color:#D86040; }
+    .signup-submit { width:100%; min-height:48px; padding:12px 17px; border:0; border-radius:8px; background:#D86040; color:#FFFFFF; cursor:pointer; font:800 13px/18px Arial,Helvetica,sans-serif; transition:.15s ease; }
+    .signup-submit:disabled { cursor:wait; opacity:.7; transform:none; }
+    .signup-status { display:none; margin-top:13px; padding:11px 13px; border-radius:8px; font:700 12px/18px Arial,Helvetica,sans-serif; }
+    .signup-status.is-success { display:block; background:#E4F1E8; color:#1F6035; }
+    .signup-status.is-error { display:block; background:#F9E4DE; color:#8A2F1D; }
+    .hp-field { position:absolute !important; left:-9999px !important; width:1px !important; height:1px !important; overflow:hidden !important; }
+    .mobile-signup { display:none; }
+    @media only screen and (max-width:640px) {
+      .shell { width:100% !important; border-radius:0 !important; }
+      .pad { padding-left:22px !important; padding-right:22px !important; }
+      .hero-title { font-size:42px !important; line-height:42px !important; }
+      .stack, .stack td { display:block !important; width:100% !important; box-sizing:border-box !important; }
+      .stack td + td { padding-left:0 !important; padding-top:10px !important; }
+      .mobile-card { margin-bottom:10px !important; }
+      .signal-card { min-height:0 !important; }
+      .step-number { width:38px !important; }
+      .form-stack, .form-stack td { display:block !important; width:100% !important; box-sizing:border-box !important; }
+      .form-stack td + td { padding-left:0 !important; padding-top:10px !important; }
+      body { padding-bottom:66px; }
+      .mobile-signup { display:block; position:fixed; z-index:20; left:0; right:0; bottom:0; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(14,22,38,.96); box-shadow:0 -8px 24px rgba(14,22,38,.18); }
+      .mobile-signup a { display:block; padding:12px 14px; border-radius:7px; background:#D86040; color:#FFFFFF; font:800 13px/18px Arial,Helvetica,sans-serif; text-align:center; text-decoration:none; }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    ÉDITION PILOTE — contenu établi à partir des Daily AI Briefing des 23, 24 et 25 août 2026.
+    Objet suggéré : SIGNAL IA #001 — 3 jours d’IA, sans le bruit
+    Préheader : Droit d’auteur, assistants trop curieux, délégation et un tutoriel RAG vraiment utile.
+  -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:transparent;">
+    Droit d’auteur, assistants trop curieux, délégation et un tutoriel RAG vraiment utile.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%; background:#E8DFD0;">
+    <tr>
+      <td align="center" style="padding:20px 0 34px;">
+        <table class="shell" role="presentation" width="620" cellpadding="0" cellspacing="0" border="0" style="width:620px; max-width:620px; background:#F7F1E7; border-radius:20px; overflow:hidden; box-shadow:0 18px 45px rgba(14,22,38,.10);">
+
+          <tr>
+            <td class="pad" style="background:#0E1626; padding:28px 36px 34px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; line-height:22px; font-weight:900; color:#FFFFFF; letter-spacing:-1px;">
+                    J&amp;DENIS
+                    <div style="font-size:6px; line-height:12px; letter-spacing:4px; font-weight:normal; color:#AEB6C3;">CONSULTING</div>
+                  </td>
+                  <td align="right" valign="top" style="font-family:Arial,Helvetica,sans-serif; font-size:9px; line-height:14px; font-weight:bold; color:#D8B25A; letter-spacing:1.5px;">
+                    #001&nbsp;&nbsp;·&nbsp;&nbsp;25.08.2026
+                  </td>
+                </tr>
+              </table>
+              <div style="margin-top:24px; font-family:Arial,Helvetica,sans-serif; font-size:9px; line-height:14px; font-weight:bold; color:#EE7655; letter-spacing:2.3px; text-transform:uppercase;">Le digest des 72 dernières heures</div>
+              <div class="hero-title" style="margin-top:8px; font-family:Arial,Helvetica,sans-serif; font-size:48px; line-height:47px; font-weight:900; color:#FFFFFF; letter-spacing:-2.2px;">SIGNAL<br>IA</div>
+              <div style="margin-top:14px; font-family:Arial,Helvetica,sans-serif; font-size:21px; line-height:26px; font-weight:700; color:#FFFFFF;">Trois jours d’IA,<br><span style="color:#EE7655;">sans le bruit.</span></div>
+              <div style="margin-top:17px; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:20px; color:#C7CDD6;">52 liens parcourus. Quatre sujets retenus.<br>Un tutoriel à essayer avant la prochaine édition.</div>
+              <a class="hero-cta" href="#inscription">Recevoir SIGNAL IA gratuitement →</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="inscription" class="pad" style="padding:28px 36px 30px; background:#F2E6D5; border-bottom:1px solid #DED3C2; font-family:Arial,Helvetica,sans-serif; color:#252A32; scroll-margin-top:18px;">
+              <div style="font-size:9px; line-height:14px; font-weight:bold; color:#D86040; letter-spacing:2px; text-transform:uppercase;">La veille utile, deux fois par semaine</div>
+              <div style="margin-top:7px; font-size:25px; line-height:29px; font-weight:900; color:#0E1626; letter-spacing:-.7px;">Recevez les prochains signaux</div>
+              <div style="margin-top:9px; max-width:510px; font-size:13px; line-height:20px; color:#554D43;">Une synthèse indépendante des sujets éthiques, légaux et pratiques de l’IA, accompagnée d’un tutoriel directement applicable. Gratuit, lisible en cinq minutes.</div>
+              <form id="signup-form" action="https://script.google.com/macros/s/AKfycbyhF-Q6Tt1zdFF8sErtEgh5002Sp8nGMNQphALJBNZF0UEf-PNQ7YRZMzTdK7iemiLs9Q/exec" method="post" target="signup-frame" style="margin-top:18px;">
+                <table class="form-stack" role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="34%" style="padding-right:5px;"><label for="first-name" style="display:block; margin-bottom:5px; font-size:10px; line-height:14px; font-weight:bold; color:#554D43;">Prénom <span style="font-weight:normal;">(facultatif)</span></label><input class="signup-field" id="first-name" name="first_name" type="text" maxlength="80" autocomplete="given-name" placeholder="Votre prénom"></td>
+                    <td width="66%" style="padding-left:5px;"><label for="email" style="display:block; margin-bottom:5px; font-size:10px; line-height:14px; font-weight:bold; color:#554D43;">Email professionnel ou personnel</label><input class="signup-field" id="email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" placeholder="vous@exemple.fr" required></td>
+                  </tr>
+                </table>
+                <div class="hp-field" aria-hidden="true"><label for="website">Site web</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+                <input type="hidden" name="utm_source" id="utm-source">
+                <input type="hidden" name="utm_medium" id="utm-medium">
+                <input type="hidden" name="utm_campaign" id="utm-campaign">
+                <input type="hidden" name="utm_content" id="utm-content">
+                <input type="hidden" name="page_url" id="page-url">
+                <label style="display:flex; gap:9px; align-items:flex-start; margin-top:13px; font-size:10px; line-height:16px; color:#554D43; cursor:pointer;"><input name="consent" value="yes" type="checkbox" required style="margin:2px 0 0; accent-color:#D86040;"> <span>J’accepte de recevoir SIGNAL IA par email, environ deux fois par semaine. Je pourrai me désinscrire à tout moment.</span></label>
+                <div style="margin-top:13px;"><button class="signup-submit" type="submit">Je m’inscris gratuitement →</button></div>
+                <div id="signup-status" class="signup-status" role="status" aria-live="polite"></div>
+                <div style="margin-top:10px; font-size:9px; line-height:14px; color:#766D62;">Vos coordonnées sont utilisées uniquement pour SIGNAL IA. <a href="https://jaydenis.com/mentions-legales.html" style="color:#554D43; text-decoration:underline;">Informations légales</a>.</div>
+              </form>
+              <iframe name="signup-frame" title="Confirmation d’inscription" hidden></iframe>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:30px 36px 18px; font-family:Arial,Helvetica,sans-serif; color:#252A32;">
+              <div style="font-size:15px; line-height:24px;">Bonjour,</div>
+              <div style="margin-top:13px; font-size:15px; line-height:24px;">Ces trois derniers jours, les modèles furtifs, les robots humanoïdes et les levées de fonds ont beaucoup occupé l’espace. J’ai laissé passer le spectacle pour garder ce qui peut réellement modifier une décision, une règle interne ou une façon de travailler.</div>
+              <div style="margin-top:13px; font-size:15px; line-height:24px;">Au menu : <strong>le droit d’auteur devient moins binaire qu’on le raconte</strong>, les assistants personnels demandent beaucoup trop de clés, et un bon système documentaire commence par savoir ce qui manque.</div>
+              <div style="margin-top:15px; font-size:15px; line-height:24px;">Bonne lecture,<br><strong>Jérôme</strong></div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:16px 36px 25px;">
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:9px; line-height:14px; font-weight:bold; color:#D86040; letter-spacing:2px; text-transform:uppercase;">Si vous ne lisez qu’une minute</div>
+              <div style="margin-top:7px; font-family:Arial,Helvetica,sans-serif; font-size:24px; line-height:28px; font-weight:900; color:#0E1626; letter-spacing:-.8px;">Les quatre signaux</div>
+              <table class="stack" role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
+                <tr>
+                  <td width="50%" valign="top" style="padding-right:6px;">
+                    <div class="mobile-card signal-card" style="min-height:126px; background:#FFFFFF; border:1px solid #DED3C2; border-top:3px solid #D86040; border-radius:10px; padding:14px; font-family:Arial,Helvetica,sans-serif;">
+                      <div style="font-size:8px; line-height:12px; font-weight:bold; color:#D86040; letter-spacing:1.3px;">DROIT</div>
+                      <div style="margin-top:6px; font-size:13px; line-height:19px; color:#252A32;"><strong>Entraîner n’est pas automatiquement pirater.</strong> La provenance des données et la finalité concurrentielle deviennent décisives.</div>
+                      <a href="https://techcrunch.com/2026/08/23/is-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated/" style="display:inline-block; margin-top:9px; font-size:10px; line-height:15px; font-weight:bold; color:#C2502E; text-decoration:underline;">Voir la source →</a>
+                    </div>
+                  </td>
+                  <td width="50%" valign="top" style="padding-left:6px;">
+                    <div class="mobile-card signal-card" style="min-height:126px; background:#FFFFFF; border:1px solid #DED3C2; border-top:3px solid #172A48; border-radius:10px; padding:14px; font-family:Arial,Helvetica,sans-serif;">
+                      <div style="font-size:8px; line-height:12px; font-weight:bold; color:#172A48; letter-spacing:1.3px;">CONFIDENTIALITÉ</div>
+                      <div style="margin-top:6px; font-size:13px; line-height:19px; color:#252A32;"><strong>La magie d’un agent vient de ses permissions.</strong> Le risque aussi : email, écran, clavier, localisation et transactions.</div>
+                      <a href="https://techcrunch.com/2026/08/24/instincts-powerful-ai-assistant-is-raising-privacy-and-security-concerns/" style="display:inline-block; margin-top:9px; font-size:10px; line-height:15px; font-weight:bold; color:#C2502E; text-decoration:underline;">Voir la source →</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%" valign="top" style="padding:10px 6px 0 0;">
+                    <div class="mobile-card signal-card" style="min-height:126px; background:#FFFFFF; border:1px solid #DED3C2; border-top:3px solid #C49A45; border-radius:10px; padding:14px; font-family:Arial,Helvetica,sans-serif;">
+                      <div style="font-size:8px; line-height:12px; font-weight:bold; color:#9A741F; letter-spacing:1.3px;">TRAVAIL</div>
+                      <div style="margin-top:6px; font-size:13px; line-height:19px; color:#252A32;"><strong>On délègue des tâches spécifiables</strong>, pas des métiers entiers. L’usage réel diffère fortement des prévisions.</div>
+                      <a href="https://arxiv.org/abs/2608.20425" style="display:inline-block; margin-top:9px; font-size:10px; line-height:15px; font-weight:bold; color:#A66F16; text-decoration:underline;">Voir l’étude →</a>
+                    </div>
+                  </td>
+                  <td width="50%" valign="top" style="padding:10px 0 0 6px;">
+                    <div class="signal-card" style="min-height:126px; background:#FFFFFF; border:1px solid #DED3C2; border-top:3px solid #9E4F3A; border-radius:10px; padding:14px; font-family:Arial,Helvetica,sans-serif;">
+                      <div style="font-size:8px; line-height:12px; font-weight:bold; color:#9E4F3A; letter-spacing:1.3px;">PRATIQUE</div>
+                      <div style="margin-top:6px; font-size:13px; line-height:19px; color:#252A32;"><strong>Un dossier n’est pas une pile de PDF.</strong> Il faut contrôler les pièces attendues, les absences et les contradictions.</div>
+                      <a href="https://towardsdatascience.com/parse-the-folder-not-just-the-pdfs-the-relational-tables-rag-needs-on-a-case-file/" style="display:inline-block; margin-top:9px; font-size:10px; line-height:15px; font-weight:bold; color:#C2502E; text-decoration:underline;">Voir la source →</a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:26px 36px; border-top:1px solid #DED3C2; font-family:Arial,Helvetica,sans-serif;">
+              <div style="font-size:9px; line-height:14px; color:#D86040; font-weight:bold; letter-spacing:1.8px; text-transform:uppercase;">01 — Le sujet juridique</div>
+              <div style="margin-top:7px; font-size:25px; line-height:29px; font-weight:900; color:#0E1626; letter-spacing:-.7px;">Droit d’auteur : la vraie question n’est plus seulement « avec quoi ? »</div>
+              <div style="margin-top:16px; font-size:15px; line-height:24px; color:#343941;">Une décision américaine a distingué deux choses que les débats mélangent souvent : <strong>utiliser des œuvres pour entraîner un modèle</strong> et <strong>obtenir ces œuvres depuis des bibliothèques pirates</strong>. L’entraînement a pu être considéré comme transformateur ; la provenance illégale, elle, a été sanctionnée.</div>
+              <div style="margin-top:12px; font-size:15px; line-height:24px; color:#343941;">Un autre contentieux a produit l’effet inverse lorsqu’un acteur utilisait le contenu d’un concurrent pour construire un service directement concurrent. Le droit n’offre donc pas une réponse universelle : la source, le but, la quantité utilisée et l’effet sur le marché changent l’analyse.</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px; background:#FFFFFF; border-left:4px solid #D86040; border-radius:10px;"><tr><td style="padding:14px 16px; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:18px; color:#252A32;"><strong>Ce que j’en retiens :</strong> pour une entreprise française, ce jugement américain n’est pas une permission. C’est un rappel utile : documenter la provenance des corpus, la licence, la finalité et la contribution humaine devient une mesure de gestion, pas seulement une affaire de juristes.</td></tr></table>
+              <div style="margin-top:13px; font-size:11px; line-height:17px; color:#766D62;">À lire : <a href="https://techcrunch.com/2026/08/23/is-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated/" style="color:#A66F16; text-decoration:underline;">l’analyse de TechCrunch sur l’entraînement et le copyright</a>.</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:26px 36px; border-top:1px solid #DED3C2; font-family:Arial,Helvetica,sans-serif;">
+              <div style="font-size:9px; line-height:14px; color:#C49A45; font-weight:bold; letter-spacing:1.8px; text-transform:uppercase;">02 — Éthique &amp; confidentialité</div>
+              <div style="margin-top:7px; font-size:25px; line-height:29px; font-weight:900; color:#0E1626; letter-spacing:-.7px;">Un assistant « magique » est souvent un assistant qui a toutes vos clés</div>
+              <div style="margin-top:16px; font-size:15px; line-height:24px; color:#343941;">L’assistant personnel Instinct impressionne parce qu’il peut agir sur les emails, les messages, l’agenda, l’écran, le clavier et la localisation. Mais des testeurs ont signalé des données encore exploitées après déconnexion, une suppression difficile et des actions réalisées sans validation préalable.</div>
+              <div style="margin-top:12px; font-size:15px; line-height:24px; color:#343941;">Le point le plus important n’est pas ce produit en particulier. C’est le nouveau compromis : <strong>plus un agent est utile, plus il demande de contexte et de pouvoir d’action</strong>. Le vrai comparatif ne porte donc plus uniquement sur la qualité du modèle, mais sur les droits accordés, la conservation et la révocation.</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px; background:#0E1626; border-radius:12px;"><tr><td style="padding:17px 18px; font-family:Arial,Helvetica,sans-serif; color:#FFFFFF;"><div style="font-size:8px; line-height:12px; color:#D8B25A; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase;">La question à poser avant « connecter »</div><div style="margin-top:7px; font-size:17px; line-height:23px; font-weight:bold;">Si je coupe l’accès demain, quelles copies restent, pendant combien de temps et comment puis-je les supprimer ?</div></td></tr></table>
+              <div style="margin-top:13px; font-size:11px; line-height:17px; color:#766D62;">À lire : <a href="https://techcrunch.com/2026/08/24/instincts-powerful-ai-assistant-is-raising-privacy-and-security-concerns/" style="color:#A66F16; text-decoration:underline;">l’enquête sur les permissions et la conservation des données d’Instinct</a>.</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:26px 36px; border-top:1px solid #DED3C2; font-family:Arial,Helvetica,sans-serif;">
+              <div style="font-size:9px; line-height:14px; color:#466382; font-weight:bold; letter-spacing:1.8px; text-transform:uppercase;">03 — Travail &amp; usages</div>
+              <div style="margin-top:7px; font-size:25px; line-height:29px; font-weight:900; color:#0E1626; letter-spacing:-.7px;">L’IA transforme d’abord le travail qu’on sait décrire</div>
+              <div style="margin-top:16px; font-size:15px; line-height:24px; color:#343941;">Une étude portant sur environ 53 000 configurations d’agents compare les tâches que l’IA <em>pourrait</em> faire et celles que des utilisateurs ont effectivement intégrées à leurs workflows. Les deux cartes ne se superposent pas.</div>
+              <div style="margin-top:12px; font-size:15px; line-height:24px; color:#343941;">La délégation réelle se concentre sur les tâches suffisamment explicites pour devenir une procédure. Elle diminue aux extrêmes de la distribution salariale et parmi certains métiers très qualifiés, où le jugement professionnel et l’impossibilité de tout spécifier à l’avance freinent l’automatisation.</div>
+              <div style="margin-top:14px; background:#E8EDF2; border-radius:10px; padding:14px 16px; font-size:12px; line-height:18px; color:#252A32;"><strong>À tester lundi :</strong> prenez une tâche répétée cette semaine et écrivez son résultat attendu, ses entrées, trois règles et le cas qui doit obligatoirement revenir à un humain. Si vous n’y arrivez pas clairement, ce n’est probablement pas encore une bonne candidate à la délégation.</div>
+              <div style="margin-top:13px; font-size:11px; line-height:17px; color:#766D62;">Source : <a href="https://arxiv.org/abs/2608.20425" style="color:#466382; text-decoration:underline;">Who Delegates to AI? Evidence from 53,000 Agent Configurations</a>.</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:26px 36px; border-top:1px solid #DED3C2;">
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:9px; line-height:14px; color:#D86040; font-weight:bold; letter-spacing:1.8px; text-transform:uppercase;">À garder sur le radar</div>
+              <div style="margin-top:7px; font-family:Arial,Helvetica,sans-serif; font-size:24px; line-height:28px; font-weight:900; color:#0E1626; letter-spacing:-.7px;">Trois brèves, pas plus</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
+                <tr><td class="step-number" width="44" valign="top"><div style="width:30px; height:30px; border-radius:50%; background:#D86040; color:#FFFFFF; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:30px; font-weight:bold; text-align:center;">1</div></td><td style="padding-bottom:14px; font-family:Arial,Helvetica,sans-serif;"><div style="font-size:14px; line-height:19px; font-weight:bold; color:#0E1626;">Les laboratoires parlent beaucoup de tests, moins de plans d’arrêt.</div><div style="margin-top:4px; font-size:12px; line-height:18px; color:#555A61;">Une évaluation indépendante juge encore rares les protocoles publics précisant quelles permissions révoquer et quand mettre un modèle hors ligne. <a href="https://techcrunch.com/2026/08/22/frontier-ai-labs-still-wont-say-how-theyd-contain-a-rogue-model/" style="color:#A66F16; text-decoration:underline;">Lire</a></div></td></tr>
+                <tr><td class="step-number" width="44" valign="top"><div style="width:30px; height:30px; border-radius:50%; background:#C49A45; color:#0E1626; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:30px; font-weight:bold; text-align:center;">2</div></td><td style="padding-bottom:14px; font-family:Arial,Helvetica,sans-serif;"><div style="font-size:14px; line-height:19px; font-weight:bold; color:#0E1626;">À l’école, interdire l’outil ne suffit plus.</div><div style="margin-top:4px; font-size:12px; line-height:18px; color:#555A61;">La question utile devient : dans quelle phase l’IA aide-t-elle à apprendre, et dans quelle phase remplace-t-elle l’effort qui forme réellement ? <a href="https://www.technologyreview.com/2026/08/24/ai-school-classroom-policies/" style="color:#A66F16; text-decoration:underline;">Lire</a></div></td></tr>
+                <tr><td class="step-number" width="44" valign="top"><div style="width:30px; height:30px; border-radius:50%; background:#172A48; color:#FFFFFF; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:30px; font-weight:bold; text-align:center;">3</div></td><td style="font-family:Arial,Helvetica,sans-serif;"><div style="font-size:14px; line-height:19px; font-weight:bold; color:#0E1626;">Un RAG d’entreprise doit savoir répondre « il manque une pièce ».</div><div style="margin-top:4px; font-size:12px; line-height:18px; color:#555A61;">Retrouver le meilleur passage ne permet ni de détecter une absence ni de comparer deux dates contradictoires. C’est le point de départ du tutoriel ci-dessous.</div></td></tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="background:#0E1626; padding:30px 36px 32px; font-family:Arial,Helvetica,sans-serif;">
+              <div style="font-size:9px; line-height:14px; color:#EE7655; font-weight:bold; letter-spacing:2px; text-transform:uppercase;">Le tutoriel traduit et adapté</div>
+              <div style="margin-top:8px; font-size:27px; line-height:31px; font-weight:900; color:#FFFFFF; letter-spacing:-.8px;">Tester un dossier documentaire avant de construire un RAG</div>
+              <div style="margin-top:10px; font-size:13px; line-height:20px; color:#C7CDD6;">Objectif : vérifier en une heure si votre besoin porte vraiment sur la recherche de passages ou sur le contrôle d’un dossier complet. Aucun code n’est nécessaire.</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:22px;">
+                <tr><td width="34" valign="top" style="font-size:10px; line-height:20px; font-weight:bold; color:#D8B25A;">01</td><td style="padding-bottom:15px; border-bottom:1px solid #293448; font-size:13px; line-height:20px; color:#FFFFFF;"><strong>Choisissez un seul type de dossier.</strong><br><span style="color:#C7CDD6;">Par exemple : sinistre, candidature, dossier locataire ou demande de financement.</span></td></tr>
+                <tr><td width="34" valign="top" style="padding-top:15px; font-size:10px; line-height:20px; font-weight:bold; color:#D8B25A;">02</td><td style="padding:15px 0; border-bottom:1px solid #293448; font-size:13px; line-height:20px; color:#FFFFFF;"><strong>Écrivez la liste des pièces attendues avant d’ouvrir les fichiers.</strong><br><span style="color:#C7CDD6;">Pour chaque pièce : nom métier, quantité minimale, condition et caractère bloquant.</span></td></tr>
+                <tr><td width="34" valign="top" style="padding-top:15px; font-size:10px; line-height:20px; font-weight:bold; color:#D8B25A;">03</td><td style="padding:15px 0; border-bottom:1px solid #293448; font-size:13px; line-height:20px; color:#FFFFFF;"><strong>Classez les fichiers reçus par rôle.</strong><br><span style="color:#C7CDD6;">Ajoutez une confiance simple : sûre, probable ou à confirmer. Une classification incertaine doit devenir une question, jamais un verdict.</span></td></tr>
+                <tr><td width="34" valign="top" style="padding-top:15px; font-size:10px; line-height:20px; font-weight:bold; color:#D8B25A;">04</td><td style="padding:15px 0; border-bottom:1px solid #293448; font-size:13px; line-height:20px; color:#FFFFFF;"><strong>Produisez trois listes.</strong><br><span style="color:#C7CDD6;">Présentes, manquantes et non reconnues. Une pièce absente peut être une bonne réponse ; ce n’est pas un échec de recherche.</span></td></tr>
+                <tr><td width="34" valign="top" style="padding-top:15px; font-size:10px; line-height:20px; font-weight:bold; color:#D8B25A;">05</td><td style="padding:15px 0; border-bottom:1px solid #293448; font-size:13px; line-height:20px; color:#FFFFFF;"><strong>Déclarez trois contrôles croisés.</strong><br><span style="color:#C7CDD6;">Exemple : date du formulaire contre date du rapport. Comparez des valeurs normalisées et conservez le fichier et la page d’origine.</span></td></tr>
+                <tr><td width="34" valign="top" style="padding-top:15px; font-size:10px; line-height:20px; font-weight:bold; color:#D8B25A;">06</td><td style="padding-top:15px; font-size:13px; line-height:20px; color:#FFFFFF;"><strong>Testez manuellement sur vingt dossiers.</strong><br><span style="color:#C7CDD6;">Comptez séparément les fausses absences et les vraies pièces manquantes non détectées. Ce résultat dira si l’automatisation mérite d’être construite.</span></td></tr>
+              </table>
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:22px;"><tr><td style="background:#D86040; border-radius:7px;"><a href="https://towardsdatascience.com/parse-the-folder-not-just-the-pdfs-the-relational-tables-rag-needs-on-a-case-file/" style="display:inline-block; padding:12px 17px; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; font-weight:bold; color:#FFFFFF; text-decoration:none;">Lire l’article source en anglais →</a></td></tr></table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:20px; background:#17233A; border:1px solid #344057; border-radius:12px;">
+                <tr><td style="padding:17px 18px; font-family:Arial,Helvetica,sans-serif;">
+                  <div style="font-size:8px; line-height:12px; color:#D8B25A; font-weight:bold; letter-spacing:1.5px; text-transform:uppercase;">Besoin de l’adapter à votre cas ?</div>
+                  <div style="margin-top:7px; font-size:13px; line-height:20px; color:#FFFFFF;">Indiquez-moi simplement le type de dossier, le volume mensuel et le principal point de blocage. Je vous dirai comment préciser le test — ou si ce tutoriel ne correspond pas à votre besoin.</div>
+                  <div style="margin-top:11px; font-size:12px; line-height:18px; font-weight:bold;">
+                    <a href="mailto:jdenis@jaydenis.com?subject=Question%20sur%20le%20tutoriel%20SIGNAL%20IA&amp;body=Bonjour%20J%C3%A9r%C3%B4me%2C%0A%0AMon%20type%20de%20dossier%20est%20%3A%20%0ALe%20volume%20mensuel%20est%20%3A%20%0ALa%20difficult%C3%A9%20principale%20est%20%3A%20" style="color:#EE7655; text-decoration:underline;">Me poser une question →</a>
+                    &nbsp;&nbsp;·&nbsp;&nbsp;
+                    <a href="https://calendly.com/jaydenis/15min" style="color:#FFFFFF; text-decoration:underline;">Échanger 15 minutes</a>
+                  </div>
+                </td></tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:27px 36px 12px; font-family:Arial,Helvetica,sans-serif;">
+              <div style="font-size:9px; line-height:14px; color:#D86040; font-weight:bold; letter-spacing:1.8px; text-transform:uppercase;">Le fil rouge</div>
+              <div style="margin-top:8px; font-size:20px; line-height:26px; font-weight:900; color:#0E1626;">Le problème n’est presque jamais le modèle seul.</div>
+              <div style="margin-top:10px; font-size:14px; line-height:22px; color:#343941;">Dans ces trois jours d’actualité, le même motif revient : la valeur et le risque se trouvent dans ce que l’on donne au système — des œuvres, des permissions, une procédure ou un dossier — et dans ce qu’on l’autorise à faire ensuite.</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:18px 36px 28px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF; border-radius:12px; border-left:5px solid #C49A45;"><tr><td style="padding:17px 18px; font-family:Arial,Helvetica,sans-serif;">
+                <div style="font-size:8px; line-height:12px; color:#9A741F; font-weight:bold; letter-spacing:1.5px; text-transform:uppercase;">Et si cela ressemble à un sujet chez vous</div>
+                <div style="margin-top:7px; font-size:14px; line-height:21px; color:#252A32;">J’aide les PME à cadrer leurs usages IA, sécuriser les données et transformer leurs documents en processus réellement utilisables. Le point de départ peut être un simple échange sur votre cas.</div>
+                <div style="margin-top:10px; font-size:12px; line-height:18px; font-weight:bold;"><a href="https://jaydenis.com/diagnostic-audit-ia-toulouse.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=signal_ia" style="color:#C2502E; text-decoration:underline;">Découvrir le diagnostic</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:jdenis@jaydenis.com" style="color:#172A48; text-decoration:underline;">Me répondre</a></div>
+              </td></tr></table>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:0 36px 28px; font-family:Arial,Helvetica,sans-serif;">
+              <div style="background:#F7EFDD; border-radius:11px; padding:17px; font-size:12px; line-height:18px; color:#554D43;">Cette édition vous a été utile ? Recevez la prochaine directement par email.<br><a href="#inscription" style="display:inline-block; margin-top:9px; color:#C2502E; font-weight:bold; text-decoration:underline;">Je m’inscris gratuitement →</a></div>
+              <div style="margin-top:20px; font-size:12px; line-height:18px; color:#766D62;">À vendredi,<br><strong style="font-size:17px; color:#0E1626;">Jérôme Denis</strong><br>JDENIS Consulting — Conseil &amp; applications IA</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" align="center" style="background:#0E1626; padding:23px 36px; font-family:Arial,Helvetica,sans-serif; color:#AEB6C3;">
+              <div style="font-size:9px; line-height:15px;"><a href="https://jaydenis.com" style="color:#FFFFFF; text-decoration:none;">jaydenis.com</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://www.linkedin.com/in/jaydenis" style="color:#FFFFFF; text-decoration:none;">LinkedIn</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:jdenis@jaydenis.com" style="color:#FFFFFF; text-decoration:none;">Contact</a></div>
+              <div style="margin-top:14px; font-size:8px; line-height:14px;">Inscription gratuite. Désinscription en un clic dans chaque édition.<br><a href="https://jaydenis.com/mentions-legales.html" style="color:#AEB6C3; text-decoration:underline;">Mentions légales</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:jdenis@jaydenis.com" style="color:#AEB6C3; text-decoration:underline;">Contact</a></div>
+              <div style="margin-top:10px; font-size:7px; line-height:12px; color:#657083;">© 2026 JDENIS Consulting · Toulouse, France</div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+  <div class="mobile-signup"><a href="#inscription">Recevoir SIGNAL IA gratuitement →</a></div>
+  <script>
+    (function () {
+      var form = document.getElementById('signup-form');
+      var status = document.getElementById('signup-status');
+      var submit = form.querySelector('button[type="submit"]');
+      var defaultLabel = submit.textContent;
+      var timer;
+      var query = new URLSearchParams(window.location.search);
+
+      function setValue(id, value) {
+        document.getElementById(id).value = String(value || '').slice(0, 500);
+      }
+
+      setValue('utm-source', query.get('utm_source') || 'direct');
+      setValue('utm-medium', query.get('utm_medium') || 'web');
+      setValue('utm-campaign', query.get('utm_campaign') || 'signal_ia_lancement');
+      setValue('utm-content', query.get('utm_content') || '');
+      setValue('page-url', window.location.href);
+
+      function finish(ok, message) {
+        window.clearTimeout(timer);
+        status.className = 'signup-status ' + (ok ? 'is-success' : 'is-error');
+        status.textContent = message;
+        submit.disabled = false;
+        submit.textContent = defaultLabel;
+        if (ok) {
+          var preservedConsent = form.querySelector('[name="consent"]');
+          form.reset();
+          preservedConsent.checked = false;
+        }
+      }
+
+      form.addEventListener('submit', function () {
+        status.className = 'signup-status';
+        status.textContent = '';
+        submit.disabled = true;
+        submit.textContent = 'Inscription en cours…';
+        timer = window.setTimeout(function () {
+          finish(false, 'La confirmation prend plus de temps que prévu. Vérifiez votre connexion et réessayez.');
+        }, 15000);
+      });
+
+      window.addEventListener('message', function (event) {
+        var data = event.data || {};
+        if (data.type !== 'signal-ia-signup') return;
+        finish(Boolean(data.ok), data.message || (data.ok ? 'Inscription confirmée.' : 'Une erreur est survenue.'));
+      });
+    }());
+  </script>
+  <script src="/consent.js" defer></script>
+  <script src="/cta.js" defer></script>
+</body>
+</html>
