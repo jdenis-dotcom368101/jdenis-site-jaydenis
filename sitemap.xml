@@ -398,4 +398,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://jaydenis.com/blog/responsabilite-juridique-d-une-decision-prise-par-une-ia-qui-repond-en.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
