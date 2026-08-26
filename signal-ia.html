@@ -316,6 +316,7 @@
       }
 
       form.addEventListener('submit', function () {
+        document.getElementById('website').value = '';
         status.className = 'signup-status';
         status.textContent = '';
         submit.disabled = true;
