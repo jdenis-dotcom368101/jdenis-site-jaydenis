@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light only">
+  <title>SIGNAL AI — AI newsletter: ethics, law and practical uses</title>
+  <meta name="description" content="Twice a week, the essentials of AI: ethics, law, concrete uses and hands-on tutorials, in English.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jaydenis.com/signal-ai.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="JDENIS Consulting">
+  <meta property="og:title" content="SIGNAL AI — Two days of AI, without the noise">
+  <meta property="og:description" content="Ethics, law, concrete uses and a hands-on tutorial. Twice a week, in English.">
+  <meta property="og:url" content="https://jaydenis.com/signal-ai.html">
+  <meta property="og:image" content="https://jaydenis.com/signal-ia-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SIGNAL AI — Two days of AI, without the noise">
+  <meta name="twitter:description" content="Twice a week: the useful AI signals and a tutorial to try.">
+  <meta name="twitter:image" content="https://jaydenis.com/signal-ia-og.png">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"SIGNAL AI","url":"https://jaydenis.com/signal-ai.html","description":"Twice a week, the essentials of AI: ethics, law, concrete uses and hands-on tutorials, in English.","publisher":{"@type":"Organization","name":"JDENIS Consulting","url":"https://jaydenis.com"}}
+  </script>
+  <style>
+    html { scroll-behavior:smooth; }
+    body { margin:0; padding:0; background:#FFFFFF; }
+    table { border-collapse:collapse; }
+    img { border:0; display:block; }
+    a { color:inherit; }
+    .hero-cta { display:inline-block; margin-top:22px; padding:14px 19px; background:#D86040; border-radius:8px; color:#FFFFFF; font:800 13px/18px Arial,Helvetica,sans-serif; text-decoration:none; box-shadow:0 8px 20px rgba(216,96,64,.28); }
+    .hero-cta:hover, .signup-submit:hover { background:#D86040; transform:translateY(-1px); }
+    .signup-field { width:100%; box-sizing:border-box; min-height:46px; padding:12px 13px; border:1px solid #DED3C2; border-radius:8px; background:#FFFFFF; color:#343941; font:14px/20px Arial,Helvetica,sans-serif; }
+    .signup-field:focus { outline:3px solid rgba(216,96,64,.22); border-color:#D86040; }
+    .signup-submit { width:100%; min-height:48px; padding:12px 17px; border:0; border-radius:8px; background:#D86040; color:#FFFFFF; cursor:pointer; font:800 13px/18px Arial,Helvetica,sans-serif; transition:.15s ease; }
+    .signup-submit:disabled { cursor:wait; opacity:.7; transform:none; }
+    .signup-status { display:none; margin-top:13px; padding:11px 13px; border-radius:8px; font:700 12px/18px Arial,Helvetica,sans-serif; }
+    .signup-status.is-success { display:block; background:#E4F1E8; color:#1F6035; }
+    .signup-status.is-error { display:block; background:#F9E4DE; color:#8A2F1D; }
+    .hp-field { position:absolute !important; left:-9999px !important; width:1px !important; height:1px !important; overflow:hidden !important; }
+    .mobile-signup { display:none; }
+    @media only screen and (max-width:640px) {
+      .shell { width:100% !important; border-radius:0 !important; }
+      .pad { padding-left:22px !important; padding-right:22px !important; }
+      .hero-title { font-size:42px !important; line-height:42px !important; }
+      .stack, .stack td { display:block !important; width:100% !important; box-sizing:border-box !important; }
+      .stack td + td { padding-left:0 !important; padding-top:10px !important; }
+      .mobile-card { margin-bottom:10px !important; }
+      .signal-card { min-height:0 !important; }
+      .step-number { width:38px !important; }
+      .form-stack, .form-stack td { display:block !important; width:100% !important; box-sizing:border-box !important; }
+      .form-stack td + td { padding-left:0 !important; padding-top:10px !important; }
+      body { padding-bottom:66px; }
+      .mobile-signup { display:block; position:fixed; z-index:20; left:0; right:0; bottom:0; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(14,22,38,.96); box-shadow:0 -8px 24px rgba(14,22,38,.18); }
+      .mobile-signup a { display:block; padding:12px 14px; border-radius:7px; background:#D86040; color:#FFFFFF; font:800 13px/18px Arial,Helvetica,sans-serif; text-align:center; text-decoration:none; }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    PILOT EDITION — content built from the Daily AI Briefings of 25 and 26 August 2026.
+    Suggested subject: SIGNAL AI #001 — Two days of AI, without the noise
+    Preheader: Persistent memory, human control, accountability and a genuinely useful delegation tutorial.
+  -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:transparent;">
+    Persistent memory, human control, accountability and a genuinely useful delegation tutorial.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%; background:#FFFFFF;">
+    <tr>
+      <td align="center" style="padding:20px 0 34px;">
+        <table class="shell" role="presentation" width="620" cellpadding="0" cellspacing="0" border="0" style="width:620px; max-width:620px; background:#FFFFFF; border-radius:20px; overflow:hidden; box-shadow:0 18px 45px rgba(14,22,38,.10);">
+
+          <tr>
+            <td class="pad" style="background:#0E1626; padding:28px 36px 34px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; line-height:22px; font-weight:900; color:#FFFFFF; letter-spacing:-1px;">
+                    J&amp;DENIS
+                    <div style="font-size:10px; line-height:14px; letter-spacing:3px; font-weight:normal; color:#CBD5E1;">CONSULTING</div>
+                  </td>
+                  <td align="right" valign="top" style="font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:17px; font-weight:bold; color:#D86040; letter-spacing:1px;">
+                    #001&nbsp;&nbsp;·&nbsp;&nbsp;08.26.2026
+                  </td>
+                </tr>
+              </table>
+              <div style="margin-top:24px; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:17px; font-weight:bold; color:#D86040; letter-spacing:1.5px; text-transform:uppercase;">The last 48 hours, distilled</div>
+              <div class="hero-title" style="margin-top:8px; font-family:Arial,Helvetica,sans-serif; font-size:48px; line-height:47px; font-weight:900; color:#FFFFFF; letter-spacing:-2.2px;">SIGNAL<br>AI</div>
+              <div style="margin-top:14px; font-family:Arial,Helvetica,sans-serif; font-size:21px; line-height:26px; font-weight:700; color:#FFFFFF;">Two days of AI,<br><span style="color:#D86040;">without the noise.</span></div>
+              <div style="margin-top:17px; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:21px; color:#CBD5E1;">46 links reviewed. Four signals kept.<br>One tutorial to try before the next edition.</div>
+              <a class="hero-cta" href="#inscription">Get SIGNAL AI for free →</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="inscription" class="pad" style="padding:28px 36px 30px; background:#F8F5F0; border-bottom:1px solid #DED3C2; font-family:Arial,Helvetica,sans-serif; color:#343941; scroll-margin-top:18px;">
+              <div style="font-size:12px; line-height:17px; font-weight:bold; color:#D86040; letter-spacing:1.3px; text-transform:uppercase;">The useful watch, twice a week</div>
+              <div style="margin-top:7px; font-size:25px; line-height:29px; font-weight:900; color:#0E1626; letter-spacing:-.7px;">Get the next signals</div>
+              <div style="margin-top:9px; max-width:510px; font-size:13px; line-height:20px; color:#667085;">An independent digest of the ethical, legal and practical topics in AI, with a directly actionable tutorial. Free, readable in five minutes.</div>
+              <form id="signup-form" action="https://script.google.com/macros/s/AKfycbydeEop5VmpXgzPycq8EVz4LK7-cg70JUIt27fJ0Yqemn1jJQ3Ae74MYQPQE8TUrElu4w/exec" method="post" target="signup-frame" style="margin-top:18px;">
+                <table class="form-stack" role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="34%" style="padding-right:5px;"><label for="first-name" style="display:block; margin-bottom:5px; font-size:10px; line-height:14px; font-weight:bold; color:#667085;">First name <span style="font-weight:normal;">(optional)</span></label><input class="signup-field" id="first-name" name="first_name" type="text" maxlength="80" autocomplete="given-name" placeholder="Your first name"></td>
+                    <td width="66%" style="padding-left:5px;"><label for="email" style="display:block; margin-bottom:5px; font-size:10px; line-height:14px; font-weight:bold; color:#667085;">Work or personal email</label><input class="signup-field" id="email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" placeholder="you@example.com" required></td>
+                  </tr>
+                </table>
+                <div class="hp-field" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+                <input type="hidden" name="utm_source" id="utm-source">
+                <input type="hidden" name="utm_medium" id="utm-medium">
+                <input type="hidden" name="utm_campaign" id="utm-campaign">
+                <input type="hidden" name="utm_content" id="utm-content">
+                <input type="hidden" name="page_url" id="page-url">
+                <label style="display:flex; gap:9px; align-items:flex-start; margin-top:13px; font-size:10px; line-height:16px; color:#667085; cursor:pointer;"><input name="consent" value="yes" type="checkbox" required style="margin:2px 0 0; accent-color:#D86040;"> <span>I agree to receive SIGNAL AI by email, about twice a week. I can unsubscribe at any time.</span></label>
+                <div style="margin-top:13px;"><button class="signup-submit" type="submit">Subscribe for free →</button></div>
+                <div id="signup-status" class="signup-status" role="status" aria-live="polite"></div>
+                <div style="margin-top:10px; font-size:12px; line-height:18px; color:#667085;">Your details are used for SIGNAL AI only. <a href="https://jaydenis.com/legal-notice-en.html" style="color:#667085; text-decoration:underline;">Legal information</a>.</div>
+              </form>
+              <iframe name="signup-frame" title="Subscription confirmation" hidden></iframe>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:30px 36px 18px; font-family:Arial,Helvetica,sans-serif; color:#343941;">
+              <div style="font-size:15px; line-height:24px;">Hello,</div>
+              <div style="margin-top:13px; font-size:15px; line-height:24px;">Over the past two days, funding rounds, robots and new models took up most of the space. But the most useful shift is elsewhere: agents are beginning to remember, to chain more actions together, and to quietly move the place of the human.</div>
+              <div style="margin-top:13px; font-size:15px; line-height:24px;">On the menu: <strong>why "keeping a human in the loop" is no longer enough</strong>, how to keep accountability verifiable, and a very simple register to frame delegation to AI.</div>
+              <div style="margin-top:15px; font-size:15px; line-height:24px;">Enjoy,<br><strong>Jérôme</strong></div>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="sommaire" class="pad" style="padding:12px 36px 28px; font-family:Arial,Helvetica,sans-serif; scroll-margin-top:18px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF; border:1px solid #DED3C2; border-radius:12px;">
+                <tr><td style="padding:20px 22px;">
+                  <div style="font-size:20px; line-height:26px; font-weight:900; color:#0E1626;">In this issue</div>
+                  <div style="margin-top:12px; font-size:14px; line-height:25px; color:#343941;">
+                    <a href="#signaux" style="color:#0E1626; text-decoration:none;"><strong style="color:#D86040;">IN BRIEF</strong>&nbsp;&nbsp;The four signals</a><br>
+                    <a href="#usage-donnees" style="color:#0E1626; text-decoration:none;"><strong style="color:#D86040;">01</strong>&nbsp;&nbsp;Usage &amp; data</a><br>
+                    <a href="#ethique-gouvernance" style="color:#0E1626; text-decoration:none;"><strong style="color:#D86040;">02</strong>&nbsp;&nbsp;Ethics &amp; governance</a><br>
+                    <a href="#responsabilite" style="color:#0E1626; text-decoration:none;"><strong style="color:#D86040;">03</strong>&nbsp;&nbsp;Accountability &amp; infrastructure</a><br>
+                    <a href="#breves" style="color:#0E1626; text-decoration:none;"><strong style="color:#D86040;">04</strong>&nbsp;&nbsp;On the radar</a><br>
+                    <a href="#tutoriel" style="color:#0E1626; text-decoration:none;"><strong style="color:#D86040;">05</strong>&nbsp;&nbsp;The hands-on tutorial</a><br>
+                    <a href="#fil-rouge" style="color:#0E1626; text-decoration:none;"><strong style="color:#D86040;">06</strong>&nbsp;&nbsp;The through-line</a>
+                  </div>
+                </td></tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="signaux" class="pad" style="padding:16px 36px 25px; scroll-margin-top:18px;">
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:18px; font-weight:bold; color:#D86040; letter-spacing:1.2px; text-transform:uppercase;">If you only read one minute</div>
+              <div style="margin-top:7px; font-family:Arial,Helvetica,sans-serif; font-size:24px; line-height:28px; font-weight:900; color:#0E1626; letter-spacing:-.8px;">The four signals</div>
+              <table class="stack" role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
+                <tr>
+                  <td width="50%" valign="top" style="padding-right:6px;">
+                    <div class="mobile-card signal-card" style="min-height:126px; background:#FFFFFF; border:1px solid #DED3C2; border-top:3px solid #D86040; border-radius:10px; padding:14px; font-family:Arial,Helvetica,sans-serif;">
+                      <div style="font-size:12px; line-height:17px; font-weight:bold; color:#D86040; letter-spacing:1.3px;">MEMORY</div>
+                      <div style="margin-top:6px; font-size:14px; line-height:21px; color:#343941;"><strong>Claude now links chat memory and Cowork.</strong> Less repetition, but a new need: knowing what is being retained.</div>
+                      <a href="https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/" style="display:inline-block; margin-top:9px; font-size:12px; line-height:18px; font-weight:bold; color:#D86040; text-decoration:underline;">See the source →</a>
+                    </div>
+                  </td>
+                  <td width="50%" valign="top" style="padding-left:6px;">
+                    <div class="mobile-card signal-card" style="min-height:126px; background:#FFFFFF; border:1px solid #DED3C2; border-top:3px solid #0E1626; border-radius:10px; padding:14px; font-family:Arial,Helvetica,sans-serif;">
+                      <div style="font-size:12px; line-height:17px; font-weight:bold; color:#0E1626; letter-spacing:1.3px;">CONTROL</div>
+                      <div style="margin-top:6px; font-size:14px; line-height:21px; color:#343941;"><strong>A human in the loop does not guarantee real oversight.</strong> Automation can also dull the very judgment it requires.</div>
+                      <a href="https://arxiv.org/abs/2608.23642" style="display:inline-block; margin-top:9px; font-size:12px; line-height:18px; font-weight:bold; color:#D86040; text-decoration:underline;">See the study →</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%" valign="top" style="padding:10px 6px 0 0;">
+                    <div class="mobile-card signal-card" style="min-height:126px; background:#FFFFFF; border:1px solid #DED3C2; border-top:3px solid #D86040; border-radius:10px; padding:14px; font-family:Arial,Helvetica,sans-serif;">
+                      <div style="font-size:12px; line-height:17px; font-weight:bold; color:#D86040; letter-spacing:1.3px;">ACCOUNTABILITY</div>
+                      <div style="margin-top:6px; font-size:14px; line-height:21px; color:#343941;"><strong>You can delegate production, not acceptance.</strong> Provenance, verification and a responsible human must stay visible.</div>
+                      <a href="https://arxiv.org/abs/2608.23644" style="display:inline-block; margin-top:9px; font-size:12px; line-height:18px; font-weight:bold; color:#D86040; text-decoration:underline;">See the study →</a>
+                    </div>
+                  </td>
+                  <td width="50%" valign="top" style="padding:10px 0 0 6px;">
+                    <div class="signal-card" style="min-height:126px; background:#FFFFFF; border:1px solid #DED3C2; border-top:3px solid #D86040; border-radius:10px; padding:14px; font-family:Arial,Helvetica,sans-serif;">
+                      <div style="font-size:12px; line-height:17px; font-weight:bold; color:#D86040; letter-spacing:1.3px;">INFRASTRUCTURE</div>
+                      <div style="margin-top:6px; font-size:14px; line-height:21px; color:#343941;"><strong>The battle is shifting to inference.</strong> Latency and work-per-watt are becoming strategic metrics.</div>
+                      <a href="https://openai.com/index/jalapeno-first-results/" style="display:inline-block; margin-top:9px; font-size:12px; line-height:18px; font-weight:bold; color:#D86040; text-decoration:underline;">See the results →</a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="usage-donnees" class="pad" style="padding:26px 36px; border-top:1px solid #DED3C2; font-family:Arial,Helvetica,sans-serif; scroll-margin-top:18px;">
+              <div style="font-size:18px; line-height:24px; color:#0E1626; font-weight:900; letter-spacing:-.2px;">01 — Usage &amp; data</div>
+              <div style="margin-top:8px; font-size:22px; line-height:28px; font-weight:800; color:#343941; letter-spacing:-.3px;">Memory makes the agent more useful — and harder to forget</div>
+              <div style="margin-top:16px; font-size:15px; line-height:24px; color:#343941;">Anthropic now links the memory used in Claude conversations to Cowork's. An idea prepared in chat can therefore be picked up when it is time to produce a document or take action, without starting the whole briefing over.</div>
+              <div style="margin-top:12px; font-size:15px; line-height:24px; color:#343941;">The real signal is not just convenience. <strong>Memory becomes a shared layer between thinking and doing.</strong> Anthropic lets you read, edit or delete stored items and excludes several sensitive categories by default. But for an organisation, the product setting does not replace an internal rule on what an agent may retain.</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px; background:#FFFFFF; border-left:4px solid #D86040; border-radius:10px;"><tr><td style="padding:14px 16px; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:18px; color:#343941;"><strong>My takeaway:</strong> before turning on persistent memory, sort information into three groups: storable, session-only, and off-limits. Then add a regular review of what has actually been kept.</td></tr></table>
+              <div style="margin-top:13px; font-size:12px; line-height:18px; color:#667085;">Read: <a href="https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/" style="color:#D86040; text-decoration:underline;">the details on shared memory between Claude and Cowork</a>.</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="ethique-gouvernance" class="pad" style="padding:26px 36px; border-top:1px solid #DED3C2; font-family:Arial,Helvetica,sans-serif; scroll-margin-top:18px;">
+              <div style="font-size:18px; line-height:24px; color:#0E1626; font-weight:900; letter-spacing:-.2px;">02 — Ethics &amp; governance</div>
+              <div style="margin-top:8px; font-size:22px; line-height:28px; font-weight:800; color:#343941; letter-spacing:-.3px;">"A human in the loop" can become an illusion of control</div>
+              <div style="margin-top:16px; font-size:15px; line-height:24px; color:#343941;">A position paper co-authored notably by Margaret Mitchell warns of a paradox: agents are gaining autonomy, but their interfaces and execution speeds do not always give the human the means to exercise real judgment.</div>
+              <div style="margin-top:12px; font-size:15px; line-height:24px; color:#343941;">Oversight can even weaken with prolonged use of automation. <strong>Approving an output is not supervising a line of reasoning.</strong> You must preserve the context, the time, the skills and the stopping points needed to challenge the agent.</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px; background:#0E1626; border-radius:12px;"><tr><td style="padding:17px 18px; font-family:Arial,Helvetica,sans-serif; color:#FFFFFF;"><div style="font-size:12px; line-height:17px; color:#D86040; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase;">The oversight test</div><div style="margin-top:7px; font-size:17px; line-height:23px; font-weight:bold;">Can the human understand, challenge and interrupt — or only click "approve"?</div></td></tr></table>
+              <div style="margin-top:13px; font-size:12px; line-height:18px; color:#667085;">Source: <a href="https://arxiv.org/abs/2608.23642" style="color:#D86040; text-decoration:underline;">AI Agents Push Humans Out of the Loop</a>.</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="responsabilite" class="pad" style="padding:26px 36px; border-top:1px solid #DED3C2; font-family:Arial,Helvetica,sans-serif; scroll-margin-top:18px;">
+              <div style="font-size:18px; line-height:24px; color:#0E1626; font-weight:900; letter-spacing:-.2px;">03 — Accountability &amp; infrastructure</div>
+              <div style="margin-top:8px; font-size:22px; line-height:28px; font-weight:800; color:#343941; letter-spacing:-.3px;">Delegating production does not transfer responsibility</div>
+              <div style="margin-top:16px; font-size:15px; line-height:24px; color:#343941;">A second paper proposes a useful boundary: the ethical problem does not depend first on how much work is handed to the model, but on the quality of verification and on the existence of a responsible human who owns the final acceptance.</div>
+              <div style="margin-top:12px; font-size:15px; line-height:24px; color:#343941;">The authors propose an <em>epistemic audit</em>: a structured trail of what was delegated, where contributions came from, which checks were run and who is accountable. This logic matters all the more as infrastructure accelerates: OpenAI reports more work-per-watt and lower latency for its Jalapeño chip in early tests.</div>
+              <div style="margin-top:14px; background:#F8F5F0; border-radius:10px; padding:14px 16px; font-size:12px; line-height:18px; color:#343941;"><strong>Bottom line:</strong> the faster agents respond and chain steps, the more the organisation must deliberately slow down at the points where an error becomes costly or irreversible.</div>
+              <div style="margin-top:13px; font-size:12px; line-height:18px; color:#667085;">Sources: <a href="https://arxiv.org/abs/2608.23644" style="color:#0E1626; text-decoration:underline;">the responsible delegation framework</a> and <a href="https://openai.com/index/jalapeno-first-results/" style="color:#0E1626; text-decoration:underline;">OpenAI's first Jalapeño results</a>.</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="breves" class="pad" style="padding:26px 36px; border-top:1px solid #DED3C2; scroll-margin-top:18px;">
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:18px; line-height:24px; color:#0E1626; font-weight:900; letter-spacing:-.2px;">04 — On the radar</div>
+              <div style="margin-top:8px; font-family:Arial,Helvetica,sans-serif; font-size:22px; line-height:28px; font-weight:800; color:#343941; letter-spacing:-.3px;">Three briefs, no more</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
+                <tr><td class="step-number" width="44" valign="top"><div style="width:30px; height:30px; border-radius:50%; background:#D86040; color:#FFFFFF; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:30px; font-weight:bold; text-align:center;">1</div></td><td style="padding-bottom:14px; font-family:Arial,Helvetica,sans-serif;"><div style="font-size:14px; line-height:21px; font-weight:bold; color:#0E1626;">In medicine, uncertainty should become an output, not a hidden detail.</div><div style="margin-top:4px; font-size:12px; line-height:18px; color:#667085;">The FLARE framework aims to explicitly build uncertainty into the factual adoption of clinical AI. <a href="https://arxiv.org/abs/2608.23643" style="color:#D86040; text-decoration:underline;">Read</a></div></td></tr>
+                <tr><td class="step-number" width="44" valign="top"><div style="width:30px; height:30px; border-radius:50%; background:#D86040; color:#0E1626; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:30px; font-weight:bold; text-align:center;">2</div></td><td style="padding-bottom:14px; font-family:Arial,Helvetica,sans-serif;"><div style="font-size:14px; line-height:21px; font-weight:bold; color:#0E1626;">The web is starting to be indexed for agents, not just for humans.</div><div style="margin-top:4px; font-size:12px; line-height:18px; color:#667085;">Keenable is betting on structured search for systems that must act and verify, rather than simply show ten links. <a href="https://techcrunch.com/2026/08/25/accel-backed-keenable-is-indexing-the-web-for-ai-agents/" style="color:#D86040; text-decoration:underline;">Read</a></div></td></tr>
+                <tr><td class="step-number" width="44" valign="top"><div style="width:30px; height:30px; border-radius:50%; background:#0E1626; color:#FFFFFF; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:30px; font-weight:bold; text-align:center;">3</div></td><td style="font-family:Arial,Helvetica,sans-serif;"><div style="font-size:14px; line-height:21px; font-weight:bold; color:#0E1626;">Agent performance is also becoming an energy question.</div><div style="margin-top:4px; font-size:12px; line-height:18px; color:#667085;">In its early tests, OpenAI measures Jalapeño by latency and work-per-watt — a sign that cost of use is overtaking the race for sheer size. <a href="https://openai.com/index/jalapeno-first-results/" style="color:#D86040; text-decoration:underline;">Read</a></div></td></tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="tutoriel" class="pad" style="background:#0E1626; padding:30px 36px 32px; font-family:Arial,Helvetica,sans-serif; scroll-margin-top:18px;">
+              <div style="font-size:18px; line-height:24px; color:#FFFFFF; font-weight:900; letter-spacing:-.2px;">05 — The hands-on tutorial</div>
+              <div style="margin-top:8px; font-size:24px; line-height:30px; font-weight:800; color:#FFFFFF; letter-spacing:-.4px;">Build an AI delegation register in 20 minutes</div>
+              <div style="margin-top:10px; font-size:14px; line-height:21px; color:#CBD5E1;">Goal: make visible what the AI produces, what the human verifies, and who owns the final decision. A single table is enough; no code required.</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:22px;">
+                <tr><td width="34" valign="top" style="font-size:12px; line-height:20px; font-weight:bold; color:#D86040;">01</td><td style="padding-bottom:15px; border-bottom:1px solid #334155; font-size:14px; line-height:21px; color:#FFFFFF;"><strong>Name one precise decision or deliverable.</strong><br><span style="color:#CBD5E1;">Example: qualify a lead, summarise a file, or prepare a recommendation. Avoid vague missions like "manage the project".</span></td></tr>
+                <tr><td width="34" valign="top" style="padding-top:15px; font-size:12px; line-height:20px; font-weight:bold; color:#D86040;">02</td><td style="padding:15px 0; border-bottom:1px solid #334155; font-size:14px; line-height:21px; color:#FFFFFF;"><strong>List what is actually delegated.</strong><br><span style="color:#CBD5E1;">Research, extraction, comparison, drafting or sending: one line per operation, with the data and tools it can access.</span></td></tr>
+                <tr><td width="34" valign="top" style="padding-top:15px; font-size:12px; line-height:20px; font-weight:bold; color:#D86040;">03</td><td style="padding:15px 0; border-bottom:1px solid #334155; font-size:14px; line-height:21px; color:#FFFFFF;"><strong>Keep the provenance of every result.</strong><br><span style="color:#CBD5E1;">Source, date, passage or file used. A claim that cannot be traced must stay marked "to verify".</span></td></tr>
+                <tr><td width="34" valign="top" style="padding-top:15px; font-size:12px; line-height:20px; font-weight:bold; color:#D86040;">04</td><td style="padding:15px 0; border-bottom:1px solid #334155; font-size:14px; line-height:21px; color:#FFFFFF;"><strong>Define the expected human check.</strong><br><span style="color:#CBD5E1;">Review, cross-source, independent calculation, sample test: "verify" must become an observable action.</span></td></tr>
+                <tr><td width="34" valign="top" style="padding-top:15px; font-size:12px; line-height:20px; font-weight:bold; color:#D86040;">05</td><td style="padding:15px 0; border-bottom:1px solid #334155; font-size:14px; line-height:21px; color:#FFFFFF;"><strong>Name the owner and the stopping points.</strong><br><span style="color:#CBD5E1;">Who accepts the result? Which irreversible actions — sending, payment, rejection, publication — require their explicit approval?</span></td></tr>
+                <tr><td width="34" valign="top" style="padding-top:15px; font-size:12px; line-height:20px; font-weight:bold; color:#D86040;">06</td><td style="padding-top:15px; font-size:14px; line-height:21px; color:#FFFFFF;"><strong>Test five cases, two of them deliberately ambiguous.</strong><br><span style="color:#CBD5E1;">Record the errors, disagreements and missing information. The register should learn from these exceptions before any wider rollout.</span></td></tr>
+              </table>
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:22px;"><tr><td style="background:#D86040; border-radius:7px;"><a href="https://arxiv.org/abs/2608.23644" style="display:inline-block; padding:12px 17px; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:16px; font-weight:bold; color:#FFFFFF; text-decoration:none;">Read the responsible delegation framework →</a></td></tr></table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:20px; background:#0E1626; border:1px solid #334155; border-radius:12px;">
+                <tr><td style="padding:17px 18px; font-family:Arial,Helvetica,sans-serif;">
+                  <div style="font-size:16px; line-height:22px; color:#FFFFFF; font-weight:bold;">Need to adapt it to your case?</div>
+                  <div style="margin-top:7px; font-size:14px; line-height:21px; color:#FFFFFF;">Tell me the delegated task, the tool used and the decision that worries you. I'll help you sharpen the checks — or spot what should not be automated yet.</div>
+                  <div style="margin-top:11px; font-size:12px; line-height:18px; font-weight:bold;">
+                    <a href="mailto:jdenis@jaydenis.com?subject=Question%20about%20the%20SIGNAL%20AI%20tutorial&amp;body=Hello%20J%C3%A9r%C3%B4me%2C%0A%0AThe%20delegated%20task%20is%3A%20%0AThe%20tool%20used%20is%3A%20%0AThe%20decision%20to%20secure%20is%3A%20" style="color:#D86040; text-decoration:underline;">Ask me a question →</a>
+                    &nbsp;&nbsp;·&nbsp;&nbsp;
+                    <a href="https://calendly.com/jaydenis/15min" style="color:#FFFFFF; text-decoration:underline;">Talk for 15 minutes</a>
+                  </div>
+                </td></tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="fil-rouge" class="pad" style="padding:27px 36px 12px; font-family:Arial,Helvetica,sans-serif; scroll-margin-top:18px;">
+              <div style="font-size:18px; line-height:24px; color:#0E1626; font-weight:900; letter-spacing:-.2px;">06 — The through-line</div>
+              <div style="margin-top:8px; font-size:20px; line-height:26px; font-weight:900; color:#0E1626;">Autonomy without a trace is not delegation under control.</div>
+              <div style="margin-top:10px; font-size:14px; line-height:22px; color:#343941;">Across these two days of news, persistent memory, faster agents and fragile oversight all tell the same story: value comes from what you can delegate; trust comes from what you can still explain, verify and stop.</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:18px 36px 28px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF; border-radius:12px; border-left:5px solid #D86040;"><tr><td style="padding:17px 18px; font-family:Arial,Helvetica,sans-serif;">
+                <div style="font-size:16px; line-height:22px; color:#0E1626; font-weight:bold;">If this sounds like something on your plate</div>
+                <div style="margin-top:7px; font-size:14px; line-height:21px; color:#343941;">I help SMEs frame their AI usage, secure their data, and turn their documents into genuinely usable processes. A simple conversation about your case is enough to start.</div>
+                <div style="margin-top:10px; font-size:12px; line-height:18px; font-weight:bold;"><a href="https://jaydenis.com/diagnostic-audit-ia-toulouse.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=signal_ai_en" style="color:#D86040; text-decoration:underline;">Discover the diagnostic</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:jdenis@jaydenis.com" style="color:#0E1626; text-decoration:underline;">Reply to me</a></div>
+              </td></tr></table>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" style="padding:0 36px 28px; font-family:Arial,Helvetica,sans-serif;">
+              <div style="background:#F8F5F0; border-radius:11px; padding:17px; font-size:12px; line-height:18px; color:#667085;">Found this edition useful? Get the next one straight to your inbox.<br><a href="#inscription" style="display:inline-block; margin-top:9px; color:#D86040; font-weight:bold; text-decoration:underline;">Subscribe for free →</a></div>
+              <div style="margin-top:20px; font-size:12px; line-height:18px; color:#667085;">Talk soon,<br><strong style="font-size:17px; color:#0E1626;">Jérôme Denis</strong><br>JDENIS Consulting — AI advisory &amp; applications</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pad" align="center" style="background:#0E1626; padding:23px 36px; font-family:Arial,Helvetica,sans-serif; color:#CBD5E1;">
+              <div style="font-size:12px; line-height:18px;"><a href="https://jaydenis.com" style="color:#FFFFFF; text-decoration:none;">jaydenis.com</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://www.linkedin.com/in/jaydenis" style="color:#FFFFFF; text-decoration:none;">LinkedIn</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:jdenis@jaydenis.com" style="color:#FFFFFF; text-decoration:none;">Contact</a></div>
+              <div style="margin-top:14px; font-size:11px; line-height:17px;">Free subscription. One-click unsubscribe in every edition.<br><a href="https://jaydenis.com/legal-notice-en.html" style="color:#CBD5E1; text-decoration:underline;">Legal notice</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:jdenis@jaydenis.com" style="color:#CBD5E1; text-decoration:underline;">Contact</a></div>
+              <div style="margin-top:10px; font-size:11px; line-height:16px; color:#94A3B8;">© 2026 JDENIS Consulting · Toulouse, France</div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+  <div class="mobile-signup"><a href="#inscription">Get SIGNAL AI for free →</a></div>
+  <script>
+    (function () {
+      var form = document.getElementById('signup-form');
+      var status = document.getElementById('signup-status');
+      var submit = form.querySelector('button[type="submit"]');
+      var defaultLabel = submit.textContent;
+      var timer;
+      var query = new URLSearchParams(window.location.search);
+
+      function setValue(id, value) {
+        document.getElementById(id).value = String(value || '').slice(0, 500);
+      }
+
+      setValue('utm-source', query.get('utm_source') || 'direct');
+      setValue('utm-medium', query.get('utm_medium') || 'web');
+      setValue('utm-campaign', query.get('utm_campaign') || 'signal_ai_en_launch');
+      setValue('utm-content', query.get('utm_content') || '');
+      setValue('page-url', window.location.href);
+
+      function finish(ok, message) {
+        window.clearTimeout(timer);
+        status.className = 'signup-status ' + (ok ? 'is-success' : 'is-error');
+        status.textContent = message;
+        submit.disabled = false;
+        submit.textContent = defaultLabel;
+        if (ok) {
+          var preservedConsent = form.querySelector('[name="consent"]');
+          form.reset();
+          preservedConsent.checked = false;
+        }
+      }
+
+      form.addEventListener('submit', function () {
+        document.getElementById('website').value = '';
+        status.className = 'signup-status';
+        status.textContent = '';
+        submit.disabled = true;
+        submit.textContent = 'Subscribing…';
+        timer = window.setTimeout(function () {
+          finish(false, 'Confirmation is taking longer than expected. Check your connection and try again.');
+        }, 15000);
+      });
+
+      window.addEventListener('message', function (event) {
+        var data = event.data || {};
+        if (data.type !== 'signal-ia-signup') return;
+        finish(Boolean(data.ok), data.message || (data.ok ? 'Subscription confirmed.' : 'Something went wrong.'));
+      });
+    }());
+  </script>
+</body>
+</html>
