@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light only">
+  <title>SIGNAL IA — édition bilingue</title>
+  <meta name="robots" content="noindex, follow">
+  <style>
+    :root { --orange:#D86040; --navy:#0E1626; --ink:#343941; --muted:#667085; --line:#DED3C2; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:#FFFFFF; color:var(--ink); font-family:Arial,Helvetica,sans-serif; }
+    .wrap { max-width:640px; margin:0 auto; padding:0 16px 48px; }
+    .langbar { position:sticky; top:0; z-index:10; background:var(--navy); border-radius:0 0 12px 12px; padding:12px; text-align:center; box-shadow:0 6px 18px rgba(14,22,38,.12); }
+    .flag { display:inline-block; margin:0 5px; padding:9px 18px; border-radius:8px; font-size:15px; font-weight:bold; cursor:pointer; border:0; text-decoration:none; }
+    .flag.on { background:var(--orange); color:#FFFFFF; }
+    .flag.off { background:#FFFFFF; color:var(--navy); opacity:.9; }
+    .hint { margin-top:8px; font-size:11px; color:#CBD5E1; }
+    .hero { background:var(--navy); color:#FFFFFF; border-radius:14px; padding:26px; margin-top:18px; }
+    .kicker { font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:var(--orange); }
+    .hero h1 { margin:10px 0 6px; font-size:30px; line-height:1.15; }
+    .hero p { margin:0; color:#CBD5E1; font-size:14px; line-height:1.5; }
+    h2 { font-size:20px; color:var(--navy); margin:26px 0 6px; }
+    h3 { font-size:16px; color:var(--navy); margin:18px 0 4px; }
+    p { font-size:15px; line-height:1.65; }
+    .cards { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+    .card { border:1px solid var(--line); border-top:3px solid var(--orange); border-radius:10px; padding:13px; font-size:14px; line-height:1.5; }
+    .card b { color:var(--orange); font-size:12px; letter-spacing:1px; text-transform:uppercase; display:block; margin-bottom:5px; }
+    .cta { display:inline-block; margin:18px 0; padding:13px 22px; background:var(--orange); color:#FFFFFF; text-decoration:none; border-radius:8px; font-weight:bold; font-size:15px; }
+    a { color:var(--orange); }
+    .foot { margin-top:30px; padding-top:16px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); }
+    @media (max-width:520px){ .cards{ grid-template-columns:1fr; } }
+    [hidden]{ display:none !important; }
+  </style>
+</head>
+<body>
+  <div class="langbar">
+    <button class="flag on" id="btn-fr" onclick="setLang('fr')">🇫🇷 Français</button>
+    <button class="flag off" id="btn-en" onclick="setLang('en')">🇬🇧 English</button>
+    <div class="hint">Cliquez le drapeau pour changer de langue · Click the flag to switch language</div>
+  </div>
+
+  <div class="wrap">
+    <!-- ===================== FR ===================== -->
+    <section id="fr">
+      <div class="hero">
+        <div class="kicker">Le digest des 48 dernières heures</div>
+        <h1>SIGNAL IA — Deux jours d'IA, sans le bruit</h1>
+        <p>46 liens parcourus. Quatre signaux retenus. Un tutoriel à essayer.</p>
+      </div>
+      <p>Bonjour, voici l'essentiel de ces derniers jours : les agents commencent à se souvenir, à enchaîner plus d'actions et à déplacer la place de l'humain. Au menu : pourquoi « garder un humain dans la boucle » ne suffit plus, comment conserver une responsabilité vérifiable, et un registre simple pour encadrer une délégation à l'IA.</p>
+      <h2>Les quatre signaux</h2>
+      <div class="cards">
+        <div class="card"><b>Mémoire</b>Claude relie mémoire du chat et Cowork. Moins de répétition, mais il faut savoir ce qui est retenu.</div>
+        <div class="card"><b>Contrôle</b>Un humain dans la boucle ne garantit pas une vraie supervision. Valider n'est pas superviser.</div>
+        <div class="card"><b>Responsabilité</b>On délègue la production, pas l'acceptation. Provenance et responsable humain visibles.</div>
+        <div class="card"><b>Infrastructure</b>La bataille se déplace vers l'inférence : latence et travail par watt deviennent stratégiques.</div>
+      </div>
+      <h2>Le tutoriel opérationnel</h2>
+      <p>Créer un registre de délégation IA en 20 minutes : nommer la décision, lister ce qui est délégué, tracer la provenance, définir le contrôle humain, nommer le responsable et les points d'arrêt, tester cinq cas.</p>
+      <a class="cta" href="https://jaydenis.com/signal-ia.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=edition_bilingue&amp;utm_content=fr#inscription">Lire l'édition complète et s'inscrire →</a>
+      <div class="foot">Vous recevez SIGNAL IA car vous êtes inscrit. Une fois par semaine. Désinscription : répondez « non merci ».<br>JDENIS Consulting — Conseil &amp; applications IA · Toulouse</div>
+    </section>
+
+    <!-- ===================== EN ===================== -->
+    <section id="en" hidden>
+      <div class="hero">
+        <div class="kicker">The last 48 hours, distilled</div>
+        <h1>SIGNAL AI — Two days of AI, without the noise</h1>
+        <p>46 links reviewed. Four signals kept. One tutorial to try.</p>
+      </div>
+      <p>Hello, here is what mattered over the past few days: agents are starting to remember, to chain more actions and to shift the place of the human. On the menu: why "keeping a human in the loop" is no longer enough, how to keep accountability verifiable, and a simple register to frame delegation to AI.</p>
+      <h2>The four signals</h2>
+      <div class="cards">
+        <div class="card"><b>Memory</b>Claude links chat memory and Cowork. Less repetition, but you must know what is retained.</div>
+        <div class="card"><b>Control</b>A human in the loop does not guarantee real oversight. Approving is not supervising.</div>
+        <div class="card"><b>Accountability</b>You delegate production, not acceptance. Provenance and a responsible human stay visible.</div>
+        <div class="card"><b>Infrastructure</b>The battle shifts to inference: latency and work-per-watt become strategic.</div>
+      </div>
+      <h2>The hands-on tutorial</h2>
+      <p>Build an AI delegation register in 20 minutes: name the decision, list what is delegated, keep provenance, define the human check, name the owner and stopping points, test five cases.</p>
+      <a class="cta" href="https://jaydenis.com/signal-ai.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=edition_bilingue&amp;utm_content=en#inscription">Read the full edition and subscribe →</a>
+      <div class="foot">You receive SIGNAL AI because you subscribed. Once a week. Unsubscribe: reply "no thanks".<br>JDENIS Consulting — AI advisory &amp; applications · Toulouse</div>
+    </section>
+  </div>
+
+  <script>
+    function setLang(l) {
+      var fr = l === 'fr';
+      document.getElementById('fr').hidden = !fr;
+      document.getElementById('en').hidden = fr;
+      document.getElementById('btn-fr').className = 'flag ' + (fr ? 'on' : 'off');
+      document.getElementById('btn-en').className = 'flag ' + (fr ? 'off' : 'on');
+      document.documentElement.lang = l;
+      try { history.replaceState(null, '', '?lang=' + l); } catch (e) {}
+    }
+    (function () {
+      var p = (location.search.match(/[?&]lang=(fr|en)/) || [])[1];
+      var h = (location.hash.match(/(fr|en)/) || [])[1];
+      setLang(p || h || 'fr');
+    }());
+  </script>
+</body>
+</html>
