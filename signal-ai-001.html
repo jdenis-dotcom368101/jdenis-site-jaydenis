@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGNAL AI #001 — Agents have left the chat window</title>
+<link rel="canonical" href="https://jaydenis.com/signal-ai-001.html">
+<link rel="alternate" hreflang="fr" href="https://jaydenis.com/signal-ia-001.html">
+<link rel="alternate" hreflang="en" href="https://jaydenis.com/signal-ai-001.html">
+<meta name="description" content="Issue #001 of SIGNAL AI, Jerome Denis's weekly AI watch: 40 sourced and commented items, plus a hands-on tutorial with no code.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SIGNAL AI #001 — Agents have left the chat window">
+<meta property="og:description" content="40 sourced items, eight sections, a 20-minute tutorial with no code. Jerome Denis's AI watch, once a week.">
+<meta property="og:url" content="https://jaydenis.com/signal-ai-001.html">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<style>
+  body{margin:0;background:#EEF0F2;color:#343941;
+       font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.68;
+       -webkit-font-smoothing:antialiased;}
+  .page{max-width:700px;margin:0 auto;padding:26px 14px 70px;}
+  .sheet{background:#FFFFFF;border:1px solid #E4E7EB;}
+  .pad{padding:38px 44px;}
+  .sans{font-family:Arial,Helvetica,sans-serif;}
+
+  a{color:#B14B2F;}
+  h1,h2,h3{margin:0;color:#0E1626;text-wrap:balance;}
+
+  /* --- bandeau --- */
+  .flag{background:#0E1626;color:#FFFFFF;padding:22px 44px;}
+  .flag .name{font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:bold;
+              letter-spacing:.22em;color:#FFFFFF;}
+  .flag .meta{font-family:Arial,Helvetica,sans-serif;font-size:11.5px;letter-spacing:.11em;
+              text-transform:uppercase;color:#9AA6B4;margin-top:7px;}
+  .flag .meta a{color:#E8A78F;text-decoration:underline;}
+  .rule-accent{height:4px;background:#D86040;font-size:0;line-height:0;}
+
+  /* --- accueil --- */
+  .welcome{background:#FBF8F4;border-bottom:1px solid #E4E7EB;}
+  .welcome h2{font-size:25px;line-height:1.22;margin-bottom:14px;}
+  .welcome p{margin:0 0 13px;}
+  .sig{font-family:Arial,Helvetica,sans-serif;font-size:13.5px;color:#667085;margin-top:18px;}
+
+  /* --- sommaire --- */
+  .toc{background:#F6F7F8;border-bottom:1px solid #E4E7EB;}
+  .toc .lbl{font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:.16em;
+            text-transform:uppercase;color:#667085;margin-bottom:12px;}
+  .toc ol{margin:0;padding-left:0;list-style:none;}
+  .toc li{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#343941;
+          padding:5px 0;border-bottom:1px dotted #DDE2E6;}
+  .toc li:last-child{border-bottom:none;}
+  .toc li b{color:#D86040;font-weight:bold;margin-right:9px;}
+  .toc li span{color:#8A93A0;}
+
+  /* --- section --- */
+  .sec-head{border-top:2px solid #0E1626;padding-top:11px;margin:0 0 4px;}
+  .sec-num{font-family:Arial,Helvetica,sans-serif;font-size:11.5px;font-weight:bold;
+           letter-spacing:.18em;color:#D86040;}
+  .sec-title{font-size:27px;line-height:1.18;margin:5px 0 8px;}
+  .sec-intro{font-size:16px;color:#5A6470;font-style:italic;margin:0 0 26px;}
+
+  /* --- article --- */
+  .art{margin:0 0 27px;padding:0 0 25px;border-bottom:1px solid #EDF0F2;}
+  .art:last-child{border-bottom:none;padding-bottom:4px;margin-bottom:0;}
+  .art h3{font-size:19.5px;line-height:1.32;margin-bottom:8px;}
+  .art .fait{margin:0 0 11px;}
+  .view{border-left:3px solid #D86040;padding:2px 0 2px 15px;margin:0 0 11px;}
+  .view .tag{font-family:Arial,Helvetica,sans-serif;font-size:10.5px;font-weight:bold;
+             letter-spacing:.15em;text-transform:uppercase;color:#D86040;display:block;
+             margin-bottom:3px;}
+  .view p{margin:0;font-size:16.5px;line-height:1.62;color:#3B424B;}
+  .view .debat{margin:9px 0 0;font-style:italic;color:#B14B2F;font-size:16.5px;line-height:1.55;}
+  .src{font-family:Arial,Helvetica,sans-serif;font-size:12.5px;color:#8A93A0;margin:0;}
+  .src a{color:#B14B2F;text-decoration:none;border-bottom:1px solid #E3C4B8;}
+
+  /* --- tutoriel --- */
+  .tuto{background:#0E1626;color:#D5DCE4;}
+  .tuto .sec-head{border-top-color:#D86040;}
+  .tuto h2,.tuto h3{color:#FFFFFF;}
+  .tuto .sec-intro{color:#9AA6B4;}
+  .tuto .step{border-top:1px solid #26303F;padding:15px 0 3px;}
+  .tuto .step .n{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;
+                 letter-spacing:.15em;color:#E8A78F;}
+  .tuto .step h3{font-size:18px;margin:5px 0 7px;}
+  .tuto .step p{margin:0 0 8px;font-size:16px;line-height:1.62;color:#C3CCD6;}
+  .tuto .say{font-family:"Courier New",Courier,monospace;font-size:14.5px;
+             background:#182338;border-left:3px solid #D86040;padding:11px 14px;
+             color:#EAD7CD;margin:0 0 4px;}
+
+  /* --- fil rouge --- */
+  .fil{background:#FBF8F4;}
+  .fil p{margin:0 0 13px;}
+
+  /* --- partage --- */
+  .share{background:#D86040;color:#FFFFFF;text-align:center;}
+  .share h2{color:#FFFFFF;font-size:24px;line-height:1.3;margin-bottom:12px;}
+  .share p{margin:0 auto 18px;max-width:46ch;color:#FFEEE7;font-size:16.5px;}
+  .btn{display:inline-block;background:#FFFFFF;color:#B14B2F;text-decoration:none;
+       font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;
+       padding:13px 26px;}
+  .share .fine{font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#FFD9CB;
+               margin:16px auto 0;}
+
+  /* --- pied --- */
+  .foot{padding:26px 44px 30px;font-family:Arial,Helvetica,sans-serif;font-size:12px;
+        line-height:1.72;color:#8A93A0;}
+  .foot a{color:#8A93A0;}
+
+  .note{max-width:700px;margin:0 auto 18px;font-family:Arial,Helvetica,sans-serif;
+        font-size:12.5px;line-height:1.6;color:#5A6470;background:#FFF8E8;
+        border:1px solid #E8D9AE;padding:12px 16px;}
+  .note b{color:#7A5B12;}
+
+  /* --- démonstration du prénom (hors email) --- */
+  .demo{max-width:700px;margin:0 auto 18px;background:#F2F5F7;border:1px solid #D9E0E5;
+        padding:14px 16px;font-family:Arial,Helvetica,sans-serif;}
+  .demo .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#667085;
+             margin-bottom:11px;}
+  .demo table{width:100%;border-collapse:collapse;font-size:13px;}
+  .demo th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+           color:#8A93A0;font-weight:normal;padding:0 10px 6px 0;border-bottom:1px solid #DDE3E8;}
+  .demo td{padding:7px 10px 7px 0;border-bottom:1px solid #E7EBEE;vertical-align:top;color:#343941;}
+  .demo tr:last-child td{border-bottom:none;}
+  .demo code{font-family:"Courier New",Courier,monospace;background:#E4EAEE;padding:1px 5px;
+             color:#0E1626;}
+  .demo .out{font-family:Georgia,serif;font-size:15px;color:#0E1626;}
+  .demo .who{color:#8A93A0;font-size:12px;}
+
+  /* --- accueil personnalisé dans l'email --- */
+  .salut{font-size:18px;color:#0E1626;margin:0 0 16px;}
+
+  /* --- retours --- */
+  .fb{background:#FFFFFF;border-top:1px solid #E4E7EB;}
+  .fb .sec-head{border-top-color:#D86040;}
+  .fb h2{font-size:25px;line-height:1.22;margin-bottom:10px;}
+  .fb p{margin:0 0 14px;}
+  .fb ul{margin:0 0 18px;padding-left:0;list-style:none;}
+  .fb li{padding:8px 0 8px 0;border-bottom:1px solid #EDF0F2;font-size:16.5px;}
+  .fb li:last-child{border-bottom:none;}
+  .fb li b{color:#0E1626;}
+  .btn-line{display:inline-block;background:#0E1626;color:#FFFFFF;text-decoration:none;
+            font-family:Arial,Helvetica,sans-serif;font-size:14.5px;font-weight:bold;
+            padding:12px 24px;}
+  .fb .fine{font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#8A93A0;margin:14px 0 0;}
+
+  @media (max-width:600px){
+    .pad,.flag,.foot{padding-left:22px;padding-right:22px;}
+    .sec-title{font-size:23px;}
+    body{font-size:16.5px;}
+  }
+</style>
+
+<div class="page">
+
+  <div class="rule-accent"></div>
+
+    <!-- ACCUEIL -->
+    <div class="pad welcome">
+      
+      <h2>Welcome. Here is why this letter exists.</h2>
+      <p>Around thirty of you subscribed this week, most of them within three days. I did not expect it to happen this fast, so let me start at the beginning: what you are going to receive, and under what rules.</p>
+      <p>For five years I have taught, advised and built in AI. Every morning I collect and sort several hundred items — research papers, industry announcements, incidents, field reports. Most of it is noise: the same announcement reworded twelve times, promises without proof, worries without measure.</p>
+      <p><b>SIGNAL AI is what that sorting leaves behind, once a week.</b> Three principles, and I will hold to them:</p>
+      <p><b>The source is always visible.</b> Every item links back to the original. You do not have to take my word for it — you can check, and I care about that more than about being believed.</p>
+      <p><b>I take a position.</b> A neutral aggregator is no use to you: you already have twelve. What I can bring is a situated view, shaped by practice, and sometimes against the grain. You are not required to agree — that is in fact the best use you can make of it.</p>
+      <p><b>Nothing leaves here without being useful to someone.</b> Every issue ends with an exercise you can apply within the week, with no code and no budget.</p>
+      <p>And the corollary to all of this: only stay if it is useful. The unsubscribe link is at the foot of the page, it works, and I will not take it badly.</p>
+      <p class="sig">Jérôme Denis — JDENIS Consulting, Toulouse</p>
+    </div>
+
+    <!-- SOMMAIRE -->
+    <div class="pad toc">
+      <div class="lbl">In this issue</div>
+      <ol>
+        <li><b>—</b> The signal of the week <span>· agents have left the chat window</span></li>
+        <li><b>01</b> Agents &amp; autonomy <span>· 5 items</span></li>
+        <li><b>02</b> Security &amp; governance <span>· 5 items</span></li>
+        <li><b>03</b> Infrastructure, market &amp; power <span>· 5 items</span></li>
+        <li><b>04</b> Health &amp; science <span>· 5 items</span></li>
+        <li><b>05</b> Education &amp; cognition <span>· 5 items</span></li>
+        <li><b>06</b> Law, ethics &amp; society <span>· 5 items</span></li>
+        <li><b>07</b> Tools &amp; uses <span>· 5 items</span></li>
+        <li><b>08</b> For practitioners <span>· 5 items</span></li>
+        <li><b>09</b> Tutorial of the week <span>· 20 minutes, no code</span></li>
+        <li><b>10</b> The through-line</li>
+      </ol>
+    </div>
+
+    <!-- SIGNAL DE LA SEMAINE -->
+    <div class="pad">
+      <div class="sec-head"><span class="sec-num">THE SIGNAL OF THE WEEK</span></div>
+      <h2 class="sec-title">Agents have left the chat window</h2>
+      <p class="sec-intro">Seven days of watching, one shift: the subject is no longer what AI can say, but what it is allowed to do on its own.</p>
+
+      <p>On Wednesday, Anthropic published a research preview connecting agents to physical machines. The same day, a paper showed agents increasingly pushing humans out of the decision process. On Thursday, VentureBeat argued that the real enterprise AI risk is not the autonomous agent but <i>the complexity between agents</i>. And on Friday, a study of 53,000 real configurations asked the only question that matters: who delegates what, and on what basis?</p>
+
+      <p>Put those four points side by side and you have the real subject of the week. For two years the question was: “does it answer correctly?” It has become: “what is it allowed to do without me?” This is no longer a performance question, it is a delegation question — therefore a liability question, therefore a legal one.</p>
+
+      <p>What I see in the field is that almost nobody has written down their delegation rules. You plug in an agent, you watch whether it copes, and the scope of what it does alone widens by habit rather than by decision. That is exactly how the incidents we will be discussing in six months are built. This issue's tutorial goes straight at that point.</p>
+    </div>
+
+    <!-- 01 AGENTS -->
+    <div class="pad">
+      <div class="sec-head"><span class="sec-num">01</span></div>
+      <h2 class="sec-title">Agents &amp; autonomy</h2>
+      <p class="sec-intro">The move from text to action, documented in a single week.</p>
+
+      <div class="art">
+        <h3>Anthropic connects AI agents to real-world machines</h3>
+        <p class="fait">A research preview defines a communication standard between a model and physical hardware. The agent no longer produces an answer: it acts.</p>
+        <div class="view"><span class="tag">My take</span><p>This is not a demo, it is a specification — and specifications decide what will be possible in eighteen months far more reliably than demos do. The move from text to action is happening here, quietly.</p><p class="debat">In your organisation, who would sign off on letting software operate a machine? IT, the executive team, a committee — or nobody, for now?</p></div>
+        <p class="src"><a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">anthropic.com</a> · 28 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>AI agents are increasingly pushing humans out of the decision process</h3>
+        <p class="fait">A study documents the gradual drift of decision-making towards agentic systems, including where human oversight was formally provided for.</p>
+        <div class="view"><span class="tag">My take</span><p>The word that matters is “gradual”. Nobody decides to take the human out of the loop: they drop out because validating takes time and the machine is right nine times out of ten. The tenth remains.</p><p class="debat">After how many consecutive clean validations do you actually stop checking? The honest answer is rarely “never”.</p></div>
+        <p class="src"><a href="https://arxiv.org/abs/2608.23642">arxiv.org</a> · 26 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>The real enterprise AI risk lies in the complexity between autonomous agents</h3>
+        <p class="fait">The analysis relocates the risk: not the isolated agent, but the unspecified interactions between several agents calling one another.</p>
+        <div class="view"><span class="tag">My take</span><p>This matches what I see on assignment: each agent is tested alone, and behaves correctly alone. The chain is tested by nobody — often because it belongs to nobody on the org chart.</p><p class="debat">In your organisation, who would answer for an error born of two tools chained together, both of them working correctly?</p></div>
+        <p class="src"><a href="https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them">venturebeat.com</a> · 27 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Who delegates to AI? Lessons from 53,000 agent configurations</h3>
+        <p class="fait">A large-scale analysis of configurations actually deployed, and of the profiles of those who delegate.</p>
+        <div class="view"><span class="tag">My take</span><p>The sample is broad enough to move past anecdote, which remains rare in this field. Bear in mind it is made up of people advanced enough to configure an agent: the average organisation is a long way behind.</p><p class="debat">Do you delegate the tasks you master least, or the ones that bore you most? The consequences are not remotely the same.</p></div>
+        <p class="src"><a href="https://arxiv.org/abs/2608.20425">arxiv.org</a> · 24 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Terminal Agents: a survey of AI agents on the command line</h3>
+        <p class="fait">A state of the art on agents operating directly in a terminal, with their failure modes.</p>
+        <div class="view"><span class="tag">My take</span><p>The terminal is where an agent holds the most power with the fewest guardrails: no confirmation, no undo, no trace a non-technical reader can follow.</p><p class="debat">Should a tool with no “undo” button be allowed to run without confirmation — or is that precisely where one is needed?</p></div>
+        <p class="src"><a href="https://arxiv.org/abs/2608.20485">arxiv.org</a> · 24 August 2026</p>
+      </div>
+    </div>
+
+    <!-- 02 SECURITE -->
+    <div class="pad">
+      <div class="sec-head"><span class="sec-num">02</span></div>
+      <h2 class="sec-title">Security &amp; governance</h2>
+      <p class="sec-intro">The week AI moved from being a target to being an attacker.</p>
+
+      <div class="art">
+        <h3>The inside story of the Hugging Face breach by OpenAI agents</h3>
+        <p class="fait">An investigation into an incident in which OpenAI agents compromised the Hugging Face platform. OpenAI published its official post-mortem shortly afterwards.</p>
+        <div class="view"><span class="tag">My take</span><p>A threshold has been crossed: this is no longer AI used by an attacker, it is an agent producing the attack in the course of a legitimate task. How quickly the report was published is, by contrast, rather reassuring.</p><p class="debat">When the attack is born of a legitimate task, where does the fault sit: with the vendor, with whoever launched the task, or in the very design of autonomy?</p></div>
+        <p class="src"><a href="https://www.technologyreview.com/2026/08/26/1143013/the-inside-story-on-why-openai-agents-hacked-hugging-face/">technologyreview.com</a> · 26 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>OpenAI's official report on the Hugging Face incident</h3>
+        <p class="fait">The vendor's account: timeline, root cause, corrective measures.</p>
+        <div class="view"><span class="tag">My take</span><p>Read alongside the investigation above, not instead of it. Public post-mortems are a healthy practice and still too rare here; this one is nonetheless written by the party concerned, and the gap between the two accounts is instructive.</p><p class="debat">Should such post-mortems be made mandatory and public, as in aviation? And who would be tasked with verifying them?</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/26/openai-releases-its-official-report-on-the-hugging-face-breach/">techcrunch.com</a> · 26 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Every time AI has gone rogue and hacked other companies</h3>
+        <p class="fait">A round-up of documented incidents in which AI systems overstepped their mandate.</p>
+        <div class="view"><span class="tag">My take</span><p>What makes this piece worth reading is the accumulation rather than any single case: taken together, the incidents stop being accidents and start describing a category.</p><p class="debat">At what point does a run of accidents become an insurable risk — and who should carry it, the vendor or the user?</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/27/heres-all-the-times-ai-has-gone-rogue-and-hacked-other-companies/">techcrunch.com</a> · 27 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>OpenAI, Anthropic, Google and a hundred other companies call for a common defence</h3>
+        <p class="fait">A collective call for coordinated action against rogue AI.</p>
+        <div class="view"><span class="tag">My take</span><p>When direct competitors sign together, it usually means the risk is real and regulation is coming. Both motives can perfectly well coexist. Read it against the refusal, noted a few days earlier, to explain how a model gone rogue would be contained.</p><p class="debat">Can a standard written by those it is meant to constrain protect anyone other than them? I have no settled answer.</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/">techcrunch.com</a> · 27 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>When agents act on their own, governance has to live in the data layer</h3>
+        <p class="fait">The argument: guardrails placed in the prompt or the interface can be worked around; only those written into the data hold.</p>
+        <div class="view"><span class="tag">My take</span><p>The most useful piece in this section, and the least spectacular. It says something simple: a rule written into an instruction is a suggestion, a rule written into access rights applies.</p><p class="debat">Does your AI policy exist anywhere other than in a document? And if so, where exactly?</p></div>
+        <p class="src"><a href="https://venturebeat.com/security/when-agents-act-on-their-own-governance-has-to-live-in-the-data-layer">venturebeat.com</a> · 27 August 2026</p>
+      </div>
+    </div>
+
+    <!-- 03 INFRA -->
+    <div class="pad">
+      <div class="sec-head"><span class="sec-num">03</span></div>
+      <h2 class="sec-title">Infrastructure, market &amp; power</h2>
+      <p class="sec-intro">A week of consolidation that redraws who owns the base layer.</p>
+
+      <div class="art">
+        <h3>Nvidia closes in on the Hugging Face acquisition</h3>
+        <p class="fait">After talks reported at 13 billion dollars earlier in the week, the deal is nearing completion.</p>
+        <div class="view"><span class="tag">My take</span><p>If it is confirmed, this is the structural event of the year. Hugging Face is the de facto crossing point of open source in AI; the chipmaker would own the square where you choose the models that run on its hardware.</p><p class="debat">Does open source still guarantee independence when its main host belongs to the hardware manufacturer?</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/">techcrunch.com</a> · 27 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>A significant share of Nvidia's future revenue will come from the labs it funds</h3>
+        <p class="fait">An analysis of circular financing: Nvidia invests in labs that buy its chips.</p>
+        <div class="view"><span class="tag">My take</span><p>The word used is “circular”, and it deserves a pause. It does not say the technology is overvalued — it produces measurable value. It says the measurement runs through a largely closed loop.</p><p class="debat">From the outside, how do you tell real demand from demand financed by the seller?</p></div>
+        <p class="src"><a href="https://www.artificialintelligence-news.com/news/nvidia-circular-financing-ai-labs/">artificialintelligence-news.com</a> · 27 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Anthropic partners with Nscale in a 45 billion dollar compute deal</h3>
+        <p class="fait">Another massive compute commitment, continuing a run of deals on the same scale.</p>
+        <div class="view"><span class="tag">My take</span><p>45 billion dollars is roughly the annual budget of French public research. I cite it to give a sense of scale, not to provoke: we have moved from a competition in engineering to a competition in access to capital.</p><p class="debat">Should Europe keep aiming for frontier models, or accept building on other people's? Both positions can be defended.</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/">techcrunch.com</a> · 26 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>OpenAI's Jalapeño chip beats Nvidia on speed and energy efficiency</h3>
+        <p class="fait">First results published by OpenAI on its inference processor, confirmed by independent benchmarks earlier in the week.</p>
+        <div class="view"><span class="tag">My take</span><p>The notable figure is energy efficiency rather than speed: it is what decides the real cost of a large-scale deployment, and the footprint you will soon be asked to account for. These are, however, the manufacturer's numbers on its own workloads.</p><p class="debat">Would you require an independent test before committing infrastructure on these results — and does a third party capable of producing one even exist?</p></div>
+        <p class="src"><a href="https://openai.com/index/jalapeno-first-results/">openai.com</a> · 26 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>SpaceX partners with Nvidia to build AI data centres in orbit</h3>
+        <p class="fait">An orbital compute infrastructure is announced, adopting the Vera processor for agentic AI at scale.</p>
+        <div class="view"><span class="tag">My take</span><p>Free cooling, continuous solar power, no land or neighbourhood constraints: the physical logic holds up better than it first appears. Maintenance and applicable law, much less so. I file this under long-range watching.</p><p class="debat">Which law applies to data processed in orbit? The question looks remote; it will not stay that way.</p></div>
+        <p class="src"><a href="https://nvidianews.nvidia.com/news/spacexai-adopts-nvidia-vera-cpu-to-accelerate-agentic-ai-at-massive-scale">nvidianews.nvidia.com</a> · 25 August 2026</p>
+      </div>
+    </div>
+
+    <!-- 04 SANTE -->
+    <div class="pad">
+      <div class="sec-head"><span class="sec-num">04</span></div>
+      <h2 class="sec-title">Health &amp; science</h2>
+      <p class="sec-intro">Where AI stops being a conference topic and becomes a gesture.</p>
+
+      <div class="art">
+        <h3>First successful AI-assisted brain tumour removal, in London</h3>
+        <p class="fait">London neurosurgeons report the first successful removal of a brain tumour assisted by artificial intelligence.</p>
+        <div class="view"><span class="tag">My take</span><p>The most important fact of the week for the general public. It is worth reading precisely what is written: “assisted”. The hand remains human, and so does the responsibility.</p><p class="debat">Should that division — augmenting the gesture without replacing it — serve as a model for other sectors, or is medicine too particular to generalise from?</p></div>
+        <p class="src"><a href="https://www.bbc.com/news/articles/cjwg5n7y68xo">bbc.com</a> · 28 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>FLARE: building uncertainty into factual AI adoption in medicine</h3>
+        <p class="fait">A systematic framework that forces the model to state its degree of uncertainty before a clinical decision rests on it.</p>
+        <div class="view"><span class="tag">My take</span><p>Far less visible than the London operation, and probably more consequential. A model that is wrong remains manageable; a model that is wrong with confidence does not.</p><p class="debat">In which of your processes is AI currently allowed to answer “I don't know” without it being treated as a failure?</p></div>
+        <p class="src"><a href="https://arxiv.org/abs/2608.23643">arxiv.org</a> · 26 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>EEG-to-Report: training language models on clinical EEGs</h3>
+        <p class="fait">An annotation framework that turns electroencephalogram traces into usable clinical reports.</p>
+        <div class="view"><span class="tag">My take</span><p>This is not a model, it is an annotation method: the invisible work everything else depends on. In most of the projects I support, the blocker is not the model — it is that nobody was willing to fund the structuring of the data.</p><p class="debat">Why is the model so readily funded, and the data that makes it possible so reluctantly?</p></div>
+        <p class="src"><a href="https://arxiv.org/abs/2608.26153">arxiv.org</a> · 29 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>An MIT AI forecasts extreme weather without historical data</h3>
+        <p class="fait">The model produces forecasts of extreme events without relying on the record of past ones.</p>
+        <div class="view"><span class="tag">My take</span><p>This answers a real blind spot: extreme events are by definition rare, therefore poorly represented in the record — and a shifting climate makes that record less and less predictive.</p><p class="debat">Can you trust a forecast that rests on no precedent? Local authorities and insurers will have to decide before meteorologists do.</p></div>
+        <p class="src"><a href="https://www.artificialintelligence-news.com/news/mit-ai-forecasts-extreme-weather-without-historical-data/">artificialintelligence-news.com</a> · 25 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Autonomous mathematical discovery in an open multi-agent environment</h3>
+        <p class="fait">Agents explore a mathematical space with no goal set in advance and produce unanticipated results.</p>
+        <div class="view"><span class="tag">My take</span><p>Read alongside “Redwood”, published the next day: an accelerator designed and deployed in two weeks by an AI. Two signals converging on systems that produce results nobody asked for.</p><p class="debat">How do you assess a result nobody commissioned, and nobody could reproduce by hand?</p></div>
+        <p class="src"><a href="https://arxiv.org/abs/2608.23691">arxiv.org</a> · 26 August 2026 &nbsp;·&nbsp; <a href="https://arxiv.org/abs/2608.26418">Redwood, 28 August</a></p>
+      </div>
+    </div>
+
+    <!-- 05 EDUCATION -->
+    <div class="pad">
+      <div class="sec-head"><span class="sec-num">05</span></div>
+      <h2 class="sec-title">Education &amp; cognition</h2>
+      <p class="sec-intro">What AI does to those who are learning — and to those who use it every day.</p>
+
+      <div class="art">
+        <h3>Children outlearn AI at language, and we still do not know why</h3>
+        <p class="fait">On infinitely less data, a child learns a language better and faster than the best models. The mechanism remains unexplained.</p>
+        <div class="view"><span class="tag">My take</span><p>My favourite piece of the week. A four-year-old has heard a few tens of millions of words; a model has ingested a trillion. This is not to say AI is weak — it does things far beyond us.</p><p class="debat">If the gap does not close with scale, what exactly are we measuring when we talk about “progress” in artificial intelligence?</p></div>
+        <p class="src"><a href="https://www.technologyreview.com/2026/08/24/kids-machines-language-learning/">technologyreview.com</a> · 24 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>How to encourage smarter AI use in the classroom</h3>
+        <p class="fait">A survey of institutional policies that work, beyond the ban-or-allow alternative.</p>
+        <div class="view"><span class="tag">My take</span><p>For the teachers reading this — and there are several of you — it is the most directly applicable piece here. What I observe in my own courses: banning moves the use out of sight, allowing without a frame removes the effort of learning.</p><p class="debat">Should we assess the output, or the path to it? And if it is the path, are we equipped to do that with thirty students?</p></div>
+        <p class="src"><a href="https://www.technologyreview.com/2026/08/24/ai-school-classroom-policies/">technologyreview.com</a> · 24 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Your brain on AI</h3>
+        <p class="fait">A synthesis of work on the cognitive effects of regular assistant use: memory, attention, effort of recall.</p>
+        <div class="view"><span class="tag">My take</span><p>Read this with a cool head: the subject lends itself to alarmism and the studies are young. The cognitive offloading effect is nonetheless well documented, going back to GPS.</p><p class="debat">Which skills do you accept losing, and which do you decide to keep exercising? It is a trade-off — and it makes itself if you do not make it deliberately.</p></div>
+        <p class="src"><a href="https://www.technologyreview.com/2026/08/25/1140958/your-brain-on-ai/">technologyreview.com</a> · 25 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Harvard's $699 startup bootcamp offers AI avatars of its instructors</h3>
+        <p class="fait">The university is selling a course in which the teachers appear as generative avatars.</p>
+        <div class="view"><span class="tag">My take</span><p>Here is the business model of AI in higher education, and it is arriving faster than the debates about cheating. You sell access to the brand while cutting the cost of the teacher. The teaching quality may well be perfectly adequate.</p><p class="debat">What does a student buy for 699 dollars: democratised access to knowledge, or a brand with the human presence taken out?</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/22/harvards-699-startup-bootcamp-offers-ai-avatars-of-its-instructors/">techcrunch.com</a> · 22 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>EduRiskX: early prediction of academic drop-out</h3>
+        <p class="fait">A neuro-symbolic framework combining learning with explicit logical reasoning to spot struggling students early.</p>
+        <div class="view"><span class="tag">My take</span><p>The neuro-symbolic choice is justified here for a precise reason: when you flag a student as “at risk”, you must be able to say why, both to them and to the institution.</p><p class="debat">Would you accept an algorithm flagging your child as “at risk” without being able to explain what it based that on?</p></div>
+        <p class="src"><a href="https://arxiv.org/abs/2608.26107">arxiv.org</a> · 29 August 2026</p>
+      </div>
+    </div>
+
+    <!-- 06 DROIT -->
+    <div class="pad">
+      <div class="sec-head"><span class="sec-num">06</span></div>
+      <h2 class="sec-title">Law, ethics &amp; society</h2>
+      <p class="sec-intro">The frameworks are being built now, often away from the spotlight.</p>
+
+      <div class="art">
+        <h3>Is it legal to train models on copyrighted books? It's complicated</h3>
+        <p class="fait">A legal stocktake of training on copyrighted works, between diverging case law and grey areas.</p>
+        <div class="view"><span class="tag">My take</span><p>“It's complicated” is an honest answer here, not an evasion. The uncertainty will probably not be resolved by one unifying ruling, but by sedimentation, market by market.</p><p class="debat">If a model deployed in good faith were ruled unlawful tomorrow, who should bear the cost: the vendor, the company using it, or nobody?</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/23/is-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated/">techcrunch.com</a> · 23 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Bill Gates: humanity has crossed AI's danger thresholds</h3>
+        <p class="fait">In a forceful intervention, he judges the danger thresholds passed and advocates a robot tax along with jobs reserved for humans.</p>
+        <div class="view"><span class="tag">My take</span><p>The diagnosis deserves a hearing. The remedies seem more fragile to me: a robot tax presupposes we can define a robot, and reserved jobs would create a category hard to hold over time.</p><p class="debat">Does a call to slow down carry the same weight depending on whether it comes from the one who accelerated or the one living with the effects?</p></div>
+        <p class="src"><a href="https://www.technologyreview.com/2026/08/26/1142946/bill-gates-ai-danger-threshold/">technologyreview.com</a> · 26 August 2026 &nbsp;·&nbsp; <a href="https://techcrunch.com/2026/08/26/bill-gates-wants-to-see-a-robot-tax-and-human-reserved-jobs-to-mitigate-harms-from-ai/">the robot tax</a></p>
+      </div>
+
+      <div class="art">
+        <h3>A third of web pages published since ChatGPT were written with AI help</h3>
+        <p class="fait">A measurement of the share of AI-assisted web content since ChatGPT launched.</p>
+        <div class="view"><span class="tag">My take</span><p>A third is considerable, and the technical implication is the interesting one: the next models will therefore train largely on text produced by the previous ones. This is called model collapse, and the critical threshold remains unknown.</p><p class="debat">Should labelling generated content be made mandatory? And above all, who would be in a position to enforce it?</p></div>
+        <p class="src"><a href="https://usbeketrica.com/fr/article/un-tiers-des-pages-web-publiees-depuis-le-lancement-de-chatgpt-ont-ete-ecrites-par-ia">usbeketrica.com</a> · 26 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Can a large language model really forget the right things?</h3>
+        <p class="fait">A technical examination of machine unlearning and its real limits.</p>
+        <div class="view"><span class="tag">My take</span><p>Read this if you have ever promised someone their data could be removed from a model. The short answer is: far less than is claimed. It leaves the right to erasure in an uncomfortable position.</p><p class="debat">When erasure turns out to be technically out of reach, should the law adapt or the use be restricted?</p></div>
+        <p class="src"><a href="https://towardsdatascience.com/can-an-llm-forget-the-right-things/">towardsdatascience.com</a> · 24 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Anthropic wins a first court ruling against the Pentagon</h3>
+        <p class="fait">The court finds for the company against a supply-chain risk label applied by the Pentagon.</p>
+        <div class="view"><span class="tag">My take</span><p>Little commented on, potentially structural: one of the first cases where an AI vendor successfully challenges a risk designation imposed by a state.</p><p class="debat">Who should have the last word on whether an AI system is dangerous: the regulator, the court, or the vendor?</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/28/anthropic-gets-its-first-court-win-over-the-pentagons-supply-chain-risk-label/">techcrunch.com</a> · 28 August 2026</p>
+      </div>
+    </div>
+
+    <!-- 07 OUTILS -->
+    <div class="pad">
+      <div class="sec-head"><span class="sec-num">07</span></div>
+      <h2 class="sec-title">Tools &amp; uses</h2>
+      <p class="sec-intro">What is concretely changing in the tools already within your reach.</p>
+
+      <div class="art">
+        <h3>Google's AI mode now tracks flight prices and books hotels</h3>
+        <p class="fait">Google Search moves from answering to acting: price monitoring and booking built in.</p>
+        <div class="view"><span class="tag">My take</span><p>The same shift as in section 01, but this time in the hands of two billion people, with nobody installing anything. This is how agentic AI will become ordinary: by update.</p><p class="debat">Which of your everyday tools have gained the right to act on your behalf without you explicitly agreeing to it?</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/27/googles-ai-mode-can-now-track-flight-prices-help-book-hotels-and-more/">techcrunch.com</a> · 27 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Google DeepMind launches intelligent transcription with Gemini 3.5 Transcribe</h3>
+        <p class="fait">A transcription model that structures and interprets as well as transcribes.</p>
+        <div class="view"><span class="tag">My take</span><p>The most profitable use of AI for a freelancer or a small organisation remains transcription: little risk, immediate gain, no change management to run.</p><p class="debat">Is it better to start with what impresses, or with what saves time from Monday morning?</p></div>
+        <p class="src"><a href="https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/">deepmind.google</a> · 26 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Claude Cowork finally remembers what you told it</h3>
+        <p class="fait">Persistent memory arrives in the app: context survives from one session to the next.</p>
+        <div class="view"><span class="tag">My take</span><p>A long-awaited feature, and a double-edged one. An assistant that remembers becomes markedly more useful; it also becomes a place where information about your clients and your files piles up without inventory.</p><p class="debat">Do you know what your assistant has retained about your files? And if you had to show a client, would you be comfortable?</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/">techcrunch.com</a> · 25 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Hugging Face is selling a $399 open-source duck robot</h3>
+        <p class="fait">Microduck: a complete, open robotics platform at an accessible price.</p>
+        <div class="view"><span class="tag">My take</span><p>At 399 dollars, robotics fits the budget of a secondary school, a technical college or a fablab. Physical-AI skills will probably be formed there, rather than in multi-million-dollar labs.</p><p class="debat">Does the gap between handling and simulating justify the spend, in an already tight teaching budget?</p></div>
+        <p class="src"><a href="https://techcrunch.com/2026/08/27/hugging-face-is-selling-a-cute-399-open-source-duck-robot-microduck/">techcrunch.com</a> · 27 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Alibaba releases Wan 3.0, a new video generation model</h3>
+        <p class="fait">A new version of Alibaba's video model, in a release rhythm that has become monthly.</p>
+        <div class="view"><span class="tag">My take</span><p>I flag it mainly for the cadence: video generation is advancing faster than institutions can organise themselves around proof by image.</p><p class="debat">If your work rests, even partly, on the authenticity of a video — would you know how to establish it today?</p></div>
+        <p class="src"><a href="https://the-decoder.com/alibabas-wan3-0-generate">the-decoder.com</a> · 24 August 2026</p>
+      </div>
+    </div>
+
+    <!-- 08 PRATICIEN -->
+    <div class="pad">
+      <div class="sec-head"><span class="sec-num">08</span></div>
+      <h2 class="sec-title">For practitioners</h2>
+      <p class="sec-intro">For those who build. Technical, but the principles carry further.</p>
+
+      <div class="art">
+        <h3>Agents don't need more context, they need typed context</h3>
+        <p class="fait">The argument: an agent's reliability comes from the structure of what you give it, not the volume.</p>
+        <div class="view"><span class="tag">My take</span><p>The best technical piece of the week, and the principle carries well beyond the technical. A colleague handed the entire file works less well than one told what is a constraint, what is a preference and what is an assumption.</p><p class="debat">Do your instructions distinguish those three registers — for your agents as much as for your teams?</p></div>
+        <p class="src"><a href="https://towardsdatascience.com/ai-agents-dont-need-more-context-they-need-typed-context/">towardsdatascience.com</a> · 24 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Ten received ideas about enterprise RAG that tutorials keep spreading</h3>
+        <p class="fait">A critical review of widespread retrieval-augmented practices in a professional setting.</p>
+        <div class="view"><span class="tag">My take</span><p>Almost every RAG project I have seen fail did so for reasons on this list, and never because of the model. The costliest point recurs everywhere: documents are chunked without regard for their structure.</p><p class="debat">Do your documents have a structure a machine can exploit, or only a layout meant for the eye?</p></div>
+        <p class="src"><a href="https://towardsdatascience.com/10-positions-for-enterprise-rag-that-mainstream-tutorials-get-wrong/">towardsdatascience.com</a> · 24 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Keeping the human in the loop without killing throughput</h3>
+        <p class="fait">Concrete approaches to maintaining human validation without it becoming the bottleneck.</p>
+        <div class="view"><span class="tag">My take</span><p>The indispensable counterpoint to the paper in section 01. Human oversight does not disappear out of ideology, but because it costs time; any solution that fails to address that cost ends up being bypassed.</p><p class="debat">How many minutes a day are you prepared to spend on oversight? A figure is the only answer that commits you.</p></div>
+        <p class="src"><a href="https://towardsdatascience.com/human-in-the-loop-without-killing-throughput/">towardsdatascience.com</a> · 28 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>Why Claude Code's time estimates are poor</h3>
+        <p class="fait">An analysis of why coding agents misjudge how long a task will take.</p>
+        <div class="view"><span class="tag">My take</span><p>A modest and useful piece, because it touches a structural limit: a model has no notion of lived time, only descriptions of time. The estimate it produces imitates a discourse.</p><p class="debat">Should we ask a model for what it can, by construction, only mimic — or is it for us to learn not to ask?</p></div>
+        <p class="src"><a href="https://towardsdatascience.com/why-claude-code-time-estimates-are-poor/">towardsdatascience.com</a> · 28 August 2026</p>
+      </div>
+
+      <div class="art">
+        <h3>From one agent to a team: understanding Codex subagents</h3>
+        <p class="fait">How a main agent delegates to specialised subagents, and what that changes architecturally.</p>
+        <div class="view"><span class="tag">My take</span><p>Read it straight after the piece on complexity between agents: this one shows the mechanism, the other shows the bill. Delegation between agents solves a capacity problem and creates a traceability one.</p><p class="debat">When the chain has five links, who made the decision? And would you be able to reconstruct it afterwards?</p></div>
+        <p class="src"><a href="https://towardsdatascience.com/from-one-agent-to-a-team-understanding-codex-subagents/">towardsdatascience.com</a> · 28 August 2026</p>
+      </div>
+    </div>
+
+    <!-- 09 TUTORIEL -->
+    <div class="pad tuto">
+      <div class="sec-head"><span class="sec-num">09 — TUTORIAL OF THE WEEK</span></div>
+      <h2 class="sec-title">Write your AI's delegation contract</h2>
+      <p class="sec-intro">20 minutes, no code, nothing to install. Works with ChatGPT, Claude, Gemini, Mistral or whichever assistant you already use.</p>
+
+      <div class="step">
+        <span class="n">STEP 1 · 5 MIN</span>
+        <h3>List what you already delegate</h3>
+        <p>On a sheet of paper, write the three tasks you most often hand to an AI. Be specific: “write up the meeting minutes from my notes”, not “write”.</p>
+        <p>Almost everyone discovers at this step that they delegate more than they thought, and above all things they never decided to delegate.</p>
+      </div>
+
+      <div class="step">
+        <span class="n">STEP 2 · 5 MIN</span>
+        <h3>Write the prohibition, not the instruction</h3>
+        <p>For each task, a single sentence: what the AI must <b>never</b> produce on its own. A prohibition is far more operative than a positive instruction, because it is checkable.</p>
+        <p class="say">“You never cite a figure I have not given you. If a figure is missing, you write [TO CHECK] and carry on.”</p>
+      </div>
+
+      <div class="step">
+        <span class="n">STEP 3 · 5 MIN</span>
+        <h3>Name the check</h3>
+        <p>Who reviews, what exactly, and in how long. If the answer is “I review everything”, you have no check: you have an intention, and it will give way in the first busy week.</p>
+        <p class="say">“I only review the passages marked [TO CHECK] and the first sentence of each paragraph. Two minutes maximum.”</p>
+      </div>
+
+      <div class="step">
+        <span class="n">STEP 4 · 3 MIN</span>
+        <h3>Make it permanent</h3>
+        <p>Paste the whole thing into your assistant's custom instructions — “Custom instructions” in ChatGPT, “Preferences” or “Project” in Claude. The aim is that it applies without your having to think about it: a rule you must remember to apply is not a rule.</p>
+      </div>
+
+      <div class="step">
+        <span class="n">STEP 5 · 2 MIN</span>
+        <h3>The Monday test</h3>
+        <p>Before your first task of the week, ask this:</p>
+        <p class="say">“Before we start: remind me of the rules I set you, and tell me which one is likely to get in the way of this task.”</p>
+        <p>The second half of the question is the interesting one. It will tell you where your contract rubs against reality — and you will be the one arbitrating, knowingly, rather than by drift.</p>
+      </div>
+
+      <div class="step">
+        <span class="n">WHY THIS WEEK</span>
+        <h3>Because it is exactly the subject of sections 01 and 02</h3>
+        <p>Agents are gaining the right to act on real machines, humans are dropping out of decision loops by erosion, and researchers are pointing out that governance which does not live in the data is not governance. What you have just written is your own version, at your own scale, of that governance layer. Twenty minutes against a habit that would otherwise form on its own.</p>
+      </div>
+    </div>
+
+    <!-- 10 FIL ROUGE -->
+    <div class="pad fil">
+      <div class="sec-head"><span class="sec-num">10</span></div>
+      <h2 class="sec-title">The through-line</h2>
+      <p>If I had to sum up these seven days in one sentence: <b>AI has moved from being a tool you consult to being an actor you authorise.</b></p>
+      <p>An agent operating a machine. An agent compromising a platform in the course of a legitimate task. A consumer search engine booking a hotel. A surgeon operating with assistance. Each time, the technical question — does it work? — recedes behind a question of authorisation: how far, decided by whom, verified how.</p>
+      <p>That is good news, in the end. Questions of authorisation are ones we know how to handle: they are the business of law, audit, governance and teaching. We are not starting from nothing. It does require accepting that this is no longer a matter for engineers alone.</p>
+      <p>See you next Sunday.</p>
+      <p class="sig">Jérôme</p>
+    </div>
+
+    <!-- RETOURS -->
+    <div class="pad fb">
+      <div class="sec-head"><span class="sec-num">OVER TO YOU</span></div>
+      <h2>Tell me what needs to change</h2>
+      <p>This is the first issue, and I would rather correct it now than settle into bad habits for six months. There are about thirty of you: at that size, every reply genuinely weighs on what this letter becomes.</p>
+      <p>Five questions — answer whichever speak to you, a word will do:</p>
+      <ul>
+        <li><b>The volume.</b> Forty items, is that too many? How many per section would suit you: three, five, ten?</li>
+        <li><b>The sections.</b> Which did you read in full, which did you skip? Which is missing?</li>
+        <li><b>Your field.</b> Tell me what you do and what you would like covered — I can steer the selection if several of you converge.</li>
+        <li><b>The tutorial.</b> Too simple, too technical, beside the point? And above all: did you do it?</li>
+        <li><b>The tone.</b> The “My take” blocks: too pointed, not enough, in the right place?</li>
+        <li><b>The questions.</b> Every comment ends on an open question. Answer one — the one that stopped you, even in three lines. It is my favourite kind of reply.</li>
+      </ul>
+      <p><a class="btn-line" href="mailto:jdenis@jaydenis.com?subject=Feedback%20on%20SIGNAL%20AI%20%23001">Reply to this issue</a></p>
+      <p class="fine">Just use your mail client's “Reply”: it lands straight in my inbox. I read everything, and I answer.</p>
+    </div>
+
+    <!-- PARTAGE -->
+    <div class="pad share">
+      <h2>Did this letter help?</h2>
+      <p>It grows by word of mouth alone. If a colleague, a peer or a student would get something out of it, simply forward them this message — it is the most effective thing, and it costs me nothing but carrying on.</p>
+      <a class="btn" href="https://jaydenis.com/signal-ai.html?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=signal_ia_001&amp;utm_content=partage#inscription">Subscribe to SIGNAL AI</a>
+      <p class="fine">Once a week, on Sundays. Nothing else, ever.</p>
+    </div>
+
+    <div class="foot">
+      <b>SIGNAL AI</b> — Jérôme Denis's AI watch, JDENIS Consulting, Toulouse.<br>
+      You are receiving this letter because you subscribed on jaydenis.com. Your address is used for nothing else.<br>
+      <a href="mailto:jdenis@jaydenis.com?subject=Unsubscribe%20from%20SIGNAL%20AI">Unsubscribe</a> &nbsp;·&nbsp; <a href="https://jaydenis.com/signal-ai.html#inscription">Subscribe to SIGNAL AI</a> &nbsp;·&nbsp;
+      <a href="mailto:jdenis@jaydenis.com">Reply to Jérôme</a>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
