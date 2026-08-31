@@ -1,5 +1,17 @@
 # agents.md — Agents et Stratégies pour les projets de Jérôme Denis
 
+## Sources de vérité (à lire EN PREMIER — elles priment sur ce fichier)
+- `PLAN_STRATEGIQUE_URGENCE/ORCHESTRATION/CONSTITUTION_JDENIS.md` — les règles (identité, slogans, ton, références, preuves).
+- `PLAN_STRATEGIQUE_URGENCE/ORCHESTRATION/PROFIL_CANONIQUE_JDENIS.md` — les faits (identité, entités, liste blanche des références, preuves chiffrées).
+- Chemin complet : `/Users/jaydenis/Documents/Claude/Projects/PLAN_STRATEGIQUE_URGENCE/ORCHESTRATION/`.
+
+### Règle des références publiables (Constitution §3)
+On ne publie QUE ce qui figure dans les sources officielles (les 4 sites, le CV officiel CV-JD-FR2026-IA5, LinkedIn, les profils freelance). La liste blanche consolidée est dans le PROFIL_CANONIQUE. En particulier :
+- **Autorisés** (figurent au CV) : Groupe TECNALINK (SPELEM, LACLIM, ACERELEC), France Travail, Art Shopping / Carrousel du Louvre, YAPAK, cabinet d'expertise comptable, Gidsenkring Brugge, les 7 écoles ; titres : membre du Collège Numérique France 2030, **Vice-président et administrateur de La Mêlée Numérique**, fondateur de VRJAM, conférences (Cité de l'espace, Laval Virtual, CES). *(L'ancienne interdiction « VP La Mêlée » / TECNALINK de ce fichier est annulée.)*
+- **Interdits** : toute entité ou chiffre absent des sources officielles — ex. « Allier Capital » comme client.
+- **Preuves chiffrées sans source additionnelle** : Louvre (une saison en production, zéro ressaisie) ; SPELEM/TECNALINK (1 047 fiches, 277 k€, 180 équipements / 15 sites) ; saisie ÷30. Tout autre chiffre fort exige une source citée.
+- **Avant toute publication** : passer le contenu au contrôle `jdenis-gardien-charte`. Rien de public/sortant sans validation humaine.
+
 ## Agent 1 : Automatisation Appels d'Offres (AO)
 
 ### Rôle
@@ -43,9 +55,10 @@ Maintenir et faire évoluer le site one-page de Jérôme Denis (consultant IA, f
 - 10 sections : Header, Hero, Services, Expertise, Références, Écoles, À propos, Conférences, Contact, Footer
 
 ### Points de vigilance
-- NE PAS mentionner "Vice-président La Mêlée Numérique"
-- NE PAS inclure Allier Capital ni Technalink dans les clients
-- Certification Sciconum DOIT être mentionnée
+- Références et titres : appliquer la règle §3 de la Constitution (voir « Sources de vérité » en tête de ce fichier). « VP & administrateur de La Mêlée Numérique » et le groupe TECNALINK/SPELEM sont AUTORISÉS (au CV) ; « Allier Capital » reste INTERDIT (absent des sources officielles).
+- Identité publique : « Cabinet de conseil en IA — JDenis Consulting » (jamais « auto-entrepreneur » comme argument public).
+- Signature ombrelle : « Keeping AI Human » ; slogan jaydenis.com : « Automatisez ce qui vous ralentit. Anticipez ce qui vous attend. »
+- Certification Sciconum DOIT être mentionnée (présente sur index.html)
 - Les photos personnelles de conférence ne sont PAS accessibles via upload chat → placeholders avec instructions
 - Logos : préférer les URLs directes (/wp-content/uploads/...) à Clearbit qui est peu fiable pour les PME
 
@@ -88,3 +101,12 @@ Réaliser un audit complet d'un site web (SEO, performance, design, accessibilit
 
 développement du site jaydenis.com 
 Utilise le plugin site-jdenis
+
+
+<claude-mem-context>
+# Memory Context
+
+# [SITE_JDENIS] recent context, 2026-08-26 1:48pm GMT+2
+
+No previous sessions found.
+</claude-mem-context>
