@@ -129,6 +129,7 @@
                 <input type="hidden" name="utm_campaign" id="utm-campaign">
                 <input type="hidden" name="utm_content" id="utm-content">
                 <input type="hidden" name="page_url" id="page-url">
+                <input type="hidden" name="form_token" id="form-token">
                 <input type="hidden" name="lang" value="EN">
                 <label style="display:flex; gap:9px; align-items:flex-start; margin-top:13px; font-size:10px; line-height:16px; color:#667085; cursor:pointer;"><input name="consent" value="yes" type="checkbox" required style="margin:2px 0 0; accent-color:#D86040;"> <span>I agree to receive SIGNAL AI by email, about once a week. I can unsubscribe at any time.</span></label>
                 <div style="margin-top:13px;"><button class="signup-submit" type="submit">Subscribe for free →</button></div>
@@ -338,6 +339,18 @@
       setValue('utm-campaign', query.get('utm_campaign') || 'signal_ai_en_launch');
       setValue('utm-content', query.get('utm_content') || '');
       setValue('page-url', window.location.href);
+
+      // Jeton anti-automatisation : émis par le service, signé, valable deux
+      // heures. Sans lui la soumission est mise en quarantaine côté service.
+      (function () {
+        var endpoint = form.getAttribute('action');
+        try {
+          fetch(endpoint + '?action=token', { redirect: 'follow', credentials: 'omit' })
+            .then(function (r) { return r.json(); })
+            .then(function (d) { if (d && d.token) setValue('form-token', d.token); })
+            .catch(function () {});
+        } catch (e) {}
+      })();
 
       function finish(ok, message) {
         window.clearTimeout(timer);
