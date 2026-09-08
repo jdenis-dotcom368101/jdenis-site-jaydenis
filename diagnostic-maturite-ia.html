@@ -572,6 +572,10 @@
 .dx-auteur-liens { font-size: .85rem; color: var(--ink-3); margin: 12px 0 0; }
 .dx-dates { font-size: .82rem; color: var(--ink-3); margin: 26px 0 0; padding-top: 14px; border-top: 1px solid var(--hairline); }
 
+/* Les en-têtes collants des sites hôtes recouvriraient le haut du cadre
+   lorsqu'on y arrive par une ancre : on réserve la marge. */
+.dx-cadre { scroll-margin-top: 90px; }
+
 </style>
 <script type="application/ld+json">
 {
@@ -2618,6 +2622,40 @@ window.CONFIG_DIAGNOSTIC = {
         '<iframe name="dx-cadre-envoi" style="display:none" title="Envoi" aria-hidden="true"></iframe>');
   }
 
+  /* --- Position de lecture -------------------------------------------------
+     Deux choses gâchent l'arrivée sur un outil long :
+
+     1. le navigateur restaure la position précédente au retour arrière ou au
+        rechargement — on se retrouve au milieu de la méthodologie ;
+     2. les en-têtes collants des deux sites recouvrent le haut du cadre quand
+        on y ramène le lecteur.
+
+     On reprend donc la main sur le défilement, et on décale de la hauteur de
+     l'en-tête effectivement collant, mesurée à chaud plutôt que codée en dur.
+     --------------------------------------------------------------------- */
+
+  if ('scrollRestoration' in history) {
+    try { history.scrollRestoration = 'manual'; } catch (e) {}
+  }
+
+  function hauteurEntete() {
+    var h = 0;
+    ['.site-header', '#header', '#navbar', 'header'].forEach(function (sel) {
+      var e = document.querySelector(sel);
+      if (!e) return;
+      var pos = getComputedStyle(e).position;
+      if (pos === 'sticky' || pos === 'fixed') h = Math.max(h, e.offsetHeight);
+    });
+    return h;
+  }
+
+  function remonter() {
+    var cadre = document.querySelector('.dx-cadre');
+    if (!cadre) return;
+    var cible = cadre.getBoundingClientRect().top + window.scrollY - hauteurEntete() - 14;
+    window.scrollTo({ top: Math.max(0, cible), behavior: 'auto' });
+  }
+
   /* --- Rendu et navigation -------------------------------------------------- */
 
   function rendre() {
@@ -2630,11 +2668,17 @@ window.CONFIG_DIAGNOSTIC = {
       titre.setAttribute('tabindex', '-1');
       titre.focus({ preventScroll: true });
     }
-    if (etat.ecran !== 'accueil') {
-      var cadre = document.querySelector('.dx-cadre');
-      if (cadre && cadre.getBoundingClientRect().top < 0) cadre.scrollIntoView({ block: 'start' });
+    // Premier rendu : on ne bouscule pas un visiteur arrivé sur une ancre
+    // (#methodologie par exemple). Ensuite, chaque écran commence en haut.
+    if (premierRendu) {
+      premierRendu = false;
+      var ancre = location.hash && !/^#r=/.test(location.hash);
+      if (!ancre) window.scrollTo({ top: 0, behavior: 'auto' });
+    } else {
+      remonter();
     }
   }
+  var premierRendu = true;
 
   function valider() {
     var q = etapes[etat.index];
