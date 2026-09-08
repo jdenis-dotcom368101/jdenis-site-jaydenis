@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnostic de maturité IA — évaluez votre entreprise en 5 minutes | JDENIS Consulting</title>
+<meta name="description" content="Diagnostic de maturité IA gratuit pour les PME françaises : 14 questions, un score sur 30, votre exposition AI Act et RGPD, vos 3 chantiers prioritaires.">
+<meta name="author" content="[object Object]">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="theme-color" content="#d4a853">
+<link rel="canonical" href="https://jaydenis.com/diagnostic-maturite-ia.html">
+<link rel="alternate" hreflang="fr" href="https://jaydenis.com/diagnostic-maturite-ia.html">
+<link rel="alternate" hreflang="x-default" href="https://jaydenis.com/diagnostic-maturite-ia.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="JDENIS Consulting">
+<meta property="og:title" content="Diagnostic de maturité IA — gratuit, 5 minutes, sans inscription">
+<meta property="og:description" content="Où en est votre entreprise avec l'IA, et avec quel filet ? Un score sur 30, une exposition réglementaire au titre de l'AI Act et du RGPD, trois chantiers à ouvrir. Rien n'est envoyé nulle part.">
+<meta property="og:url" content="https://jaydenis.com/diagnostic-maturite-ia.html">
+<meta property="og:image" content="https://jaydenis.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diagnostic de maturité IA — gratuit, 5 minutes, sans inscription">
+<meta name="twitter:description" content="Où en est votre entreprise avec l'IA, et avec quel filet ? Un score sur 30, une exposition réglementaire au titre de l'AI Act et du RGPD, trois chantiers à ouvrir. Rien n'est envoyé nulle part.">
+<meta name="twitter:image" content="https://jaydenis.com/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' font-family='serif' font-weight='bold' fill='%23d4a853'>J</text></svg>">
+<link rel="apple-touch-icon" href="https://jaydenis.com/apple-touch-icon.png">
+<link href="/fonts/fonts.css" rel="stylesheet">
+<link rel="stylesheet" href="/styles-pages.css">
+<!-- Mesure d'audience (Google Analytics) : chargée uniquement après consentement explicite. Voir /consent.js -->
+<script src="/consent.js" defer></script>
+<style>
+/* ============================================================================
+   DIAGNOSTIC IA — direction artistique « fiche d'analyse »
+   ----------------------------------------------------------------------------
+   La référence est la note d'analyse imprimée : celle qu'un commissaire aux
+   comptes, un analyste ou une agence de notation pose sur une table.
+
+   Principes :
+     · fond uni, pas de texture ; la structure vient des filets
+     · sections séparées par un filet lourd, numéro en display dans la gouttière
+     · petites capitales en Inter interlettrées pour les étiquettes
+     · deux objets de données, et deux seulement :
+         la GRILLE — dix lignes, trois cases : le score et sa décomposition
+         la CARTE  — un plan usage × garde-fous, et la distance à la diagonale
+     · options de réponse lettrées A/B/C/D sur lignes réglées, sans cartes
+     · angles vifs, aucun arrondi, aucune ombre
+
+   La palette et les polices viennent de la marque hôte. Variante disponible :
+   src/theme/instrument.css.
+   ========================================================================= */
+
+:root {
+  --paper:        #ffffff;
+  --panel:        #f6f4ef;
+  --panel-2:      #efece4;
+  --ink:          #14161c;
+  --ink-2:        #4a5160;
+  --ink-3:        #7c8494;
+  --line:         #dcd8ce;
+  --hairline:     #ebe8e1;
+  --accent:       #d4a853;
+  --accent-ink:   #7d5f16;
+  --accent-veil:  #fbf5e8;
+  --accent-line:  #e5cf9d;
+  --on-accent:    #14161c;
+  --alerte:       #a8341f;
+  --alerte-veil:  #fbf0ed;
+  --ok:           #1d6b4f;
+
+  --display: 'Playfair Display', Georgia, serif;
+  --sans:    'Inter', system-ui, -apple-system, sans-serif;
+
+  --radius: 0px;
+  --ease:   cubic-bezier(.22, 1, .36, 1);
+  --gout:   84px;   /* largeur de la gouttière de numérotation */
+}
+
+/* ---------- Cadre général ------------------------------------------------ */
+
+.dx {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  padding: 0 0 72px;
+  font-feature-settings: 'ss01', 'cv05';
+}
+.dx * { box-sizing: border-box; }
+
+.dx-cadre {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 22px;
+  border: 0;
+  background: none;
+}
+.dx-cadre::before { content: none; }
+.dx-eq { display: none; }
+.dx-corps { position: relative; }
+
+@media (min-width: 900px) {
+  .dx-cadre { padding: 0 32px; }
+}
+
+/* ---------- Typographie -------------------------------------------------- */
+
+.dx-etiquette,
+.dx-figure {
+  font-family: var(--sans);
+  font-size: .69rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  color: var(--ink-3);
+  margin: 0 0 12px;
+}
+.dx-figure span { color: var(--ink-3); }
+.dx-figure b { color: var(--accent-ink); font-weight: 600; }
+
+.dx h1.dx-titre {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5.4vw, 3.7rem);
+  line-height: 1.02;
+  letter-spacing: -.025em;
+  margin: 0 0 20px;
+  max-width: 17ch;
+}
+.dx h2.dx-sous {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.45rem, 3.2vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -.018em;
+  margin: 0 0 14px;
+}
+.dx h3 { font-family: var(--sans); font-size: 1rem; font-weight: 600; margin: 0 0 6px; letter-spacing: -.005em; }
+.dx p { margin: 0 0 15px; line-height: 1.66; }
+.dx .lede { font-size: clamp(1.08rem, 2vw, 1.26rem); line-height: 1.5; max-width: 44ch; color: var(--ink); }
+.dx .fine { color: var(--ink-2); font-size: .95rem; }
+.dx em { font-style: italic; }
+.dx a { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: var(--accent); }
+.dx a:hover { color: var(--accent-ink); }
+
+/* ---------- Entête et pied ------------------------------------------------ */
+
+.dx-entete {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 18px; padding: 26px 0 14px; margin-bottom: 34px;
+  border-bottom: 2px solid var(--ink);
+}
+.dx-marque {
+  font-family: var(--display); font-weight: 700; font-size: 1.15rem;
+  letter-spacing: -.02em; text-decoration: none; color: var(--ink);
+}
+.dx-marque, .dx-marque:hover { text-decoration: none; }
+.dx-marque b { color: var(--accent-ink); }
+.dx-lieu {
+  font-family: var(--sans); font-size: .68rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .13em; color: var(--ink-3);
+}
+
+.dx-pied {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 8px 20px; margin-top: 48px; padding-top: 16px;
+  border-top: 2px solid var(--ink);
+  font-size: .72rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--ink-3);
+}
+.dx-pied a { text-decoration: none; color: inherit; }
+.dx-pied a:hover { color: var(--accent-ink); }
+.dx-pied nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+
+/* ---------- Sections numérotées en gouttière ------------------------------ */
+
+.dx-bloc {
+  position: relative;
+  margin-top: 44px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.dx-bloc:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.dx-bloc[data-num]::before {
+  content: attr(data-num);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--panel-2);
+  position: absolute;
+  top: 18px;
+  left: 0;
+}
+@media (min-width: 1000px) {
+  .dx-bloc[data-num] { padding-left: var(--gout); }
+  .dx-bloc[data-num]::before { left: 0; top: 20px; font-size: 3.1rem; }
+}
+@media (max-width: 999px) {
+  .dx-bloc[data-num] { padding-top: 58px; }
+}
+
+/* ---------- Boutons ------------------------------------------------------- */
+
+.dx-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--sans); font-size: .97rem; font-weight: 600;
+  padding: 14px 26px; border-radius: 0; border: 1px solid var(--ink);
+  cursor: pointer; text-decoration: none;
+  transition: background .18s var(--ease), color .18s var(--ease), border-color .18s var(--ease);
+}
+.dx-btn-1 { background: var(--ink); color: #fff; }
+.dx-btn-1:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.dx-btn-2 { background: transparent; color: var(--ink); border-color: var(--line); }
+.dx-btn-2:hover { border-color: var(--ink); }
+.dx-btn-3 {
+  background: none; border: 0; padding: 8px 2px; color: var(--ink-2);
+  font-size: .9rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+}
+.dx-btn-3:hover { color: var(--ink); }
+.dx-btn[disabled] { opacity: .32; cursor: not-allowed; }
+.dx-btn .fl { font-size: 1.05rem; }
+.dx :focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }
+/* Le titre reçoit le focus au changement d'écran pour les lecteurs d'écran :
+   utile à l'annonce, inutile à l'œil — on masque le liseré dans ce seul cas. */
+.dx [tabindex="-1"]:focus, .dx [tabindex="-1"]:focus-visible { outline: none; }
+
+/* ---------- Accueil ------------------------------------------------------- */
+
+.dx-accueil { display: grid; gap: 38px; align-items: start; }
+@media (min-width: 900px) { .dx-accueil { grid-template-columns: 1.1fr .9fr; gap: 60px; } }
+
+.dx-gages {
+  list-style: none; padding: 0; margin: 26px 0 0;
+  display: grid; gap: 0;
+  border-top: 1px solid var(--line);
+}
+.dx-gages li {
+  display: flex; align-items: baseline; gap: 14px;
+  padding: 9px 0; border-bottom: 1px solid var(--hairline);
+  font-size: .9rem; color: var(--ink-2);
+}
+.dx-gages li::before {
+  content: counter(gage, decimal-leading-zero);
+  counter-increment: gage;
+  font-family: var(--display); font-weight: 700; font-size: .82rem;
+  color: var(--accent-ink); min-width: 2ch;
+}
+.dx-gages { counter-reset: gage; }
+
+/* L'échelle des niveaux, en tableau typographique */
+.dx-planche { margin: 0; padding: 0; background: none; border: 0; }
+.dx-planche figcaption {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: .68rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .13em; color: var(--ink-3);
+  padding-bottom: 10px; margin-bottom: 0; border-bottom: 2px solid var(--ink);
+}
+.dx-niv-liste { display: grid; }
+.dx-niv {
+  display: grid; grid-template-columns: 1fr auto; align-items: center;
+  gap: 4px 16px; padding: 15px 0; border-bottom: 1px solid var(--hairline);
+}
+.dx-niv .nom { font-family: var(--display); font-weight: 700; font-size: 1.16rem; letter-spacing: -.015em; }
+.dx-niv .plage { font-size: .78rem; font-weight: 600; color: var(--ink-3); letter-spacing: .04em; }
+.dx-niv .res { grid-column: 1 / -1; font-size: .89rem; color: var(--ink-2); margin: 0; line-height: 1.45; }
+.dx-niv .ruban { grid-column: 1 / -1; display: flex; gap: 2px; margin-top: 8px; }
+.dx-niv .ruban i { flex: 1; height: 6px; background: var(--panel-2); display: block; }
+.dx-niv .ruban i.on { background: var(--accent); }
+.dx-niv:last-child .nom { color: var(--accent-ink); }
+
+/* ---------- Progression --------------------------------------------------- */
+
+.dx-progression { margin-bottom: 30px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+.dx-progression .rang {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: .72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .12em; color: var(--ink-3); margin-bottom: 10px;
+}
+.dx-progression .rang b { font-family: var(--display); font-size: 1rem; color: var(--ink); letter-spacing: 0; }
+.dx-traits { display: flex; gap: 3px; align-items: flex-end; height: 14px; }
+.dx-traits i { flex: 1; height: 6px; background: var(--panel-2); display: block; transition: height .2s var(--ease), background .2s var(--ease); }
+.dx-traits i.on { background: var(--accent); }
+.dx-traits i.ici { height: 14px; background: var(--ink); }
+
+/* ---------- Questions ----------------------------------------------------- */
+
+.dx-question { max-width: 760px; }
+.dx-question .enonce {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(1.42rem, 3.4vw, 2.05rem); line-height: 1.18;
+  letter-spacing: -.02em; margin: 0 0 8px;
+}
+.dx-question .aide { font-size: .92rem; color: var(--ink-3); margin: 0 0 24px; }
+
+/* Options lettrées : pas de carte, une ligne réglée qui s'active */
+.dx-choix { list-style: none; margin: 0 0 32px; padding: 0; border-top: 1px solid var(--line); }
+.dx-choix li { margin: 0; }
+.dx-choix label {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 15px 6px 15px 0; border-bottom: 1px solid var(--hairline);
+  cursor: pointer; background: none; border-radius: 0;
+  transition: background .14s var(--ease);
+}
+.dx-choix label:hover { background: var(--accent-veil); }
+.dx-choix input { position: absolute; opacity: 0; width: 0; height: 0; }
+.dx-choix .lettre {
+  flex: 0 0 auto; width: 26px; height: 26px; margin-top: -1px;
+  border: 1px solid var(--line); color: var(--ink-3);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: .76rem; font-weight: 700; letter-spacing: .02em;
+  transition: background .14s var(--ease), color .14s var(--ease), border-color .14s var(--ease);
+}
+.dx-choix .txt { line-height: 1.45; padding-top: 2px; }
+.dx-choix label:has(input:checked) { background: var(--accent-veil); border-bottom-color: var(--accent); }
+.dx-choix label:has(input:checked) .lettre { background: var(--ink); border-color: var(--ink); color: #fff; }
+.dx-choix label:has(input:checked) .txt { font-weight: 600; }
+.dx-choix input:focus-visible ~ .lettre { outline: 2px solid var(--accent-ink); outline-offset: 2px; }
+
+/* Question à graduation */
+.dx-grad { margin: 4px 0 32px; }
+.dx-grad-poles {
+  display: flex; justify-content: space-between;
+  font-size: .74rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--ink-3); margin-bottom: 12px;
+}
+.dx-grad-rail { display: grid; gap: 0; grid-auto-flow: column; grid-auto-columns: 1fr; border: 1px solid var(--line); }
+.dx-grad-rail label {
+  position: relative; padding: 16px 12px 18px; cursor: pointer; text-align: center;
+  border-right: 1px solid var(--hairline); transition: background .14s var(--ease);
+}
+.dx-grad-rail label:last-child { border-right: 0; }
+.dx-grad-rail label:hover { background: var(--accent-veil); }
+.dx-grad-rail input { position: absolute; opacity: 0; width: 0; height: 0; }
+.dx-grad-rail .cran {
+  display: block; width: 10px; height: 10px; margin: 0 auto 12px;
+  border: 1px solid var(--ink-3); border-radius: 50%;
+}
+.dx-grad-rail .txt { font-size: .88rem; line-height: 1.35; color: var(--ink-2); display: block; }
+.dx-grad-rail label:has(input:checked) { background: var(--accent-veil); }
+.dx-grad-rail label:has(input:checked) .cran { background: var(--ink); border-color: var(--ink); }
+.dx-grad-rail label:has(input:checked) .txt { color: var(--ink); font-weight: 600; }
+.dx-grad-rail input:focus-visible ~ .cran { outline: 2px solid var(--accent-ink); outline-offset: 3px; }
+
+/* Question à cases multiples */
+.dx-multi { list-style: none; margin: 4px 0 12px; padding: 0; display: grid; gap: 8px; }
+.dx-multi label {
+  display: flex; align-items: flex-start; gap: 13px;
+  padding: 14px 16px; border: 1px solid var(--line); cursor: pointer;
+  transition: border-color .14s var(--ease), background .14s var(--ease);
+}
+.dx-multi label:hover { border-color: var(--accent); background: var(--accent-veil); }
+.dx-multi input { position: absolute; opacity: 0; width: 0; height: 0; }
+.dx-multi .coche {
+  flex: 0 0 auto; width: 18px; height: 18px; margin-top: 1px;
+  border: 1px solid var(--ink-3); position: relative;
+}
+.dx-multi label:has(input:checked) { border-color: var(--ink); background: var(--accent-veil); }
+.dx-multi label:has(input:checked) .coche { background: var(--ink); border-color: var(--ink); }
+.dx-multi label:has(input:checked) .coche::after {
+  content: ''; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px;
+  border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(42deg);
+}
+.dx-multi .txt { line-height: 1.42; font-size: .96rem; }
+.dx-multi-note { font-size: .82rem; color: var(--ink-3); margin: 0 0 30px; }
+
+.dx-nav { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+
+/* ---------- La grille : l'objet qui porte le score ------------------------ */
+
+.dx-verdict { display: grid; gap: 32px; align-items: start; }
+@media (min-width: 880px) { .dx-verdict { grid-template-columns: minmax(0, 330px) 1fr; gap: 50px; } }
+
+.dx-grille { margin: 0; }
+.dx-grille-tete {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding-bottom: 8px; border-bottom: 2px solid var(--ink); margin-bottom: 2px;
+}
+.dx-grille-chiffre { font-family: var(--display); font-weight: 700; font-size: 3.4rem; line-height: .92; letter-spacing: -.04em; }
+.dx-grille-sur { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .13em; color: var(--ink-3); }
+.dx-grille-lignes { display: grid; gap: 0; }
+.dx-gl {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px;
+  padding: 6px 0; border-bottom: 1px solid var(--hairline);
+}
+.dx-gl .nom { font-size: .78rem; font-weight: 500; color: var(--ink-2); letter-spacing: .01em; }
+.dx-gl .cases { display: flex; gap: 3px; }
+.dx-gl .cases i { width: 26px; height: 11px; background: var(--panel-2); display: block; }
+.dx-gl .cases i.on { background: var(--accent); }
+.dx-gl.basse .nom { color: var(--alerte); font-weight: 600; }
+.dx-gl.basse .cases i.on { background: var(--alerte); }
+.dx-gl.basse .cases i { background: var(--alerte-veil); }
+.dx-grille-pied { display: flex; justify-content: space-between; font-size: .7rem; color: var(--ink-3); padding-top: 8px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
+
+.dx-niveau-num {
+  display: inline-block; font-size: .7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .14em; color: var(--accent-ink);
+  border-bottom: 2px solid var(--accent); padding-bottom: 4px;
+}
+.dx-niveau-nom {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.02;
+  letter-spacing: -.03em; margin: 14px 0 12px;
+}
+
+/* ---------- La carte : plan usage × garde-fous ---------------------------- */
+
+.dx-carte-bloc { display: grid; gap: 26px; align-items: start; }
+@media (min-width: 820px) { .dx-carte-bloc { grid-template-columns: minmax(0, 340px) 1fr; gap: 40px; } }
+.dx-carte { margin: 0; }
+.dx-carte svg { display: block; width: 100%; height: auto; }
+.dx-carte figcaption {
+  font-size: .72rem; color: var(--ink-3); margin-top: 10px; line-height: 1.5;
+}
+
+.dx-verdict-expo .palier {
+  font-family: var(--display); font-weight: 700; font-size: 2rem;
+  letter-spacing: -.025em; margin: 0 0 4px; line-height: 1.05;
+}
+.dx-verdict-expo[data-palier="elevee"] .palier,
+.dx-verdict-expo[data-palier="critique"] .palier { color: var(--alerte); }
+.dx-mesures { display: grid; gap: 0; margin: 20px 0 0; border-top: 1px solid var(--line); }
+.dx-mesure {
+  display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline;
+  padding: 11px 0; border-bottom: 1px solid var(--hairline);
+}
+.dx-mesure .lib { font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); }
+.dx-mesure .val { font-family: var(--display); font-weight: 700; font-size: 1.3rem; letter-spacing: -.02em; }
+.dx-mesure.ecart .val { color: var(--alerte); }
+
+.dx-declencheurs { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; }
+.dx-declencheurs li {
+  font-size: .93rem; line-height: 1.5; color: var(--ink-2);
+  padding: 12px 14px; background: var(--alerte-veil); border-left: 3px solid var(--alerte);
+}
+
+/* ---------- Estimation chiffrée ------------------------------------------- */
+
+.dx-estim { border-top: 2px solid var(--ink); padding-top: 18px; }
+.dx-estim-val {
+  font-family: var(--display); font-weight: 700; letter-spacing: -.04em;
+  font-size: clamp(2.6rem, 8vw, 4.4rem); line-height: .95; margin: 0 0 6px;
+}
+.dx-estim-val .sep { color: var(--ink-3); margin: 0 .06em; }
+.dx-estim-val .unite {
+  display: block; font-family: var(--sans); font-size: .74rem; font-weight: 600;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3); margin-top: 12px;
+}
+.dx-echelle-h { display: flex; height: 9px; margin: 20px 0 8px; border: 1px solid var(--line); }
+.dx-echelle-h i { display: block; height: 100%; }
+.dx-echelle-h .zone { background: var(--panel-2); }
+.dx-echelle-h .plage { background: var(--accent); }
+.dx-echelle-reperes { display: flex; justify-content: space-between; font-size: .68rem; color: var(--ink-3); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.dx-estim-palier { font-weight: 600; margin: 16px 0 8px; }
+.dx-estim-sec { font-size: 1rem; color: var(--ink-2); margin-bottom: 10px; }
+.dx-estim-note { font-size: .84rem; color: var(--ink-3); margin: 0; line-height: 1.55; }
+.dx-hypotheses { margin-top: 16px; }
+.dx-hypotheses summary { cursor: pointer; font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-3); }
+.dx-hypotheses summary:hover { color: var(--ink); }
+.dx-hypotheses ul { margin: 12px 0 0 18px; padding: 0; }
+.dx-hypotheses li { font-size: .88rem; color: var(--ink-2); margin-bottom: 7px; line-height: 1.55; }
+
+/* ---------- Priorités : liste réglée, pas de cartes ---------------------- */
+
+.dx-priorites { list-style: none; margin: 8px 0 0; padding: 0; counter-reset: prio; border-top: 2px solid var(--ink); }
+.dx-prio {
+  counter-increment: prio; position: relative;
+  display: grid; grid-template-columns: auto 1fr; gap: 4px 18px;
+  padding: 20px 0; border-bottom: 1px solid var(--line);
+  background: none; border-left: 0; border-radius: 0;
+}
+.dx-prio::before {
+  content: counter(prio, decimal-leading-zero);
+  font-family: var(--display); font-weight: 700; font-size: 1.5rem;
+  color: var(--accent-ink); line-height: 1.05; position: static; grid-row: span 2;
+}
+.dx-prio h3 { margin: 0 0 4px; font-size: 1.05rem; align-self: end; }
+.dx-prio p { margin: 0; font-size: .96rem; color: var(--ink-2); line-height: 1.55; }
+
+/* ---------- Encadrés ------------------------------------------------------ */
+
+.dx-offre { background: var(--panel); padding: 26px; border: 0; border-left: 3px solid var(--accent); }
+.dx-offre .tag { display: block; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: var(--accent-ink); margin-bottom: 12px; }
+
+.dx-reperes { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.dx-repere { border: 0; border-bottom: 1px solid var(--hairline); background: none; padding: 18px 0; border-radius: 0; }
+.dx-repere h3 { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; color: var(--ink-3); margin-bottom: 8px; }
+.dx-repere p { font-size: .96rem; margin-bottom: 8px; color: var(--ink-2); }
+.dx-repere .src { font-size: .74rem; color: var(--ink-3); display: block; font-weight: 500; }
+
+/* ---------- Lecture détaillée -------------------------------------------- */
+
+.dx-dimensions { display: grid; border-top: 2px solid var(--ink); }
+.dx-dim { display: grid; gap: 6px 20px; grid-template-columns: 1fr auto; padding: 18px 0; border-bottom: 1px solid var(--hairline); border-top: 0; }
+.dx-dim .nom { font-size: .74rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-3); }
+.dx-dim .cmt { grid-column: 1 / -1; font-size: .97rem; line-height: 1.6; color: var(--ink-2); margin: 0; }
+.dx-dim .plots { display: flex; gap: 3px; }
+.dx-dim .plots i { width: 22px; height: 9px; background: var(--panel-2); border: 0; display: block; }
+.dx-dim .plots i.on { background: var(--accent); }
+.dx-dim.faible .nom { color: var(--alerte); }
+.dx-dim.faible .plots i.on { background: var(--alerte); }
+
+/* ---------- Formulaire ---------------------------------------------------- */
+
+.dx-form { display: grid; gap: 14px; max-width: 500px; margin-top: 20px; }
+.dx-form input[type=email], .dx-form input[type=text] {
+  font-family: var(--sans); font-size: 1rem; padding: 14px 0;
+  border: 0; border-bottom: 1px solid var(--ink); background: none; color: var(--ink); border-radius: 0;
+}
+.dx-form input::placeholder { color: var(--ink-3); }
+.dx-form input:focus { outline: none; border-bottom-color: var(--accent); border-bottom-width: 2px; }
+.dx-form .consent { display: flex; gap: 11px; align-items: flex-start; font-size: .87rem; color: var(--ink-2); line-height: 1.45; }
+.dx-form .pot { position: absolute; left: -9999px; }
+.dx-form .msg { font-size: .93rem; color: var(--ok); font-weight: 600; }
+.dx-form .msg.err { color: var(--alerte); }
+
+.dx-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 22px; }
+.dx-lien-partage { font-size: .74rem; color: var(--ink-3); word-break: break-all; margin-top: 12px; display: block; }
+
+/* ---------- Tableaux de la méthodologie ---------------------------------- */
+
+.dx-scroll { overflow-x: auto; margin: 24px 0; -webkit-overflow-scrolling: touch; }
+.dx-scroll table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: .92rem; margin: 0; }
+.dx-scroll th, .dx-scroll td { border: 0; border-bottom: 1px solid var(--hairline); padding: 11px 14px 11px 0; text-align: left; vertical-align: top; color: var(--ink-2); }
+.dx-scroll thead th { border-bottom: 2px solid var(--ink); color: var(--ink); font-weight: 700; font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; }
+.dx-scroll td strong { color: var(--ink); }
+.dx ul, .dx ol { margin: 0 0 16px 20px; padding: 0; }
+.dx li { margin-bottom: 7px; line-height: 1.6; }
+.dx .faq details { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; margin: 0; background: none; }
+.dx .faq summary { cursor: pointer; font-weight: 600; padding: 17px 44px 17px 0; list-style: none; position: relative; font-size: 1.02rem; }
+.dx .faq summary::-webkit-details-marker { display: none; }
+.dx .faq summary::after { content: '+'; position: absolute; right: 8px; top: 15px; color: var(--accent-ink); font-weight: 400; font-size: 1.4rem; }
+.dx .faq details[open] summary::after { content: '–'; }
+.dx .faq details p { padding: 0 0 18px; margin: 0; color: var(--ink-2); font-size: .96rem; }
+
+/* ---------- Apparition ---------------------------------------------------- */
+
+.dx-rev { opacity: 0; animation: dx-fondu .5s var(--ease) forwards; animation-delay: calc(var(--i, 0) * 60ms); }
+@keyframes dx-fondu { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .dx-rev { animation: none; opacity: 1; transform: none; } }
+
+/* ---------- Impression ---------------------------------------------------- */
+
+@media print {
+  .dx { padding: 0; }
+  .dx-cadre { padding: 0; max-width: none; }
+  .dx-noprint, .dx-form, .dx-actions, .dx-btn { display: none !important; }
+  .dx-bloc { break-inside: avoid; page-break-inside: avoid; }
+  .dx-prio, .dx-repere, .dx-carte, .dx-grille { break-inside: avoid; }
+  .dx a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .7em; color: #555; }
+}
+
+/* ---------- Blocs de citabilité (GEO) ------------------------------------
+   La réponse tient dans les deux phrases qui suivent le titre : c'est l'unité
+   qu'un moteur génératif extrait. On la distingue visuellement pour que le
+   lecteur pressé la trouve aussi. */
+
+.dx-reponse {
+  font-size: 1.06rem; line-height: 1.6; color: var(--ink);
+  border-left: 3px solid var(--accent); padding-left: 18px; margin: 0 0 22px;
+  max-width: 62ch;
+}
+
+.dx-auteur {
+  display: grid; gap: 20px; align-items: start;
+  padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  margin: 8px 0 24px;
+}
+@media (min-width: 700px) { .dx-auteur { grid-template-columns: 120px 1fr; gap: 26px; } }
+.dx-auteur img { width: 120px; height: 120px; object-fit: cover; border-radius: 0; display: block; }
+.dx-auteur-nom { font-family: var(--display); font-weight: 700; font-size: 1.25rem; letter-spacing: -.02em; margin: 0 0 2px; }
+.dx-auteur-role { font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .11em; color: var(--ink-3); margin: 0 0 12px; }
+.dx-auteur p { font-size: .97rem; }
+.dx-auteur-liens { font-size: .85rem; color: var(--ink-3); margin: 12px 0 0; }
+.dx-dates { font-size: .82rem; color: var(--ink-3); margin: 26px 0 0; padding-top: 14px; border-top: 1px solid var(--hairline); }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://jaydenis.com/diagnostic-maturite-ia.html#outil",
+      "name": "Diagnostic de maturité IA",
+      "url": "https://jaydenis.com/diagnostic-maturite-ia.html",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Tout navigateur",
+      "browserRequirements": "JavaScript",
+      "isAccessibleForFree": true,
+      "inLanguage": "fr",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Auto-évaluation gratuite de la maturité IA des entreprises françaises : 4 questions de profil et 10 dimensions notées de 0 à 3, soit un score sur 30, 4 niveaux de maturité et un indice d'exposition réglementaire fondé sur l'écart entre l'usage réel et les garde-fous. Le calcul s'exécute dans le navigateur ; aucune réponse n'est transmise.",
+      "featureList": [
+        "Usage réel",
+        "Comptes et données",
+        "Cadre d’usage",
+        "AI Act",
+        "RGPD",
+        "Dialogue social",
+        "Compétences",
+        "Socle technique",
+        "Données",
+        "Pilotage et ROI"
+      ],
+      "publisher": {
+        "@id": "https://jaydenis.com/#organization"
+      },
+      "author": {
+        "@id": "https://jaydenis.com/#jerome-denis"
+      },
+      "creator": {
+        "@id": "https://jaydenis.com/#jerome-denis"
+      },
+      "datePublished": "2026-09-08",
+      "dateModified": "2026-09-08",
+      "about": [
+        {
+          "@type": "Legislation",
+          "name": "Règlement (UE) 2024/1689 établissant des règles harmonisées concernant l'intelligence artificielle (AI Act)",
+          "legislationIdentifier": "Regulation (EU) 2024/1689",
+          "legislationJurisdiction": "European Union"
+        },
+        {
+          "@type": "Legislation",
+          "name": "Règlement (UE) 2016/679 relatif à la protection des personnes physiques à l'égard du traitement des données à caractère personnel (RGPD)",
+          "legislationIdentifier": "Regulation (EU) 2016/679",
+          "legislationJurisdiction": "European Union"
+        },
+        {
+          "@type": "Legislation",
+          "name": "Code du travail — information-consultation du comité social et économique",
+          "legislationIdentifier": "Code du travail, art. L. 2312-8",
+          "legislationJurisdiction": "France"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://jaydenis.com/diagnostic-maturite-ia.html#page",
+      "url": "https://jaydenis.com/diagnostic-maturite-ia.html",
+      "name": "Diagnostic de maturité IA — évaluez votre entreprise en 5 minutes | JDENIS Consulting",
+      "description": "Diagnostic de maturité IA gratuit pour les PME françaises : 14 questions, un score sur 30, votre exposition AI Act et RGPD, vos 3 chantiers prioritaires.",
+      "inLanguage": "fr",
+      "isPartOf": {
+        "@id": "https://jaydenis.com/#website"
+      },
+      "about": {
+        "@id": "https://jaydenis.com/diagnostic-maturite-ia.html#outil"
+      },
+      "breadcrumb": {
+        "@id": "https://jaydenis.com/diagnostic-maturite-ia.html#fil"
+      },
+      "publisher": {
+        "@id": "https://jaydenis.com/#organization"
+      },
+      "author": {
+        "@id": "https://jaydenis.com/#jerome-denis"
+      },
+      "datePublished": "2026-09-08",
+      "dateModified": "2026-09-08"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://jaydenis.com/diagnostic-maturite-ia.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le diagnostic est-il vraiment gratuit et sans inscription ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Les quatorze questions, le score, l'exposition réglementaire et les trois chantiers prioritaires s'affichent sans qu'on vous demande quoi que ce soit. Une adresse e-mail n'est demandée qu'après le résultat, et seulement si vous voulez recevoir l'analyse par écrit et la lettre hebdomadaire."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Où vont mes réponses ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nulle part. Le calcul se fait entièrement dans votre navigateur, en JavaScript. Aucune réponse n'est transmise à un serveur, ni à moi, ni à un tiers. Si vous copiez le lien de partage de votre résultat, ce lien contient vos réponses encodées : il n'existe aucune copie ailleurs, et personne ne peut retrouver votre diagnostic sans ce lien."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sur quoi repose le score ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sur dix dimensions notées de 0 à 3, soit trente points. Six dimensions décrivent votre capacité à faire (usage réel, comptes, socle technique, données, compétences, pilotage), quatre décrivent votre cadre (charte, AI Act, RGPD, dialogue social). Le détail du barème et les seuils des quatre niveaux sont publiés sur cette page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'indice d'exposition ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'écart entre l'intensité d'usage de l'IA dans vos équipes et les garde-fous que vous avez posés, chacun ramené sur cent. Une entreprise qui utilise beaucoup l'IA sans cadre est plus exposée qu'une entreprise qui n'en fait rien : c'est cet écart, et non le niveau d'usage, qui crée le risque. Deux règles de plancher s'y ajoutent, liées à des obligations qui ne dépendent pas du niveau d'usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "En quoi ce diagnostic est-il spécifiquement français ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quatre des dix dimensions portent sur des obligations de droit français ou européen applicables aux entreprises établies en France : l'obligation de littératie IA de l'article 4 du règlement (UE) 2024/1689, le traitement des prompts au regard du RGPD, l'information-consultation du comité social et économique lors de l'introduction de nouvelles technologies, et le financement de la formation par les opérateurs de compétences. Les tranches d'effectif proposées suivent les seuils du code du travail, pas des tranches commerciales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce résultat a-t-il une valeur juridique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. C'est un outil d'orientation, pas un audit de conformité et pas un conseil juridique. Il vous dit où regarder et dans quel ordre. Une position opposable — vis-à-vis d'un client, d'un assureur ou d'une autorité — demande un examen de votre situation réelle par votre conseil."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il vraiment ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cinq minutes si vous répondez d'instinct, ce qui est la bonne façon de faire. Si vous hésitez sur une question, prenez la réponse la plus basse des deux : un diagnostic flatteur ne sert à rien."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et après ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous pouvez enregistrer le résultat en PDF, le partager par lien, ou m'appeler trente minutes pour le relire ensemble. Je suis Jérôme Denis, consultant et formateur IA à Toulouse : j'accompagne des PME françaises sur l'acculturation des dirigeants, la charte d'usage, la formation des équipes et l'architecture des systèmes."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jaydenis.com/diagnostic-maturite-ia.html#fil",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://jaydenis.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Diagnostic & Audit IA",
+          "item": "https://jaydenis.com/diagnostic-audit-ia-toulouse.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Diagnostic de maturité IA",
+          "item": "https://jaydenis.com/diagnostic-maturite-ia.html"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://jaydenis.com/#organization",
+      "name": "JDENIS Consulting",
+      "url": "https://jaydenis.com/",
+      "description": "Cabinet de conseil et de formation en intelligence artificielle basé à Toulouse. Diagnostic et audit IA, formation des équipes sous agrément Qualiopi, conformité AI Act et gouvernance des données, architecture de systèmes IA pour TPE, PME et ETI.",
+      "areaServed": [
+        "FR",
+        "Occitanie"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/j-denis-consulting",
+        "https://www.linkedin.com/in/hierodeiis/",
+        "https://x.com/hierodeiis",
+        "https://github.com/jdenis-dotcom368101"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Toulouse",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://jaydenis.com/#jerome-denis",
+      "name": "Jérôme Denis",
+      "jobTitle": "Consultant et formateur en intelligence artificielle, Toulouse",
+      "description": "J’accompagne des dirigeants de TPE, PME et ETI dans l’adoption de l’IA depuis Toulouse : acculturation des comités de direction, charte d’usage, formation des équipes sous agrément Qualiopi, architecture de systèmes. Vingt ans de transformation numérique, plus de cinquante entreprises accompagnées, expert au Collège Numérique France 2030, intervenant dans sept écoles supérieures. Ce diagnostic reprend la grille que j’utilise en début de mission — même barème, mêmes questions.",
+      "url": "https://jaydenis.com/",
+      "image": "https://jaydenis.com/jerome-denis.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/hierodeiis/",
+        "https://x.com/hierodeiis",
+        "https://www.linkedin.com/company/j-denis-consulting"
+      ],
+      "worksFor": {
+        "@id": "https://jaydenis.com/#organization"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="site-logo" href="/">JDENIS<span>.</span></a>
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/diagnostic-audit-ia-toulouse.html">Diagnostic &amp; Audit IA</a>
+      <a href="/formation-ia-entreprise-toulouse.html">Formation IA</a>
+      <a href="/architecture-ia-sur-mesure.html">Architecture IA</a>
+      <a href="/conformite-ai-act-gouvernance-donnees.html">Conformité AI Act</a>
+      <a href="/verificateur-risque-ai-act.html">Test AI Act</a>
+      <a href="/blog/">Blog</a>
+      <a class="nav-cta" href="/#contact">Diagnostic gratuit</a>
+    </nav>
+  </div>
+</header>
+<div class="container-wide">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › <a href="/diagnostic-audit-ia-toulouse.html">Diagnostic &amp; Audit IA</a> › Diagnostic de maturité IA</nav>
+</div>
+
+<main class="dx">
+  <div class="dx-cadre">
+
+    <div class="dx-corps">
+      <header class="dx-entete">
+        <a class="dx-marque" href="https://jaydenis.com/">JDENIS<b>.</b></a>
+        <span class="dx-lieu">Toulouse · Occitanie</span>
+      </header>
+
+      <div id="dx-app">
+        <noscript>
+          <p class="dx-figure">Diagnostic de maturité IA</p>
+          <h1 class="dx-titre">Votre entreprise utilise déjà l’IA. Sait-elle avec quel filet ?</h1>
+          <p class="lede">Quatorze questions, cinq minutes. Vous obtenez un niveau de maturité, une exposition réglementaire et les trois chantiers à ouvrir en premier.</p>
+          <p class="fine">Ce diagnostic se calcule dans votre navigateur : il demande JavaScript.
+          La méthode complète — les questions, le barème et les niveaux — est publiée
+          en clair plus bas sur cette page, et reste utilisable telle quelle.</p>
+        </noscript>
+      </div>
+
+      <footer class="dx-pied">
+        <span>JDENIS Consulting · Jérôme Denis</span>
+        <nav><a href="https://jaydenis.com/">jaydenis.com</a>
+          <a href="/verificateur-risque-ai-act.html">Test AI Act</a>
+          <a href="/formation-ia-entreprise-toulouse.html">Formation IA</a>
+          <a href="#methodologie">Méthode</a>
+          <a href="/mentions-legales.html">Mentions légales</a></nav>
+      </footer>
+    </div>
+  </div>
+
+  <div class="dx-cadre" style="margin-top:24px">
+
+    <div class="dx-corps">
+
+      <section id="methodologie" class="dx-bloc" data-num="08">
+        <p class="dx-figure">Méthodologie</p>
+        <h2 class="dx-sous">Comment ce diagnostic est-il calculé ?</h2>
+        <p class="dx-reponse">Tout est publié : les dix dimensions, le barème, les seuils de niveau et la formule de l'indice d'exposition. Un résultat qu'on ne peut pas vérifier ne vaut rien — ni pour vous, ni pour le confrère à qui vous le montrerez.</p>
+
+        <h2 class="dx-sous">Qu’est-ce qu’un diagnostic de maturité IA ?</h2>
+        <p class="dx-reponse">Un diagnostic de maturité IA est une auto-évaluation qui situe une entreprise sur une échelle d’adoption de l’intelligence artificielle. Celui-ci note dix dimensions de 0 à 3, soit un score sur 30, place l’entreprise sur l’un de quatre niveaux, et mesure séparément son exposition réglementaire. Il prend cinq minutes et ne demande aucune inscription.</p>
+
+        <h2 class="dx-sous">Qu’est-ce que l’indice d’exposition réglementaire ?</h2>
+        <p class="dx-reponse">L’indice d’exposition réglementaire est l’écart entre l’intensité d’usage de l’IA dans une entreprise et les garde-fous qu’elle a posés, chacun ramené sur cent. Une entreprise qui utilise beaucoup l’IA sans cadre est plus exposée qu’une entreprise qui n’en fait rien : c’est l’écart, et non le niveau d’usage, qui crée le risque.</p>
+        <h2 class="dx-sous" id="dimensions">Quelles dimensions ce diagnostic évalue-t-il ?</h2>
+        <p>Chaque dimension est notée de 0 à 3, pour un total de 30 points. Trois formats de
+        question coexistent : une réponse parmi quatre, une graduation entre deux pôles, ou des
+        cases à cocher dont le nombre coché donne les points.
+        Les questions de profil (rôle, effectif, secteur, implantation) ne comptent pas dans le score :
+        elles servent à situer la réponse.</p>
+        <div class="dx-scroll"><table>
+          <thead><tr><th>Réf.</th><th>Dimension</th><th>Question posée</th><th>Format</th><th>Points</th><th>Entre dans</th></tr></thead>
+          <tbody>
+        <tr>
+          <td><strong>A</strong></td>
+          <td>Usage réel</td>
+          <td>À quelle fréquence vos équipes se servent-elles d’outils d’IA générative — ChatGPT, Claude, Copilot, Gemini, Mistral ?</td>
+          <td>graduation</td>
+          <td>0–3</td>
+          <td>intensité d’usage</td>
+        </tr>
+        <tr>
+          <td><strong>B</strong></td>
+          <td>Comptes et données</td>
+          <td>Sur quels comptes vos collaborateurs utilisent-ils ces outils ?</td>
+          <td>une réponse</td>
+          <td>0–3</td>
+          <td>garde-fous</td>
+        </tr>
+        <tr>
+          <td><strong>C</strong></td>
+          <td>Cadre d’usage</td>
+          <td>Existe-t-il une règle écrite qui dit ce qu’on peut et ne peut pas faire avec l’IA chez vous ?</td>
+          <td>une réponse</td>
+          <td>0–3</td>
+          <td>garde-fous</td>
+        </tr>
+        <tr>
+          <td><strong>D</strong></td>
+          <td>AI Act</td>
+          <td>Où en êtes-vous des obligations du règlement européen sur l’IA (AI Act) ?</td>
+          <td>une réponse</td>
+          <td>0–3</td>
+          <td>garde-fous</td>
+        </tr>
+        <tr>
+          <td><strong>E</strong></td>
+          <td>RGPD</td>
+          <td>Vos traitements assistés par IA sont-ils traités comme des traitements de données personnelles ?</td>
+          <td>une réponse</td>
+          <td>0–3</td>
+          <td>garde-fous</td>
+        </tr>
+        <tr>
+          <td><strong>F</strong></td>
+          <td>Dialogue social</td>
+          <td>Les représentants du personnel ont-ils été associés à l’arrivée de l’IA dans les métiers ?</td>
+          <td>une réponse</td>
+          <td>0–3</td>
+          <td>garde-fous</td>
+        </tr>
+        <tr>
+          <td><strong>G</strong></td>
+          <td>Compétences</td>
+          <td>Vos équipes ont-elles été formées à l’IA générative ?</td>
+          <td>une réponse</td>
+          <td>0–3</td>
+          <td>capacité</td>
+        </tr>
+        <tr>
+          <td><strong>H</strong></td>
+          <td>Socle technique</td>
+          <td>Que met l’entreprise officiellement à disposition de ses équipes ?</td>
+          <td>cases à cocher</td>
+          <td>0–3</td>
+          <td>intensité d’usage</td>
+        </tr>
+        <tr>
+          <td><strong>I</strong></td>
+          <td>Données</td>
+          <td>Vos données métier sont-elles exploitables par un système d’IA ?</td>
+          <td>une réponse</td>
+          <td>0–3</td>
+          <td>intensité d’usage</td>
+        </tr>
+        <tr>
+          <td><strong>J</strong></td>
+          <td>Pilotage et ROI</td>
+          <td>Qui pilote le sujet IA, et sur quels chiffres ?</td>
+          <td>une réponse</td>
+          <td>0–3</td>
+          <td>capacité</td>
+        </tr>
+          </tbody>
+        </table></div>
+
+        <h2 class="dx-sous" id="niveaux">Comment se lisent les quatre niveaux de maturité ?</h2>
+        <p>Le score total place l’entreprise sur l’un de quatre niveaux. Les bornes sont fixes et
+        publiées ci-dessous : deux entreprises au même score obtiennent le même niveau.</p>
+        <div class="dx-scroll"><table>
+          <thead><tr><th>Niveau</th><th>Score</th><th>Ce que ça veut dire</th><th>Ce que je recommande</th></tr></thead>
+          <tbody>
+        <tr>
+          <td><strong>Hors radar</strong></td>
+          <td>0–7</td>
+          <td>L’IA n’est pas encore un sujet piloté chez vous.</td>
+          <td>Acculturation dirigeants + cadrage des premiers cas d’usage</td>
+        </tr>
+        <tr>
+          <td><strong>Usages sauvages</strong></td>
+          <td>8–15</td>
+          <td>Ça tourne déjà, mais sans cadre commun.</td>
+          <td>Charte d’usage IA + formation littératie IA (finançable OPCO)</td>
+        </tr>
+        <tr>
+          <td><strong>Cadre en place</strong></td>
+          <td>16–22</td>
+          <td>Le cadre existe. Reste à prouver la valeur.</td>
+          <td>Architecture IA sur mesure + mesure de valeur</td>
+        </tr>
+        <tr>
+          <td><strong>IA pilotée</strong></td>
+          <td>23–30</td>
+          <td>Piloté, mesuré, défendable. Le sujet est le passage à l’échelle.</td>
+          <td>Gouvernance IA distribuée + transfert de compétence interne</td>
+        </tr>
+          </tbody>
+        </table></div>
+
+      <h2 class="dx-sous" id="exposition">Comment l’écart d’exposition est-il calculé, exactement ?</h2>
+      <p class="dx-reponse">L’écart d’exposition est la différence, jamais négative, entre deux
+      sous-scores ramenés sur cent : l’intensité d’usage de l’IA d’un côté, les garde-fous de
+      l’autre. Il se lit sur quatre paliers, et deux règles de plancher le relèvent quand une
+      obligation ne dépend pas du niveau d’usage.</p>
+      <p>L’écart entre ce que vos équipes font déjà avec l’IA et les garde-fous que vous avez posés. C’est cet écart, pas le niveau d’usage, qui crée le risque.</p>
+      <p>Deux sous-scores sont calculés, chacun ramené sur cent :</p>
+      <ul>
+        <li><strong>Intensité d’usage</strong> — dimensions A, H, I.</li>
+        <li><strong>Garde-fous</strong> — dimensions B, C, D, E, F.</li>
+      </ul>
+      <p>L’<strong>écart d’exposition</strong> est la différence, jamais négative, entre l’intensité
+      d’usage et les garde-fous. Il se lit sur quatre paliers :</p>
+      <div class="dx-scroll"><table>
+        <thead><tr><th>Écart</th><th>Palier</th><th>Lecture</th></tr></thead>
+        <tbody>
+        <tr><td>0–14</td><td><strong>Maîtrisée</strong></td><td>Vos garde-fous suivent le rythme de vos usages.</td></tr>
+        <tr><td>15–34</td><td><strong>À surveiller</strong></td><td>Vos usages avancent un peu plus vite que votre cadre. Rien d’alarmant, à condition de ne pas laisser l’écart grandir.</td></tr>
+        <tr><td>35–59</td><td><strong>Élevée</strong></td><td>Vos équipes utilisent l’IA nettement au-delà de ce que votre cadre couvre. C’est la zone où surviennent les incidents dont on découvre l’ampleur après coup.</td></tr>
+        <tr><td>60–100</td><td><strong>Critique</strong></td><td>L’usage est massif et le cadre quasi inexistant. Un seul incident — une fuite, un contenu erroné diffusé, une réclamation d’un salarié — suffirait à vous mettre en difficulté.</td></tr>
+      </tbody>
+      </table></div>
+      <p>Deux règles de plancher s’ajoutent au calcul, parce que certaines obligations ne dépendent
+      pas du niveau d’usage : « Vos équipes utilisent l’IA sans que l’obligation de littératie IA de l’article 4 de l’AI Act soit couverte. » et « Des documents d’entreprise transitent par des comptes personnels sans contrat de sous-traitance. »
+      relèvent le palier au minimum au niveau « Élevée ».</p>
+        <h2 class="dx-sous" id="reperes">Sur quels textes ce diagnostic s’appuie-t-il ?</h2>
+        <p>Chaque affirmation juridique affichée porte sa source primaire et la date à laquelle
+        elle a été vérifiée. Les liens pointent vers EUR-Lex, Légifrance et la CNIL.</p>
+        <div class="dx-reperes">
+      <article class="dx-repere">
+        <h3>Littératie IA — article 4 de l’AI Act</h3>
+        <p>Le règlement (UE) 2024/1689 impose aux fournisseurs comme aux déployeurs de systèmes d’IA de veiller à un niveau suffisant de maîtrise de l’IA chez les personnes qui les utilisent pour leur compte. L’obligation vise toute entreprise utilisatrice, sans seuil d’effectif, et elle est applicable depuis le 2 février 2025 — elle n’attend donc aucune échéance à venir.</p>
+        <span class="src"><a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32024R1689" rel="noopener" target="_blank">Règlement (UE) 2024/1689, article 4 · applicable depuis le 02/02/2025</a> · vérifié le 07/09/2026</span>
+      </article>
+      <article class="dx-repere">
+        <h3>RGPD et IA</h3>
+        <p>Un prompt qui contient une donnée identifiante est un traitement de données personnelles : il entre au registre des activités de traitement, appelle une base légale, et un contrat de sous-traitance avec le fournisseur de l’outil.</p>
+        <span class="src"><a href="https://www.cnil.fr/fr/intelligence-artificielle" rel="noopener" target="_blank">Règlement (UE) 2016/679, articles 28, 30 et 35 · recommandations de la CNIL sur l’IA</a> · vérifié le 07/09/2026</span>
+      </article>
+      <article class="dx-repere">
+        <h3>Information-consultation du CSE</h3>
+        <p>L’introduction de nouvelles technologies ayant des conséquences sur l’emploi, la qualification, la rémunération, la formation ou les conditions de travail relève de la consultation du comité social et économique. Le CSE est obligatoire à partir de onze salariés sur douze mois consécutifs.</p>
+        <span class="src"><a href="https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006072050" rel="noopener" target="_blank">Code du travail, articles L. 2312-8 et L. 2311-2</a> · vérifié le 07/09/2026</span>
+      </article>
+      <article class="dx-repere">
+        <h3>Financement de la formation</h3>
+        <p>Les actions de formation à l’IA inscrites au plan de développement des compétences peuvent être prises en charge par votre opérateur de compétences. Les conditions et les taux varient selon l’OPCO, la taille de l’entreprise et l’année : à vérifier auprès du vôtre avant d’engager.</p>
+        <span class="src"><a href="https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006072050" rel="noopener" target="_blank">Code du travail, articles L. 6312-1 et suivants</a> · vérifié le 07/09/2026</span>
+      </article>
+        </div>
+        <p class="fine" style="margin-top:14px">Ces repères sont fournis à titre d’information et ne
+        constituent pas un conseil juridique. Les échéances et les modalités de financement évoluent :
+        la date de dernière vérification est indiquée sous chaque repère.</p>
+
+
+        <h2 class="dx-sous" id="perimetre">Ce que ce diagnostic fait, et ce qu’il ne fait pas</h2>
+        <p>La limite est aussi utile que la promesse : un outil de cinq minutes ne remplace pas l’examen d’une situation réelle.</p>
+        <div class="dx-scroll"><table>
+          <thead><tr><th>Ce qu’il fait</th><th>Ce qu’il ne fait pas</th></tr></thead>
+          <tbody>
+        <tr><td>Situer votre entreprise sur une échelle de maturité en cinq minutes</td><td>Réaliser un audit de conformité opposable</td></tr>
+        <tr><td>Mesurer l’écart entre vos usages et vos garde-fous</td><td>Vérifier la conformité d’un système d’IA précis</td></tr>
+        <tr><td>Désigner les trois chantiers à ouvrir en premier</td><td>Établir un plan d’action détaillé et chiffré</td></tr>
+        <tr><td>Citer les textes applicables avec leur date de vérification</td><td>Tenir lieu de conseil juridique</td></tr>
+        <tr><td>Fonctionner sans inscription et sans transmettre vos réponses</td><td>Conserver un historique de vos diagnostics</td></tr>
+          </tbody>
+        </table></div>
+        <h2 class="dx-sous" id="faq">Questions fréquentes</h2>
+        <div class="faq">
+      <details>
+        <summary>Le diagnostic est-il vraiment gratuit et sans inscription ?</summary>
+        <p>Oui. Les quatorze questions, le score, l'exposition réglementaire et les trois chantiers prioritaires s'affichent sans qu'on vous demande quoi que ce soit. Une adresse e-mail n'est demandée qu'après le résultat, et seulement si vous voulez recevoir l'analyse par écrit et la lettre hebdomadaire.</p>
+      </details>
+      <details>
+        <summary>Où vont mes réponses ?</summary>
+        <p>Nulle part. Le calcul se fait entièrement dans votre navigateur, en JavaScript. Aucune réponse n'est transmise à un serveur, ni à moi, ni à un tiers. Si vous copiez le lien de partage de votre résultat, ce lien contient vos réponses encodées : il n'existe aucune copie ailleurs, et personne ne peut retrouver votre diagnostic sans ce lien.</p>
+      </details>
+      <details>
+        <summary>Sur quoi repose le score ?</summary>
+        <p>Sur dix dimensions notées de 0 à 3, soit trente points. Six dimensions décrivent votre capacité à faire (usage réel, comptes, socle technique, données, compétences, pilotage), quatre décrivent votre cadre (charte, AI Act, RGPD, dialogue social). Le détail du barème et les seuils des quatre niveaux sont publiés sur cette page.</p>
+      </details>
+      <details>
+        <summary>Qu'est-ce que l'indice d'exposition ?</summary>
+        <p>L'écart entre l'intensité d'usage de l'IA dans vos équipes et les garde-fous que vous avez posés, chacun ramené sur cent. Une entreprise qui utilise beaucoup l'IA sans cadre est plus exposée qu'une entreprise qui n'en fait rien : c'est cet écart, et non le niveau d'usage, qui crée le risque. Deux règles de plancher s'y ajoutent, liées à des obligations qui ne dépendent pas du niveau d'usage.</p>
+      </details>
+      <details>
+        <summary>En quoi ce diagnostic est-il spécifiquement français ?</summary>
+        <p>Quatre des dix dimensions portent sur des obligations de droit français ou européen applicables aux entreprises établies en France : l'obligation de littératie IA de l'article 4 du règlement (UE) 2024/1689, le traitement des prompts au regard du RGPD, l'information-consultation du comité social et économique lors de l'introduction de nouvelles technologies, et le financement de la formation par les opérateurs de compétences. Les tranches d'effectif proposées suivent les seuils du code du travail, pas des tranches commerciales.</p>
+      </details>
+      <details>
+        <summary>Ce résultat a-t-il une valeur juridique ?</summary>
+        <p>Non. C'est un outil d'orientation, pas un audit de conformité et pas un conseil juridique. Il vous dit où regarder et dans quel ordre. Une position opposable — vis-à-vis d'un client, d'un assureur ou d'une autorité — demande un examen de votre situation réelle par votre conseil.</p>
+      </details>
+      <details>
+        <summary>Combien de temps faut-il vraiment ?</summary>
+        <p>Cinq minutes si vous répondez d'instinct, ce qui est la bonne façon de faire. Si vous hésitez sur une question, prenez la réponse la plus basse des deux : un diagnostic flatteur ne sert à rien.</p>
+      </details>
+      <details>
+        <summary>Et après ?</summary>
+        <p>Vous pouvez enregistrer le résultat en PDF, le partager par lien, ou m'appeler trente minutes pour le relire ensemble. Je suis Jérôme Denis, consultant et formateur IA à Toulouse : j'accompagne des PME françaises sur l'acculturation des dirigeants, la charte d'usage, la formation des équipes et l'architecture des systèmes.</p>
+      </details>
+        </div>
+
+        <h2 class="dx-sous" id="auteur">Qui a conçu ce diagnostic ?</h2>
+        <div class="dx-auteur">
+          <img src="/jerome-denis.jpg" alt="Jérôme Denis, consultant et formateur en intelligence artificielle à Toulouse" width="120" height="120" loading="lazy">
+          <div>
+            <p class="dx-auteur-nom">Jérôme Denis</p>
+            <p class="dx-auteur-role">Consultant et formateur en intelligence artificielle, Toulouse</p>
+            <p>J’accompagne des dirigeants de TPE, PME et ETI dans l’adoption de l’IA depuis Toulouse : acculturation des comités de direction, charte d’usage, formation des équipes sous agrément Qualiopi, architecture de systèmes. Vingt ans de transformation numérique, plus de cinquante entreprises accompagnées, expert au Collège Numérique France 2030, intervenant dans sept écoles supérieures. Ce diagnostic reprend la grille que j’utilise en début de mission — même barème, mêmes questions.</p>
+            <p class="dx-auteur-liens"><a href="https://www.linkedin.com/in/hierodeiis/" rel="me noopener" target="_blank">linkedin.com/in/hierodeiis</a> · <a href="https://x.com/hierodeiis" rel="me noopener" target="_blank">x.com/hierodeiis</a> · <a href="https://www.linkedin.com/company/j-denis-consulting" rel="me noopener" target="_blank">linkedin.com/company/j-denis-consulting</a></p>
+          </div>
+        </div>
+        <h2 class="dx-sous">Pour aller plus loin</h2>
+        <ul><li><a href="https://jaydenis.com/verificateur-risque-ai-act.html">Vérificateur de risque AI Act</a></li><li><a href="https://jaydenis.com/conformite-ai-act-gouvernance-donnees.html">Conformité AI Act et gouvernance des données</a></li><li><a href="https://jaydenis.com/formation-ia-entreprise-toulouse.html">Formation IA en entreprise</a></li><li><a href="https://jaydenis.com/architecture-ia-sur-mesure.html">Architecture IA sur mesure</a></li><li><a href="https://jaydenis.com/mentions-legales.html">Mentions légales</a></li>
+        </ul>
+
+        <p class="dx-dates">Publié le <time datetime="2026-09-08">08/09/2026</time> · mis à jour le <time datetime="2026-09-08">08/09/2026</time>.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>© 2026 JDENIS Consulting — Jérôme Denis, consultant IA à Toulouse</div>
+    <div>
+      <a href="/">Accueil</a>
+      <a href="/blog/">Blog</a>
+      <a href="/mentions-legales.html">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================================
+   MOTEUR DE DIAGNOSTIC — commun à toutes les marques
+   ----------------------------------------------------------------------------
+   Aucune dépendance, aucun appel réseau. Tout le calcul se fait dans le
+   navigateur du visiteur : c'est ce qui permet d'annoncer « rien n'est envoyé
+   nulle part » et de rester hors du champ d'un traitement de données au sens
+   du RGPD tant que le visiteur n'a pas saisi son e-mail lui-même.
+
+   Le moteur ne connaît pas le contenu : il reçoit une CONFIG (cf. src/config/)
+   et n'en manipule que la structure. Ajouter une marque = ajouter une config.
+   ========================================================================= */
+
+(function (global) {
+  'use strict';
+
+  /* --- Barème ------------------------------------------------------------ */
+
+  /* Trois façons de poser une question, un seul barème derrière :
+       'choix'    (défaut) — une réponse parmi N, la position vaut les points
+       'echelle'  — même chose, présentée comme une graduation
+       'multiple' — cocher ce qui s'applique ; les points valent le nombre de
+                    cases cochées, plafonné à q.max
+     Le moteur ne connaît que les points ; la présentation est affaire d'interface. */
+  function pointsMax(q) {
+    if (q.type === 'multiple') return q.max;
+    return q.choix.length - 1;
+  }
+
+  /** Score brut = somme des points des réponses de diagnostic. */
+  function scoreBrut(config, reponses) {
+    return config.questions.reduce(function (total, q) {
+      var r = reponses[q.id];
+      return total + (typeof r === 'number' ? r : 0);
+    }, 0);
+  }
+
+  /** Score maximum théorique (nb de questions × 3). */
+  function scoreMax(config) {
+    return config.questions.reduce(function (total, q) {
+      return total + pointsMax(q);
+    }, 0);
+  }
+
+  function pourcent(valeur, max) {
+    return max > 0 ? Math.round((valeur * 100) / max) : 0;
+  }
+
+  /** Niveau de maturité correspondant au score. */
+  function niveau(config, score) {
+    for (var i = 0; i < config.niveaux.length; i++) {
+      var n = config.niveaux[i];
+      if (score >= n.min && score <= n.max) return n;
+    }
+    return config.niveaux[0];
+  }
+
+  /* --- Indice d'exposition ------------------------------------------------
+     Spécificité française : la maturité seule ne dit rien du risque. Une PME
+     qui utilise massivement l'IA sans cadre est plus exposée qu'une PME qui
+     n'en fait rien. On mesure donc l'ÉCART entre l'intensité d'usage et les
+     garde-fous, chacun ramené sur 100.
+
+     La formule est publiée sur la page méthodologie : c'est ce qui rend le
+     résultat opposable et citable, y compris par un moteur génératif.
+     --------------------------------------------------------------------- */
+
+  function sommeDimensions(config, reponses, ids) {
+    var obtenu = 0;
+    var maxi = 0;
+    ids.forEach(function (id) {
+      var q = config.questions.filter(function (x) { return x.id === id; })[0];
+      if (!q) return;
+      maxi += pointsMax(q);
+      var r = reponses[id];
+      obtenu += typeof r === 'number' ? r : 0;
+    });
+    return { obtenu: obtenu, max: maxi, pct: pourcent(obtenu, maxi) };
+  }
+
+  function exposition(config, reponses) {
+    var e = config.exposition;
+    if (!e) return null;
+
+    var usage = sommeDimensions(config, reponses, e.usage);
+    var cadre = sommeDimensions(config, reponses, e.cadre);
+    var ecart = Math.max(0, usage.pct - cadre.pct);
+
+    // Index du palier atteint par l'écart.
+    var index = 0;
+    for (var i = 0; i < e.paliers.length; i++) {
+      if (ecart >= e.paliers[i].min) index = i;
+    }
+
+    // Planchers réglementaires : certaines obligations ne dépendent pas du
+    // niveau d'usage. Si la règle est déclenchée, le palier ne peut pas
+    // descendre en dessous du plancher indiqué.
+    var declencheurs = [];
+    (e.planchers || []).forEach(function (p) {
+      if (!p.si(reponses)) return;
+      declencheurs.push(p.motif);
+      if (p.palierMin > index) index = p.palierMin;
+    });
+
+    var palier = e.paliers[index];
+    return {
+      usagePct: usage.pct,
+      cadrePct: cadre.pct,
+      ecart: ecart,
+      palier: palier,
+      index: index,
+      declencheurs: declencheurs
+    };
+  }
+
+  /* --- Lecture par dimension --------------------------------------------- */
+
+  /** Un commentaire par dimension, choisi selon le nombre de points obtenus. */
+  function lecture(config, reponses) {
+    return config.questions.map(function (q, i) {
+      var pts = typeof reponses[q.id] === 'number' ? reponses[q.id] : 0;
+      return {
+        id: q.id,
+        rang: i,
+        titre: q.dimension,
+        points: pts,
+        max: pointsMax(q),
+        commentaire: q.paliers[pts] || q.paliers[0],
+        famille: q.famille || 'capacite'
+      };
+    });
+  }
+
+  /** Les N dimensions les plus faibles, à score égal dans l'ordre du questionnaire. */
+  function priorites(config, reponses, combien) {
+    var n = combien || 3;
+    return lecture(config, reponses)
+      .slice()
+      .sort(function (a, b) {
+        return a.points - b.points || a.rang - b.rang;
+      })
+      .slice(0, n);
+  }
+
+  /* --- Partage sans serveur ----------------------------------------------
+     Le résultat tient dans l'URL. Pas de base de données, pas d'identifiant à
+     stocker, pas de durée de conservation à justifier : le lien EST le
+     résultat. Les réponses sont encodées en base36 (un caractère par réponse)
+     puis préfixées par une version de barème, pour qu'un lien ancien reste
+     lisible si le questionnaire évolue.
+     --------------------------------------------------------------------- */
+
+  function encoder(config, reponses, profil) {
+    var q = config.questions.map(function (x) {
+      var v = reponses[x.id];
+      return (typeof v === 'number' ? v : 0).toString(36);
+    }).join('');
+    var p = config.profil.map(function (x) {
+      var idx = x.choix.map(function (c) { return c.id; }).indexOf(profil[x.champ]);
+      return (idx < 0 ? 35 : idx).toString(36);
+    }).join('');
+    return config.version + '.' + p + '.' + q;
+  }
+
+  function decoder(config, jeton) {
+    if (!jeton) return null;
+    var parts = String(jeton).split('.');
+    if (parts.length !== 3) return null;
+    if (parts[0] !== config.version) return null;
+
+    var profil = {};
+    config.profil.forEach(function (x, i) {
+      var idx = parseInt(parts[1].charAt(i), 36);
+      var choix = x.choix[idx];
+      profil[x.champ] = choix ? choix.id : '';
+    });
+
+    var reponses = {};
+    var complet = parts[2].length === config.questions.length;
+    config.questions.forEach(function (x, i) {
+      var v = parseInt(parts[2].charAt(i), 36);
+      reponses[x.id] = isNaN(v) ? 0 : Math.min(v, pointsMax(x));
+    });
+    return complet ? { profil: profil, reponses: reponses } : null;
+  }
+
+  /* --- Estimation chiffrée (optionnelle) ---------------------------------
+     Certaines marques vendent un chiffre, pas un niveau. La config fournit
+     alors une fonction `calculer` qui reçoit les réponses, le profil et un
+     accès aux sous-totaux ; le moteur ne fait que l'appeler et encadrer son
+     résultat. Toute estimation sort avec une fourchette et une note
+     d'hypothèses : un chiffre unique non sourcé ne se défend pas devant un
+     dirigeant, et encore moins devant son expert-comptable.
+     --------------------------------------------------------------------- */
+
+  function estimer(config, reponses, profil) {
+    var e = config.estimation;
+    if (!e || typeof e.calculer !== 'function') return null;
+
+    var outils = {
+      total: function (ids) { return sommeDimensions(config, reponses, ids); },
+      profil: profil || {}
+    };
+    var brut = e.calculer(reponses, profil || {}, outils);
+    if (!brut) return null;
+
+    var bas = Math.round(brut.bas);
+    var haut = Math.round(brut.haut);
+    if (haut < bas) { var t = bas; bas = haut; haut = t; }
+
+    var index = 0;
+    if (e.paliers) {
+      for (var i = 0; i < e.paliers.length; i++) {
+        if (haut >= e.paliers[i].min) index = i;
+      }
+    }
+
+    return {
+      bas: bas,
+      haut: haut,
+      unite: e.unite,
+      titre: e.titre,
+      note: e.note,
+      hypotheses: e.hypotheses || [],
+      secondaire: brut.secondaire || null,
+      palier: e.paliers ? e.paliers[index] : null,
+      index: index
+    };
+  }
+
+  /* --- Résultat complet --------------------------------------------------- */
+
+  function analyser(config, reponses, profil) {
+    var score = scoreBrut(config, reponses);
+    var max = scoreMax(config);
+    var niv = niveau(config, score);
+    return {
+      score: score,
+      max: max,
+      pourcent: pourcent(score, max),
+      niveau: niv,
+      recommandation: config.recommandations[niv.id],
+      exposition: exposition(config, reponses),
+      estimation: estimer(config, reponses, profil),
+      lecture: lecture(config, reponses),
+      priorites: priorites(config, reponses, 3),
+      jeton: encoder(config, reponses, profil || {})
+    };
+  }
+
+  global.MoteurDiagnostic = {
+    analyser: analyser,
+    scoreMax: scoreMax,
+    pointsMax: pointsMax,
+    niveau: niveau,
+    exposition: exposition,
+    estimer: estimer,
+    lecture: lecture,
+    priorites: priorites,
+    encoder: encoder,
+    decoder: decoder
+  };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+/* ============================================================================
+   CONFIG — JDENIS Consulting · Diagnostic de maturité IA
+   ----------------------------------------------------------------------------
+   Contenu intégralement écrit pour le droit et le contexte français :
+   règlement (UE) 2024/1689 (AI Act), RGPD, code du travail (CSE), financement
+   OPCO. Toute affirmation datée vit dans `reperes` — un seul endroit à mettre
+   à jour, cf. .claude/skills/legal/SKILL.md.
+
+   `version` sert de préfixe aux liens de partage. La changer invalide les
+   anciens liens : à ne faire que si le barème change (nb de questions, points).
+   ========================================================================= */
+
+window.CONFIG_DIAGNOSTIC = {
+  version: 'v1',
+  marque: 'jdenis',
+  da: 'fiche',            // 'fiche' (note d'analyse) ou 'instrument' (appareil de mesure)
+
+  identite: {
+    nom: 'JDENIS Consulting',
+    signature: 'Jérôme Denis',
+    site: 'https://jaydenis.com',
+    page: 'https://jaydenis.com/diagnostic-maturite-ia.html',
+    lieu: 'Toulouse · Occitanie',
+    contact: 'jdenis@jaydenis.com',
+    linkedin: 'https://www.linkedin.com/in/hierodeiis/',
+    rdv: 'https://jaydenis.com/#contact',
+    // Montage existant du site : POST vers l'Apps Script de la lettre SIGNAL IA,
+    // réponse absorbée par une iframe cachée.
+    collecte: {
+      url: 'https://script.google.com/macros/s/AKfycbydeEop5VmpXgzPycq8EVz4LK7-cg70JUIt27fJ0Yqemn1jJQ3Ae74MYQPQE8TUrElu4w/exec',
+      mode: 'iframe'
+    }
+  },
+
+  accueil: {
+    figure: 'Fig. 01',
+    surtitre: 'Diagnostic de maturité IA',
+    titre: 'Votre entreprise utilise déjà l’IA. Sait-elle avec quel filet ?',
+    accroche: 'Quatorze questions, cinq minutes. Vous obtenez un niveau de maturité, une exposition réglementaire et les trois chantiers à ouvrir en premier.',
+    sous: 'Un diagnostic de JDENIS Consulting, cabinet de conseil et de formation IA à Toulouse. Gratuit, sans inscription, calculé dans votre navigateur.',
+    cta: 'Commencer le diagnostic',
+    reprendre: 'Reprendre où j’en étais',
+    gages: ['14 questions', '5 minutes', 'Aucune donnée envoyée', 'Résultat immédiat']
+  },
+
+  /* --- Profil ------------------------------------------------------------
+     Les tranches d'effectif suivent les seuils du code du travail, pas des
+     tranches marketing : 11 (CSE obligatoire), 50 (attributions élargies et
+     BDESE), 250 (sortie de la catégorie PME au sens européen).
+     -------------------------------------------------------------------- */
+  profil: [
+    {
+      id: 'P_role', champ: 'role',
+      question: 'Quel est votre rôle dans l’organisation ?',
+      choix: [
+        { id: 'dirigeant', texte: 'Dirigeant, gérant, direction générale' },
+        { id: 'codir', texte: 'Membre du comité de direction' },
+        { id: 'it', texte: 'DSI, IT, digital' },
+        { id: 'rh', texte: 'RH, formation' },
+        { id: 'juridique', texte: 'Juridique, conformité, qualité' },
+        { id: 'operationnel', texte: 'Responsable opérationnel ou salarié' },
+        { id: 'independant', texte: 'Indépendant, TPE sans salarié' }
+      ]
+    },
+    {
+      id: 'P_taille', champ: 'effectif',
+      question: 'Combien de personnes travaillent dans l’entreprise ?',
+      choix: [
+        { id: '1-10', texte: '1 à 10' },
+        { id: '11-49', texte: '11 à 49' },
+        { id: '50-249', texte: '50 à 249' },
+        { id: '250+', texte: '250 et plus' }
+      ]
+    },
+    {
+      id: 'P_secteur', champ: 'secteur',
+      question: 'Votre secteur d’activité ?',
+      choix: [
+        { id: 'industrie', texte: 'Industrie, production, maintenance' },
+        { id: 'btp', texte: 'BTP, immobilier, énergie' },
+        { id: 'services', texte: 'Services aux entreprises' },
+        { id: 'conseil', texte: 'Cabinet libéral (compta, droit, conseil)' },
+        { id: 'sante', texte: 'Santé, médico-social' },
+        { id: 'finance', texte: 'Banque, assurance, courtage' },
+        { id: 'commerce', texte: 'Commerce, e-commerce, distribution' },
+        { id: 'public', texte: 'Secteur public, association, ESS' },
+        { id: 'autre', texte: 'Autre' }
+      ]
+    },
+    {
+      id: 'P_region', champ: 'region',
+      question: 'Où êtes-vous implanté ?',
+      choix: [
+        { id: 'occitanie', texte: 'Occitanie' },
+        { id: 'idf', texte: 'Île-de-France' },
+        { id: 'france', texte: 'Autre région française' },
+        { id: 'hors', texte: 'Hors de France' }
+      ]
+    }
+  ],
+
+  /* --- Dix dimensions ----------------------------------------------------
+     famille: 'usage' | 'cadre' | 'capacite'
+       usage    → alimente l'intensité d'usage de l'indice d'exposition
+       cadre    → alimente les garde-fous
+       capacite → compte dans la maturité, hors calcul d'exposition
+     -------------------------------------------------------------------- */
+  questions: [
+    {
+      id: 'A', dimension: 'Usage réel', famille: 'usage', type: 'echelle',
+      question: 'À quelle fréquence vos équipes se servent-elles d’outils d’IA générative — ChatGPT, Claude, Copilot, Gemini, Mistral ?',
+      aide: 'Répondez sur ce que vous constatez, pas sur ce qui est autorisé.',
+      poles: ['Jamais', 'Tous les jours'],
+      choix: [
+        { texte: 'Jamais, à ma connaissance' },
+        { texte: 'De loin en loin, quelques personnes' },
+        { texte: 'Chaque semaine, dans plusieurs équipes' },
+        { texte: 'Chaque jour, sur des tâches identifiées' }
+      ],
+      paliers: [
+        'Personne n’utilise l’IA générative — du moins officiellement. C’est rarement vrai : dans la plupart des entreprises que j’audite, l’usage a commencé avant que la direction ne l’apprenne.',
+        'Quelques volontaires s’en servent de leur côté. La valeur reste anecdotique et repose sur deux ou trois personnes qui partiront un jour avec leur savoir-faire.',
+        'L’usage est répandu et régulier. Le réflexe est pris : l’enjeu n’est plus l’adoption, c’est la qualité et l’homogénéité de ce qui sort.',
+        'L’IA est adossée à des tâches identifiées. Vous êtes sortis de l’expérimentation ; ce qui compte désormais, c’est de tenir la promesse à l’échelle.'
+      ]
+    },
+    {
+      id: 'B', dimension: 'Comptes et données', famille: 'cadre',
+      question: 'Sur quels comptes vos collaborateurs utilisent-ils ces outils ?',
+      choix: [
+        { texte: 'Comptes personnels gratuits, sans consigne' },
+        { texte: 'Comptes personnels, avec une consigne orale de prudence' },
+        { texte: 'Comptes professionnels pour une partie des équipes' },
+        { texte: 'Comptes professionnels, avec contrat et hébergement vérifiés' }
+      ],
+      paliers: [
+        'Vos collaborateurs déposent des documents d’entreprise sur des comptes personnels gratuits. Vous n’avez aucun contrat, aucune trace, aucune garantie sur ce qu’il advient de ces contenus.',
+        'La consigne existe mais elle est orale. Le jour où un fichier client se retrouve où il ne devrait pas, une consigne orale ne protège ni le salarié ni l’entreprise.',
+        'Une partie des équipes travaille sur des comptes professionnels. Reste à couvrir les autres : c’est toujours par la marge que la donnée s’échappe.',
+        'Comptes professionnels, contrats de sous-traitance et hébergement vérifiés. Vous pouvez répondre à une question de client ou d’auditeur sur ce point.'
+      ]
+    },
+    {
+      id: 'C', dimension: 'Cadre d’usage', famille: 'cadre',
+      question: 'Existe-t-il une règle écrite qui dit ce qu’on peut et ne peut pas faire avec l’IA chez vous ?',
+      choix: [
+        { texte: 'Rien d’écrit' },
+        { texte: 'Des consignes orales ou un mail ponctuel' },
+        { texte: 'Une charte écrite, diffusée aux équipes' },
+        { texte: 'Une charte opposable, annexée au règlement intérieur ou au contrat' }
+      ],
+      paliers: [
+        'Aucune règle écrite. En cas d’incident — fuite, contenu erroné publié, réclamation d’un salarié — rien ne dit qui devait faire quoi.',
+        'Vos règles tiennent dans un mail et dans la mémoire de ceux qui l’ont lu. Ce n’est pas opposable et ça ne survit pas à un départ.',
+        'Une charte écrite existe et circule. Le point suivant est de vérifier qu’elle est réellement appliquée, et de la faire vivre au rythme des outils.',
+        'Votre charte est écrite, diffusée et opposable. C’est la pièce que réclament les donneurs d’ordre et les assureurs.'
+      ]
+    },
+    {
+      id: 'D', dimension: 'AI Act', famille: 'cadre',
+      question: 'Où en êtes-vous des obligations du règlement européen sur l’IA (AI Act) ?',
+      choix: [
+        { texte: 'Je ne sais pas ce qu’il nous impose' },
+        { texte: 'J’en ai entendu parler, rien n’a été fait' },
+        { texte: 'Nous avons recensé nos usages et formé une partie des équipes' },
+        { texte: 'Inventaire tenu à jour, littératie IA assurée, rôles identifiés' }
+      ],
+      paliers: [
+        'L’AI Act ne vous a pas encore atteint. Il s’applique pourtant à toute entreprise qui <em>utilise</em> un système d’IA, pas seulement à celles qui en fabriquent.',
+        'Vous savez que le texte existe, rien n’a été engagé. L’obligation de littératie IA de l’article 4 ne demande pas un projet : elle demande que vos utilisateurs sachent ce qu’ils manipulent.',
+        'Usages recensés et premières formations faites. Il reste à tenir l’inventaire vivant et à couvrir toutes les personnes concernées.',
+        'Inventaire à jour, littératie assurée, rôles de fournisseur et de déployeur clarifiés. Vous êtes en position de répondre, pas de subir.'
+      ],
+      repere: 'ai-act-art4'
+    },
+    {
+      id: 'E', dimension: 'RGPD', famille: 'cadre',
+      question: 'Vos traitements assistés par IA sont-ils traités comme des traitements de données personnelles ?',
+      choix: [
+        { texte: 'La question ne s’est jamais posée' },
+        { texte: 'On évite « les données sensibles », sans définition précise' },
+        { texte: 'Les usages sont au registre, les sous-traitants sont contractualisés' },
+        { texte: 'Registre à jour, analyses d’impact faites quand elles sont requises' }
+      ],
+      paliers: [
+        'Vos usages d’IA ne sont pas rattachés à votre conformité RGPD. Or un prompt qui contient un nom de client est un traitement de données personnelles.',
+        'La consigne « pas de données sensibles » sans définition ne tient pas : chacun place le curseur où il veut, et le curseur descend avec l’habitude.',
+        'Vos usages figurent au registre et vos sous-traitants sont sous contrat. Il reste à traiter le cas des traitements qui appellent une analyse d’impact.',
+        'Registre à jour, analyses d’impact conduites quand elles sont requises. La CNIL trouverait à qui parler.'
+      ],
+      repere: 'rgpd'
+    },
+    {
+      id: 'F', dimension: 'Dialogue social', famille: 'cadre',
+      question: 'Les représentants du personnel ont-ils été associés à l’arrivée de l’IA dans les métiers ?',
+      choix: [
+        { texte: 'Non, et il n’y a pas de CSE' },
+        { texte: 'Il y a un CSE, mais le sujet n’a pas été porté devant lui' },
+        { texte: 'Le sujet a été présenté au CSE' },
+        { texte: 'Consultation menée, transparence organisée auprès des salariés' }
+      ],
+      paliers: [
+        'Aucune instance n’a été associée au sujet. Le seuil de onze salariés déclenche l’obligation de mettre en place un CSE ; à partir de là, une technologie qui change le travail passe par lui.',
+        'Vous avez un CSE et l’IA ne lui a pas été présentée. L’introduction de nouvelles technologies qui affectent les conditions de travail relève de l’information-consultation : c’est un contentieux évitable.',
+        'Le sujet a été porté devant le CSE. Reste à transformer la présentation en consultation en bonne et due forme et à documenter le retour.',
+        'Consultation menée et salariés informés de ce que l’IA change dans leur travail. C’est le point qui fait la différence entre une adoption réussie et un rejet.'
+      ],
+      repere: 'cse'
+    },
+    {
+      id: 'G', dimension: 'Compétences', famille: 'capacite',
+      question: 'Vos équipes ont-elles été formées à l’IA générative ?',
+      choix: [
+        { texte: 'Aucune formation' },
+        { texte: 'Chacun s’est débrouillé, avec des vidéos et des tutoriels' },
+        { texte: 'Des sessions ponctuelles pour certaines équipes' },
+        { texte: 'Un parcours structuré, inscrit au plan de développement des compétences' }
+      ],
+      paliers: [
+        'Personne n’a été formé. Vos équipes prennent leurs habitudes sur des vidéos, et les mauvais réflexes s’ancrent aussi vite que les bons.',
+        'L’auto-formation produit des écarts considérables d’une personne à l’autre, et personne ne sait qui sait quoi.',
+        'Des sessions ont eu lieu. Un parcours continu, inscrit au plan de développement des compétences, ancrerait durablement les acquis — et se finance.',
+        'Vous avez un parcours structuré et financé. La montée en compétence ne dépend plus de la curiosité individuelle.'
+      ],
+      repere: 'opco'
+    },
+    {
+      id: 'H', dimension: 'Socle technique', famille: 'usage', type: 'multiple', max: 3,
+      question: 'Que met l’entreprise officiellement à disposition de ses équipes ?',
+      aide: 'Comptes payés et administrés par l’entreprise — pas les comptes personnels de chacun.',
+      aucun: 'Rien de tout cela',
+      choix: [
+        { texte: 'Un assistant généraliste sous licence professionnelle (ChatGPT Team, Claude, Copilot, Mistral…)' },
+        { texte: 'L’IA intégrée à votre suite bureautique ou à votre messagerie' },
+        { texte: 'Un logiciel métier dont vous utilisez les fonctions d’IA' },
+        { texte: 'Un accès technique — API, plateforme — pour vos développements internes' }
+      ],
+      paliers: [
+        'Rien n’est fourni. Vos collaborateurs choisissent seuls leurs outils, et vous payez en risque ce que vous économisez en licences.',
+        'Une seule brique officielle. C’est un début, mais l’essentiel du travail se fait probablement ailleurs, hors de votre vue.',
+        'Deux briques officielles. Le socle prend forme : il reste à dire aux équipes ce qui est validé, pour quel usage.',
+        'Un socle large et administré. Vos équipes vont vite sans que vous ayez à fermer les yeux.'
+      ]
+    },
+    {
+      id: 'I', dimension: 'Données', famille: 'usage',
+      question: 'Vos données métier sont-elles exploitables par un système d’IA ?',
+      choix: [
+        { texte: 'Dispersées entre boîtes mail, disques partagés et papier' },
+        { texte: 'Partiellement structurées, en silos par service' },
+        { texte: 'Les données clés sont structurées et accessibles' },
+        { texte: 'Structurées, gouvernées, avec des règles d’accès claires' }
+      ],
+      paliers: [
+        'Vos données vivent dans des boîtes mail et des disques partagés. Aucun système d’IA ne produira quelque chose de fiable à partir de ça.',
+        'Les silos par service limitent l’IA à une vision partielle. Les cas d’usage à forte valeur sont précisément ceux qui traversent les services.',
+        'Vos données clés sont structurées et accessibles. Vous avez la matière première des cas d’usage qui rapportent.',
+        'Données structurées et gouvernées, accès maîtrisés. Vous pouvez brancher un système sur votre patrimoine sans ouvrir une brèche.'
+      ]
+    },
+    {
+      id: 'J', dimension: 'Pilotage et ROI', famille: 'capacite',
+      question: 'Qui pilote le sujet IA, et sur quels chiffres ?',
+      choix: [
+        { texte: 'Personne en particulier, aucun chiffre' },
+        { texte: 'Un référent officieux, quelques impressions de gain de temps' },
+        { texte: 'Un pilote identifié, des gains mesurés sur quelques cas' },
+        { texte: 'Une feuille de route portée par la direction, des indicateurs suivis' }
+      ],
+      paliers: [
+        'Personne ne pilote et rien n’est mesuré. Vous ne pouvez ni arbitrer un budget, ni défendre un investissement, ni arrêter ce qui ne marche pas.',
+        'Un référent officieux et des impressions. « On gagne du temps » n’a jamais convaincu un banquier ni un comité de direction.',
+        'Un pilote et des mesures sur quelques cas. Généralisez la mesure : c’est elle qui vous dira où remettre de l’argent.',
+        'Feuille de route portée par la direction et indicateurs suivis. Vous investissez sur des faits.'
+      ]
+    }
+  ],
+
+  /* --- Niveaux de maturité (score sur 30) -------------------------------- */
+  niveaux: [
+    {
+      id: 'horsradar', min: 0, max: 7, numero: 'Niveau 1', nom: 'Hors radar',
+      resume: 'L’IA n’est pas encore un sujet piloté chez vous.'
+    },
+    {
+      id: 'sauvage', min: 8, max: 15, numero: 'Niveau 2', nom: 'Usages sauvages',
+      resume: 'Ça tourne déjà, mais sans cadre commun.'
+    },
+    {
+      id: 'cadre', min: 16, max: 22, numero: 'Niveau 3', nom: 'Cadre en place',
+      resume: 'Le cadre existe. Reste à prouver la valeur.'
+    },
+    {
+      id: 'pilote', min: 23, max: 30, numero: 'Niveau 4', nom: 'IA pilotée',
+      resume: 'Piloté, mesuré, défendable. Le sujet est le passage à l’échelle.'
+    }
+  ],
+
+  recommandations: {
+    horsradar: {
+      lecture: 'Vous partez d’une page blanche — c’est plus confortable que de rattraper des usages installés dans le désordre. Le risque n’est pas technique : c’est celui de laisser vos concurrents prendre deux ans d’avance pendant que vous attendez d’être sûr.',
+      action: 'Commencez par une demi-journée d’acculturation du comité de direction : de quoi cette technologie est capable, ce qu’elle ne sait pas faire, et où elle vous concerne concrètement. Vous en sortez avec trois cas d’usage à tester, pas avec un plan à trois ans.',
+      offre: 'Acculturation dirigeants + cadrage des premiers cas d’usage'
+    },
+    sauvage: {
+      lecture: 'C’est la situation la plus fréquente et la plus inconfortable : l’usage est réel, la valeur aussi, mais rien ne le tient. Vous avez déjà les inconvénients de l’IA sans encore ses bénéfices consolidés.',
+      action: 'Deux chantiers en parallèle, six semaines : une charte d’usage écrite et opposable, et une session de formation qui couvre l’obligation de littératie IA. Le premier vous protège, le second rend le premier applicable.',
+      offre: 'Charte d’usage IA + formation littératie IA (finançable OPCO)'
+    },
+    cadre: {
+      lecture: 'Le cadre est posé et les équipes suivent. Votre difficulté n’est plus la conformité ni l’adoption : c’est de démontrer que tout cela produit de la valeur mesurable, et de choisir où mettre le prochain euro.',
+      action: 'Instrumentez deux ou trois cas d’usage sur des indicateurs simples — temps, taux d’erreur, délai de réponse — et industrialisez celui qui tient. C’est le passage du bricolage éclairé à l’architecture.',
+      offre: 'Architecture IA sur mesure + mesure de valeur'
+    },
+    pilote: {
+      lecture: 'Vous faites partie du petit nombre d’entreprises qui pilotent réellement le sujet. Ce qui vous menace maintenant, c’est l’écart entre le niveau du siège et celui des filiales, des agences ou des équipes terrain.',
+      action: 'Passez d’un pilotage central à une gouvernance distribuée : référents formés par métier, revue d’inventaire trimestrielle, et une capacité interne à évaluer un nouvel outil sans appeler à l’extérieur.',
+      offre: 'Gouvernance IA distribuée + transfert de compétence interne'
+    }
+  },
+
+  /* --- Indice d'exposition ------------------------------------------------ */
+  exposition: {
+    titre: 'Exposition réglementaire',
+    explication: 'L’écart entre ce que vos équipes font déjà avec l’IA et les garde-fous que vous avez posés. C’est cet écart, pas le niveau d’usage, qui crée le risque.',
+    usage: ['A', 'H', 'I'],
+    cadre: ['B', 'C', 'D', 'E', 'F'],
+    paliers: [
+      { min: 0, id: 'maitrisee', nom: 'Maîtrisée', phrase: 'Vos garde-fous suivent le rythme de vos usages.' },
+      { min: 15, id: 'surveiller', nom: 'À surveiller', phrase: 'Vos usages avancent un peu plus vite que votre cadre. Rien d’alarmant, à condition de ne pas laisser l’écart grandir.' },
+      { min: 35, id: 'elevee', nom: 'Élevée', phrase: 'Vos équipes utilisent l’IA nettement au-delà de ce que votre cadre couvre. C’est la zone où surviennent les incidents dont on découvre l’ampleur après coup.' },
+      { min: 60, id: 'critique', nom: 'Critique', phrase: 'L’usage est massif et le cadre quasi inexistant. Un seul incident — une fuite, un contenu erroné diffusé, une réclamation d’un salarié — suffirait à vous mettre en difficulté.' }
+    ],
+    planchers: [
+      {
+        motif: 'Vos équipes utilisent l’IA sans que l’obligation de littératie IA de l’article 4 de l’AI Act soit couverte.',
+        palierMin: 2,
+        si: function (r) { return r.A >= 1 && r.D === 0; }
+      },
+      {
+        motif: 'Des documents d’entreprise transitent par des comptes personnels sans contrat de sous-traitance.',
+        palierMin: 2,
+        si: function (r) { return r.B === 0 && r.A >= 2; }
+      }
+    ]
+  },
+
+  /* --- Repères réglementaires --------------------------------------------
+     Un seul endroit pour les affirmations datées. Chaque entrée porte sa
+     source et la date de dernière vérification ; la page les affiche telles
+     quelles. Voir .claude/skills/legal/SKILL.md pour la procédure de mise à jour.
+     -------------------------------------------------------------------- */
+  reperes: {
+    'ai-act-art4': {
+      titre: 'Littératie IA — article 4 de l’AI Act',
+      texte: 'Le règlement (UE) 2024/1689 impose aux fournisseurs comme aux déployeurs de systèmes d’IA de veiller à un niveau suffisant de maîtrise de l’IA chez les personnes qui les utilisent pour leur compte. L’obligation vise toute entreprise utilisatrice, sans seuil d’effectif, et elle est applicable depuis le 2 février 2025 — elle n’attend donc aucune échéance à venir.',
+      source: 'Règlement (UE) 2024/1689, article 4 · applicable depuis le 02/02/2025',
+      lien: 'https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32024R1689',
+      verifieLe: '2026-09-07'
+    },
+    rgpd: {
+      titre: 'RGPD et IA',
+      texte: 'Un prompt qui contient une donnée identifiante est un traitement de données personnelles : il entre au registre des activités de traitement, appelle une base légale, et un contrat de sous-traitance avec le fournisseur de l’outil.',
+      source: 'Règlement (UE) 2016/679, articles 28, 30 et 35 · recommandations de la CNIL sur l’IA',
+      lien: 'https://www.cnil.fr/fr/intelligence-artificielle',
+      verifieLe: '2026-09-07'
+    },
+    cse: {
+      titre: 'Information-consultation du CSE',
+      texte: 'L’introduction de nouvelles technologies ayant des conséquences sur l’emploi, la qualification, la rémunération, la formation ou les conditions de travail relève de la consultation du comité social et économique. Le CSE est obligatoire à partir de onze salariés sur douze mois consécutifs.',
+      source: 'Code du travail, articles L. 2312-8 et L. 2311-2',
+      lien: 'https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006072050',
+      verifieLe: '2026-09-07'
+    },
+    opco: {
+      titre: 'Financement de la formation',
+      texte: 'Les actions de formation à l’IA inscrites au plan de développement des compétences peuvent être prises en charge par votre opérateur de compétences. Les conditions et les taux varient selon l’OPCO, la taille de l’entreprise et l’année : à vérifier auprès du vôtre avant d’engager.',
+      source: 'Code du travail, articles L. 6312-1 et suivants',
+      lien: 'https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006072050',
+      verifieLe: '2026-09-07'
+    }
+  },
+
+  /* --- Capture d'e-mail --------------------------------------------------- */
+  suite: {
+    titre: 'Recevoir l’analyse complète',
+    texte: 'Votre résultat détaillé au format PDF, les repères réglementaires à jour et la lettre SIGNAL IA — un point par semaine sur ce qui change réellement pour les entreprises françaises.',
+    bouton: 'Recevoir l’analyse',
+    consentement: 'J’accepte de recevoir l’analyse et la lettre SIGNAL IA. Désinscription en un clic, adresse jamais cédée.',
+    confirmation: 'C’est envoyé. Vérifiez votre boîte — et vos indésirables, la première fois.',
+    erreur: 'L’envoi n’a pas abouti. Réessayez dans un instant, ou passez par le bouton de rendez-vous.'
+  },
+
+  cta: {
+    titre: 'Vous voulez le regarder à deux ?',
+    texte: 'Trente minutes au téléphone pour relire votre résultat, corriger ce que le questionnaire a mal compris de votre situation, et repartir avec un ordre de priorité. Sans engagement.',
+    bouton: 'Prendre trente minutes',
+    secondaire: 'Écrire directement'
+  },
+
+  liens: [
+    { texte: 'Vérificateur de risque AI Act', url: 'https://jaydenis.com/verificateur-risque-ai-act.html' },
+    { texte: 'Conformité AI Act et gouvernance des données', url: 'https://jaydenis.com/conformite-ai-act-gouvernance-donnees.html' },
+    { texte: 'Formation IA en entreprise', url: 'https://jaydenis.com/formation-ia-entreprise-toulouse.html' },
+    { texte: 'Architecture IA sur mesure', url: 'https://jaydenis.com/architecture-ia-sur-mesure.html' },
+    { texte: 'Mentions légales', url: 'https://jaydenis.com/mentions-legales.html' }
+  ]
+};
+
+</script>
+<script>
+/* ============================================================================
+   INTERFACE — rendu du parcours (accueil → profil → questions → résultat)
+   ----------------------------------------------------------------------------
+   Aucune dépendance. Le contenu vient de window.CONFIG_DIAGNOSTIC, le calcul
+   de window.MoteurDiagnostic. Ce fichier ne contient aucun texte de marque.
+   ========================================================================= */
+
+(function () {
+  'use strict';
+
+  var C = window.CONFIG_DIAGNOSTIC;
+  var M = window.MoteurDiagnostic;
+  var racine = document.getElementById('dx-app');
+  if (!C || !M || !racine) return;
+
+  var CLE = 'dx-' + C.marque + '-' + C.version;
+  var etapes = C.profil.concat(C.questions);
+  var MAX = M.scoreMax(C);
+
+  /* Deux directions artistiques possibles, déclarées par la page :
+       'fiche'      — note d'analyse : la grille, la carte, sections numérotées
+       'instrument' — appareil de mesure : cadran, règle graduée
+     Le parcours et le barème sont identiques ; seuls les objets changent. */
+  var FICHE = C.da === 'fiche';
+
+  var etat = {
+    ecran: 'accueil',   // accueil | etape | resultat
+    index: 0,
+    profil: {},
+    reponses: {},
+    multiples: {},      // sélections des questions à cocher, pour la navigation arrière
+    partage: false      // résultat ouvert depuis un lien
+  };
+
+  /* --- Utilitaires -------------------------------------------------------- */
+
+  function ech(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+  /* Les paliers de config peuvent contenir un <em> volontaire : on autorise
+     cette seule balise, tout le reste est échappé. */
+  function texteRiche(s) {
+    return ech(s).replace(/&lt;em&gt;/g, '<em>').replace(/&lt;\/em&gt;/g, '</em>');
+  }
+  /* Coupe un libellé en lignes de `large` caractères au plus, sans couper les
+     mots : les noms de niveaux sont libres et peuvent être longs. */
+  function couper(texte, large) {
+    var mots = String(texte).split(' ');
+    var lignes = [];
+    var ligne = '';
+    mots.forEach(function (m) {
+      var essai = ligne ? ligne + ' ' + m : m;
+      if (essai.length > large && ligne) { lignes.push(ligne); ligne = m; }
+      else { ligne = essai; }
+    });
+    if (ligne) lignes.push(ligne);
+    return lignes;
+  }
+
+  function el(sel) { return racine.querySelector(sel); }
+  function tous(sel) { return Array.prototype.slice.call(racine.querySelectorAll(sel)); }
+
+  function sauver() {
+    try {
+      localStorage.setItem(CLE, JSON.stringify({
+        index: etat.index, profil: etat.profil,
+        reponses: etat.reponses, multiples: etat.multiples
+      }));
+    } catch (e) { /* navigation privée : on continue sans mémoire */ }
+  }
+  function charger() {
+    try {
+      var d = JSON.parse(localStorage.getItem(CLE) || 'null');
+      if (d && typeof d.index === 'number') return d;
+    } catch (e) {}
+    return null;
+  }
+  function oublier() { try { localStorage.removeItem(CLE); } catch (e) {} }
+
+  /* Mesure d'audience : window.gtag n'existe que si le visiteur a consenti
+     (cf. /consent.js). Sans consentement, ces appels ne font rien. */
+  function mesure(nom, params) {
+    try { if (window.gtag) window.gtag('event', nom, params || {}); } catch (e) {}
+  }
+
+  /* Ouverture de section : en « fiche », le numéro vit dans la gouttière ;
+     en « instrument », il s'écrit en tête sous forme de figure numérotée. */
+  function sec(num, extra) {
+    return '<section class="dx-bloc' + (extra ? ' ' + extra : '') + '"' +
+      (FICHE ? ' data-num="' + num + '"' : '') + '>';
+  }
+  function libelle(num, texte) {
+    return FICHE
+      ? '<p class="dx-figure">' + ech(texte) + '</p>'
+      : '<p class="dx-figure">Fig. ' + num + ' <span>· ' + ech(texte) + '</span></p>';
+  }
+  function lettre(i) { return String.fromCharCode(65 + i); }
+
+  /* --- Géométrie du cadran ------------------------------------------------ */
+
+  var CX = 160, CY = 136, R = 108, BALAI = 192;
+
+  function polaire(angleDeg, rayon) {
+    var a = (angleDeg - 90) * Math.PI / 180;
+    return [CX + rayon * Math.cos(a), CY + rayon * Math.sin(a)];
+  }
+  function angleScore(score) { return -BALAI / 2 + (score / MAX) * BALAI; }
+
+  function arc(deb, fin, rayon) {
+    var p1 = polaire(deb, rayon), p2 = polaire(fin, rayon);
+    var grand = (fin - deb) > 180 ? 1 : 0;
+    return 'M' + p1[0].toFixed(1) + ' ' + p1[1].toFixed(1) +
+           ' A' + rayon + ' ' + rayon + ' 0 ' + grand + ' 1 ' +
+           p2[0].toFixed(1) + ' ' + p2[1].toFixed(1);
+  }
+
+  function svgCadran(score) {
+    var s = ['<svg viewBox="0 0 320 214" role="img" aria-label="Score de maturité : ' +
+             score + ' sur ' + MAX + '">'];
+
+    // Arc de fond, un segment par niveau
+    C.niveaux.forEach(function (n, i) {
+      var a1 = angleScore(n.min - (i === 0 ? 0 : 0.5));
+      var a2 = angleScore(n.max + 0.5 > MAX ? MAX : n.max + 0.5);
+      s.push('<path d="' + arc(a1, a2, R) + '" fill="none" stroke="' +
+             (i % 2 ? 'var(--hairline)' : 'var(--line)') + '" stroke-width="9"/>');
+    });
+
+    // Graduations
+    for (var v = 0; v <= MAX; v++) {
+      var majeur = v % 5 === 0;
+      var a = angleScore(v);
+      var p1 = polaire(a, R - (majeur ? 9 : 5));
+      var p2 = polaire(a, R - 14);
+      s.push('<line x1="' + p1[0].toFixed(1) + '" y1="' + p1[1].toFixed(1) +
+             '" x2="' + p2[0].toFixed(1) + '" y2="' + p2[1].toFixed(1) +
+             '" stroke="' + (majeur ? 'var(--ink-3)' : 'var(--line)') +
+             '" stroke-width="' + (majeur ? 1.4 : 1) + '"/>');
+      if (majeur) {
+        var pt = polaire(a, R - 27);
+        s.push('<text x="' + pt[0].toFixed(1) + '" y="' + (pt[1] + 4).toFixed(1) +
+               '" text-anchor="middle" font-size="10" font-family="var(--mono)" ' +
+               'fill="var(--ink-3)">' + v + '</text>');
+      }
+    }
+
+    // Aiguille
+    var bout = polaire(0, R - 22);
+    s.push('<g class="dx-aiguille" style="--angle:' + angleScore(score).toFixed(1) + 'deg">');
+    s.push('<line x1="' + CX + '" y1="' + CY + '" x2="' + bout[0].toFixed(1) +
+           '" y2="' + bout[1].toFixed(1) + '" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/>');
+    s.push('</g>');
+    s.push('<circle cx="' + CX + '" cy="' + CY + '" r="5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"/>');
+    s.push('<circle cx="' + CX + '" cy="' + CY + '" r="1.6" fill="var(--accent)"/>');
+
+    // Valeur, lue sous le pivot dans le secteur laissé ouvert par l'arc
+    s.push('<text x="' + CX + '" y="' + (CY + 54) + '" text-anchor="middle" ' +
+           'class="dx-score" font-size="46" fill="var(--ink)">' + score + '</text>');
+    s.push('<text x="' + CX + '" y="' + (CY + 72) + '" text-anchor="middle" font-size="9.5" ' +
+           'font-family="var(--mono)" letter-spacing="2.4" fill="var(--ink-3)">SUR ' + MAX + '</text>');
+    s.push('</svg>');
+    return s.join('');
+  }
+
+  /* --- La grille : l'objet qui porte le score en direction « fiche » -------
+     Dix lignes, trois cases. Le nombre de cases pleines EST le score, et la
+     forme de la colonne dit tout de suite où ça coince. Un cadran donne un
+     chiffre ; la grille donne le chiffre et sa décomposition d'un seul regard.
+     --------------------------------------------------------------------- */
+
+  function vueGrille(res) {
+    var lignes = res.lecture.map(function (d) {
+      var basse = res.priorites.some(function (p) { return p.id === d.id; });
+      var cases = '';
+      for (var i = 1; i <= d.max; i++) cases += '<i class="' + (i <= d.points ? 'on' : '') + '"></i>';
+      return '<div class="dx-gl' + (basse ? ' basse' : '') + '">' +
+        '<span class="nom">' + ech(d.titre) + '</span>' +
+        '<span class="cases" role="img" aria-label="' + d.points + ' sur ' + d.max + '">' +
+          cases + '</span>' +
+      '</div>';
+    }).join('');
+
+    return '<figure class="dx-grille dx-rev" style="--i:2">' +
+      '<div class="dx-grille-tete">' +
+        '<span class="dx-grille-chiffre">' + res.score + '</span>' +
+        '<span class="dx-grille-sur">sur ' + res.max + '</span>' +
+      '</div>' +
+      '<div class="dx-grille-lignes">' + lignes + '</div>' +
+      '<div class="dx-grille-pied">' +
+        '<span>' + C.questions.length + ' dimensions</span>' +
+        '<span>3 points chacune</span>' +
+      '</div>' +
+    '</figure>';
+  }
+
+  function objetScore(res) {
+    if (FICHE) return vueGrille(res);
+    return '<figure class="dx-cadran dx-rev" style="--i:2">' + svgCadran(res.score) + '</figure>';
+  }
+
+  /* --- Règle graduée de l'accueil ----------------------------------------- */
+
+  /* Accueil, direction « fiche » : l'échelle se lit comme un barème imprimé,
+     pas comme une réglette. Chaque niveau montre sa plage et le remplissage
+     correspondant sur les 30 points. */
+  function vueEchelleNiveaux() {
+    return '<div class="dx-niv-liste">' + C.niveaux.map(function (n) {
+      var ruban = '';
+      for (var i = 1; i <= MAX; i++) ruban += '<i class="' + (i <= n.max ? 'on' : '') + '"></i>';
+      return '<div class="dx-niv">' +
+        '<span class="nom">' + ech(n.nom) + '</span>' +
+        '<span class="plage">' + n.min + '–' + n.max + '</span>' +
+        '<p class="res">' + ech(n.resume) + '</p>' +
+        '<span class="ruban" aria-hidden="true">' + ruban + '</span>' +
+      '</div>';
+    }).join('') + '</div>';
+  }
+
+  function figureAccueil() {
+    if (FICHE) return vueEchelleNiveaux();
+    return svgRegle();
+  }
+
+  function svgRegle() {
+    var H = 300, haut = 22, bas = H - 20, axe = 196;
+    var s = ['<svg viewBox="0 0 240 ' + H + '" role="img" aria-label="Échelle des ' +
+             C.niveaux.length + ' niveaux de maturité, de 0 à ' + MAX + '">'];
+    var y = function (v) { return bas - (v / MAX) * (bas - haut); };
+
+    s.push('<line x1="' + axe + '" y1="' + haut + '" x2="' + axe + '" y2="' + bas +
+           '" stroke="var(--line)" stroke-width="1.4"/>');
+
+    for (var v = 0; v <= MAX; v++) {
+      var majeur = v % 5 === 0;
+      s.push('<line x1="' + (axe - (majeur ? 16 : 8)) + '" y1="' + y(v).toFixed(1) +
+             '" x2="' + axe + '" y2="' + y(v).toFixed(1) + '" stroke="' +
+             (majeur ? 'var(--ink-3)' : 'var(--hairline)') + '" stroke-width="' +
+             (majeur ? 1.3 : 1) + '"/>');
+      if (majeur) {
+        s.push('<text x="' + (axe - 21) + '" y="' + (y(v) + 3.5).toFixed(1) +
+               '" text-anchor="end" font-size="10" font-family="var(--mono)" ' +
+               'fill="var(--ink-3)">' + (v < 10 ? '0' + v : v) + '</text>');
+      }
+    }
+
+    C.niveaux.forEach(function (n, i) {
+      var milieu = y((n.min + n.max) / 2);
+      s.push('<line x1="14" y1="' + y(n.max).toFixed(1) + '" x2="' + (axe - 26) +
+             '" y2="' + y(n.max).toFixed(1) + '" stroke="var(--hairline)" stroke-width="1"/>');
+      var lignes = couper(n.nom, 21);
+      var haut0 = milieu + 4 - (lignes.length - 1) * 6;
+      var couleur = i === C.niveaux.length - 1 ? 'var(--accent-ink)' : 'var(--ink-2)';
+      s.push('<text x="14" y="' + haut0.toFixed(1) + '" font-size="10.5" ' +
+             'font-family="var(--mono)" letter-spacing="0.3" fill="' + couleur + '">' +
+             lignes.map(function (l, k) {
+               return '<tspan x="14"' + (k ? ' dy="12"' : '') + '>' + ech(l) + '</tspan>';
+             }).join('') + '</text>');
+    });
+
+    s.push('<polygon points="' + (axe + 3) + ',' + bas + ' ' + (axe + 14) + ',' +
+           (bas - 6) + ' ' + (axe + 14) + ',' + (bas + 6) + '" fill="var(--accent)"/>');
+    s.push('</svg>');
+    return s.join('');
+  }
+
+  /* --- Écran : accueil ----------------------------------------------------- */
+
+  function vueAccueil() {
+    var a = C.accueil;
+    var repris = charger();
+    return '' +
+      '<div class="dx-accueil">' +
+        '<div>' +
+          '<div class="dx-rev" style="--i:1">' + libelle('01', a.surtitre) + '</div>' +
+          '<h1 class="dx-titre dx-rev" style="--i:2">' + ech(a.titre) + '</h1>' +
+          '<p class="lede dx-rev" style="--i:3">' + ech(a.accroche) + '</p>' +
+          '<p class="fine dx-rev" style="--i:4">' + ech(a.sous) + '</p>' +
+          '<div class="dx-rev" style="--i:5">' +
+            '<button type="button" class="dx-btn dx-btn-1" data-act="commencer">' +
+              ech(a.cta) + ' <span class="fl" aria-hidden="true">→</span></button>' +
+            (repris && repris.index > 0
+              ? ' <button type="button" class="dx-btn dx-btn-3" data-act="reprendre">' +
+                ech(a.reprendre) + ' (' + repris.index + '/' + etapes.length + ')</button>'
+              : '') +
+          '</div>' +
+          '<ul class="dx-gages dx-rev" style="--i:6">' +
+            a.gages.map(function (g) { return '<li>' + ech(g) + '</li>'; }).join('') +
+          '</ul>' +
+        '</div>' +
+        '<figure class="dx-planche dx-rev" style="--i:5">' +
+          '<figcaption><span>' + ech(a.surtitre) + '</span><span>0–' + MAX + '</span></figcaption>' +
+          figureAccueil() +
+        '</figure>' +
+      '</div>';
+  }
+
+  /* --- Écran : une étape --------------------------------------------------- */
+
+  /* --- Écran : une étape ---------------------------------------------------
+     Trois présentations, un seul barème :
+       choix    — une réponse parmi N, en lignes réglées lettrées A/B/C/D
+       echelle  — la même chose posée sur une graduation entre deux pôles
+       multiple — cocher ce qui s'applique, plus une case « aucun » explicite
+     --------------------------------------------------------------------- */
+
+  function optionsChoix(q, choisi, estProfil) {
+    return '<ul class="dx-choix">' + q.choix.map(function (c, i) {
+      var val = estProfil ? c.id : i;
+      var actif = estProfil ? choisi === c.id : choisi === i;
+      return '<li><label>' +
+        '<input type="radio" name="dx-c" value="' + ech(val) + '"' + (actif ? ' checked' : '') + '>' +
+        (FICHE
+          ? '<span class="lettre" aria-hidden="true">' + lettre(i) + '</span>'
+          : '<span class="case" aria-hidden="true"></span>') +
+        '<span class="txt">' + ech(c.texte) + '</span>' +
+      '</label></li>';
+    }).join('') + '</ul>';
+  }
+
+  function optionsEchelle(q, choisi) {
+    var crans = q.choix.map(function (c, i) {
+      return '<label>' +
+        '<input type="radio" name="dx-c" value="' + i + '"' + (choisi === i ? ' checked' : '') + '>' +
+        '<span class="cran" aria-hidden="true"></span>' +
+        '<span class="txt">' + ech(c.texte) + '</span>' +
+      '</label>';
+    }).join('');
+    return '<div class="dx-grad">' +
+      '<div class="dx-grad-poles"><span>' + ech(q.poles[0]) + '</span>' +
+        '<span>' + ech(q.poles[1]) + '</span></div>' +
+      '<div class="dx-grad-rail">' + crans + '</div>' +
+    '</div>';
+  }
+
+  function optionsMultiple(q) {
+    var sel = etat.multiples[q.id] || [];
+    var aucun = etat.multiples[q.id] && sel.length === 0;
+    var cases = q.choix.map(function (c, i) {
+      return '<li><label>' +
+        '<input type="checkbox" name="dx-m" value="' + i + '"' +
+          (sel.indexOf(i) >= 0 ? ' checked' : '') + '>' +
+        '<span class="coche" aria-hidden="true"></span>' +
+        '<span class="txt">' + ech(c.texte) + '</span>' +
+      '</label></li>';
+    }).join('');
+    return '<ul class="dx-multi">' + cases +
+      '<li><label>' +
+        '<input type="checkbox" name="dx-m" data-aucun="1" value="-1"' +
+          (aucun ? ' checked' : '') + '>' +
+        '<span class="coche" aria-hidden="true"></span>' +
+        '<span class="txt">' + ech(q.aucun) + '</span>' +
+      '</label></li></ul>' +
+      '<p class="dx-multi-note">Cochez tout ce qui s’applique. ' +
+        'Au-delà de ' + q.max + ', le maximum de points est atteint.</p>';
+  }
+
+  function vueEtape() {
+    var q = etapes[etat.index];
+    var estProfil = etat.index < C.profil.length;
+    var choisi = estProfil ? etat.profil[q.champ] : etat.reponses[q.id];
+    var num = etat.index + 1;
+    var faits = etat.index;
+
+    var corps;
+    if (estProfil || !q.type || q.type === 'choix') corps = optionsChoix(q, choisi, estProfil);
+    else if (q.type === 'echelle') corps = optionsEchelle(q, choisi);
+    else corps = optionsMultiple(q);
+
+    var progression;
+    if (FICHE) {
+      var traits = '';
+      for (var i = 0; i < etapes.length; i++) {
+        traits += '<i class="' + (i < faits ? 'on' : (i === faits ? 'ici' : '')) + '"></i>';
+      }
+      progression = '<div class="dx-progression">' +
+        '<div class="rang">' +
+          '<span>' + (estProfil ? 'Votre situation' : 'Diagnostic') + '</span>' +
+          '<span><b>' + (num < 10 ? '0' + num : num) + '</b> / ' + etapes.length + '</span>' +
+        '</div>' +
+        '<div class="dx-traits" aria-hidden="true">' + traits + '</div>' +
+      '</div>';
+    } else {
+      progression = '<div class="dx-progression">' +
+        '<div class="rang">' +
+          '<span>' + (estProfil ? 'Profil' : 'Diagnostic') + ' · ' +
+            (num < 10 ? '0' + num : num) + ' / ' + etapes.length + '</span>' +
+          '<span>' + Math.round((faits / etapes.length) * 100) + ' %</span>' +
+        '</div>' +
+        '<div class="dx-jauge"><i style="width:' +
+          Math.round((faits / etapes.length) * 100) + '%"></i></div>' +
+      '</div>';
+    }
+
+    var chapeau = estProfil ? '' : (FICHE
+      ? '<p class="dx-figure"><b>' + ech(q.id) + '</b> · ' + ech(q.dimension) + '</p>'
+      : '<p class="dx-figure">Dimension ' + ech(q.id) + ' <span>· ' + ech(q.dimension) + '</span></p>');
+
+    return progression +
+      '<div class="dx-question">' +
+        chapeau +
+        '<h2 class="enonce">' + ech(q.question) + '</h2>' +
+        (q.aide ? '<p class="aide">' + ech(q.aide) + '</p>' : '') +
+        corps +
+        '<div class="dx-nav">' +
+          '<button type="button" class="dx-btn dx-btn-2" data-act="precedent">← Précédent</button>' +
+          '<button type="button" class="dx-btn dx-btn-1" data-act="suivant"' +
+            (valider() ? '' : ' disabled') + '>' +
+            (etat.index === etapes.length - 1 ? 'Voir le résultat' : 'Suivant') +
+            ' <span class="fl" aria-hidden="true">→</span></button>' +
+        '</div>' +
+      '</div>';
+  }
+
+  /* --- Écran : résultat ---------------------------------------------------- */
+
+  /* --- La carte : le plan usage × garde-fous -------------------------------
+     L'indice d'exposition est par nature une relation entre deux grandeurs.
+     Une réglette linéaire l'aplatit ; un plan la montre. La diagonale est la
+     ligne d'équilibre — autant de garde-fous que d'usage. Tout ce qui tombe
+     en dessous est de l'exposition, et la distance à la diagonale la mesure.
+     --------------------------------------------------------------------- */
+
+  function vueCarte(x) {
+    var G = 54, H = 14, T = 272;                 // gouttière, marge haute, côté
+    var px = function (v) { return G + (v / 100) * T; };
+    var py = function (v) { return (H + T) - (v / 100) * T; };
+    var e = C.exposition;
+    var teintes = ['var(--panel)', 'var(--accent-veil)', '#f7e6df', '#eecbbd'];
+
+    var o = ['<svg viewBox="0 0 340 340" role="img" aria-label="Position sur le plan ' +
+             'usage contre garde-fous : usage ' + x.usagePct + ' sur 100, garde-fous ' +
+             x.cadrePct + ' sur 100, écart ' + x.ecart + '">'];
+
+    // Bandes d'exposition, parallèles à la diagonale
+    e.paliers.forEach(function (p, i) {
+      var a = p.min;
+      var b = i + 1 < e.paliers.length ? e.paliers[i + 1].min : 100;
+      o.push('<polygon points="' +
+        px(a) + ',' + py(0) + ' ' + px(b) + ',' + py(0) + ' ' +
+        px(100) + ',' + py(100 - b) + ' ' + px(100) + ',' + py(100 - a) +
+        '" fill="' + teintes[i] + '"/>');
+    });
+
+    // Diagonale d'équilibre
+    o.push('<line x1="' + px(0) + '" y1="' + py(0) + '" x2="' + px(100) + '" y2="' + py(100) +
+           '" stroke="var(--ink-3)" stroke-width="1.2" stroke-dasharray="5 4"/>');
+    o.push('<text x="' + px(52) + '" y="' + (py(52) - 8) + '" font-size="10.5" ' +
+           'fill="var(--ink-3)" transform="rotate(-45 ' + px(52) + ' ' + (py(52) - 8) + ')" ' +
+           'letter-spacing="1.2">ÉQUILIBRE</text>');
+
+    // Axes
+    o.push('<line x1="' + px(0) + '" y1="' + py(0) + '" x2="' + px(100) + '" y2="' + py(0) +
+           '" stroke="var(--ink)" stroke-width="1.4"/>');
+    o.push('<line x1="' + px(0) + '" y1="' + py(0) + '" x2="' + px(0) + '" y2="' + py(100) +
+           '" stroke="var(--ink)" stroke-width="1.4"/>');
+    [0, 50, 100].forEach(function (v) {
+      o.push('<text x="' + px(v) + '" y="' + (py(0) + 16) + '" text-anchor="middle" ' +
+             'font-size="10" fill="var(--ink-3)">' + v + '</text>');
+      o.push('<text x="' + (px(0) - 8) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" ' +
+             'font-size="10" fill="var(--ink-3)">' + v + '</text>');
+    });
+    o.push('<text x="' + px(100) + '" y="' + (py(0) + 32) + '" text-anchor="end" font-size="10.5" ' +
+           'font-weight="600" letter-spacing="1.2" fill="var(--ink-2)">USAGE RÉEL →</text>');
+    o.push('<text x="' + (px(0) - 30) + '" y="' + py(100) + '" text-anchor="end" font-size="10.5" ' +
+           'font-weight="600" letter-spacing="1.2" fill="var(--ink-2)" ' +
+           'transform="rotate(-90 ' + (px(0) - 30) + ' ' + py(100) + ')">GARDE-FOUS →</text>');
+
+    // Chute vers la diagonale : c'est elle qu'on lit comme « l'écart »
+    if (x.ecart > 0) {
+      o.push('<line x1="' + px(x.usagePct) + '" y1="' + py(x.cadrePct) + '" x2="' +
+             px(x.usagePct) + '" y2="' + py(x.usagePct) +
+             '" stroke="var(--alerte)" stroke-width="1.6" stroke-dasharray="3 3"/>');
+      o.push('<text x="' + (px(x.usagePct) + 7) + '" y="' +
+             ((py(x.cadrePct) + py(x.usagePct)) / 2 + 4) + '" font-size="11" ' +
+             'font-weight="700" fill="var(--alerte)">' + x.ecart + '</text>');
+    }
+
+    // Position de l'entreprise
+    o.push('<circle cx="' + px(x.usagePct) + '" cy="' + py(x.cadrePct) +
+           '" r="7" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/>');
+    o.push('</svg>');
+    return o.join('');
+  }
+
+  function vueExpositionFiche(x) {
+    var e = C.exposition;
+    return '<div class="dx-carte-bloc">' +
+      '<figure class="dx-carte">' + vueCarte(x) +
+        '<figcaption>Chaque point sous la diagonale est de l’exposition. ' +
+        'Plus il en est loin, plus vos usages ont pris de l’avance sur votre cadre.</figcaption>' +
+      '</figure>' +
+      '<div class="dx-verdict-expo" data-palier="' + ech(x.palier.id) + '">' +
+        '<p class="dx-etiquette">' + ech(e.titre) + '</p>' +
+        '<p class="palier">' + ech(x.palier.nom) + '</p>' +
+        '<p class="fine">' + ech(x.palier.phrase) + '</p>' +
+        '<div class="dx-mesures">' +
+          '<div class="dx-mesure"><span class="lib">Usage réel</span>' +
+            '<span class="val">' + x.usagePct + '</span></div>' +
+          '<div class="dx-mesure"><span class="lib">Garde-fous</span>' +
+            '<span class="val">' + x.cadrePct + '</span></div>' +
+          '<div class="dx-mesure ecart"><span class="lib">Écart</span>' +
+            '<span class="val">' + x.ecart + '</span></div>' +
+        '</div>' +
+        (x.declencheurs.length
+          ? '<ul class="dx-declencheurs">' + x.declencheurs.map(function (d) {
+              return '<li>' + ech(d) + '</li>'; }).join('') + '</ul>'
+          : '') +
+      '</div>' +
+    '</div>';
+  }
+
+  function vueExposition(x) {
+    if (!x) return '';
+    if (FICHE) return vueExpositionFiche(x);
+    var e = C.exposition;
+    var largeurs = e.paliers.map(function (p, i) {
+      var fin = i + 1 < e.paliers.length ? e.paliers[i + 1].min : 100;
+      return fin - p.min;
+    });
+    var teintes = ['var(--hairline)', 'var(--accent-line)', '#eec7bf', '#d99e93'];
+    var zones = largeurs.map(function (l, i) {
+      return '<i style="width:' + l + '%;background:' + teintes[i] + '"></i>';
+    }).join('');
+
+    return '' +
+      '<div class="dx-expo" data-palier="' + ech(x.palier.id) + '">' +
+        '<div class="dx-expo-tete">' +
+          '<p class="dx-etiquette" style="margin:0">' + ech(e.titre) + '</p>' +
+          '<span class="dx-expo-val">' + ech(x.palier.nom) + '</span>' +
+        '</div>' +
+        '<p class="fine" style="margin-bottom:2px">' + ech(x.palier.phrase) + '</p>' +
+        '<div class="dx-echelle">' +
+          '<div class="zones">' + zones + '</div>' +
+          '<span class="curseur" style="left:' + Math.min(99, x.ecart) + '%"></span>' +
+          '<div class="graduations"><span>0</span><span>écart usage / cadre</span><span>100</span></div>' +
+        '</div>' +
+        '<div class="dx-barres">' +
+          '<div class="dx-barre usage"><span>Usage réel</span>' +
+            '<span class="piste"><i style="width:' + x.usagePct + '%"></i></span>' +
+            '<span class="val">' + x.usagePct + '</span></div>' +
+          '<div class="dx-barre cadre"><span>Garde-fous</span>' +
+            '<span class="piste"><i style="width:' + x.cadrePct + '%"></i></span>' +
+            '<span class="val">' + x.cadrePct + '</span></div>' +
+        '</div>' +
+        (x.declencheurs.length
+          ? '<ul class="dx-declencheurs">' + x.declencheurs.map(function (d) {
+              return '<li>' + ech(d) + '</li>';
+            }).join('') + '</ul>'
+          : '') +
+      '</div>';
+  }
+
+  /* Variante « fiche » : la fourchette se lit sur une échelle d'heures avec
+     deux repères parlants — un mi-temps, un poste. Un grand nombre isolé ne
+     dit rien ; posé sur une échelle, il se compare. */
+  function vueEstimationFiche(x) {
+    var hyp = x.hypotheses.length
+      ? '<details class="dx-hypotheses"><summary>Les hypothèses de ce calcul</summary><ul>' +
+        x.hypotheses.map(function (h) { return '<li>' + ech(h) + '</li>'; }).join('') +
+        '</ul></details>'
+      : '';
+    var plafond = Math.max(160, Math.ceil((x.haut * 1.3) / 40) * 40);
+    var pc = function (v) { return Math.max(0, Math.min(100, (v / plafond) * 100)); };
+
+    return '<div class="dx-estim"' + (x.palier ? ' data-palier="' + ech(x.palier.id) + '"' : '') + '>' +
+      '<p class="dx-etiquette">' + ech(x.titre) + '</p>' +
+      '<p class="dx-estim-val">' + x.bas + '<span class="sep">–</span>' + x.haut +
+        '<span class="unite">' + ech(x.unite) + '</span></p>' +
+      '<div class="dx-echelle-h" role="img" aria-label="Fourchette de ' + x.bas + ' à ' +
+        x.haut + ' sur une échelle allant jusqu’à ' + plafond + '">' +
+        '<i class="zone" style="width:' + pc(x.bas) + '%"></i>' +
+        '<i class="plage" style="width:' + (pc(x.haut) - pc(x.bas)) + '%"></i>' +
+        '<i class="zone" style="width:' + (100 - pc(x.haut)) + '%"></i>' +
+      '</div>' +
+      '<div class="dx-echelle-reperes"><span>0 h</span>' +
+        '<span>≈ un mi-temps</span><span>' + plafond + ' h</span></div>' +
+      (x.palier ? '<p class="dx-estim-palier">' + ech(x.palier.nom) + ' — ' +
+        ech(x.palier.phrase) + '</p>' : '') +
+      (x.secondaire ? '<p class="dx-estim-sec">' + ech(x.secondaire) + '</p>' : '') +
+      '<p class="dx-estim-note">' + ech(x.note) + '</p>' + hyp +
+    '</div>';
+  }
+
+  function vueEstimation(x) {
+    if (!x) return '';
+    if (FICHE) return vueEstimationFiche(x);
+    var hyp = x.hypotheses.length
+      ? '<details class="dx-hypotheses"><summary>Les hypothèses de ce calcul</summary><ul>' +
+        x.hypotheses.map(function (h) { return '<li>' + ech(h) + '</li>'; }).join('') +
+        '</ul></details>'
+      : '';
+    return '' +
+      '<div class="dx-estim"' + (x.palier ? ' data-palier="' + ech(x.palier.id) + '"' : '') + '>' +
+        '<p class="dx-etiquette" style="margin:0 0 6px">' + ech(x.titre) + '</p>' +
+        '<p class="dx-estim-val">' + x.bas + '<span class="sep">–</span>' + x.haut +
+          ' <span class="unite">' + ech(x.unite) + '</span></p>' +
+        (x.palier ? '<p class="dx-estim-palier">' + ech(x.palier.nom) + ' — ' +
+          ech(x.palier.phrase) + '</p>' : '') +
+        (x.secondaire ? '<p class="dx-estim-sec">' + ech(x.secondaire) + '</p>' : '') +
+        '<p class="dx-estim-note">' + ech(x.note) + '</p>' +
+        hyp +
+      '</div>';
+  }
+
+  function vueReperes(res) {
+    var vus = {};
+    var liste = [];
+    res.priorites.forEach(function (p) {
+      var q = C.questions.filter(function (x) { return x.id === p.id; })[0];
+      if (q && q.repere && C.reperes[q.repere] && !vus[q.repere]) {
+        vus[q.repere] = 1;
+        liste.push(C.reperes[q.repere]);
+      }
+    });
+    if (!liste.length) return '';
+    return '' +
+      sec('04') +
+        libelle('05', 'Repères réglementaires') +
+        '<h2 class="dx-sous">Ce que dit le texte</h2>' +
+        '<div class="dx-reperes">' +
+          liste.map(function (r) {
+            return '<article class="dx-repere">' +
+              '<h3>' + ech(r.titre) + '</h3>' +
+              '<p>' + ech(r.texte) + '</p>' +
+              '<span class="src">' + ech(r.source) + ' · vérifié le ' +
+                ech(dateFr(r.verifieLe)) + '</span>' +
+            '</article>';
+          }).join('') +
+        '</div>' +
+        '<p class="fine" style="margin-top:14px;font-size:.85rem">Ces repères sont fournis à titre ' +
+          'd’information et ne constituent pas un conseil juridique. Pour une position opposable, ' +
+          'faites valider votre situation par votre conseil.</p>' +
+      '</section>';
+  }
+
+  function dateFr(iso) {
+    var p = String(iso).split('-');
+    return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : iso;
+  }
+
+  function vueResultat() {
+    var res = M.analyser(C, etat.reponses, etat.profil);
+    var reco = res.recommandation;
+    var lien = C.identite.page + '#r=' + res.jeton;
+
+    var dims = res.lecture.map(function (d) {
+      var faible = res.priorites.some(function (p) { return p.id === d.id; });
+      var plots = '';
+      for (var i = 1; i <= d.max; i++) plots += '<i class="' + (i <= d.points ? 'on' : '') + '"></i>';
+      return '<div class="dx-dim' + (faible ? ' faible' : '') + '">' +
+        '<span class="nom">' + ech(d.titre) + '</span>' +
+        '<span class="plots" aria-label="' + d.points + ' sur ' + d.max + '">' + plots + '</span>' +
+        '<p class="cmt">' + texteRiche(d.commentaire) + '</p>' +
+      '</div>';
+    }).join('');
+
+    var prios = res.priorites.map(function (p) {
+      var q = C.questions.filter(function (x) { return x.id === p.id; })[0];
+      return '<li class="dx-prio">' +
+        '<h3>' + ech(p.titre) + '</h3>' +
+        '<p>' + texteRiche(p.commentaire) + '</p>' +
+      '</li>';
+    }).join('');
+
+    return '' +
+      sec('01', 'dx-anim') +
+        '<div class="dx-rev" style="--i:1">' + libelle('02', 'Résultat') + '</div>' +
+        '<div class="dx-verdict">' +
+          objetScore(res) +
+          '<div class="dx-rev" style="--i:3">' +
+            '<span class="dx-niveau-num">' + ech(res.niveau.numero) + '</span>' +
+            '<p class="dx-niveau-nom">' + ech(res.niveau.nom) + '</p>' +
+            '<p class="lede">' + ech(res.niveau.resume) + '</p>' +
+            '<p class="fine">' + ech(reco.lecture) + '</p>' +
+          '</div>' +
+        '</div>' +
+      '</section>' +
+
+      (res.exposition ? sec('02', 'dx-rev') +
+        libelle('03', C.exposition.titre) +
+        '<h2 class="dx-sous">L’écart qui crée le risque</h2>' +
+        '<p class="fine" style="max-width:62ch">' + ech(C.exposition.explication) + '</p>' +
+        vueExposition(res.exposition) +
+      '</section>' : '') +
+
+      (res.estimation ? sec('02', 'dx-rev') +
+        libelle('03', res.estimation.titre) +
+        '<h2 class="dx-sous">' + ech(C.estimation.sousTitre) + '</h2>' +
+        '<p class="fine" style="max-width:62ch">' + ech(C.estimation.explication) + '</p>' +
+        vueEstimation(res.estimation) +
+      '</section>' : '') +
+
+      sec('03') +
+        libelle('04', 'Par où commencer') +
+        '<h2 class="dx-sous">Vos trois chantiers prioritaires</h2>' +
+        '<p class="fine">Les trois dimensions où vous êtes le plus bas. Dans cet ordre.</p>' +
+        '<ol class="dx-priorites">' + prios + '</ol>' +
+        '<div class="dx-offre" style="margin-top:22px">' +
+          '<span class="tag">Ce que je ferais à votre place</span>' +
+          '<p style="margin-bottom:10px">' + ech(reco.action) + '</p>' +
+          '<p class="dx-etiquette" style="color:var(--accent-ink)">→ ' + ech(reco.offre) + '</p>' +
+        '</div>' +
+      '</section>' +
+
+      vueReperes(res) +
+
+      sec('05') +
+        libelle('06', 'Lecture détaillée') +
+        '<h2 class="dx-sous">Les ' + C.questions.length + ' dimensions, une par une</h2>' +
+        '<div class="dx-dimensions">' + dims + '</div>' +
+      '</section>' +
+
+      ((C.identite.collecte && C.identite.collecte.url) ? sec('06', 'dx-noprint') +
+        libelle('07', 'Suite') +
+        '<h2 class="dx-sous">' + ech(C.suite.titre) + '</h2>' +
+        '<p class="fine" style="max-width:58ch">' + ech(C.suite.texte) + '</p>' +
+        formulaire(res) +
+      '</section>' : '') +
+
+      sec('07', 'dx-noprint') +
+        '<div class="dx-offre">' +
+          '<h2 class="dx-sous" style="margin-bottom:8px">' + ech(C.cta.titre) + '</h2>' +
+          '<p style="margin-bottom:16px">' + ech(C.cta.texte) + '</p>' +
+          '<a class="dx-btn dx-btn-1" href="' + ech(C.identite.rdv) + '">' + ech(C.cta.bouton) +
+            ' <span class="fl" aria-hidden="true">→</span></a> ' +
+          lienSecondaire(res) +
+        '</div>' +
+        '<div class="dx-actions">' +
+          '<button type="button" class="dx-btn dx-btn-2" data-act="imprimer">Enregistrer en PDF</button>' +
+          '<button type="button" class="dx-btn dx-btn-2" data-act="copier">Copier le lien du résultat</button>' +
+          '<button type="button" class="dx-btn dx-btn-3" data-act="recommencer">Recommencer</button>' +
+        '</div>' +
+        '<code class="dx-lien-partage" data-lien>' + ech(lien) + '</code>' +
+        '<p class="fine" style="font-size:.82rem;margin-top:8px">Ce lien contient vos réponses, ' +
+          'rien d’autre. Il n’existe aucune copie de votre diagnostic ailleurs que dans ce lien.</p>' +
+      '</section>';
+  }
+
+  /* Deux façons d'envoyer, selon ce que le site hôte a déjà en place :
+
+     - 'iframe'    : POST classique vers un Google Apps Script, réponse absorbée
+                     par une iframe cachée. C'est le montage de la lettre SIGNAL IA.
+     - 'formspree' : POST en fetch vers un identifiant de formulaire. L'adresse de
+                     destination est configurée dans le compte Formspree et
+                     n'apparaît nulle part dans la page — ni dans le HTML servi,
+                     ni dans le trafic réseau visible par le visiteur.
+
+     Dans les deux cas, aucune adresse de destinataire n'est écrite dans la page. */
+  /* Le second bouton n'écrit une adresse dans la page que si la config en donne
+     une explicitement. Sinon il renvoie vers le formulaire, dont le destinataire
+     reste côté serveur. */
+  function lienSecondaire(res) {
+    if (!C.cta.secondaire) return '';
+    if (C.identite.contact) {
+      return '<a class="dx-btn dx-btn-2" href="mailto:' + ech(C.identite.contact) +
+        '?subject=' + encodeURIComponent(C.accueil.surtitre + ' — ' + res.niveau.nom +
+        ' (' + res.score + '/' + MAX + ')') + '">' + ech(C.cta.secondaire) + '</a>';
+    }
+    if (C.identite.collecte && C.identite.collecte.url) {
+      return '<button type="button" class="dx-btn dx-btn-2" data-act="vers-formulaire">' +
+        ech(C.cta.secondaire) + '</button>';
+    }
+    return '';
+  }
+
+  function formulaire(res) {
+    var c = C.identite.collecte;
+    if (!c || !c.url) return '';
+    var formspree = c.mode === 'formspree';
+
+    var contexte = [
+      ['source', 'diagnostic-' + C.marque],
+      ['score', res.score + '/' + MAX],
+      ['niveau', res.niveau.nom],
+      ['profil', [etat.profil.role, etat.profil.effectif, etat.profil.secteur,
+                  etat.profil.region || etat.profil.horizon].join(' \u00b7 ')],
+      ['jeton', res.jeton]
+    ];
+    if (res.exposition) contexte.push(['exposition', res.exposition.palier.nom]);
+    if (res.estimation) {
+      contexte.push(['gisement', res.estimation.bas + ' a ' + res.estimation.haut +
+                     ' ' + res.estimation.unite]);
+    }
+    if (formspree) {
+      contexte.push(['_subject', (c.sujet || 'Diagnostic') + ' \u2014 ' +
+                     res.niveau.nom + ' (' + res.score + '/' + MAX + ')']);
+      contexte.push(['_language', 'fr']);
+    }
+
+    var caches = contexte.map(function (p) {
+      return '<input type="hidden" name="' + ech(p[0]) + '" value="' + ech(p[1]) + '">';
+    }).join('');
+
+    // Piège à robots : nom attendu par Formspree côté serveur, champ neutre sinon.
+    var piege = formspree ? '_gotcha' : 'societe';
+
+    return '' +
+      '<form class="dx-form" id="dx-form" method="post" action="' + ech(c.url) + '"' +
+        (formspree ? ' data-mode="formspree"' : ' target="dx-cadre-envoi"') + '>' +
+        '<input type="email" name="email" required placeholder="' +
+          ech(C.suite.exemple || 'prenom@entreprise.fr') + '" ' +
+          'autocomplete="email" aria-label="Votre adresse e-mail professionnelle">' +
+        '<input type="text" name="' + piege + '" class="pot" tabindex="-1" ' +
+          'autocomplete="off" aria-hidden="true">' +
+        caches +
+        '<label class="consent"><input type="checkbox" name="consent" required value="oui"> ' +
+          '<span>' + ech(C.suite.consentement) + '</span></label>' +
+        '<div><button type="submit" class="dx-btn dx-btn-1">' + ech(C.suite.bouton) + '</button></div>' +
+        '<p class="msg" hidden data-msg>' + ech(C.suite.confirmation) + '</p>' +
+        '<p class="msg err" hidden data-err>' + ech(C.suite.erreur ||
+          'L\u2019envoi n\u2019a pas abouti. R\u00e9essayez dans un instant.') + '</p>' +
+      '</form>' +
+      (formspree ? '' :
+        '<iframe name="dx-cadre-envoi" style="display:none" title="Envoi" aria-hidden="true"></iframe>');
+  }
+
+  /* --- Rendu et navigation -------------------------------------------------- */
+
+  function rendre() {
+    if (etat.ecran === 'accueil') racine.innerHTML = vueAccueil();
+    else if (etat.ecran === 'etape') racine.innerHTML = vueEtape();
+    else racine.innerHTML = vueResultat();
+
+    var titre = el('.dx-titre, .enonce, .dx-niveau-nom');
+    if (titre && etat.ecran !== 'accueil') {
+      titre.setAttribute('tabindex', '-1');
+      titre.focus({ preventScroll: true });
+    }
+    if (etat.ecran !== 'accueil') {
+      var cadre = document.querySelector('.dx-cadre');
+      if (cadre && cadre.getBoundingClientRect().top < 0) cadre.scrollIntoView({ block: 'start' });
+    }
+  }
+
+  function valider() {
+    var q = etapes[etat.index];
+    var estProfil = etat.index < C.profil.length;
+    if (!estProfil && q.type === 'multiple') {
+      // Une liste vide est une réponse valable, à condition d'avoir été donnée.
+      return Object.prototype.hasOwnProperty.call(etat.multiples, q.id);
+    }
+    var v = estProfil ? etat.profil[q.champ] : etat.reponses[q.id];
+    return !(v === undefined || v === '');
+  }
+
+  function avancer() {
+    if (!valider()) return;
+    if (etat.index === etapes.length - 1) {
+      etat.ecran = 'resultat';
+      oublier();
+      var fin = M.analyser(C, etat.reponses, etat.profil);
+      mesure('diagnostic_fin', {
+        marque: C.marque, score: fin.score, niveau: fin.niveau.id,
+        exposition: fin.exposition ? fin.exposition.palier.id : '',
+        effectif: etat.profil.effectif || '', secteur: etat.profil.secteur || ''
+      });
+    } else {
+      etat.index++;
+      sauver();
+    }
+    rendre();
+  }
+
+  function reculer() {
+    if (etat.index === 0) { etat.ecran = 'accueil'; }
+    else { etat.index--; }
+    sauver();
+    rendre();
+  }
+
+  /* --- Événements ----------------------------------------------------------- */
+
+  racine.addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-act]');
+    if (!b) return;
+    var act = b.getAttribute('data-act');
+
+    if (act === 'commencer') {
+      etat.index = 0; etat.ecran = 'etape'; oublier(); mesure('diagnostic_debut', { marque: C.marque }); rendre();
+    } else if (act === 'reprendre') {
+      var d = charger();
+      if (d) {
+        etat.index = d.index; etat.profil = d.profil || {};
+        etat.reponses = d.reponses || {}; etat.multiples = d.multiples || {};
+      }
+      etat.ecran = 'etape'; rendre();
+    } else if (act === 'suivant') {
+      avancer();
+    } else if (act === 'precedent') {
+      reculer();
+    } else if (act === 'recommencer') {
+      etat = { ecran: 'accueil', index: 0, profil: {}, reponses: {}, multiples: {}, partage: false };
+      oublier();
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+      rendre();
+    } else if (act === 'vers-formulaire') {
+      var champ = el('#dx-form input[type=email]');
+      if (champ) { champ.scrollIntoView({ block: 'center' }); champ.focus(); }
+    } else if (act === 'imprimer') {
+      mesure('diagnostic_pdf', { marque: C.marque });
+      window.print();
+    } else if (act === 'copier') {
+      var code = el('[data-lien]');
+      if (!code) return;
+      var txt = code.textContent;
+      var fini = function () { b.textContent = 'Lien copié'; setTimeout(function () {
+        b.textContent = 'Copier le lien du résultat'; }, 2200); };
+      if (navigator.clipboard) navigator.clipboard.writeText(txt).then(fini, fini);
+      else fini();
+    }
+  });
+
+  racine.addEventListener('change', function (ev) {
+    var r = ev.target;
+    var q = etapes[etat.index];
+
+    if (r.matches('input[name="dx-c"]')) {
+      if (etat.index < C.profil.length) etat.profil[q.champ] = r.value;
+      else etat.reponses[q.id] = parseInt(r.value, 10);
+
+    } else if (r.matches('input[name="dx-m"]')) {
+      var cases = tous('input[name="dx-m"]');
+      var aucun = cases.filter(function (c) { return c.hasAttribute('data-aucun'); })[0];
+      if (r.hasAttribute('data-aucun')) {
+        // « Aucun » est exclusif : il éteint tout le reste.
+        cases.forEach(function (c) { if (c !== r) c.checked = false; });
+      } else if (aucun) {
+        aucun.checked = false;
+      }
+      var choisies = cases
+        .filter(function (c) { return c.checked && !c.hasAttribute('data-aucun'); })
+        .map(function (c) { return parseInt(c.value, 10); });
+      etat.multiples[q.id] = choisies;
+      etat.reponses[q.id] = Math.min(q.max, choisies.length);
+
+    } else {
+      return;
+    }
+
+    sauver();
+    var suivant = el('[data-act="suivant"]');
+    if (suivant) suivant.disabled = !valider();
+  });
+
+  racine.addEventListener('submit', function (ev) {
+    var f = ev.target;
+    if (f.id !== 'dx-form') return;
+    mesure('diagnostic_email', { marque: C.marque });
+
+    var btn = f.querySelector('button[type=submit]');
+    var msg = f.querySelector('[data-msg]');
+    var err = f.querySelector('[data-err]');
+    var confirmer = function () {
+      if (err) err.hidden = true;
+      if (msg) msg.hidden = false;
+      if (btn) { btn.disabled = true; btn.textContent = 'Envoyé'; }
+    };
+
+    if (f.getAttribute('data-mode') !== 'formspree') {
+      // L'envoi part dans l'iframe ; on confirme sans quitter la page.
+      setTimeout(confirmer, 350);
+      return;
+    }
+
+    ev.preventDefault();
+    if (btn) { btn.disabled = true; btn.textContent = 'Envoi…'; }
+    fetch(f.action, {
+      method: 'POST',
+      body: new FormData(f),
+      headers: { Accept: 'application/json' }
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      confirmer();
+    }).catch(function () {
+      if (err) err.hidden = false;
+      if (btn) { btn.disabled = false; btn.textContent = C.suite.bouton; }
+    });
+  });
+
+  document.addEventListener('keydown', function (ev) {
+    if (etat.ecran !== 'etape') return;
+    if (ev.target.matches('input, textarea, select')) return;
+    var n = parseInt(ev.key, 10);
+    var q = etapes[etat.index];
+    var aCocher = etat.index >= C.profil.length && q.type === 'multiple';
+    if (!aCocher && n >= 1 && n <= q.choix.length) {
+      var input = tous('input[name="dx-c"]')[n - 1];
+      if (input) { input.checked = true; input.dispatchEvent(new Event('change', { bubbles: true })); }
+      ev.preventDefault();
+    } else if (ev.key === 'Enter') { avancer(); ev.preventDefault(); }
+    else if (ev.key === 'Backspace') { reculer(); ev.preventDefault(); }
+  });
+
+  /* --- Démarrage : lien de partage ? ---------------------------------------- */
+
+  function depuisLien() {
+    var m = /(?:^|[#&])r=([^&]+)/.exec(location.hash || '');
+    if (!m) return false;
+    var d = M.decoder(C, decodeURIComponent(m[1]));
+    if (!d) return false;
+    etat.profil = d.profil;
+    etat.reponses = d.reponses;
+    etat.ecran = 'resultat';
+    etat.partage = true;
+    mesure('diagnostic_partage_ouvert', { marque: C.marque });
+    return true;
+  }
+
+  depuisLien();
+  rendre();
+})();
+
+</script>
+
+</body>
+</html>
